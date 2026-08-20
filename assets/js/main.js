@@ -40,7 +40,7 @@ const MainUI = {
             <li><a href="index.html">HOME</a></li>
             <li><a href="collections.html?collection=new-in">NEW ARRIVAL 🔥</a></li>
             <li><a href="shop-by-brand.html">SHOP BY BRAND</a></li>
-            <li><a href="collections.html?category=Unstitched">UNSTITCHED 3PC</a></li>
+            <li><a href="collections.html?category=Unstitched">UNSTITCHED</a></li>
             <li><a href="collections.html?category=Ready+to+Wear">READY TO WEAR</a></li>
             <li><a href="order-tracking.html">ORDER TRACKING</a></li>
             <li style="border-top:1px solid #eee; padding-top:14px;"><a href="contact.html" style="font-size:14px; color:#666;">Contact & Support</a></li>
@@ -69,13 +69,22 @@ const MainUI = {
           <div id="cart-drawer-items"></div>
         </div>
         <div class="drawer-footer" id="cart-drawer-footer">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
-            <span style="font-size:14px; font-weight:700;">Subtotal:</span>
-            <span style="font-size:18px; font-weight:900; color:var(--color-accent-red);" id="cart-drawer-subtotal">Rs.0.00</span>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+            <span style="font-size:13px; font-weight:600; color:#555;">Subtotal:</span>
+            <span style="font-size:15px; font-weight:800; color:#111;" id="cart-drawer-subtotal">Rs.0.00</span>
           </div>
-          <p style="font-size:11px; color:#888; margin-bottom:16px;">Taxes and standard shipping calculated at checkout.</p>
-          <a href="checkout.html" class="btn-primary" style="margin-bottom:8px;">PROCEED TO CHECKOUT</a>
-          <a href="cart.html" class="btn-black">VIEW SHOPPING BAG</a>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+            <span style="font-size:13px; font-weight:600; color:#555;">Delivery Charges:</span>
+            <span style="font-size:13px; font-weight:800; color:#111;" id="cart-drawer-shipping">Rs. 250</span>
+          </div>
+          <button class="btn-whatsapp" id="cart-drawer-whatsapp-btn" onclick="Store.checkoutViaWhatsApp()" style="width:100%; padding:14px 10px; font-weight:800; margin-bottom:8px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:4px; cursor:pointer;">
+            <div style="display:flex; align-items:center; justify-content:center; gap:8px; font-size:14px; letter-spacing:0.02em;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+              <span>ORDER ON WHATSAPP</span>
+            </div>
+            <div style="font-size:13px; font-weight:700;">(<span id="cart-drawer-btn-total">Rs.0.00</span>)</div>
+          </button>
+          <a href="cart.html" class="btn-black" style="display:flex; justify-content:center; align-items:center; padding:12px; font-size:12px;">VIEW SHOPPING BAG</a>
         </div>
       `;
       document.body.appendChild(cartDrawer);
@@ -238,13 +247,17 @@ const MainUI = {
     
     const cart = Store.getCart();
     const subtotal = Store.getCartSubtotal();
-    const freeDeliveryThreshold = 3500;
+    const settings = Store.getSiteSettings ? Store.getSiteSettings() : {};
+    const delivery = (settings && settings.deliverySettings) ? settings.deliverySettings : { standardShippingFee: 250, freeShippingThreshold: 3500, enableFreeShipping: true };
+    const freeDeliveryThreshold = Number(delivery.freeShippingThreshold) || 3500;
     const progressPercent = Math.min(100, Math.round((subtotal / freeDeliveryThreshold) * 100));
     
     // Render Free Shipping Bar
     const shippingProgressEl = document.getElementById('cart-shipping-progress');
     if (shippingProgressEl) {
-      if (subtotal >= freeDeliveryThreshold) {
+      if (!delivery.enableFreeShipping) {
+        shippingProgressEl.innerHTML = '';
+      } else if (subtotal >= freeDeliveryThreshold) {
         shippingProgressEl.innerHTML = `
           <div class="free-shipping-bar" style="background:#e8f8f0; color:#1e7e4a;">
             🎉 Congratulations! You have unlocked <strong>FREE Delivery</strong> across Pakistan!
@@ -300,6 +313,16 @@ const MainUI = {
     const subtotalElem = document.getElementById('cart-drawer-subtotal');
     if (subtotalElem) {
       subtotalElem.textContent = Store.formatMoney(subtotal);
+    }
+    const shippingElem = document.getElementById('cart-drawer-shipping');
+    const shipping = Store.getShippingFee(subtotal);
+    if (shippingElem) {
+      shippingElem.textContent = shipping === 0 ? 'FREE' : Store.formatMoney(shipping);
+    }
+    const btnTotalElem = document.getElementById('cart-drawer-btn-total');
+    if (btnTotalElem) {
+      const total = subtotal + shipping;
+      btnTotalElem.textContent = Store.formatMoney(total);
     }
   },
 
@@ -484,10 +507,17 @@ const MainUI = {
   },
 
   // WhatsApp Order Generator
-  orderOnWhatsApp(title, sku, price, handle) {
+  orderOnWhatsApp(title, sku, price, handle, qty = 1) {
     const phone = '923334275944';
     const currentUrl = window.location.origin + '/product.html?handle=' + handle;
-    const msg = `Hello Al-Deewan Brand,\n\nI want to order this product:\nProduct: ${title}\nSKU: ${sku}\nPrice: ${price}\nURL: ${currentUrl}\n\nPlease confirm availability and COD process. Thank you!`;
+    const msg = `*Hello Al-Deewan Brand,*\n\n` +
+      `I want to order this product:\n` +
+      `• *Product:* ${title}\n` +
+      (sku ? `• *SKU:* ${sku}\n` : '') +
+      `• *Price:* ${price}\n` +
+      `• *Quantity:* ${qty}\n` +
+      `• *URL:* ${currentUrl}\n\n` +
+      `Please confirm my order via Cash on Delivery (COD). Thank you!`;
     const url = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(msg)}`;
     window.open(url, '_blank');
   },

@@ -201,10 +201,8 @@
             </button>
           </div>
 
-          <button class="btn-black" id="pdp-buy-now-btn">BUY IT NOW</button>
-
-          <button class="btn-whatsapp" id="pdp-whatsapp-btn">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          <button class="btn-whatsapp" id="pdp-whatsapp-btn" style="width:100%; justify-content:center; padding:16px; font-weight:800; font-size:15px; display:flex; align-items:center; gap:10px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
             ORDER ON WHATSAPP CHAT
           </button>
         </div>
@@ -271,9 +269,12 @@
     <div class="container">
       <div class="footer-top">
         <div>
-          <a href="index.html" class="footer-logo" style="display:inline-flex; align-items:center; gap:10px; margin-bottom:16px;">
-            <img src="assets/images/al_deewan_header_logo.png" alt="Al-Deewan Brand" style="height:50px;" />
-            <div style="font-size:18px; font-weight:900; color:#000; letter-spacing:0.04em;">AL-DEEWAN <span style="font-size:11px; display:block; color:#444; letter-spacing:0.18em;">BRAND</span></div>
+          <a href="index.html" class="footer-logo">
+            <img src="assets/images/al_deewan_header_logo.png" alt="Al-Deewan Brand" />
+            <div class="footer-logo__text">
+              <span class="footer-logo__main">AL-DEEWAN</span>
+              <span class="footer-logo__sub">BRAND</span>
+            </div>
           </a>
           <div class="footer-info-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
@@ -282,6 +283,10 @@
           <div class="footer-info-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
             <span>Number: 0333-4275944 / 0344-6463719</span>
+          </div>
+          <div class="footer-info-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span>Email: aldewanbrandedcollection@gmail.com</span>
           </div>
         </div>
 
@@ -295,24 +300,20 @@
           </ul>
         </div>
 
-                <div>
-          <h3 class="footer-heading">MAIN MENU</h3>
-          <ul class="footer-links">
-            <li><a href="shop-by-brand.html">Shop By Brand</a></li>
-            <li><a href="collections.html?category=Unstitched">Unstitched (3PC & 2PC)</a></li>
-            <li><a href="collections.html?category=Ready+To+Wear">Ready To Wear (Shirts 3.5m)</a></li>
-            <li><a href="order-tracking.html">Order Tracking</a></li>
-            <li><a href="cart.html">Shopping Bag</a></li>
-          </ul>
-        </div>
-
         <div>
-          <h3 class="footer-heading">NEWSLETTER</h3>
-          <p style="font-size:13px; color:#666;">Subscribe to get exclusive deals sent directly to your inbox.</p>
-          <form class="newsletter-form" onsubmit="event.preventDefault(); Store.showToast('Subscribed successfully!');">
+          <h3 class="footer-heading">NEWSLETTER SIGN UP</h3>
+          <p style="font-size:13px; color:#666; line-height:1.5;">Subscribe to get exclusive discount vouchers, lawn launch alerts, and VIP offers sent directly to your inbox.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); Store.showToast('Subscribed successfully!'); this.reset();">
             <input type="email" placeholder="enter your email address" required />
             <button type="submit">SUBMIT</button>
           </form>
+
+          <div class="footer-social">
+            <a href="https://www.facebook.com/profile.php?id=61592005074273" class="social-icon" target="_blank" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+            <a href="https://www.instagram.com/aldewanbrandedcollection1/" class="social-icon" target="_blank" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+            <a href="https://www.tiktok.com/@al.dewan.branded" class="social-icon" target="_blank" aria-label="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg></a>
+            <a href="https://www.youtube.com/channel/UCC8WRZg3dNGdAvlRoow4Szw" class="social-icon" target="_blank" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
+          </div>
         </div>
       </div>
 
@@ -354,11 +355,21 @@
       <div id="cart-drawer-items"></div>
     </div>
     <div class="drawer-footer" id="cart-drawer-footer">
-      <div style="display:flex; justify-content:space-between; margin-bottom:14px;">
-        <span style="font-size:14px; font-weight:700;">Subtotal:</span>
-        <span style="font-size:18px; font-weight:900; color:var(--color-accent-red);" id="cart-drawer-subtotal">Rs.0.00</span>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+        <span style="font-size:13px; font-weight:600; color:#555;">Subtotal:</span>
+        <span style="font-size:15px; font-weight:800; color:#111;" id="cart-drawer-subtotal">Rs.0.00</span>
       </div>
-      <a href="checkout.html" class="btn-primary" style="margin-bottom:8px;">PROCEED TO CHECKOUT</a>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+        <span style="font-size:13px; font-weight:600; color:#555;">Delivery Charges:</span>
+        <span style="font-size:13px; font-weight:800; color:#111;" id="cart-drawer-shipping">Rs. 250</span>
+      </div>
+      <button class="btn-whatsapp" id="cart-drawer-whatsapp-btn" onclick="Store.checkoutViaWhatsApp()" style="width:100%; padding:14px 10px; font-weight:800; margin-bottom:8px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:4px; cursor:pointer;">
+        <div style="display:flex; align-items:center; justify-content:center; gap:8px; font-size:14px; letter-spacing:0.02em;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          <span>ORDER ON WHATSAPP</span>
+        </div>
+        <div style="font-size:13px; font-weight:700;">(<span id="cart-drawer-btn-total">Rs.0.00</span>)</div>
+      </button>
       <a href="cart.html" class="btn-black">VIEW SHOPPING BAG</a>
     </div>
   </div>
@@ -380,11 +391,14 @@
     </div>
     <div class="drawer-body">
       <ul style="display:flex; flex-direction:column; gap:16px; padding:10px 0;">
+        <li><a href="index.html" style="font-weight:700; font-size:15px; text-transform:uppercase;">HOME</a></li>
         <li><a href="collections.html?collection=new-in" style="font-weight:700; font-size:15px; text-transform:uppercase;">NEW ARRIVAL 🔥</a></li>
         <li><a href="shop-by-brand.html" style="font-weight:700; font-size:15px; text-transform:uppercase;">SHOP BY BRAND</a></li>
-        <li><a href="collections.html?category=Unstitched" style="font-weight:700; font-size:15px; text-transform:uppercase;">UNSTITCHED 3PC</a></li>
+        <li><a href="collections.html?category=Unstitched" style="font-weight:700; font-size:15px; text-transform:uppercase;">UNSTITCHED</a></li>
         <li><a href="collections.html?category=Ready+to+Wear" style="font-weight:700; font-size:15px; text-transform:uppercase;">READY TO WEAR</a></li>
         <li><a href="order-tracking.html" style="font-weight:700; font-size:15px; text-transform:uppercase;">ORDER TRACKING</a></li>
+        <li style="border-top:1px solid #eee; padding-top:14px;"><a href="contact.html" style="font-size:14px; color:#666;">Contact & Support</a></li>
+        <li><a href="refunds.html" style="font-size:14px; color:#666;">Refund Policy</a></li>
       </ul>
     </div>
   </div>
@@ -405,12 +419,13 @@
   <script src="assets/js/main.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      if (!window.CATALOG_PRODUCTS) return;
+      const allProducts = Store.getProducts();
+      if (!allProducts || allProducts.length === 0) return;
 
       const urlParams = new URLSearchParams(window.location.search);
       const handle = urlParams.get('handle');
 
-      let currentProduct = window.CATALOG_PRODUCTS.find(p => p.handle === handle) || window.CATALOG_PRODUCTS[0];
+      let currentProduct = allProducts.find(p => p.handle === handle) || allProducts[0];
 
       // Populate Elements
       document.title = `${currentProduct.title} - Al-Deewan Brand`;
@@ -496,12 +511,6 @@
         Store.addToCart(currentProduct, qty);
       });
 
-      // Buy It Now
-      document.getElementById('pdp-buy-now-btn').addEventListener('click', () => {
-        Store.addToCart(currentProduct, qty);
-        window.location.href = 'checkout.html';
-      });
-
       // Wishlist Toggle
       const wishlistBtn = document.getElementById('pdp-wishlist-btn');
       const updateWishlistUI = () => {
@@ -519,7 +528,7 @@
 
       // WhatsApp Order
       document.getElementById('pdp-whatsapp-btn').addEventListener('click', () => {
-        MainUI.orderOnWhatsApp(currentProduct.title, currentProduct.sku, Store.formatMoney(currentProduct.price), currentProduct.handle);
+        MainUI.orderOnWhatsApp(currentProduct.title, currentProduct.sku, Store.formatMoney(currentProduct.price), currentProduct.handle, qty);
       });
 
       // Accordion Handlers
@@ -532,7 +541,7 @@
 
       // Related Products
       const relatedGrid = document.getElementById('related-products-grid');
-      const relatedItems = window.CATALOG_PRODUCTS.filter(p => p.id !== currentProduct.id && (p.vendor === currentProduct.vendor || p.category_type === currentProduct.category_type)).slice(0, 4);
+      const relatedItems = Store.getProducts().filter(p => p.id !== currentProduct.id && (p.vendor === currentProduct.vendor || p.category_type === currentProduct.category_type)).slice(0, 4);
       relatedGrid.innerHTML = relatedItems.map(p => MainUI.createProductCardHTML(p)).join('');
     });
   </script>

@@ -157,7 +157,8 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const container = document.getElementById('full-brands-grid');
-      if (!window.CATALOG_PRODUCTS) return;
+      const allProducts = Store.getProducts();
+      if (!allProducts || allProducts.length === 0) return;
 
       const brandImages = {
         'Khaadi': 'assets/images/khaadi_circle_logo.png',
@@ -175,18 +176,18 @@
         'Soha Afreen': 'assets/images/1_2bbe8fce-c5a9-42f4-899a-5536f15842ff_533x.png',
         'Sana Safinaz': 'assets/images/8_533x.png',
         'Limelight': 'assets/images/Untitled_533x.png',
-        'Ethnic': 'assets/images/7_533x.png',
+        'Ethnic': 'assets/images/ethnic_circle_logo.png',
         'Jade': 'assets/images/1_14e6b444-92e5-464b-9da9-e9c887ec502e_533x.png',
         'Coco': 'assets/images/3_533x.png',
         'Agha Noor': 'assets/images/9_533x.png',
         'Saya': 'assets/images/4_533x.png'
       };
 
-      const brands = Array.from(new Set(window.CATALOG_PRODUCTS.map(p => p.vendor).filter(Boolean))).sort();
+      const brands = Array.from(new Set(allProducts.map(p => p.vendor).filter(Boolean))).sort();
 
       container.innerHTML = brands.map(b => {
         const img = brandImages[b] || 'assets/images/round_logo_c4a231b8-e1be-4842-948e-9b5793f52d93_533x.png';
-        const count = window.CATALOG_PRODUCTS.filter(p => p.vendor === b).length;
+        const count = allProducts.filter(p => p.vendor === b).length;
         return `
           <a href="collections.html?brand=${encodeURIComponent(b)}" class="brand-card" style="flex:auto;">
             <img src="${img}" alt="${b}" class="brand-card__image" />

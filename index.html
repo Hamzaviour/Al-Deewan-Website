@@ -333,6 +333,12 @@
             <span class="brand-card__count">105+ Items</span>
           </a>
 
+          <a href="collections.html?brand=Ethnic" class="brand-card">
+            <img src="assets/images/ethnic_circle_logo.png" alt="Ethnic" class="brand-card__image" />
+            <span class="brand-card__name">ETHNIC</span>
+            <span class="brand-card__count">80+ Items</span>
+          </a>
+
           <!-- Set 2 for Infinite Seamless Loop -->
           <a href="collections.html?brand=Sapphire" class="brand-card">
             <img src="assets/images/10_533x.png" alt="Sapphire" class="brand-card__image" />
@@ -417,6 +423,12 @@
             <span class="brand-card__name">LIMELIGHT</span>
             <span class="brand-card__count">105+ Items</span>
           </a>
+
+          <a href="collections.html?brand=Ethnic" class="brand-card">
+            <img src="assets/images/ethnic_circle_logo.png" alt="Ethnic" class="brand-card__image" />
+            <span class="brand-card__name">ETHNIC</span>
+            <span class="brand-card__count">80+ Items</span>
+          </a>
         </div>
       </div>
     </div>
@@ -435,6 +447,7 @@
         <button class="tab-btn active" data-filter="all">ALL DESIGNS</button>
         <button class="tab-btn" data-filter="3PC">3PC SUITS</button>
         <button class="tab-btn" data-filter="2PC">2PC SUITS</button>
+        <button class="tab-btn" data-filter="1PC">1PC SUITS</button>
         <button class="tab-btn" data-filter="Ready to Wear">READY TO WEAR</button>
         <button class="tab-btn" data-filter="Menswear">MENSWEAR</button>
       </div>
@@ -474,6 +487,9 @@
       </div>
     </div>
   </section>
+
+  <!-- Container for Additional Featured Collections dynamically added via Admin -->
+  <div id="extra-featured-sections-container"></div>
 
   <!-- Customer Reviews / Testimonials Section (Judge.me style) -->
   <section class="reviews-section">
@@ -573,9 +589,12 @@
       <div class="footer-top">
         <!-- Store Information -->
         <div>
-          <a href="index.html" class="footer-logo" style="display:inline-flex; align-items:center; gap:10px; margin-bottom:16px;">
-            <img src="assets/images/al_deewan_header_logo.png" alt="Al-Deewan Brand" style="height:50px;" />
-            <div style="font-size:18px; font-weight:900; color:#000; letter-spacing:0.04em;">AL-DEEWAN <span style="font-size:11px; display:block; color:#444; letter-spacing:0.18em;">BRAND</span></div>
+          <a href="index.html" class="footer-logo">
+            <img src="assets/images/al_deewan_header_logo.png" alt="Al-Deewan Brand" />
+            <div class="footer-logo__text">
+              <span class="footer-logo__main">AL-DEEWAN</span>
+              <span class="footer-logo__sub">BRAND</span>
+            </div>
           </a>
           <div class="footer-info-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
@@ -587,7 +606,7 @@
           </div>
           <div class="footer-info-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-            <span>Email: care@aldeewanbrand.com</span>
+            <span>Email: aldewanbrandedcollection@gmail.com</span>
           </div>
         </div>
 
@@ -604,20 +623,6 @@
             </ul>
         </div>
 
-        <!-- Main Menu -->
-        <div>
-          <h3 class="footer-heading">MAIN MENU</h3>
-          <ul class="footer-links">
-            <li><a href="index.html" style="font-weight:700; font-size:15px; text-transform:uppercase;">HOME</a></li>
-        <li><a href="collections.html?collection=new-in">New Arrival</a></li>
-            <li><a href="shop-by-brand.html">Shop By Brand</a></li>
-            <li><a href="collections.html?category=Unstitched">Unstitched 3PC</a></li>
-            <li><a href="collections.html?category=Ready+to+Wear">Ready To Wear</a></li>
-            <li><a href="order-tracking.html">Track Your Order</a></li>
-            <li><a href="cart.html">Shopping Bag</a></li>
-          </ul>
-        </div>
-
         <!-- Newsletter Signup -->
         <div>
           <h3 class="footer-heading">NEWSLETTER SIGN UP</h3>
@@ -629,10 +634,10 @@
           </form>
 
           <div class="footer-social">
-            <a href="https://facebook.com" class="social-icon" target="_blank" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
-            <a href="https://instagram.com" class="social-icon" target="_blank" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
-            <a href="https://tiktok.com" class="social-icon" target="_blank" aria-label="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg></a>
-            <a href="https://youtube.com" class="social-icon" target="_blank" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
+            <a href="https://www.facebook.com/profile.php?id=61592005074273" class="social-icon" target="_blank" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+            <a href="https://www.instagram.com/aldewanbrandedcollection1/" class="social-icon" target="_blank" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+            <a href="https://www.tiktok.com/@al.dewan.branded" class="social-icon" target="_blank" aria-label="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg></a>
+            <a href="https://www.youtube.com/channel/UCC8WRZg3dNGdAvlRoow4Szw" class="social-icon" target="_blank" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
           </div>
         </div>
       </div>
@@ -705,12 +710,21 @@
       </div>
     </div>
     <div class="drawer-footer" id="cart-drawer-footer">
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
-        <span style="font-size:14px; font-weight:700;">Subtotal:</span>
-        <span style="font-size:18px; font-weight:900; color:var(--color-accent-red);" id="cart-drawer-subtotal">Rs.0.00</span>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+        <span style="font-size:13px; font-weight:600; color:#555;">Subtotal:</span>
+        <span style="font-size:15px; font-weight:800; color:#111;" id="cart-drawer-subtotal">Rs.0.00</span>
       </div>
-      <p style="font-size:11px; color:#888; margin-bottom:16px;">Taxes and standard shipping calculated at checkout.</p>
-      <a href="checkout.html" class="btn-primary" style="margin-bottom:8px;">PROCEED TO CHECKOUT</a>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+        <span style="font-size:13px; font-weight:600; color:#555;">Delivery Charges:</span>
+        <span style="font-size:13px; font-weight:800; color:#111;" id="cart-drawer-shipping">Rs. 250</span>
+      </div>
+      <button class="btn-whatsapp" id="cart-drawer-whatsapp-btn" onclick="Store.checkoutViaWhatsApp()" style="width:100%; padding:14px 10px; font-weight:800; margin-bottom:8px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:4px; cursor:pointer;">
+        <div style="display:flex; align-items:center; justify-content:center; gap:8px; font-size:14px; letter-spacing:0.02em;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          <span>ORDER ON WHATSAPP</span>
+        </div>
+        <div style="font-size:13px; font-weight:700;">(<span id="cart-drawer-btn-total">Rs.0.00</span>)</div>
+      </button>
       <a href="cart.html" class="btn-black">VIEW SHOPPING BAG</a>
     </div>
   </div>
@@ -742,12 +756,11 @@
         <li><a href="index.html" style="font-weight:700; font-size:15px; text-transform:uppercase;">HOME</a></li>
         <li><a href="collections.html?collection=new-in" style="font-weight:700; font-size:15px; text-transform:uppercase;">NEW ARRIVAL 🔥</a></li>
         <li><a href="shop-by-brand.html" style="font-weight:700; font-size:15px; text-transform:uppercase;">SHOP BY BRAND</a></li>
-        <li><a href="collections.html?category=Unstitched" style="font-weight:700; font-size:15px; text-transform:uppercase;">UNSTITCHED 3PC</a></li>
+        <li><a href="collections.html?category=Unstitched" style="font-weight:700; font-size:15px; text-transform:uppercase;">UNSTITCHED</a></li>
         <li><a href="collections.html?category=Ready+to+Wear" style="font-weight:700; font-size:15px; text-transform:uppercase;">READY TO WEAR</a></li>
         <li><a href="order-tracking.html" style="font-weight:700; font-size:15px; text-transform:uppercase;">ORDER TRACKING</a></li>
         <li style="border-top:1px solid #eee; padding-top:14px;"><a href="contact.html" style="font-size:14px; color:#666;">Contact & Support</a></li>
         <li><a href="refunds.html" style="font-size:14px; color:#666;">Refund Policy</a></li>
-        <li><a href="download-app.html" style="font-size:14px; color:#666;">Download App</a></li>
       </ul>
     </div>
   </div>
@@ -772,7 +785,8 @@
   <script>
     // Initial Render of Homepage Product Grids
     document.addEventListener('DOMContentLoaded', () => {
-      if (!window.CATALOG_PRODUCTS) return;
+      const allProducts = Store.getProducts();
+      if (!allProducts || allProducts.length === 0) return;
 
       const homeGrid = document.getElementById('homepage-products-grid');
       const unstitchedGrid = document.getElementById('unstitched-products-grid');
@@ -782,29 +796,87 @@
         container.innerHTML = products.map(p => MainUI.createProductCardHTML(p)).join('');
       };
 
-      // Top 8 featured
-      renderGrid(window.CATALOG_PRODUCTS.slice(0, 8), homeGrid);
+      const settings = Store.getSiteSettings();
+      const featuredSecs = settings.featuredSections || [];
 
-      // Unstitched 3pc items
-      const unstitchedItems = window.CATALOG_PRODUCTS.filter(p => p.category_type === '3PC' || p.category === 'Unstitched').slice(8, 16);
-      renderGrid(unstitchedItems, unstitchedGrid);
+      // Render Section 1 (New Arrivals)
+      if (featuredSecs.length > 0) {
+        const sec1 = featuredSecs[0];
+        if (sec1.productIds && sec1.productIds.length > 0) {
+          const selectedItems = allProducts.filter(p => sec1.productIds.includes(p.id));
+          renderGrid(selectedItems.length ? selectedItems : allProducts.slice(0, 8), homeGrid);
+        } else {
+          renderGrid(allProducts.slice(0, 8), homeGrid);
+        }
+      } else {
+        renderGrid(allProducts.slice(0, 8), homeGrid);
+      }
 
-      // Tab filtering
+      // Render Section 2 (Unstitched)
+      if (featuredSecs.length > 1) {
+        const sec2 = featuredSecs[1];
+        if (sec2.productIds && sec2.productIds.length > 0) {
+          const selectedItems = allProducts.filter(p => sec2.productIds.includes(p.id));
+          renderGrid(selectedItems.length ? selectedItems : allProducts.filter(p => p.category_type === '3PC' || p.category === 'Unstitched').slice(0, 8), unstitchedGrid);
+        } else {
+          const unstitchedItems = allProducts.filter(p => p.category_type === '3PC' || p.category === 'Unstitched').slice(0, 8);
+          renderGrid(unstitchedItems, unstitchedGrid);
+        }
+      } else {
+        const unstitchedItems = allProducts.filter(p => p.category_type === '3PC' || p.category === 'Unstitched').slice(0, 8);
+        renderGrid(unstitchedItems, unstitchedGrid);
+      }
+
+      // Render Any Extra Featured Sections (3+)
+      const extraContainer = document.getElementById('extra-featured-sections-container');
+      if (extraContainer && featuredSecs.length > 2) {
+        const extraSecs = featuredSecs.slice(2);
+        extraContainer.innerHTML = extraSecs.map((sec, idx) => {
+          let items = [];
+          if (sec.productIds && sec.productIds.length > 0) {
+            items = allProducts.filter(p => sec.productIds.includes(p.id));
+          }
+          if (!items.length) {
+            items = allProducts.slice((idx + 2) * 4, (idx + 2) * 4 + 8);
+          }
+          return `
+            <section class="products-section" style="padding: 60px 0; border-top: 1px solid #f0f0f5;">
+              <div class="container">
+                <div class="section-header">
+                  <h2 class="section-title">${sec.title}</h2>
+                  ${sec.subtitle ? `<p class="section-subtitle">${sec.subtitle}</p>` : ''}
+                </div>
+                <div class="products-grid">
+                  ${items.map(p => MainUI.createProductCardHTML(p)).join('')}
+                </div>
+                <div style="text-align: center; margin-top: 36px;">
+                  <a href="collections.html" class="btn-primary" style="display:inline-block; width:auto; padding:12px 36px;">VIEW ALL PRODUCTS</a>
+                </div>
+              </div>
+            </section>
+          `;
+        }).join('');
+      }
+
+      // Tab filtering for Section 1
       document.querySelectorAll('.tab-btn').forEach(btn => {
         btn.addEventListener('click', () => {
           document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
           btn.classList.add('active');
           const filter = btn.dataset.filter;
+          const currentProducts = Store.getProducts();
 
-          let filtered = window.CATALOG_PRODUCTS;
+          let filtered = currentProducts;
           if (filter === '3PC') {
-            filtered = window.CATALOG_PRODUCTS.filter(p => p.category_type === '3PC');
+            filtered = currentProducts.filter(p => p.category_type === '3PC');
           } else if (filter === '2PC') {
-            filtered = window.CATALOG_PRODUCTS.filter(p => p.category_type === '2PC');
+            filtered = currentProducts.filter(p => p.category_type === '2PC');
+          } else if (filter === '1PC') {
+            filtered = currentProducts.filter(p => p.category_type === '1PC' || (p.title && p.title.toLowerCase().includes('1pc')) || (p.title && p.title.toLowerCase().includes('shirt')));
           } else if (filter === 'Ready to Wear') {
-            filtered = window.CATALOG_PRODUCTS.filter(p => p.category === 'Ready to Wear' || p.title.toLowerCase().includes('stitched'));
+            filtered = currentProducts.filter(p => p.category === 'Ready to Wear' || (p.title && p.title.toLowerCase().includes('stitched')));
           } else if (filter === 'Menswear') {
-            filtered = window.CATALOG_PRODUCTS.filter(p => p.category === 'Menswear' || p.title.toLowerCase().includes("men's") || p.title.toLowerCase().includes("kurta"));
+            filtered = currentProducts.filter(p => p.category === 'Menswear' || (p.title && (p.title.toLowerCase().includes("men's") || p.title.toLowerCase().includes("kurta"))));
           }
           renderGrid(filtered.slice(0, 8), homeGrid);
         });

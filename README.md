@@ -79,7 +79,7 @@ npx serve -l 8080 .
 - **Physical Address**: 86-Dogar Plaza, Gulshan Block Iqbal Town Near Makki Masjid, Lahore, Pakistan
 - **Telephone Hotlines**: `0333-4275944` / `0344-6463719`
 - **WhatsApp Support**: `+92 333 4275944`
-- **Support Email**: `care@aldeewanbrand.com`
+- **Support Email**: `aldewanbrandedcollection@gmail.com`
 
 ---
 
