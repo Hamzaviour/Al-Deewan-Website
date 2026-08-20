@@ -86,7 +86,7 @@ npx serve -l 8080 .
 ## 📌 How to Push to GitHub
 
 ```bash
-# 1. Initialize git (if not already initialized)
+# 1. Initialize git
 git init
 
 # 2. Add all files
@@ -102,6 +102,18 @@ git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
 git branch -M main
 git push -u origin main
 ```
+
+---
+
+## ⚡ 1-Click Deployment to Vercel
+
+The project is fully pre-configured for Vercel with [`vercel.json`](file:///e:/Work/Al-Deewan%20Website/vercel.json).
+
+1. Log into your [Vercel Dashboard](https://vercel.com).
+2. Click **"Add New..."** → **"Project"**.
+3. Import your GitHub repository.
+4. Leave all build settings as default (Framework Preset: *Other / Static*) and click **"Deploy"**.
+5. Your store will be live with a global CDN URL and free SSL certificate!
 
 ---
 

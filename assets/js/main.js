@@ -5,6 +5,7 @@
 
 const MainUI = {
   init() {
+    this.ensureDrawersAndModals();
     this.initHeroSlider();
     this.initDrawers();
     this.initCartDrawer();
@@ -14,6 +15,110 @@ const MainUI = {
     this.initMobileNav();
     this.initWhatsAppFloat();
     this.renderHeaderCartWishlist();
+  },
+
+  ensureDrawersAndModals() {
+    // 1. Drawer Overlay
+    if (!document.querySelector('.drawer-overlay')) {
+      const overlay = document.createElement('div');
+      overlay.className = 'drawer-overlay';
+      document.body.appendChild(overlay);
+    }
+
+    // 2. Mobile Nav Drawer
+    if (!document.getElementById('mobile-nav-drawer')) {
+      const navDrawer = document.createElement('div');
+      navDrawer.className = 'slide-drawer left';
+      navDrawer.id = 'mobile-nav-drawer';
+      navDrawer.innerHTML = `
+        <div class="drawer-header">
+          <div class="drawer-title">Menu</div>
+          <button class="drawer-close">&times;</button>
+        </div>
+        <div class="drawer-body">
+          <ul class="mobile-nav-list">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="collections.html?collection=new-in">NEW ARRIVAL 🔥</a></li>
+            <li><a href="shop-by-brand.html">SHOP BY BRAND</a></li>
+            <li><a href="collections.html?category=Unstitched">UNSTITCHED 3PC</a></li>
+            <li><a href="collections.html?category=Ready+to+Wear">READY TO WEAR</a></li>
+            <li><a href="order-tracking.html">ORDER TRACKING</a></li>
+            <li style="border-top:1px solid #eee; padding-top:14px;"><a href="contact.html" style="font-size:14px; color:#666;">Contact & Support</a></li>
+            <li><a href="refunds.html" style="font-size:14px; color:#666;">Refund Policy</a></li>
+          </ul>
+        </div>
+      `;
+      document.body.appendChild(navDrawer);
+    }
+
+    // 3. Cart Drawer
+    if (!document.getElementById('cart-drawer')) {
+      const cartDrawer = document.createElement('div');
+      cartDrawer.className = 'slide-drawer';
+      cartDrawer.id = 'cart-drawer';
+      cartDrawer.innerHTML = `
+        <div class="drawer-header">
+          <div class="drawer-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+            Shopping Cart
+          </div>
+          <button class="drawer-close">&times;</button>
+        </div>
+        <div class="drawer-body">
+          <div id="cart-shipping-progress"></div>
+          <div id="cart-drawer-items"></div>
+        </div>
+        <div class="drawer-footer" id="cart-drawer-footer">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+            <span style="font-size:14px; font-weight:700;">Subtotal:</span>
+            <span style="font-size:18px; font-weight:900; color:var(--color-accent-red);" id="cart-drawer-subtotal">Rs.0.00</span>
+          </div>
+          <p style="font-size:11px; color:#888; margin-bottom:16px;">Taxes and standard shipping calculated at checkout.</p>
+          <a href="checkout.html" class="btn-primary" style="margin-bottom:8px;">PROCEED TO CHECKOUT</a>
+          <a href="cart.html" class="btn-black">VIEW SHOPPING BAG</a>
+        </div>
+      `;
+      document.body.appendChild(cartDrawer);
+    }
+
+    // 4. Wishlist Drawer
+    if (!document.getElementById('wishlist-drawer')) {
+      const wishlistDrawer = document.createElement('div');
+      wishlistDrawer.className = 'slide-drawer';
+      wishlistDrawer.id = 'wishlist-drawer';
+      wishlistDrawer.innerHTML = `
+        <div class="drawer-header">
+          <div class="drawer-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            My Wishlist
+          </div>
+          <button class="drawer-close">&times;</button>
+        </div>
+        <div class="drawer-body">
+          <div id="wishlist-drawer-items"></div>
+        </div>
+      `;
+      document.body.appendChild(wishlistDrawer);
+    }
+
+    // 5. Predictive Search Modal
+    if (!document.getElementById('search-modal')) {
+      const searchModal = document.createElement('div');
+      searchModal.className = 'search-modal';
+      searchModal.id = 'search-modal';
+      searchModal.innerHTML = `
+        <div class="container">
+          <div class="search-box">
+            <input type="text" id="predictive-search-input" placeholder="Search lawn suits, brands, fabrics, 3PC, 2PC..." autocomplete="off" />
+            <button id="search-modal-close" aria-label="Close Search">&times;</button>
+          </div>
+          <div class="search-results-grid" id="search-results-grid">
+            <p style="grid-column: 1/-1; text-align:center; color:#888; padding:20px;">Type at least 2 characters to search over 20,000+ lawn outfits...</p>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(searchModal);
+    }
   },
 
   // Hero Slider
@@ -80,17 +185,10 @@ const MainUI = {
 
   // Drawers & Overlays
   initDrawers() {
-    const overlay = document.querySelector('.drawer-overlay');
-    if (!overlay) return;
-    
-    overlay.addEventListener('click', () => {
-      this.closeAllDrawers();
-    });
-    
-    document.querySelectorAll('.drawer-close').forEach(btn => {
-      btn.addEventListener('click', () => {
+    document.addEventListener('click', (e) => {
+      if (e.target.closest('.drawer-overlay') || e.target.closest('.drawer-close') || e.target.closest('#search-modal-close') || e.target.closest('.modal-close')) {
         this.closeAllDrawers();
-      });
+      }
     });
     
     document.addEventListener('keydown', (e) => {
@@ -109,13 +207,12 @@ const MainUI = {
 
   // Cart Drawer
   initCartDrawer() {
-    const cartBtn = document.getElementById('cart-drawer-toggle');
-    if (cartBtn) {
-      cartBtn.addEventListener('click', (e) => {
+    document.addEventListener('click', (e) => {
+      if (e.target.closest('#cart-drawer-toggle') || e.target.closest('.cart-drawer-trigger')) {
         e.preventDefault();
         this.openCartDrawer();
-      });
-    }
+      }
+    });
     
     window.addEventListener('cart:updated', () => {
       this.renderCartDrawerItems();
@@ -208,13 +305,12 @@ const MainUI = {
 
   // Wishlist Drawer
   initWishlistDrawer() {
-    const wishlistBtn = document.getElementById('wishlist-drawer-toggle');
-    if (wishlistBtn) {
-      wishlistBtn.addEventListener('click', (e) => {
+    document.addEventListener('click', (e) => {
+      if (e.target.closest('#wishlist-drawer-toggle') || e.target.closest('.wishlist-drawer-trigger')) {
         e.preventDefault();
         this.openWishlistDrawer();
-      });
-    }
+      }
+    });
     
     window.addEventListener('wishlist:updated', () => {
       this.renderWishlistDrawerItems();
@@ -270,52 +366,38 @@ const MainUI = {
 
   // Predictive Search Modal
   initSearchModal() {
-    const searchToggles = document.querySelectorAll('#search-modal-toggle, .search-trigger');
-    const modal = document.getElementById('search-modal');
-    const input = document.getElementById('predictive-search-input');
-    const resultsGrid = document.getElementById('search-results-grid');
-    const closeBtn = document.getElementById('search-modal-close');
-    
-    if (!modal) return;
-    
-    searchToggles.forEach(btn => {
-      btn.addEventListener('click', (e) => {
+    document.addEventListener('click', (e) => {
+      if (e.target.closest('#search-modal-toggle') || e.target.closest('.search-trigger')) {
         e.preventDefault();
         this.closeAllDrawers();
-        modal.classList.add('active');
+        const modal = document.getElementById('search-modal');
         const overlay = document.querySelector('.drawer-overlay');
-        if (overlay) overlay.classList.add('active');
-        if (input) {
-          setTimeout(() => input.focus(), 100);
+        const input = document.getElementById('predictive-search-input');
+        if (modal) {
+          modal.classList.add('active');
+          if (overlay) overlay.classList.add('active');
+          if (input) setTimeout(() => input.focus(), 100);
         }
-      });
+      }
     });
-    
-    if (closeBtn) {
-      closeBtn.addEventListener('click', () => {
-        modal.classList.remove('active');
-        const overlay = document.querySelector('.drawer-overlay');
-        if (overlay) overlay.classList.remove('active');
-      });
-    }
-    
-    if (input && resultsGrid) {
-      input.addEventListener('input', (e) => {
+
+    document.addEventListener('input', (e) => {
+      if (e.target && e.target.id === 'predictive-search-input') {
         const val = e.target.value;
+        const resultsGrid = document.getElementById('search-results-grid');
+        if (!resultsGrid) return;
         if (!val || val.length < 2) {
           resultsGrid.innerHTML = '<p style="grid-column: 1/-1; text-align:center; color:#888; padding:20px;">Type at least 2 characters to search over 20,000+ lawn outfits...</p>';
           return;
         }
-        
         const results = Store.search(val, 8);
         if (results.length === 0) {
           resultsGrid.innerHTML = `<p style="grid-column: 1/-1; text-align:center; color:#888; padding:20px;">No results found for "${val}". Try searching for 'Almirah', '3PC', or 'Lawn'.</p>`;
           return;
         }
-        
         resultsGrid.innerHTML = results.map(p => this.createProductCardHTML(p)).join('');
-      });
-    }
+      }
+    });
   },
 
   // Quick View Modal
@@ -385,17 +467,19 @@ const MainUI = {
 
   // Mobile Navigation Drawer
   initMobileNav() {
-    const toggle = document.querySelector('.mobile-menu-toggle, #mobile-menu-toggle');
-    const drawer = document.getElementById('mobile-nav-drawer');
-    if (!toggle || !drawer) return;
-    
-    toggle.addEventListener('click', (e) => {
-      e.preventDefault();
-      this.closeAllDrawers();
-      drawer.classList.add('active');
-      const overlay = document.querySelector('.drawer-overlay');
-      if (overlay) overlay.classList.add('active');
-      document.body.style.overflow = 'hidden';
+    document.addEventListener('click', (e) => {
+      const toggle = e.target.closest('.mobile-menu-toggle, #mobile-menu-toggle');
+      if (toggle) {
+        e.preventDefault();
+        this.closeAllDrawers();
+        const drawer = document.getElementById('mobile-nav-drawer');
+        const overlay = document.querySelector('.drawer-overlay');
+        if (drawer) {
+          drawer.classList.add('active');
+          if (overlay) overlay.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+      }
     });
   },
 
