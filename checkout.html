@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout - Al-Deewan Brand</title>
+  <link rel="icon" href="assets/images/favicon.png" type="image/png" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    .checkout-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+      padding: 40px 0 80px;
+    }
+    @media (max-width: 900px) {
+      .checkout-layout { grid-template-columns: 1fr; }
+    }
+    .form-group {
+      margin-bottom: 16px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #555;
+      margin-bottom: 6px;
+    }
+    .form-control {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 13px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .payment-option-card {
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 14px 16px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      background: #fff;
+    }
+    .payment-option-card.selected {
+      border-color: var(--color-primary);
+      background: #faf6fd;
+    }
+  </style>
+</head>
+<body style="background:#fcfcfc;">
+
+  <!-- Simple Header -->
+  <header style="background:#fff; border-bottom:1px solid #eee; padding:20px 0;">
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center;">
+      <a href="index.html" class="header-logo">
+          <img src="assets/images/al_deewan_header_logo.png" alt="Al-Deewan Brand Logo" />
+          <div class="header-logo__text">
+            <span class="brand-main">AL-DEEWAN</span>
+            <span class="brand-sub">BRAND</span>
+          </div>
+        </a>
+      <a href="cart.html" style="font-size:13px; font-weight:700; color:var(--color-primary);">← Return to Cart</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="checkout-layout">
+      <!-- Left: Checkout Form -->
+      <div>
+        <form id="checkout-form" onsubmit="event.preventDefault(); handlePlaceOrder();">
+          <!-- Contact Info -->
+          <div style="background:#fff; border:1px solid #eee; border-radius:8px; padding:24px; margin-bottom:24px;">
+            <h2 style="font-size:16px; font-weight:800; text-transform:uppercase; margin-bottom:16px;">1. Contact Information</h2>
+            <div class="form-group">
+              <label>Email or Mobile Phone Number *</label>
+              <input type="text" id="cust-contact" class="form-control" placeholder="e.g. 03001234567 or email@example.com" required />
+            </div>
+            <label style="font-size:12px; color:#666; display:flex; align-items:center; gap:8px;">
+              <input type="checkbox" checked />
+              <span>Email me with news, exclusive cut pieces offers and sale updates</span>
+            </label>
+          </div>
+
+          <!-- Delivery Address -->
+          <div style="background:#fff; border:1px solid #eee; border-radius:8px; padding:24px; margin-bottom:24px;">
+            <h2 style="font-size:16px; font-weight:800; text-transform:uppercase; margin-bottom:16px;">2. Delivery Address (Pakistan)</h2>
+            <div class="form-row">
+              <div class="form-group">
+                <label>First Name *</label>
+                <input type="text" id="cust-first-name" class="form-control" placeholder="First Name" required />
+              </div>
+              <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" id="cust-last-name" class="form-control" placeholder="Last Name" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Complete Street Address (House/Flat #, Street, Area) *</label>
+              <input type="text" id="cust-address" class="form-control" placeholder="e.g. House # 12, Street 4, Sector G-9/2" required />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>City *</label>
+                <select id="cust-city" class="form-control" required>
+                  <option value="Lahore">Lahore</option>
+                  <option value="Karachi">Karachi</option>
+                  <option value="Islamabad">Islamabad</option>
+                  <option value="Rawalpindi">Rawalpindi</option>
+                  <option value="Faisalabad">Faisalabad</option>
+                  <option value="Multan">Multan</option>
+                  <option value="Peshawar">Peshawar</option>
+                  <option value="Quetta">Quetta</option>
+                  <option value="Sialkot">Sialkot</option>
+                  <option value="Gujranwala">Gujranwala</option>
+                  <option value="Hyderabad">Hyderabad</option>
+                  <option value="Bahawalpur">Bahawalpur</option>
+                  <option value="Sargodha">Sargodha</option>
+                  <option value="Abbottabad">Abbottabad</option>
+                  <option value="Gujrat">Gujrat</option>
+                  <option value="Other">Other City / Town</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Postal Code</label>
+                <input type="text" id="cust-postal" class="form-control" placeholder="54000" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Phone Number for Courier Delivery Call *</label>
+              <input type="tel" id="cust-phone" class="form-control" placeholder="0300-1234567" required />
+            </div>
+          </div>
+
+          <!-- Payment Method -->
+          <div style="background:#fff; border:1px solid #eee; border-radius:8px; padding:24px; margin-bottom:24px;">
+            <h2 style="font-size:16px; font-weight:800; text-transform:uppercase; margin-bottom:16px;">3. Payment Method</h2>
+            
+            <div class="payment-option-card selected" onclick="selectPayment('cod')">
+              <input type="radio" name="payment" id="pay-cod" value="cod" checked />
+              <label for="pay-cod" style="font-weight:700; cursor:pointer;">💵 Cash on Delivery (COD) - Pay when you receive</label>
+            </div>
+
+            <div class="payment-option-card" onclick="selectPayment('bank')">
+              <input type="radio" name="payment" id="pay-bank" value="bank" />
+              <label for="pay-bank" style="font-weight:700; cursor:pointer;">🏦 Direct Bank Transfer (Meezan / HBL / Alfalah)</label>
+            </div>
+
+            <div class="payment-option-card" onclick="selectPayment('card')">
+              <input type="radio" name="payment" id="pay-card" value="card" />
+              <label for="pay-card" style="font-weight:700; cursor:pointer;">💳 Debit / Credit Card (Visa & Mastercard)</label>
+            </div>
+
+            <div id="bank-instructions" style="display:none; background:#f5f5fc; border:1px solid #e0e0f5; padding:14px; border-radius:6px; margin-top:10px; font-size:12px; line-height:1.6;">
+              <strong>Bank Details:</strong><br>
+              Account Title: Al-Deewan Brand<br>
+              Bank: Meezan Bank Ltd (Gulberg Branch)<br>
+              IBAN: PK64MEZN0001234567890123<br>
+              <em>Please send payment screenshot on WhatsApp at 0333-4275944 after placing your order.</em>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-primary" style="padding:16px; font-size:15px;">COMPLETE ORDER (CASH ON DELIVERY)</button>
+        </form>
+      </div>
+
+      <!-- Right: Live Order Items Review -->
+      <div style="background:#fff; border:1px solid #eee; border-radius:8px; padding:24px; height:fit-content;">
+        <h2 style="font-size:16px; font-weight:800; text-transform:uppercase; margin-bottom:16px; border-bottom:1px solid #eee; padding-bottom:10px;">Order Summary</h2>
+        
+        <div id="checkout-items-list" style="max-height:350px; overflow-y:auto; margin-bottom:20px;">
+          <!-- Rendered via JS -->
+        </div>
+
+        <div style="display:flex; gap:8px; margin-bottom:20px;">
+          <input type="text" id="discount-code" placeholder="Discount code (e.g. SUMMER10)" class="form-control" style="flex:1;" />
+          <button type="button" class="btn-black" style="width:auto; padding:0 18px;" onclick="applyDiscount()">APPLY</button>
+        </div>
+
+        <div style="border-top:1px solid #eee; padding-top:14px; display:flex; flex-direction:column; gap:10px; font-size:14px;">
+          <div style="display:flex; justify-content:space-between;">
+            <span>Subtotal:</span>
+            <strong id="co-subtotal">Rs.0.00</strong>
+          </div>
+          <div style="display:flex; justify-content:space-between;">
+            <span>Delivery Charges:</span>
+            <span id="co-shipping">Rs.200.00</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; color:#27ae60; display:none;" id="co-discount-row">
+            <span>Discount (SUMMER10):</span>
+            <span id="co-discount">-Rs.0.00</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; font-size:18px; font-weight:900; border-top:1px solid #eee; padding-top:12px; color:var(--color-primary);">
+            <span>Grand Total:</span>
+            <span id="co-total">Rs.0.00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="assets/js/catalog-data.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script>
+    let discountApplied = false;
+
+    function selectPayment(type) {
+      document.querySelectorAll('.payment-option-card').forEach(c => c.classList.remove('selected'));
+      const radio = document.getElementById('pay-' + type);
+      if (radio) {
+        radio.checked = true;
+        radio.closest('.payment-option-card').classList.add('selected');
+      }
+      const bankInst = document.getElementById('bank-instructions');
+      if (bankInst) {
+        bankInst.style.display = type === 'bank' ? 'block' : 'none';
+      }
+    }
+
+    function applyDiscount() {
+      const code = document.getElementById('discount-code').value.trim().toUpperCase();
+      if (code === 'SUMMER10' || code === 'LAWN2026') {
+        discountApplied = true;
+        Store.showToast('10% Discount Applied!');
+        renderCheckout();
+      } else {
+        Store.showToast('Invalid discount code. Try SUMMER10');
+      }
+    }
+
+    function renderCheckout() {
+      const cart = Store.getCart();
+      const itemsContainer = document.getElementById('checkout-items-list');
+
+      if (cart.length === 0) {
+        window.location.href = 'collections.html';
+        return;
+      }
+
+      itemsContainer.innerHTML = cart.map(item => `
+        <div style="display:flex; gap:12px; align-items:center; padding:10px 0; border-bottom:1px solid #f5f5f5;">
+          <div style="position:relative;">
+            <img src="${item.image}" alt="${item.title}" style="width:54px; height:68px; object-fit:cover; border-radius:4px; border:1px solid #eee;" />
+            <span style="position:absolute; top:-6px; right:-6px; background:#888; color:#fff; font-size:10px; font-weight:700; width:18px; height:18px; border-radius:50%; display:flex; align-items:center; justify-content:center;">${item.qty}</span>
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:13px; font-weight:700; line-height:1.2;">${item.title}</div>
+            <div style="font-size:11px; color:#888;">SKU: ${item.sku || 'BCP-8230'}</div>
+          </div>
+          <div style="font-size:13px; font-weight:800; color:#222;">${Store.formatMoney(item.price * item.qty)}</div>
+        </div>
+      `).join('');
+
+      const subtotal = Store.getCartSubtotal();
+      const shipping = subtotal >= 3500 ? 0 : 200;
+      let discount = discountApplied ? (subtotal * 0.10) : 0;
+      const total = subtotal + shipping - discount;
+
+      document.getElementById('co-subtotal').textContent = Store.formatMoney(subtotal);
+      document.getElementById('co-shipping').textContent = shipping === 0 ? 'FREE' : Store.formatMoney(shipping);
+      
+      const discRow = document.getElementById('co-discount-row');
+      if (discountApplied) {
+        discRow.style.display = 'flex';
+        document.getElementById('co-discount').textContent = '-' + Store.formatMoney(discount);
+      } else {
+        discRow.style.display = 'none';
+      }
+
+      document.getElementById('co-total').textContent = Store.formatMoney(total);
+    }
+
+    function handlePlaceOrder() {
+      const firstName = document.getElementById('cust-first-name').value;
+      const lastName = document.getElementById('cust-last-name').value;
+      const address = document.getElementById('cust-address').value;
+      const city = document.getElementById('cust-city').value;
+      const phone = document.getElementById('cust-phone').value;
+      const contact = document.getElementById('cust-contact').value;
+
+      const orderId = 'BCP-2026-' + Math.floor(1000 + Math.random() * 9000);
+      const cart = Store.getCart();
+      const subtotal = Store.getCartSubtotal();
+
+      const orderData = {
+        orderId,
+        customer: { name: `${firstName} ${lastName}`, phone, address, city, contact },
+        items: cart,
+        subtotal,
+        date: new Date().toLocaleDateString('en-PK', { year:'numeric', month:'short', day:'numeric' })
+      };
+
+      localStorage.setItem('bcp_last_order', JSON.stringify(orderData));
+      // Clear cart
+      Store.saveCart([]);
+
+      window.location.href = `thank-you.html?orderId=${orderId}`;
+    }
+
+    document.addEventListener('DOMContentLoaded', renderCheckout);
+  </script>
+  <!-- Mobile Bottom Toolbar -->
+  <div class="mobile-toolbar">
+    <a href="collections.html" class="toolbar-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+      <span>Shop</span>
+    </a>
+    <button class="toolbar-item search-trigger">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <span>Search</span>
+    </button>
+    <button class="toolbar-item" onclick="MainUI.openWishlistDrawer()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+      <span>Wishlist</span>
+    </button>
+    <button class="toolbar-item" onclick="MainUI.openCartDrawer()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+      <span>Cart</span>
+    </button>
+    <a href="order-tracking.html" class="toolbar-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+      <span>Track</span>
+    </a>
+  </div>
+</body>
+</html>

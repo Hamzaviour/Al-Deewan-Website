@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order Confirmation - Al-Deewan Brand</title>
+  <link rel="icon" href="assets/images/favicon.png" type="image/png" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body style="background:#fcfcfc;">
+
+  <!-- Header -->
+  <header style="background:#fff; border-bottom:1px solid #eee; padding:20px 0;">
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center;">
+      <a href="index.html" class="header-logo">
+          <img src="assets/images/al_deewan_header_logo.png" alt="Al-Deewan Brand Logo" />
+          <div class="header-logo__text">
+            <span class="brand-main">AL-DEEWAN</span>
+            <span class="brand-sub">BRAND</span>
+          </div>
+        </a>
+      <a href="index.html" style="font-size:13px; font-weight:700; color:var(--color-primary);">Return to Homepage</a>
+    </div>
+  </header>
+
+  <main class="container" style="max-width:760px; padding:50px 16px 80px;">
+    <div style="background:#fff; border:1px solid #eee; border-radius:12px; padding:40px; box-shadow:var(--shadow-md); text-align:center;">
+      <!-- Success Icon -->
+      <div style="width:72px; height:72px; background:#e8f8f0; color:#27ae60; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 20px;">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      </div>
+
+      <h1 style="font-size:24px; font-weight:800; text-transform:uppercase; color:#222; margin-bottom:8px;">Thank You For Your Order!</h1>
+      <p style="font-size:14px; color:#666; margin-bottom:24px;">Your order has been placed successfully and is being prepared for dispatch.</p>
+
+      <div style="background:#f9f9fc; border:1px dashed var(--color-primary); border-radius:8px; padding:16px; margin-bottom:30px; display:inline-block; width:100%;">
+        <div style="font-size:12px; color:#888; text-transform:uppercase; font-weight:700;">Order Reference Number</div>
+        <div style="font-size:22px; font-weight:900; color:var(--color-primary); letter-spacing:0.06em;" id="confirmed-order-id">BCP-2026-9842</div>
+      </div>
+
+      <!-- Receipt Breakdown -->
+      <div style="text-align:left; border-top:1px solid #eee; padding-top:24px; margin-bottom:30px;">
+        <h3 style="font-size:15px; font-weight:800; text-transform:uppercase; margin-bottom:16px;">Order Details</h3>
+        <div id="receipt-items-list" style="margin-bottom:16px;">
+          <!-- Populated via JS -->
+        </div>
+
+        <div style="background:#fafafa; padding:16px; border-radius:6px; font-size:13px; line-height:1.8; color:#444;">
+          <div><strong>Payment Method:</strong> Cash on Delivery (COD)</div>
+          <div><strong>Estimated Delivery:</strong> 2 - 4 Working Days</div>
+          <div><strong>Courier Partner:</strong> Universal Courier / TCS Logistics</div>
+        </div>
+      </div>
+
+      <!-- Buttons -->
+      <div style="display:flex; gap:16px; flex-wrap:wrap;">
+        <a href="index.html" class="btn-primary" style="flex:1;">CONTINUE SHOPPING</a>
+        <a href="order-tracking.html" class="btn-black" style="flex:1;">TRACK ORDER STATUS</a>
+      </div>
+
+      <div style="margin-top:24px;">
+        <a href="https://api.whatsapp.com/send?phone=923334275944&text=Hello%20Al-Deewan%20Brand%2C%20I%20placed%20order%20just%20now." target="_blank" style="font-size:13px; font-weight:700; color:#25d366; display:inline-flex; align-items:center; gap:6px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          Get Order Updates on WhatsApp
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <script src="assets/js/store.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const orderId = urlParams.get('orderId') || 'BCP-2026-' + Math.floor(1000 + Math.random() * 9000);
+      document.getElementById('confirmed-order-id').textContent = orderId;
+
+      const lastOrder = JSON.parse(localStorage.getItem('bcp_last_order') || '{}');
+      const list = document.getElementById('receipt-items-list');
+
+      if (lastOrder.items && lastOrder.items.length) {
+        list.innerHTML = lastOrder.items.map(item => `
+          <div style="display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px solid #f0f0f0;">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <img src="${item.image}" alt="${item.title}" style="width:40px; height:50px; object-fit:cover; border-radius:4px;" />
+              <div>
+                <div style="font-size:13px; font-weight:700;">${item.title}</div>
+                <div style="font-size:11px; color:#888;">Qty: ${item.qty}</div>
+              </div>
+            </div>
+            <div style="font-weight:800; font-size:13px;">${Store.formatMoney(item.price * item.qty)}</div>
+          </div>
+        `).join('');
+      } else {
+        list.innerHTML = `<p style="font-size:13px; color:#888;">Lawn 3PC Suite • SKU: BCP-8230</p>`;
+      }
+    });
+  </script>
+  <!-- Mobile Bottom Toolbar -->
+  <div class="mobile-toolbar">
+    <a href="collections.html" class="toolbar-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+      <span>Shop</span>
+    </a>
+    <button class="toolbar-item search-trigger">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <span>Search</span>
+    </button>
+    <button class="toolbar-item" onclick="MainUI.openWishlistDrawer()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+      <span>Wishlist</span>
+    </button>
+    <button class="toolbar-item" onclick="MainUI.openCartDrawer()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+      <span>Cart</span>
+    </button>
+    <a href="order-tracking.html" class="toolbar-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+      <span>Track</span>
+    </a>
+  </div>
+</body>
+</html>

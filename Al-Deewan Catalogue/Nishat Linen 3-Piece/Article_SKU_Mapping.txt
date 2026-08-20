@@ -1,0 +1,56 @@
+NISHAT LINEN 3-PIECE — ARTICLE & SKU MAPPING
+=============================================
+
+Each image contains a Nishat product code (e.g. 42206126-R).
+SKU format used: NL3P-{ProductCode}
+File name format: Nishat3Pce_{ProductCode}.jpg
+
+--------------------------------------------------------------
+ARTICLE 1 — Code: 42206126-R | SKU: NL3P-42206126-R
+  Color: Mauve/Burgundy geometric print
+  Price: 5,490 PKR
+--------------------------------------------------------------
+  Image 1: WhatsApp Image 2026-08-18 at 8.35.39 PM.jpeg
+       → Nishat3Pce_42206126-R_main.jpg
+  Image 2: WhatsApp Image 2026-08-18 at 8.35.39 PM (1).jpeg
+       → Nishat3Pce_42206126-R_view2.jpg
+  Image 3: WhatsApp Image 2026-08-18 at 8.35.39 PM (2).jpeg
+       → Nishat3Pce_42206126-R_view3.jpg
+
+--------------------------------------------------------------
+ARTICLE 2 — Code: 42303181-R | SKU: NL3P-42303181-R
+  Color: Dark green lattice + floral print
+  Price: 5,490 PKR
+--------------------------------------------------------------
+  Image 1: WhatsApp Image 2026-08-18 at 8.35.40 PM.jpeg
+       → Nishat3Pce_42303181-R_main.jpg
+  Image 2: WhatsApp Image 2026-08-18 at 8.35.40 PM (1).jpeg
+       → Nishat3Pce_42303181-R_view2.jpg
+  Image 3: WhatsApp Image 2026-08-18 at 8.35.40 PM (2).jpeg
+       → Nishat3Pce_42303181-R_view3.jpg
+
+--------------------------------------------------------------
+ARTICLE 3 — Code: 42303202-R | SKU: NL3P-42303202-R
+  Color: Olive/mustard vertical stripe print
+  Price: 5,490 PKR
+--------------------------------------------------------------
+  Image 1: WhatsApp Image 2026-08-18 at 8.35.41 PM.jpeg
+       → Nishat3Pce_42303202-R_main.jpg
+  Image 2: WhatsApp Image 2026-08-18 at 8.35.41 PM (1).jpeg
+       → Nishat3Pce_42303202-R_view2.jpg
+
+--------------------------------------------------------------
+ARTICLE 4 — Code: 42303186-R | SKU: NL3P-42303186-R
+  Color: Navy blue indigo/dabu print
+  Price: 5,490 PKR
+--------------------------------------------------------------
+  Image 1: WhatsApp Image 2026-08-18 at 8.35.42 PM.jpeg
+       → Nishat3Pce_42303186-R_main.jpg
+  Image 2: WhatsApp Image 2026-08-18 at 8.35.42 PM (1).jpeg
+       → Nishat3Pce_42303186-R_view2.jpg
+
+--------------------------------------------------------------
+Total: 4 articles, 10 images
+All articles: 3m printed linen + 2.5m printed linen dupatta + 2.5m solid linen
+All prices: 5,490 PKR
+Description: See Description.txt

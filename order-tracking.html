@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order Tracking - Al-Deewan Brand</title>
+  <meta name="description" content="Track your Pakistani branded lawn suit parcel in real time with Universal Courier & TCS tracking." />
+  <link rel="icon" href="assets/images/favicon.png" type="image/png" />
+  
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="announcement-bar__ticker">
+      <div class="announcement-bar__item">
+        <span class="announcement-bar__tag">Announcement</span>
+        <span class="announcement-bar__flash">⚡</span>
+        <span>Biggest Lawn Opening in Pakistan - Summer 2026</span>
+      </div>
+      <div class="announcement-bar__item">
+        <span class="announcement-bar__flash">⚡</span>
+        <span>Free Shipping on Orders Above Rs. 3,500</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+
+        <a href="index.html" class="header-logo">
+          <img src="assets/images/al_deewan_header_logo.png" alt="Al-Deewan Brand Logo" />
+          <div class="header-logo__text">
+            <span class="brand-main">AL-DEEWAN</span>
+            <span class="brand-sub">BRAND</span>
+          </div>
+        </a>
+
+                <!-- Desktop Navigation Menu -->
+        <nav class="header-nav">
+          <div class="nav-item-dropdown">
+            <a href="collections.html?collection=new-in" class="header-nav__link">
+              NEW ARRIVAL
+              <span class="header-nav__badge">HOT</span>
+            </a>
+          </div>
+
+          <!-- 1. SHOP BY BRAND -->
+          <div class="nav-item-dropdown">
+            <a href="shop-by-brand.html" class="header-nav__link">
+              SHOP BY BRAND
+              <svg width="10" height="6" viewBox="0 0 10 6" fill="currentColor"><path d="M0 0.5L5 5.5L10 0.5H0Z"/></svg>
+            </a>
+            <div class="nav-dropdown-menu">
+              <a href="collections.html?brand=Nishat+Linen" class="nav-dropdown-link">Nishat Linen (24 Items)</a>
+              <a href="collections.html?brand=Ethnic" class="nav-dropdown-link">Ethnic by Outfitters (16 Items)</a>
+              <a href="shop-by-brand.html" class="nav-dropdown-link" style="border-top:1px solid #eee; margin-top:6px; color:var(--color-primary); font-weight:800;">View All Brands Directory &rarr;</a>
+            </div>
+          </div>
+
+          <!-- 2. UNSTITCHED (Contains 3-Piece & 2-Piece Raw Silk) -->
+          <div class="nav-item-dropdown">
+            <a href="collections.html?category=Unstitched" class="header-nav__link">
+              UNSTITCHED
+              <svg width="10" height="6" viewBox="0 0 10 6" fill="currentColor"><path d="M0 0.5L5 5.5L10 0.5H0Z"/></svg>
+            </a>
+            <div class="nav-dropdown-menu" style="min-width:300px; padding:16px;">
+              <a href="collections.html?category=3PC" class="nav-dropdown-link" style="font-weight:700;">
+                <span>3-PIECE SUITS (4)</span>
+                <span style="font-size:11px; color:#888;">Nishat Linen</span>
+              </a>
+              <a href="collections.html?category=2PC" class="nav-dropdown-link" style="font-weight:700;">
+                <span>2-PIECE RAW SILK (16)</span>
+                <span style="font-size:11px; color:#888;">Ethnic Co-ord</span>
+              </a>
+              <a href="collections.html?category=Unstitched" class="nav-dropdown-link" style="border-top:1px solid #eee; margin-top:8px; color:var(--color-primary); font-weight:800;">
+                View All Unstitched (20 Articles) &rarr;
+              </a>
+            </div>
+          </div>
+
+          <!-- 3. READY TO WEAR (Contains 1-Piece Shirts 3.5m) -->
+          <div class="nav-item-dropdown">
+            <a href="collections.html?category=Ready+To+Wear" class="header-nav__link">
+              READY TO WEAR
+              <svg width="10" height="6" viewBox="0 0 10 6" fill="currentColor"><path d="M0 0.5L5 5.5L10 0.5H0Z"/></svg>
+            </a>
+            <div class="nav-dropdown-menu" style="min-width:300px; padding:16px;">
+              <a href="collections.html?category=1PC+Shirt" class="nav-dropdown-link" style="font-weight:700;">
+                <span>1-PIECE SHIRTS (3.5M) (20)</span>
+                <span style="font-size:11px; color:#888;">Nishat Linen</span>
+              </a>
+              <a href="collections.html?category=Ready+To+Wear" class="nav-dropdown-link" style="border-top:1px solid #eee; margin-top:8px; color:var(--color-primary); font-weight:800;">
+                View All Ready To Wear (20 Articles) &rarr;
+              </a>
+            </div>
+          </div>
+
+          <!-- 4. ORDER TRACKING -->
+          <div class="nav-item-dropdown">
+            <a href="order-tracking.html" class="header-nav__link">ORDER TRACKING</a>
+          </div>
+        </nav>
+
+        <div class="header-actions">
+          <button class="header-action-btn search-trigger" id="search-modal-toggle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </button>
+          
+          <button class="header-action-btn" id="wishlist-drawer-toggle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            <span class="header-badge-count wishlist-count-badge" style="display:none;">0</span>
+          </button>
+          
+          <button class="header-action-btn" id="cart-drawer-toggle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+            <span class="header-badge-count cart-count-badge" id="cart-count">0</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tracking Hero -->
+  <section class="tracking-hero">
+    <div class="container">
+      <div class="tracking-tag">
+        <span>📦 SHIPMENT TRACKING</span>
+      </div>
+      <h1 style="font-size: 32px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px;">Track Your Order</h1>
+      <p style="font-size: 14px; color: #aaa;">Enter your tracking number or order ID below to get real-time status</p>
+    </div>
+  </section>
+
+  <!-- Tracking Card -->
+  <main class="container">
+    <div class="tracking-card">
+      <div class="tracking-tabs">
+        <button class="tracking-tab-btn active" id="tab-tracking-num">🏷️ Tracking Number</button>
+        <button class="tracking-tab-btn" id="tab-order-num">🛒 Order Number</button>
+      </div>
+
+      <form id="tracking-form" onsubmit="event.preventDefault(); handleTrackingLookup();">
+        <label id="tracking-input-label" style="font-size:12px; font-weight:700; text-transform:uppercase; color:#444; display:block; margin-bottom:6px;">TRACKING NUMBER</label>
+        <div class="tracking-input-group">
+          <input type="text" id="tracking-input" placeholder="e.g. LE123456789 or BCP-9842" required />
+          <button type="submit" class="btn-primary" style="width:auto; padding:12px 28px; background:#e53935;">🔍 Track</button>
+        </div>
+      </form>
+
+      <!-- Tracking Results Box -->
+      <div id="tracking-result-box" style="display:none;" class="tracking-timeline">
+        <div style="background:#f9f9fc; padding:16px; border-radius:8px; margin-bottom:20px; border:1px solid #eee;">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div>
+              <div style="font-size:11px; color:#888; text-transform:uppercase; font-weight:700;">Status</div>
+              <div style="font-size:16px; font-weight:800; color:#27ae60;" id="res-status">IN TRANSIT</div>
+            </div>
+            <div style="text-align:right;">
+              <div style="font-size:11px; color:#888; text-transform:uppercase; font-weight:700;">Courier</div>
+              <div style="font-size:14px; font-weight:700; color:#222;">Universal Courier Pakistan</div>
+            </div>
+          </div>
+          <div style="margin-top:10px; font-size:12px; color:#666;">
+            Tracking ID: <strong id="res-id" style="color:#222;">LE123456789</strong> • Expected Delivery: <strong>Within 24-48 Hours</strong>
+          </div>
+        </div>
+
+        <div class="timeline-step completed">
+          <div class="timeline-bullet"></div>
+          <div class="timeline-content">
+            <h4>Order Placed & Confirmed</h4>
+            <p>Your order has been received at our Lahore central warehouse.</p>
+          </div>
+        </div>
+
+        <div class="timeline-step completed">
+          <div class="timeline-bullet"></div>
+          <div class="timeline-content">
+            <h4>Quality Check & Packed</h4>
+            <p>Fabric pieces inspected for 100% authenticity and sealed.</p>
+          </div>
+        </div>
+
+        <div class="timeline-step active">
+          <div class="timeline-bullet"></div>
+          <div class="timeline-content">
+            <h4>Dispatched with Courier</h4>
+            <p>Parcel handed over to courier dispatch rider for regional transit.</p>
+          </div>
+        </div>
+
+        <div class="timeline-step">
+          <div class="timeline-bullet"></div>
+          <div class="timeline-content">
+            <h4>Out for Delivery</h4>
+            <p>Rider will contact you on your phone number for doorstep cash on delivery.</p>
+          </div>
+        </div>
+
+        <div class="timeline-step">
+          <div class="timeline-bullet"></div>
+          <div class="timeline-content">
+            <h4>Delivered</h4>
+            <p>Package received by customer.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-bottom:60px; font-size:13px; color:#666;">
+      ⚡ Powered by Universal Courier Pakistan & TCS Logistics
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a href="index.html" class="footer-logo" style="display:inline-flex; align-items:center; gap:10px; margin-bottom:16px;">
+            <img src="assets/images/al_deewan_header_logo.png" alt="Al-Deewan Brand" style="height:50px;" />
+            <div style="font-size:18px; font-weight:900; color:#000; letter-spacing:0.04em;">AL-DEEWAN <span style="font-size:11px; display:block; color:#444; letter-spacing:0.18em;">BRAND</span></div>
+          </a>
+          <div class="footer-info-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <span>86-Dogar Plaza, Gulshan Block Iqbal Town Near Makki Masjid, Lahore</span>
+          </div>
+          <div class="footer-info-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>Number: 0333-4275944 / 0344-6463719</span>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer-heading">INFORMATION</h3>
+          <ul class="footer-links">
+            <li><a href="contact.html">Complain & Inquiries</a></li>
+            <li><a href="refunds.html">Refund & Exchange Policy</a></li>
+            <li><a href="customer-services.html">Shipping Policy</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+                <div>
+          <h3 class="footer-heading">MAIN MENU</h3>
+          <ul class="footer-links">
+            <li><a href="shop-by-brand.html">Shop By Brand</a></li>
+            <li><a href="collections.html?category=Unstitched">Unstitched (3PC & 2PC)</a></li>
+            <li><a href="collections.html?category=Ready+To+Wear">Ready To Wear (Shirts 3.5m)</a></li>
+            <li><a href="order-tracking.html">Order Tracking</a></li>
+            <li><a href="cart.html">Shopping Bag</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-heading">NEWSLETTER</h3>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); Store.showToast('Subscribed successfully!');">
+            <input type="email" placeholder="enter your email address" required />
+            <button type="submit">SUBMIT</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Al-Deewan Brand. All Rights Reserved. Powered By Whizzly Lab</div>
+        <div class="payment-methods" style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+          <!-- Cash on Delivery (COD) Badge -->
+          <span class="payment-badge" title="Cash on Delivery Nationwide" style="display:inline-flex; align-items:center; background:#f4faf6; border:1px solid #ccebd7; border-radius:6px; padding:5px 12px; gap:6px; font-size:11px; font-weight:800; color:#1e7e34;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1e7e34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="6" width="20" height="12" rx="2"></rect>
+              <circle cx="12" cy="12" r="2"></circle>
+              <path d="M6 12h.01M18 12h.01"></path>
+            </svg>
+            <span>Cash On Delivery</span>
+          </span>
+
+          <!-- WhatsApp Order & Support Badge -->
+          <a href="https://api.whatsapp.com/send?phone=923334275944&text=Hello%20Al-Deewan%20Brand%2C%20I%20have%20an%20inquiry." target="_blank" class="payment-badge" title="WhatsApp Order & Support" style="display:inline-flex; align-items:center; background:#e8f9ee; border:1px solid #bdf1cc; border-radius:6px; padding:5px 12px; gap:6px; font-size:11px; font-weight:800; color:#128c7e; text-decoration:none;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+            </svg>
+            <span>WhatsApp Orders</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Drawers & Modals -->
+  <div class="drawer-overlay"></div>
+  
+  <div class="slide-drawer" id="cart-drawer">
+    <div class="drawer-header">
+      <div class="drawer-title">Shopping Cart</div>
+      <button class="drawer-close">&times;</button>
+    </div>
+    <div class="drawer-body">
+      <div id="cart-shipping-progress"></div>
+      <div id="cart-drawer-items"></div>
+    </div>
+    <div class="drawer-footer" id="cart-drawer-footer">
+      <div style="display:flex; justify-content:space-between; margin-bottom:14px;">
+        <span style="font-size:14px; font-weight:700;">Subtotal:</span>
+        <span style="font-size:18px; font-weight:900; color:var(--color-accent-red);" id="cart-drawer-subtotal">Rs.0.00</span>
+      </div>
+      <a href="checkout.html" class="btn-primary" style="margin-bottom:8px;">PROCEED TO CHECKOUT</a>
+      <a href="cart.html" class="btn-black">VIEW SHOPPING BAG</a>
+    </div>
+  </div>
+
+  <div class="slide-drawer" id="wishlist-drawer">
+    <div class="drawer-header">
+      <div class="drawer-title">My Wishlist</div>
+      <button class="drawer-close">&times;</button>
+    </div>
+    <div class="drawer-body">
+      <div id="wishlist-drawer-items"></div>
+    </div>
+  </div>
+
+  <div class="search-modal" id="search-modal">
+    <div class="container">
+      <div class="search-box">
+        <input type="text" id="predictive-search-input" placeholder="Search lawn suits, brands, fabrics, 3PC, 2PC..." />
+        <button id="search-modal-close">&times;</button>
+      </div>
+      <div class="search-results-grid" id="search-results-grid"></div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/catalog-data.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    const tabTracking = document.getElementById('tab-tracking-num');
+    const tabOrder = document.getElementById('tab-order-num');
+    const label = document.getElementById('tracking-input-label');
+    const input = document.getElementById('tracking-input');
+    const resultBox = document.getElementById('tracking-result-box');
+
+    tabTracking.addEventListener('click', () => {
+      tabTracking.classList.add('active');
+      tabOrder.classList.remove('active');
+      label.textContent = 'TRACKING NUMBER';
+      input.placeholder = 'e.g. LE123456789';
+    });
+
+    tabOrder.addEventListener('click', () => {
+      tabOrder.classList.add('active');
+      tabTracking.classList.remove('active');
+      label.textContent = 'ORDER NUMBER';
+      input.placeholder = 'e.g. BCP-2026-9842';
+    });
+
+    function handleTrackingLookup() {
+      const val = input.value.trim();
+      if (!val) return;
+
+      document.getElementById('res-id').textContent = val.toUpperCase();
+      resultBox.style.display = 'block';
+      Store.showToast('Tracking details retrieved successfully!');
+    }
+  </script>
+  <!-- Mobile Bottom Toolbar -->
+  <div class="mobile-toolbar">
+    <a href="collections.html" class="toolbar-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+      <span>Shop</span>
+    </a>
+    <button class="toolbar-item search-trigger">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <span>Search</span>
+    </button>
+    <button class="toolbar-item" onclick="MainUI.openWishlistDrawer()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+      <span>Wishlist</span>
+    </button>
+    <button class="toolbar-item" onclick="MainUI.openCartDrawer()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+      <span>Cart</span>
+    </button>
+    <a href="order-tracking.html" class="toolbar-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+      <span>Track</span>
+    </a>
+  </div>
+</body>
+</html>

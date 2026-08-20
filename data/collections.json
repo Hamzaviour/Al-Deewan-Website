@@ -1,0 +1,867 @@
+[
+  {
+    "id": 506735821081,
+    "title": "3PC",
+    "handle": "3pc",
+    "description": "",
+    "published_at": "2026-01-14T22:25:38+05:00",
+    "updated_at": "2026-08-19T12:56:07+05:00",
+    "image": null,
+    "products_count": 164
+  },
+  {
+    "id": 506734051609,
+    "title": "Agha Noor",
+    "handle": "nishat-copy",
+    "description": "",
+    "published_at": "2026-01-14T22:03:34+05:00",
+    "updated_at": "2026-08-15T17:30:21+05:00",
+    "image": null,
+    "products_count": 0
+  },
+  {
+    "id": 507944534297,
+    "title": "Al Karam",
+    "handle": "al-karam-copy-1",
+    "description": "",
+    "published_at": "2026-02-05T14:00:39+05:00",
+    "updated_at": "2026-08-18T20:34:09+05:00",
+    "image": null,
+    "products_count": 0
+  },
+  {
+    "id": 506733527321,
+    "title": "Al Karam Men",
+    "handle": "bonanza-copy",
+    "description": "",
+    "published_at": "2026-01-14T22:14:31+05:00",
+    "updated_at": "2026-08-18T16:05:14+05:00",
+    "image": null,
+    "products_count": 2
+  },
+  {
+    "id": 508252881177,
+    "title": "Almeerah",
+    "handle": "almeerah",
+    "description": "",
+    "published_at": "2026-02-10T19:38:41+05:00",
+    "updated_at": "2026-08-17T16:03:28+05:00",
+    "image": null,
+    "products_count": 4
+  },
+  {
+    "id": 507050066201,
+    "title": "Almeerah Stitched 2Pc",
+    "handle": "almirah",
+    "description": "",
+    "published_at": "2026-01-23T12:56:53+05:00",
+    "updated_at": "2026-08-18T16:05:14+05:00",
+    "image": null,
+    "products_count": 5
+  },
+  {
+    "id": 516189454617,
+    "title": "Almirah Men's Unstitched",
+    "handle": "almirah-mens-unstitched",
+    "description": null,
+    "published_at": "2026-08-13T11:22:05+05:00",
+    "updated_at": "2026-08-18T16:05:14+05:00",
+    "image": null,
+    "products_count": 3
+  },
+  {
+    "id": 516414767385,
+    "title": "Almirah Stitched Men's",
+    "handle": "almirah-stitched-mens",
+    "description": null,
+    "published_at": "2026-08-18T18:18:21+05:00",
+    "updated_at": "2026-08-19T13:29:16+05:00",
+    "image": {
+      "id": 1763176415513,
+      "created_at": "2026-08-19T11:37:13+05:00",
+      "src": "https://cdn.shopify.com/s/files/1/0549/6730/4273/collections/8153_3.jpg?v=1787121434",
+      "alt": null
+    },
+    "products_count": 51
+  },
+  {
+    "id": 516458873113,
+    "title": "Almirah Unstitched Ladie's",
+    "handle": "almirah-unstitched-ladies",
+    "description": null,
+    "published_at": "2026-08-19T13:24:34+05:00",
+    "updated_at": "2026-08-19T14:43:32+05:00",
+    "image": null,
+    "products_count": 25
+  },
+  {
+    "id": 508252651801,
+    "title": "ANMOL",
+    "handle": "mtj-copy",
+    "description": "",
+    "published_at": "2026-02-10T19:37:56+05:00",
+    "updated_at": "2026-08-15T17:30:25+05:00",
+    "image": null,
+    "products_count": 0
+  },
+  {
+    "id": 506927841561,
+    "title": "Asim Jofa",
+    "handle": "asim-jofa",
+    "description": "",
+    "published_at": "2026-01-20T12:13:56+05:00",
+    "updated_at": "2026-08-15T17:30:23+05:00",
+    "image": null,
+    "products_count": 0
+  },
+  {
+    "id": 506837369113,
+    "title": "Asim Studio Men's",
+    "handle": "ammar-mens",
+    "description": "",
+    "published_at": "2026-01-17T16:46:45+05:00",
+    "updated_at": "2026-08-18T16:05:14+05:00",
+    "image": null,
+    "products_count": 10
+  },
+  {
+    "id": 502817980697,
+    "title": "Asim Studio Unstitched Men's",
+    "handle": "mens-unstitched-shalwar-kameez",
+    "description": "",
+    "published_at": "2025-10-12T19:48:55+05:00",
+    "updated_at": "2026-08-18T16:05:14+05:00",
+    "image": null,
+    "products_count": 10
+  },
+  {
+    "id": 507683799321,
+    "title": "Bareeze",
+    "handle": "bareeze",
+    "description": "",
+    "published_at": "2026-01-31T12:42:18+05:00",
+    "updated_at": "2026-08-15T17:30:24+05:00",
+    "image": null,
+    "products_count": 0
+  },
+  {
+    "id": 507683864857,
+    "title": "Bareeze 2Pc",
+    "handle": "bareeze-3pc-copy",
+    "description": "",
+    "published_at": "2026-04-08T13:15:12+05:00",
+    "updated_at": "2026-08-15T17:30:24+05:00",
+    "image": null,
+    "products_count": 0
+  },
+  {
+    "id": 507683832089,
+    "title": "Bareeze 3Pc",
+    "handle": "bareeze-copy",
+    "description": "",
+    "published_at": "2026-02-04T21:48:03+05:00",
+    "updated_at": "2026-08-15T17:30:24+05:00",
+    "image": null,
+    "products_count": 0
+  },
+  {
+    "id": 504759288089,
+    "title": "Bareeze Unstitched Printed 3pc",
+    "handle": "bareeze-unstitched-printed-3pc",
+    "description": "",
+    "published_at": "2025-11-25T17:17:03+05:00",
+    "updated_at": "2026-08-15T17:30:20+05:00",
+    "image": null,
+    "products_count": 0
+  },
+  {
+    "id": 506733691161,
+    "title": "Baroque",
+    "handle": "al-karam-copy",
+    "description": "",
+    "published_at": "2026-01-14T22:11:06+05:00",
+    "updated_at": "2026-08-15T17:30:21+05:00",
+    "image": null,
+    "products_count": 1
+  },
+  {
+    "id": 516200628505,
+    "title": "Bin Saeed Stitched",
+    "handle": "bin-saeed-stitched",
+    "description": null,
+    "published_at": "2026-08-13T15:02:40+05:00",
+    "updated_at": "2026-08-18T16:05:14+05:00",
+    "image": null,
+    "products_count": 24
+  },
+  {
+    "id": 507484602649,
+    "title": "Binilyas",
+    "handle": "rajbari-copy",
+    "description": "",
+    "published_at": "2026-01-28T12:45:52+05:00",
+    "updated_at": "2026-08-15T17:30:24+05:00",
+    "image": null,
+    "products_count": 0
+  },
+  {
+    "id": 506733461785,
+    "title": "Bonanza",
+    "handle": "prime-point-copy",
+    "description": "",
+    "published_at": "2026-01-14T22:05:28+05:00",
+    "updated_at": "2026-08-18T16:07:41+05:00",
+    "image": null,
+    "products_count": 1
+  },
+  {
+    "id": 506735264025,
+    "title": "Coco",
+    "handle": "coco",
+    "description": "",
+    "published_at": "2026-01-14T22:10:15+05:00",
+    "updated_at": "2026-08-15T17:30:22+05:00",
+    "image": null,
+    "products_count": 0
+  },
+  {
+    "id": 506927907097,
+    "title": "Designer 2Pc",
+    "handle": "designer-2pc",
+    "description": "",
+    "published_at": "2026-01-20T12:15:33+05:00",
+    "updated_at": "2026-08-18T16:05:14+05:00",
+    "image": null,
+    "products_count": 12
+  },
+  {
+    "id": 507484471577,
+    "title": "Dor Signature",
+    "handle": "dor-signature",
+    "description": "",
+    "published_at": "2026-01-28T12:41:25+05:00",
+    "updated_at": "2026-08-15T17:30:24+05:00",
+    "image": null,
+    "products_count": 0
+  },
+  {
+    "id": 515115712793,
+    "title": "Elaya",
+    "handle": "elaya",
+    "description": null,
+    "published_at": "2026-07-19T16:48:20+05:00",
+    "updated_at": "2026-08-15T17:30:26+05:00",
+    "image": {
+      "id": 1762862367001,
+      "created_at": "2026-07-19T16:48:43+05:00",
+      "src": "https://cdn.shopify.com/s/files/1/0549/6730/4273/collections/7012.jpg?v=1784461724",
+      "alt": null
+    },
+    "products_count": 10
+  },
+  {
+    "id": 509436166425,
+    "title": "Ethnic",
+    "handle": "ethnic",
+    "description": "",
+    "published_at": "2026-03-07T22:07:26+05:00",
+    "updated_at": "2026-08-15T17:30:26+05:00",
+    "image": null,
+    "products_count": 0
+  },
+  {
+    "id": 516197286169,
+    "title": "Ethnic Stitched",
+    "handle": "ethnic-stitched",
+    "description": null,
+    "published_at": "2026-08-13T13:11:27+05:00",
+    "updated_at": "2026-08-15T17:30:26+05:00",
+    "image": null,
+    "products_count": 3
+  },
+  {
+    "id": 507916091673,
+    "title": "Florent",
+    "handle": "florent",
+    "description": "",
+    "published_at": "2026-02-04T21:47:40+05:00",
+    "updated_at": "2026-08-15T17:30:24+05:00",
+    "image": null,
+    "products_count": 0
+  },
+  {
+    "id": 494336835865,
+    "title": "Gents Summer Collection'26",
+    "handle": "gents-summer-collection26",
+    "description": "",
+    "published_at": "2025-04-04T16:29:14+05:00",
+    "updated_at": "2026-08-19T12:28:35+05:00",
+    "image": null,
+    "products_count": 95
+  },
+  {
+    "id": 507364114713,
+    "title": "Gulmina",
+    "handle": "gulmina",
+    "description": "",
+    "published_at": "2026-01-27T16:20:16+05:00",
+    "updated_at": "2026-08-15T17:30:23+05:00",
+    "image": null,
+    "products_count": 0
+  },
+  {
+    "id": 508144943385,
+    "title": "H&H",
+    "handle": "h-h",
+    "description": "",
+    "published_at": "2026-02-07T16:30:01+05:00",
+    "updated_at": "2026-08-15T17:30:25+05:00",
+    "image": null,
+    "products_count": 0
+  },
+  {
+    "id": 508459450649,
+    "title": "Hafiz Textile",
+    "handle": "hafiz-textile",
+    "description": "",
+    "published_at": "2026-02-16T11:55:22+05:00",
+    "updated_at": "2026-08-18T16:05:14+05:00",
+    "image": null,
+    "products_count": 10
+  },
+  {
+    "id": 506735558937,
+    "title": "Hania Minahil",
+    "handle": "hania-minahil",
+    "description": "",
+    "published_at": "2026-01-14T22:19:28+05:00",
+    "updated_at": "2026-08-19T10:50:53+05:00",
+    "image": null,
+    "products_count": 19
+  },
+  {
+    "id": 507364147481,
+    "title": "Hijab Omer",
+    "handle": "gulmina-copy",
+    "description": "",
+    "published_at": "2026-01-27T16:22:16+05:00",
+    "updated_at": "2026-08-15T17:30:23+05:00",
+    "image": null,
+    "products_count": 0
+  },
+  {
+    "id": 506730021145,
+    "title": "Jacquard",
+    "handle": "jacquard-unstitched-printed-lawn-3pc",
+    "description": "",
+    "published_at": "2026-01-14T19:29:42+05:00",
+    "updated_at": "2026-08-19T12:13:49+05:00",
+    "image": null,
+    "products_count": 33
+  },
+  {
+    "id": 506733330713,
+    "title": "Jade",
+    "handle": "suhana-copy",
+    "description": "",
+    "published_at": "2026-01-14T22:07:36+05:00",
+    "updated_at": "2026-08-15T17:30:21+05:00",
+    "image": null,
+    "products_count": 0
+  },
+  {
+    "id": 506734903577,
+    "title": "Jaffrani",
+    "handle": "thames-fashion-copy",
+    "description": "",
+    "published_at": "2026-01-14T22:03:59+05:00",
+    "updated_at": "2026-08-18T17:15:41+05:00",
+    "image": null,
+    "products_count": 11
+  },
+  {
+    "id": 512134349081,
+    "title": "Jaffrani Printed 3Pc",
+    "handle": "jaffrani-printed-3pc",
+    "description": "",
+    "published_at": "2026-05-13T15:16:09+05:00",
+    "updated_at": "2026-08-18T17:15:41+05:00",
+    "image": null,
+    "products_count": 11
+  },
+  {
+    "id": 508459548953,
+    "title": "Johra",
+    "handle": "johra",
+    "description": "",
+    "published_at": "2026-02-16T12:01:54+05:00",
+    "updated_at": "2026-08-15T17:30:25+05:00",
+    "image": null,
+    "products_count": 2
+  },
+  {
+    "id": 506837532953,
+    "title": "Kabir Raheem Men's",
+    "handle": "asim-studio-mens-copy",
+    "description": "",
+    "published_at": "2026-01-30T16:26:54+05:00",
+    "updated_at": "2026-08-15T17:30:23+05:00",
+    "image": null,
+    "products_count": 5
+  },
+  {
+    "id": 506794115353,
+    "title": "Khaadi",
+    "handle": "khaadi",
+    "description": "",
+    "published_at": "2026-01-16T11:57:36+05:00",
+    "updated_at": "2026-08-18T15:34:16+05:00",
+    "image": null,
+    "products_count": 0
+  },
+  {
+    "id": 506794148121,
+    "title": "Khaadi Stitched 2Pc",
+    "handle": "khaadi-copy",
+    "description": "",
+    "published_at": "2026-01-16T12:14:08+05:00",
+    "updated_at": "2026-08-15T17:30:22+05:00",
+    "image": null,
+    "products_count": 0
+  },
+  {
+    "id": 510742003993,
+    "title": "Limelight",
+    "handle": "limelight",
+    "description": "",
+    "published_at": "2026-04-08T13:02:16+05:00",
+    "updated_at": "2026-08-15T17:30:26+05:00",
+    "image": null,
+    "products_count": 1
+  },
+  {
+    "id": 507364507929,
+    "title": "Luxury Brand Lawn 2026",
+    "handle": "luxury-brand-lawn-2026",
+    "description": "",
+    "published_at": "2026-01-27T16:29:04+05:00",
+    "updated_at": "2026-08-15T17:30:23+05:00",
+    "image": null,
+    "products_count": 3
+  },
+  {
+    "id": 506734313753,
+    "title": "Mahnur",
+    "handle": "saya-copy",
+    "description": "",
+    "published_at": "2026-01-14T22:06:23+05:00",
+    "updated_at": "2026-08-15T17:30:21+05:00",
+    "image": null,
+    "products_count": 4
+  },
+  {
+    "id": 506794311961,
+    "title": "Mahnur Stitched 2Pc",
+    "handle": "mahnur-copy-1",
+    "description": "",
+    "published_at": "2026-01-16T12:10:27+05:00",
+    "updated_at": "2026-08-15T17:30:23+05:00",
+    "image": null,
+    "products_count": 2
+  },
+  {
+    "id": 507147583769,
+    "title": "Men's",
+    "handle": "mens-1",
+    "description": "",
+    "published_at": "2026-01-24T15:03:35+05:00",
+    "updated_at": "2026-08-19T12:28:36+05:00",
+    "image": null,
+    "products_count": 95
+  },
+  {
+    "id": 508721987865,
+    "title": "Motifz",
+    "handle": "motifz",
+    "description": "",
+    "published_at": "2026-02-23T11:54:34+05:00",
+    "updated_at": "2026-08-15T17:30:25+05:00",
+    "image": null,
+    "products_count": 0
+  },
+  {
+    "id": 508144877849,
+    "title": "MTF",
+    "handle": "mtf",
+    "description": "",
+    "published_at": "2026-02-07T16:27:14+05:00",
+    "updated_at": "2026-08-15T17:30:24+05:00",
+    "image": null,
+    "products_count": 0
+  },
+  {
+    "id": 508252094745,
+    "title": "MTJ",
+    "handle": "mtj",
+    "description": "",
+    "published_at": "2026-02-10T19:32:41+05:00",
+    "updated_at": "2026-08-16T16:03:51+05:00",
+    "image": null,
+    "products_count": 1
+  },
+  {
+    "id": 508459516185,
+    "title": "Nazm",
+    "handle": "hafiz-textile-copy",
+    "description": "",
+    "published_at": "2026-02-16T11:59:20+05:00",
+    "updated_at": "2026-08-15T17:30:25+05:00",
+    "image": null,
+    "products_count": 0
+  },
+  {
+    "id": 263493943377,
+    "title": "New In",
+    "handle": "new-in",
+    "description": "",
+    "published_at": "2021-12-12T14:42:49+05:00",
+    "updated_at": "2026-08-19T14:43:07+05:00",
+    "image": {
+      "id": 1761933721881,
+      "created_at": "2026-05-15T19:27:16+05:00",
+      "src": "https://cdn.shopify.com/s/files/1/0549/6730/4273/collections/5631.jpg?v=1778855236",
+      "alt": null
+    },
+    "products_count": 604
+  },
+  {
+    "id": 506733855001,
+    "title": "Nishat",
+    "handle": "baroque-copy",
+    "description": "",
+    "published_at": "2026-01-14T22:03:02+05:00",
+    "updated_at": "2026-08-15T17:30:21+05:00",
+    "image": null,
+    "products_count": 0
+  },
+  {
+    "id": 508722315545,
+    "title": "Noor Jahan",
+    "handle": "noor-jahan",
+    "description": "",
+    "published_at": "2026-02-23T12:11:57+05:00",
+    "updated_at": "2026-08-15T17:30:25+05:00",
+    "image": null,
+    "products_count": 2
+  },
+  {
+    "id": 512134480153,
+    "title": "Orient Printed 3Pc",
+    "handle": "orient-printed-3pc",
+    "description": "",
+    "published_at": "2026-05-13T15:19:48+05:00",
+    "updated_at": "2026-08-16T16:03:53+05:00",
+    "image": null,
+    "products_count": 1
+  },
+  {
+    "id": 506762658073,
+    "title": "Own Brand",
+    "handle": "own-brand",
+    "description": "",
+    "published_at": "2026-01-15T15:30:19+05:00",
+    "updated_at": "2026-08-19T12:54:30+05:00",
+    "image": null,
+    "products_count": 96
+  },
+  {
+    "id": 506734706969,
+    "title": "Parishay",
+    "handle": "mahnur-copy",
+    "description": "",
+    "published_at": "2026-01-14T22:04:58+05:00",
+    "updated_at": "2026-08-18T14:59:17+05:00",
+    "image": null,
+    "products_count": 2
+  },
+  {
+    "id": 508901622041,
+    "title": "Premium",
+    "handle": "premium",
+    "description": "",
+    "published_at": "2026-02-27T12:08:19+05:00",
+    "updated_at": "2026-08-18T16:05:14+05:00",
+    "image": null,
+    "products_count": 110
+  },
+  {
+    "id": 506733363481,
+    "title": "Prime Point",
+    "handle": "jade-copy",
+    "description": "",
+    "published_at": "2026-01-14T22:06:30+05:00",
+    "updated_at": "2026-08-15T22:05:13+05:00",
+    "image": null,
+    "products_count": 3
+  },
+  {
+    "id": 507484537113,
+    "title": "RajBari",
+    "handle": "dor-signature-copy",
+    "description": "",
+    "published_at": "2026-01-28T12:45:34+05:00",
+    "updated_at": "2026-08-15T17:30:24+05:00",
+    "image": null,
+    "products_count": 0
+  },
+  {
+    "id": 506735722777,
+    "title": "Safa Iman",
+    "handle": "soha-afreen-copy",
+    "description": "",
+    "published_at": "2026-01-14T22:22:19+05:00",
+    "updated_at": "2026-08-18T16:05:14+05:00",
+    "image": null,
+    "products_count": 14
+  },
+  {
+    "id": 505434046745,
+    "title": "SALE",
+    "handle": "new-in-copy",
+    "description": "",
+    "published_at": "2025-12-12T15:34:42+05:00",
+    "updated_at": "2026-08-19T14:43:08+05:00",
+    "image": null,
+    "products_count": 604
+  },
+  {
+    "id": 506734805273,
+    "title": "Sana Safinaz",
+    "handle": "parishay-copy",
+    "description": "",
+    "published_at": "2026-01-14T22:04:39+05:00",
+    "updated_at": "2026-08-15T17:30:21+05:00",
+    "image": null,
+    "products_count": 0
+  },
+  {
+    "id": 507945353497,
+    "title": "Sapphire",
+    "handle": "sapphire-2pc-copy",
+    "description": "",
+    "published_at": "2026-02-05T14:52:20+05:00",
+    "updated_at": "2026-08-19T10:37:53+05:00",
+    "image": null,
+    "products_count": 9
+  },
+  {
+    "id": 507945320729,
+    "title": "Sapphire 2Pc",
+    "handle": "sapphire-3pc-copy",
+    "description": "",
+    "published_at": "2026-02-05T14:52:07+05:00",
+    "updated_at": "2026-08-15T17:30:24+05:00",
+    "image": null,
+    "products_count": 4
+  },
+  {
+    "id": 506793689369,
+    "title": "Sapphire 3Pc",
+    "handle": "sapphire",
+    "description": "",
+    "published_at": "2026-01-16T11:41:02+05:00",
+    "updated_at": "2026-08-15T17:30:22+05:00",
+    "image": null,
+    "products_count": 0
+  },
+  {
+    "id": 510742233369,
+    "title": "Sapphire Dupatta",
+    "handle": "sapphire-dupatta",
+    "description": "",
+    "published_at": "2026-04-08T13:06:00+05:00",
+    "updated_at": "2026-08-15T17:30:26+05:00",
+    "image": null,
+    "products_count": 0
+  },
+  {
+    "id": 507365294361,
+    "title": "Sapphire Plaino Allover 2Pc",
+    "handle": "sapphire-plaino-allover-2pc",
+    "description": "",
+    "published_at": "2026-01-27T16:45:00+05:00",
+    "updated_at": "2026-08-15T17:30:24+05:00",
+    "image": null,
+    "products_count": 0
+  },
+  {
+    "id": 506794082585,
+    "title": "Sapphire Stitched 2Pc",
+    "handle": "sapphire-stitched-2pc",
+    "description": "",
+    "published_at": "2026-01-16T11:55:40+05:00",
+    "updated_at": "2026-08-15T17:30:22+05:00",
+    "image": null,
+    "products_count": 0
+  },
+  {
+    "id": 510742561049,
+    "title": "Sapphire Trouser",
+    "handle": "sapphire-trouser",
+    "description": "",
+    "published_at": "2026-04-08T13:13:59+05:00",
+    "updated_at": "2026-08-19T10:37:53+05:00",
+    "image": null,
+    "products_count": 0
+  },
+  {
+    "id": 506734215449,
+    "title": "Saya",
+    "handle": "agha-noor-copy",
+    "description": "",
+    "published_at": "2026-01-14T22:08:12+05:00",
+    "updated_at": "2026-08-15T17:30:21+05:00",
+    "image": null,
+    "products_count": 0
+  },
+  {
+    "id": 501566636313,
+    "title": "Saya Unstitched Printed 3pc",
+    "handle": "saya-unstitched-printed-3pc",
+    "description": "",
+    "published_at": "2025-09-29T15:50:03+05:00",
+    "updated_at": "2026-08-15T17:30:20+05:00",
+    "image": null,
+    "products_count": 0
+  },
+  {
+    "id": 506735624473,
+    "title": "Soha Afreen",
+    "handle": "hania-minahil-copy",
+    "description": "",
+    "published_at": "2026-01-14T22:21:26+05:00",
+    "updated_at": "2026-08-18T15:26:56+05:00",
+    "image": null,
+    "products_count": 7
+  },
+  {
+    "id": 508144976153,
+    "title": "Stenciller",
+    "handle": "stenciller",
+    "description": "",
+    "published_at": "2026-02-07T16:32:01+05:00",
+    "updated_at": "2026-08-17T16:03:28+05:00",
+    "image": null,
+    "products_count": 17
+  },
+  {
+    "id": 507049443609,
+    "title": "Stitched",
+    "handle": "stitched-2pc",
+    "description": "",
+    "published_at": "2026-01-23T12:21:10+05:00",
+    "updated_at": "2026-08-19T12:56:07+05:00",
+    "image": null,
+    "products_count": 178
+  },
+  {
+    "id": 515700588825,
+    "title": "Stylo Stitched Lawn 3pc",
+    "handle": "stylo-stitched-lawn-3pc",
+    "description": null,
+    "published_at": "2026-08-02T19:02:21+05:00",
+    "updated_at": "2026-08-17T16:03:28+05:00",
+    "image": null,
+    "products_count": 13
+  },
+  {
+    "id": 506733265177,
+    "title": "Suhana",
+    "handle": "wirsa-by-zainab-copy",
+    "description": "",
+    "published_at": "2026-01-14T22:14:54+05:00",
+    "updated_at": "2026-08-15T17:30:21+05:00",
+    "image": null,
+    "products_count": 1
+  },
+  {
+    "id": 506729857305,
+    "title": "Summer Collection 2026",
+    "handle": "summer-collection-2026",
+    "description": "",
+    "published_at": "2026-01-14T19:22:08+05:00",
+    "updated_at": "2026-08-19T14:43:08+05:00",
+    "image": null,
+    "products_count": 604
+  },
+  {
+    "id": 516194828569,
+    "title": "Tawakal Stitched",
+    "handle": "tawakal-stitched",
+    "description": null,
+    "published_at": "2026-08-13T12:13:45+05:00",
+    "updated_at": "2026-08-18T16:05:14+05:00",
+    "image": null,
+    "products_count": 9
+  },
+  {
+    "id": 506734838041,
+    "title": "Thames Fashion",
+    "handle": "sana-safinaz-copy",
+    "description": "",
+    "published_at": "2026-01-14T22:04:32+05:00",
+    "updated_at": "2026-08-15T17:30:22+05:00",
+    "image": null,
+    "products_count": 3
+  },
+  {
+    "id": 506733232409,
+    "title": "Wirsa By Zainab",
+    "handle": "wirsa-by-zainab-1",
+    "description": "",
+    "published_at": "2026-01-14T21:24:54+05:00",
+    "updated_at": "2026-08-19T12:54:29+05:00",
+    "image": null,
+    "products_count": 22
+  },
+  {
+    "id": 493564264729,
+    "title": "Women",
+    "handle": "women",
+    "description": "",
+    "published_at": "2025-03-14T06:09:43+05:00",
+    "updated_at": "2026-08-19T14:43:08+05:00",
+    "image": null,
+    "products_count": 507
+  },
+  {
+    "id": 516208165145,
+    "title": "Zahra Noor Stitched  3pc",
+    "handle": "zohra-noor-stitched-3pc",
+    "description": null,
+    "published_at": "2026-08-13T19:10:58+05:00",
+    "updated_at": "2026-08-18T16:05:14+05:00",
+    "image": null,
+    "products_count": 21
+  },
+  {
+    "id": 504919163161,
+    "title": "Zain Zee Men's",
+    "handle": "zain-zee-mens-winter-unstitched",
+    "description": "",
+    "published_at": "2025-11-29T15:52:28+05:00",
+    "updated_at": "2026-08-18T22:29:22+05:00",
+    "image": null,
+    "products_count": 7
+  },
+  {
+    "id": 507364311321,
+    "title": "Zevk",
+    "handle": "hijab-omer-copy",
+    "description": "",
+    "published_at": "2026-01-27T16:22:30+05:00",
+    "updated_at": "2026-08-15T17:30:23+05:00",
+    "image": null,
+    "products_count": 0
+  }
+]

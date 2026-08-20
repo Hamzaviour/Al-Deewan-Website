@@ -1,0 +1,34 @@
+Nishat 3-Piece Article Naming & SKU Mapping
+==============================================
+
+4 product groups (by timestamp).
+3 variants per group (main, view2, view3).
+All images use same Description.txt content.
+
+SKU format: NL3P-{code}{variant}
+File format: Nishat3Pce-{code}{variant}.jpg
+
+Group A (8.35.39 PM)
+  Old name:                              New filename       SKU
+  WhatsApp Image 2026-08-18 at 8.35.39 PM.jpeg                 Nishat3Pce-A01.jpg   NL3P-A01
+  WhatsApp Image 2026-08-18 at 8.35.39 PM (1).jpeg            Nishat3Pce-A02.jpg   NL3P-A02
+  WhatsApp Image 2026-08-18 at 8.35.39 PM (2).jpeg            Nishat3Pce-A03.jpg   NL3P-A03
+
+Group B (8.35.40 PM)
+  Old name:                              New filename       SKU
+  WhatsApp Image 2026-08-18 at 8.35.40 PM.jpeg                 Nishat3Pce-B01.jpg   NL3P-B01
+  WhatsApp Image 2026-08-18 at 8.35.40 PM (1).jpeg            Nishat3Pce-B02.jpg   NL3P-B02
+  WhatsApp Image 2026-08-18 at 8.35.40 PM (2).jpeg            Nishat3Pce-B03.jpg   NL3P-B03
+
+Group C (8.35.41 PM)
+  Old name:                              New filename       SKU
+  WhatsApp Image 2026-08-18 at 8.35.41 PM.jpeg                 Nishat3Pce-C01.jpg   NL3P-C01
+  WhatsApp Image 2026-08-18 at 8.35.41 PM (1).jpeg            Nishat3Pce-C02.jpg   NL3P-C02
+
+Group D (8.35.42 PM)
+  Old name:                              New filename       SKU
+  WhatsApp Image 2026-08-18 at 8.35.42 PM.jpeg                 Nishat3Pce-D01.jpg   NL3P-D01
+  WhatsApp Image 2026-08-18 at 8.35.42 PM (1).jpeg            Nishat3Pce-D02.jpg   NL3P-D02
+
+Total: 4 articles, 10 images.
+Description applies to all 4 articles (same generic text).
