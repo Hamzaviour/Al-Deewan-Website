@@ -206,13 +206,15 @@
       display: none;
       flex-direction: column;
       min-height: 100vh;
+      width: 100%;
+      overflow-x: hidden;
     }
 
     /* Top Navbar */
     .admin-header {
       background: #ffffff;
       border-bottom: 1px solid var(--admin-border);
-      padding: 14px 24px;
+      padding: 12px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -222,16 +224,28 @@
       box-shadow: var(--shadow-sm);
     }
 
+    .admin-mobile-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--admin-border);
+      border-radius: var(--radius-sm);
+      padding: 6px 8px;
+      cursor: pointer;
+      color: var(--admin-text);
+      align-items: center;
+      justify-content: center;
+    }
+
     .admin-header-brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       text-decoration: none;
       color: inherit;
     }
 
     .admin-header-brand img {
-      height: 38px;
+      height: 36px;
     }
 
     .admin-badge {
@@ -247,11 +261,11 @@
     .admin-header-actions {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
 
     .btn-header {
-      padding: 8px 14px;
+      padding: 8px 12px;
       border-radius: var(--radius-sm);
       font-size: 12px;
       font-weight: 700;
@@ -290,18 +304,63 @@
       background: #ffebee;
     }
 
+    /* Mobile Quick Tabs Strip */
+    .admin-quick-tabs-bar {
+      display: none;
+      background: #ffffff;
+      border-bottom: 1px solid var(--admin-border);
+      padding: 8px 12px;
+      overflow-x: auto;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      gap: 6px;
+    }
+    .admin-quick-tabs-bar::-webkit-scrollbar { display: none; }
+
+    .quick-tab-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 20px;
+      background: #f4f4f7;
+      color: var(--admin-text-muted);
+      border: none;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .quick-tab-pill.active {
+      background: var(--admin-primary);
+      color: #ffffff;
+    }
+
     /* Main Container with Sidebar */
     .admin-main-container {
       display: grid;
-      grid-template-columns: 260px 1fr;
+      grid-template-columns: 260px minmax(0, 1fr);
       flex: 1;
       min-height: calc(100vh - 67px);
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
     }
 
-    @media (max-width: 900px) {
-      .admin-main-container {
-        grid-template-columns: 1fr;
-      }
+    /* Sidebar Drawer Overlay */
+    .admin-sidebar-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(2px);
+      z-index: 998;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .admin-sidebar-overlay.active {
+      display: block;
+      opacity: 1;
     }
 
     /* Sidebar */
@@ -312,6 +371,10 @@
       display: flex;
       flex-direction: column;
       gap: 6px;
+    }
+
+    .admin-sidebar-header-mobile {
+      display: none;
     }
 
     .nav-tab-btn {
@@ -348,11 +411,162 @@
       flex-shrink: 0;
     }
 
+    /* Responsive Mobile Overrides */
+    @media (max-width: 900px) {
+      .admin-main-container {
+        grid-template-columns: minmax(0, 1fr);
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+      .admin-mobile-toggle {
+        display: inline-flex;
+      }
+      .admin-quick-tabs-bar {
+        display: flex;
+      }
+      .admin-sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 290px;
+        max-width: 85vw;
+        background: #ffffff;
+        z-index: 999;
+        box-shadow: 5px 0 25px rgba(0,0,0,0.25);
+        transform: translateX(-100%);
+        transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        overflow-y: auto;
+        padding: 16px;
+      }
+      .admin-sidebar.open {
+        transform: translateX(0);
+      }
+      .admin-sidebar-header-mobile {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 12px;
+        margin-bottom: 8px;
+        border-bottom: 1px solid var(--admin-border);
+      }
+      .admin-sidebar-close {
+        background: transparent;
+        border: none;
+        font-size: 24px;
+        line-height: 1;
+        color: #666;
+        cursor: pointer;
+        padding: 4px 8px;
+      }
+      .admin-badge {
+        display: none;
+      }
+      .admin-content {
+        padding: 16px 12px 60px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box;
+      }
+      .admin-card {
+        padding: 16px 12px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box;
+      }
+      .tab-section {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+      }
+      .metrics-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .metric-card {
+        padding: 14px 12px;
+        gap: 10px;
+      }
+      .metric-icon {
+        width: 36px;
+        height: 36px;
+      }
+      .metric-val {
+        font-size: 18px;
+      }
+      .metric-label {
+        font-size: 11px;
+      }
+      .table-controls {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .search-input {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box;
+      }
+      .filter-controls-group {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+      .filter-select {
+        width: 100% !important;
+        box-sizing: border-box;
+      }
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      .section-header > div {
+        width: 100%;
+      }
+      .section-header button {
+        width: 100%;
+        justify-content: center;
+      }
+      .btn-header-text {
+        display: none;
+      }
+    }
+
     /* Content Area */
     .admin-content {
       padding: 30px;
       max-width: 1300px;
       width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
+    }
+
+    .tab-section {
+      display: none;
+      animation: fadeIn 0.3s ease;
+      width: 100%;
+      min-width: 0;
+    }
+
+    .tab-section.active {
+      display: block;
+    }
+
+    .admin-card {
+      background: #ffffff;
+      border: 1px solid var(--admin-border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 24px;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
     }
 
     @media (max-width: 600px) {
@@ -598,6 +812,19 @@
       gap: 16px;
     }
 
+    .delivery-grid-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 24px;
+    }
+
+    @media (max-width: 900px) {
+      .delivery-grid-layout {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+    }
+
     @media (max-width: 700px) {
       .form-grid { grid-template-columns: 1fr; }
     }
@@ -811,10 +1038,6 @@
         <div id="auth-error-msg" class="auth-error">
           ⚠️ Incorrect Passcode. Please check and try again.
         </div>
-
-        <div class="auth-hint">
-          🔑 Default Passcode: <strong>deewan2026</strong>
-        </div>
       </form>
     </div>
   </div>
@@ -823,30 +1046,57 @@
   <div id="admin-app">
     <!-- Top Header -->
     <header class="admin-header">
-      <div style="display:flex; align-items:center; gap:16px;">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <button id="admin-mobile-menu-btn" class="admin-mobile-toggle" onclick="toggleAdminMobileSidebar()" aria-label="Toggle Admin Navigation">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
         <a href="index.html" class="admin-header-brand">
           <img src="assets/images/al_deewan_header_logo.png" alt="Al-Deewan Logo" />
-          <strong style="font-size:16px; font-weight:900; letter-spacing:0.04em;">AL-DEEWAN BRAND</strong>
+          <strong style="font-size:15px; font-weight:900; letter-spacing:0.04em;">AL-DEEWAN BRAND</strong>
         </a>
         <span class="admin-badge">ADMIN CONTROL PANEL</span>
       </div>
 
       <div class="admin-header-actions">
         <a href="index.html" target="_blank" class="btn-header">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-          <span>View Live Store</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          <span class="btn-header-text">View Live Store</span>
         </a>
         <button onclick="handleAdminLogout()" class="btn-header btn-header-danger">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
-          <span>Logout</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+          <span class="btn-header-text">Logout</span>
         </button>
       </div>
     </header>
 
+    <!-- Mobile Quick Scrollable Tab Bar -->
+    <div class="admin-quick-tabs-bar">
+      <button class="quick-tab-pill active" onclick="switchTab('overview')">📊 Overview</button>
+      <button class="quick-tab-pill" onclick="switchTab('products')">👗 Articles</button>
+      <button class="quick-tab-pill" onclick="switchTab('headings')">🏷️ Headings</button>
+      <button class="quick-tab-pill" onclick="switchTab('navigation')">📂 Dropdowns</button>
+      <button class="quick-tab-pill" onclick="switchTab('banners')">🖼️ Banners</button>
+      <button class="quick-tab-pill" onclick="switchTab('tickers')">📢 Tickers</button>
+      <button class="quick-tab-pill" onclick="switchTab('delivery')">🚚 Delivery</button>
+      <button class="quick-tab-pill" onclick="switchTab('sync')">💾 Backup</button>
+      <button class="quick-tab-pill" onclick="switchTab('security')">🔒 Password</button>
+    </div>
+
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="admin-sidebar-overlay" id="admin-sidebar-overlay" onclick="closeAdminMobileSidebar()"></div>
+
     <!-- Main Workspace -->
     <div class="admin-main-container">
       <!-- Sidebar Navigation -->
-      <aside class="admin-sidebar">
+      <aside class="admin-sidebar" id="admin-sidebar">
+        <div class="admin-sidebar-header-mobile">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <img src="assets/images/al_deewan_header_logo.png" alt="Logo" style="height:28px;" />
+            <span style="font-weight:900; font-size:13px;">ADMIN MENU</span>
+          </div>
+          <button onclick="closeAdminMobileSidebar()" class="admin-sidebar-close" aria-label="Close Sidebar">&times;</button>
+        </div>
+
         <button class="nav-tab-btn active" data-tab="overview">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
           <span>Overview</span>
@@ -971,7 +1221,7 @@
           <div class="admin-card">
             <div class="table-controls">
               <input type="text" id="admin-search-input" class="search-input" placeholder="Search by title, brand, SKU..." oninput="renderAdminProductsTable()" />
-              <div style="display:flex; gap:10px;">
+              <div class="filter-controls-group">
                 <select id="admin-brand-filter" class="filter-select" onchange="renderAdminProductsTable()">
                   <option value="">All Brands</option>
                 </select>
@@ -983,6 +1233,10 @@
                   <option value="Ready to Wear">Ready to Wear</option>
                 </select>
               </div>
+            </div>
+
+            <div style="display:flex; align-items:center; gap:6px; margin-bottom:10px; font-size:11px; color:#888; font-weight:700;">
+              <span>↔️ Scroll table horizontally to view and edit all product columns</span>
             </div>
 
             <div class="admin-table-wrap">
@@ -1231,7 +1485,7 @@
             </button>
           </div>
 
-          <div style="display:grid; grid-template-columns: 1.2fr 1fr; gap:24px;">
+          <div class="delivery-grid-layout">
             <!-- Configuration Card -->
             <div class="admin-card">
               <div class="card-header">
@@ -1549,10 +1803,29 @@
       checkAuth();
     }
 
+    // --- Mobile Sidebar Controls ---
+    function toggleAdminMobileSidebar() {
+      const sidebar = document.getElementById('admin-sidebar');
+      const overlay = document.getElementById('admin-sidebar-overlay');
+      if (sidebar) sidebar.classList.toggle('open');
+      if (overlay) overlay.classList.toggle('active');
+    }
+
+    function closeAdminMobileSidebar() {
+      const sidebar = document.getElementById('admin-sidebar');
+      const overlay = document.getElementById('admin-sidebar-overlay');
+      if (sidebar) sidebar.classList.remove('open');
+      if (overlay) overlay.classList.remove('active');
+    }
+
     // --- Tab Switching ---
     function switchTab(tabId) {
       document.querySelectorAll('.nav-tab-btn').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.tab === tabId);
+      });
+      document.querySelectorAll('.quick-tab-pill').forEach(btn => {
+        const onclickAttr = btn.getAttribute('onclick') || '';
+        btn.classList.toggle('active', onclickAttr.includes(`'${tabId}'`));
       });
       document.querySelectorAll('.tab-section').forEach(sec => {
         sec.classList.toggle('active', sec.id === `tab-${tabId}`);
@@ -1560,6 +1833,8 @@
       if (tabId === 'products') {
         renderAdminProductsTable();
       }
+      closeAdminMobileSidebar();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     document.querySelectorAll('.nav-tab-btn').forEach(btn => {
