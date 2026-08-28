@@ -2,14 +2,13 @@ import os
 import re
 
 footer_badges_html = '''        <div class="payment-methods" style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
-          <!-- Cash on Delivery (COD) Badge -->
-          <span class="payment-badge" title="Cash on Delivery Nationwide" style="display:inline-flex; align-items:center; background:#f4faf6; border:1px solid #ccebd7; border-radius:6px; padding:5px 12px; gap:6px; font-size:11px; font-weight:800; color:#1e7e34;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1e7e34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="6" width="20" height="12" rx="2"></rect>
-              <circle cx="12" cy="12" r="2"></circle>
-              <path d="M6 12h.01M18 12h.01"></path>
+          <!-- Direct Bank Transfer Badge -->
+          <span class="payment-badge" title="Direct Bank Transfer" style="display:inline-flex; align-items:center; background:#f4f6fa; border:1px solid #cce0eb; border-radius:6px; padding:5px 12px; gap:6px; font-size:11px; font-weight:800; color:#1a5276;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a5276" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+              <line x1="2" y1="10" x2="22" y2="10"></line>
             </svg>
-            <span>Cash On Delivery</span>
+            <span>Bank Transfer</span>
           </span>
 
           <!-- WhatsApp Order & Support Badge -->

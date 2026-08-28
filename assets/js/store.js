@@ -131,7 +131,7 @@ const Store = {
       `*Subtotal:* Rs. ${subtotal.toLocaleString('en-PK')}\n` +
       `*Shipping:* ${shipping === 0 ? 'FREE (Nationwide)' : `Rs. ${shipping.toLocaleString('en-PK')}`}\n` +
       `*TOTAL BILL:* Rs. ${total.toLocaleString('en-PK')}\n` +
-      `*Payment:* Cash on Delivery (COD)\n` +
+      `*Payment:* Direct Bank Transfer / Online Payment\n` +
       (orderNote ? `*Special Note:* ${orderNote}\n` : '') +
       `━━━━━━━━━━━━━━━━━━━━\n\n` +
       `Please confirm my order and dispatch details. Thank you!`;
@@ -349,7 +349,7 @@ const Store = {
         image: 'assets/images/welcome_promo_banner.png',
         link: 'collections.html?category=Unstitched'
       },
-      announcementText: '⚡ Biggest Lawn Opening in Pakistan • 100% Genuine Branded Cut Pieces • Cash on Delivery Nationwide ⚡',
+      announcementText: '⚡ Biggest Lawn Opening in Pakistan • 100% Genuine Branded Cut Pieces • Free Delivery on Orders Above Rs. 3,500 ⚡',
       brandTickerText: 'SHOP YOUR FAVORITE BRANDS',
       brandTickerSubtitle: 'Explore 100% genuine cut pieces from top designer fashion houses',
       deliverySettings: {

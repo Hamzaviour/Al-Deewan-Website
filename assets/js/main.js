@@ -517,7 +517,7 @@ const MainUI = {
       `• *Price:* ${price}\n` +
       `• *Quantity:* ${qty}\n` +
       `• *URL:* ${currentUrl}\n\n` +
-      `Please confirm my order via Cash on Delivery (COD). Thank you!`;
+      `Please confirm my order and share payment/dispatch details. Thank you!`;
     const url = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(msg)}`;
     window.open(url, '_blank');
   },

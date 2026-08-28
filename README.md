@@ -1,6 +1,6 @@
 # 🛍️ Al-Deewan Brand - E-Commerce Website
 
-An exact, modern, high-performance Pakistani fashion & lawn e-commerce website built for **Al-Deewan Brand**, featuring full product browsing, faceted filters, real-time slide-out cart and wishlist drawers, predictive search, order tracking, instant WhatsApp order generator, and cash on delivery (COD) checkout.
+An exact, modern, high-performance Pakistani fashion & lawn e-commerce website built for **Al-Deewan Brand**, featuring full product browsing, faceted filters, real-time slide-out cart and wishlist drawers, predictive search, order tracking, instant WhatsApp order generator, and secure direct bank transfer & online checkout.
 
 ---
 
@@ -17,7 +17,7 @@ An exact, modern, high-performance Pakistani fashion & lawn e-commerce website b
   - Floating WhatsApp chat widget on every page linked to **`0333-4275944`**.
 - 🚚 **Shipment Tracking Portal**: Order ID & Tracking Number tracking interface with visual milestone progress timeline.
 - 💳 **Complete Pakistani E-Commerce Checkout**:
-  - Cash on Delivery (COD) & Direct Bank Transfer options.
+  - Direct Bank Transfer & Online Payment options.
   - Pakistani city delivery address selector.
   - Voucher discount engine (`SUMMER10`).
   - Order confirmation receipt with order ID generator.
@@ -31,7 +31,7 @@ An exact, modern, high-performance Pakistani fashion & lawn e-commerce website b
 ├── collections.html            # Catalog Browser with Faceted Filters & Sorting
 ├── product.html                # Product Details Page (Gallery, WhatsApp Order, Stock Status)
 ├── cart.html                   # Dedicated Shopping Bag Page
-├── checkout.html               # Multi-step Checkout Page with COD & City Selector
+├── checkout.html               # Multi-step Checkout Page with Direct Bank Transfer & City Selector
 ├── order-tracking.html         # Shipment Tracking Simulator with Progress Timeline
 ├── thank-you.html              # Order Confirmation Receipt Page
 ├── shop-by-brand.html          # Directory of 50+ Pakistani Brands

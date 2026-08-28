@@ -22,9 +22,13 @@ payment_badges_svg = '''        <div class="payment-methods" style="display:flex
           <span class="payment-badge" title="Shop Pay" style="display:inline-flex; align-items:center;">
             <svg viewBox="0 0 38 24" width="38" height="24" fill="none"><rect width="38" height="24" rx="3" fill="#5A31F4"/><path d="M13.2 15.5C11.5 15.5 10.5 14.4 10.5 13.1C10.5 11.1 12.4 10.7 13.8 10.4C14.8 10.2 15.2 9.9 15.2 9.4C15.2 8.8 14.6 8.4 13.8 8.4C12.8 8.4 12.1 8.8 11.9 9.5H10.6C10.9 8.2 12.1 7.3 13.8 7.3C15.4 7.3 16.6 8.2 16.6 9.6V15.3H15.3V14.4C14.7 15.1 14 15.5 13.2 15.5ZM13.6 14.4C14.5 14.4 15.3 13.7 15.3 12.7V11.3C14.5 11.5 11.9 11.8 11.9 13.1C11.9 13.9 12.6 14.4 13.6 14.4Z" fill="white"/><path d="M19.8 15.3H18.4V7.5H19.8V15.3Z" fill="white"/><path d="M24.7 15.5C23 15.5 21.8 14.2 21.8 12.4C21.8 10.6 23 9.3 24.7 9.3C26.4 9.3 27.6 10.6 27.6 12.4C27.6 14.2 26.4 15.5 24.7 15.5ZM24.7 14.3C25.6 14.3 26.2 13.5 26.2 12.4C26.2 11.3 25.6 10.5 24.7 10.5C23.8 10.5 23.2 11.3 23.2 12.4C23.2 13.5 23.8 14.3 24.7 14.3Z" fill="white"/></svg>
           </span>
-          <!-- COD -->
-          <span class="payment-badge" title="Cash on Delivery" style="display:inline-flex; align-items:center;">
-            <svg viewBox="0 0 38 24" width="38" height="24" fill="none"><rect width="38" height="24" rx="3" fill="#1E7E34"/><text x="19" y="15.5" font-family="sans-serif" font-size="9" font-weight="900" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.08em">COD</text></svg>
+          <!-- Direct Bank Transfer Badge -->
+          <span class="payment-badge" title="Direct Bank Transfer" style="display:inline-flex; align-items:center; background:#f4f6fa; border:1px solid #cce0eb; border-radius:6px; padding:5px 12px; gap:6px; font-size:11px; font-weight:800; color:#1a5276;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a5276" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+              <line x1="2" y1="10" x2="22" y2="10"></line>
+            </svg>
+            <span>Bank Transfer</span>
           </span>
         </div>'''
 
