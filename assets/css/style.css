@@ -54,6 +54,7 @@ html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   min-height: 100%;
+  height: -webkit-fill-available;
   overflow-x: hidden;
   width: 100%;
 }
@@ -66,6 +67,8 @@ body {
   color: var(--color-text);
   background-color: var(--color-white);
   min-height: 100vh;
+  min-height: 100dvh;
+  min-height: -webkit-fill-available;
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
@@ -1397,32 +1400,38 @@ ul, ol {
   top: 0;
   left: 0;
   width: 100vw;
+  width: 100dvw;
   height: 100vh;
+  height: 100dvh;
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(2px);
   z-index: 1000;
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
   transition: var(--transition);
 }
 
 .drawer-overlay.active {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
 }
 
 .slide-drawer {
   position: fixed;
   top: 0;
   right: 0;
-  width: 440px;
-  max-width: 90vw;
+  width: 100%;
+  max-width: 420px;
   height: 100vh;
+  height: 100dvh;
   background: #ffffff;
   z-index: 1001;
   box-shadow: var(--shadow-drawer);
   transform: translateX(100%);
   visibility: hidden;
+  pointer-events: none;
   transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), visibility 0.35s;
   display: flex;
   flex-direction: column;
@@ -1437,6 +1446,7 @@ ul, ol {
 .slide-drawer.active {
   transform: translateX(0);
   visibility: visible;
+  pointer-events: auto;
 }
 
 .drawer-header {
@@ -2279,7 +2289,8 @@ ul, ol {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 60px;
+  height: calc(60px + env(safe-area-inset-bottom, 0px));
+  padding-bottom: env(safe-area-inset-bottom, 0px);
   background: #ffffff;
   border-top: 1px solid var(--color-border);
   z-index: 990;
@@ -2293,10 +2304,13 @@ ul, ol {
     justify-content: space-around;
   }
   body {
-    padding-bottom: 60px !important;
+    padding-bottom: 0 !important;
+  }
+  .site-footer {
+    padding-bottom: calc(75px + env(safe-area-inset-bottom, 0px)) !important;
   }
   .whatsapp-floating-btn {
-    bottom: 75px !important;
+    bottom: calc(72px + env(safe-area-inset-bottom, 0px)) !important;
     right: 16px !important;
   }
 }
@@ -2354,6 +2368,8 @@ ul, ol {
 @media (max-width: 992px) {
   .catalog-layout {
     grid-template-columns: 1fr;
+    padding: 20px 0 30px;
+    gap: 20px;
   }
   .catalog-sidebar {
     display: none; /* Can be toggled on mobile */
@@ -2455,7 +2471,8 @@ ul, ol {
 @media (max-width: 900px) {
   .pdp-layout {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 24px;
+    padding: 20px 0 30px;
   }
 }
 
