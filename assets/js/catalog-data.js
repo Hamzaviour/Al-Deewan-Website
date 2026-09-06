@@ -1,5 +1,382 @@
 window.CATALOG_PRODUCTS = [
   {
+    "id": 8101,
+    "title": "Nishat Home Luxury Printed Cotton King Size Bedsheet Set",
+    "handle": "nishat-home-luxury-printed-cotton-king-size-bedsheet-set",
+    "vendor": "Nishat",
+    "category": "Unstitched",
+    "category_type": "Bedsheet",
+    "season": "All Seasons",
+    "gender": "Women",
+    "fabric": "100% Super Fine Combed Cotton",
+    "price": 2650,
+    "compare_at_price": 3800,
+    "save_amount": 1150,
+    "discount_percent": 30,
+    "available": true,
+    "sku": "NLT-BS26-8101-R",
+    "barcode": "NLT-BS26-8101-R",
+    "image": "assets/images/catalog/bedsheet_nishat_floral.jpg",
+    "hover_image": "assets/images/catalog/bedsheet_nishat_floral.jpg",
+    "images": [
+      "assets/images/catalog/bedsheet_nishat_floral.jpg"
+    ],
+    "featured_image": "assets/images/catalog/bedsheet_nishat_floral.jpg",
+    "tags": [
+      "Bedsheet",
+      "Bedding",
+      "1PC",
+      "Unstitched",
+      "Nishat",
+      "Cotton",
+      "All Seasons"
+    ],
+    "body_html": "<p>100% Original Nishat Home Luxury Bedding Collection. 1 King Size Bedsheet (95 x 100 inches) with 2 Matching Pillow Covers (19 x 29 inches). Ultra soft, durable, and fade-resistant combed cotton.</p>",
+    "created_at": "2026-08-28T10:00:00Z"
+  },
+  {
+    "id": 8102,
+    "title": "Al-Karam Studio Floral Paradise Luxury Percale Cotton Bed Set",
+    "handle": "alkaram-studio-floral-paradise-luxury-percale-cotton-bed-set",
+    "vendor": "Al Karam",
+    "category": "Unstitched",
+    "category_type": "Bedsheet",
+    "season": "All Seasons",
+    "gender": "Women",
+    "fabric": "100% Breathable Percale Cotton",
+    "price": 2890,
+    "compare_at_price": 4200,
+    "save_amount": 1310,
+    "discount_percent": 31,
+    "available": true,
+    "sku": "AK-BS26-8102-R",
+    "barcode": "AK-BS26-8102-R",
+    "image": "assets/images/catalog/bedsheet_alkaram_percale.jpg",
+    "hover_image": "assets/images/catalog/bedsheet_alkaram_percale.jpg",
+    "images": [
+      "assets/images/catalog/bedsheet_alkaram_percale.jpg"
+    ],
+    "featured_image": "assets/images/catalog/bedsheet_alkaram_percale.jpg",
+    "tags": [
+      "Bedsheet",
+      "Bedding",
+      "1PC",
+      "Unstitched",
+      "Al Karam",
+      "Percale",
+      "All Seasons"
+    ],
+    "body_html": "<p>Al-Karam Studio Luxury Home Textiles. Premium 200 Thread Count Percale Cotton King Double Bed Sheet with 2 Pillowcases. Exquisite blooming botanical florals.</p>",
+    "created_at": "2026-08-28T10:00:00Z"
+  },
+  {
+    "id": 8103,
+    "title": "Sapphire Home Luxury Satin Stripe Royal Navy King Bed Set",
+    "handle": "sapphire-home-luxury-satin-stripe-royal-navy-king-bed-set",
+    "vendor": "Sapphire",
+    "category": "Unstitched",
+    "category_type": "Bedsheet",
+    "season": "All Seasons",
+    "gender": "Women",
+    "fabric": "300 TC Satin Stripe Cotton",
+    "price": 3150,
+    "compare_at_price": 4600,
+    "save_amount": 1450,
+    "discount_percent": 32,
+    "available": true,
+    "sku": "SP-BS26-8103-R",
+    "barcode": "SP-BS26-8103-R",
+    "image": "assets/images/catalog/bedsheet_sapphire_satin.jpg",
+    "hover_image": "assets/images/catalog/bedsheet_sapphire_satin.jpg",
+    "images": [
+      "assets/images/catalog/bedsheet_sapphire_satin.jpg"
+    ],
+    "featured_image": "assets/images/catalog/bedsheet_sapphire_satin.jpg",
+    "tags": [
+      "Bedsheet",
+      "Bedding",
+      "1PC",
+      "Unstitched",
+      "Sapphire",
+      "Satin",
+      "All Seasons"
+    ],
+    "body_html": "<p>100% Original Sapphire Home Collection. Royal Navy 300TC Satin Stripe King Bed Sheet with 2 Pillow Shams. Silky smooth hotel-grade touch.</p>",
+    "created_at": "2026-08-28T10:00:00Z"
+  },
+  {
+    "id": 8001,
+    "title": "Sapphire Kids Luxury Festive Embroidered Emerald Green 3PC Gharara Suit",
+    "handle": "sapphire-kids-luxury-festive-embroidered-emerald-green-3pc-gharara-suit",
+    "vendor": "Sapphire",
+    "category": "Kids",
+    "category_type": "Girls Eastern",
+    "season": "All Seasons",
+    "gender": "Kids",
+    "fabric": "Embroidered Raw Silk & Net Dupatta",
+    "price": 3450,
+    "compare_at_price": 4950,
+    "save_amount": 1500,
+    "discount_percent": 30,
+    "available": true,
+    "sku": "SP-KD26-8001-R",
+    "barcode": "SP-KD26-8001-R",
+    "image": "assets/images/catalog/kids_girls_sapphire.jpg",
+    "hover_image": "assets/images/catalog/kids_girls_sapphire.jpg",
+    "images": [
+      "assets/images/catalog/kids_girls_sapphire.jpg"
+    ],
+    "featured_image": "assets/images/catalog/kids_girls_sapphire.jpg",
+    "tags": [
+      "Kids",
+      "Girls Eastern",
+      "Sapphire",
+      "All Seasons",
+      "Festive",
+      "Gharara"
+    ],
+    "body_html": "<p>100% Original Authentic Sapphire Kids Festive Collection. Stitched 3PC luxury emerald green embroidered raw silk shirt with matching flared gharara trousers and net dupatta.</p>",
+    "created_at": "2026-08-25T10:00:00Z"
+  },
+  {
+    "id": 8002,
+    "title": "Al-Karam Kids Boys Luxury Embroidered White Cotton Kurta Shalwar Set",
+    "handle": "alkaram-kids-boys-luxury-embroidered-white-cotton-kurta-shalwar",
+    "vendor": "Al Karam",
+    "category": "Kids",
+    "category_type": "Boys Kurta",
+    "season": "All Seasons",
+    "gender": "Kids",
+    "fabric": "100% Breathable Combed Cotton",
+    "price": 2490,
+    "compare_at_price": 3500,
+    "save_amount": 1010,
+    "discount_percent": 29,
+    "available": true,
+    "sku": "AK-KD26-8002-R",
+    "barcode": "AK-KD26-8002-R",
+    "image": "assets/images/catalog/kids_boys_alkaram.jpg",
+    "hover_image": "assets/images/catalog/kids_boys_alkaram.jpg",
+    "images": [
+      "assets/images/catalog/kids_boys_alkaram.jpg"
+    ],
+    "featured_image": "assets/images/catalog/kids_boys_alkaram.jpg",
+    "tags": [
+      "Kids",
+      "Boys Kurta",
+      "Al Karam",
+      "All Seasons",
+      "Cotton",
+      "Kurta Shalwar"
+    ],
+    "body_html": "<p>100% Original Authentic Al-Karam Kids Boys Kurta Shalwar 2PC set in crisp white combed cotton with intricate neckline embroidery and cuff detailing.</p>",
+    "created_at": "2026-08-25T10:00:00Z"
+  },
+  {
+    "id": 8003,
+    "title": "Ethnic Kids Girls Printed Floral Mustard Lawn Frock & Trouser 2PC with Dupatta",
+    "handle": "ethnic-kids-girls-printed-floral-mustard-lawn-frock-trouser-2pc",
+    "vendor": "Ethnic",
+    "category": "Kids",
+    "category_type": "Girls Eastern",
+    "season": "Summer",
+    "gender": "Kids",
+    "fabric": "Premium Digital Printed Lawn",
+    "price": 2850,
+    "compare_at_price": 4200,
+    "save_amount": 1350,
+    "discount_percent": 32,
+    "available": true,
+    "sku": "ET-KD26-8003-R",
+    "barcode": "ET-KD26-8003-R",
+    "image": "assets/images/catalog/kids_girls_ethnic.jpg",
+    "hover_image": "assets/images/catalog/kids_girls_ethnic.jpg",
+    "images": [
+      "assets/images/catalog/kids_girls_ethnic.jpg"
+    ],
+    "featured_image": "assets/images/catalog/kids_girls_ethnic.jpg",
+    "tags": [
+      "Kids",
+      "Girls Eastern",
+      "Ethnic",
+      "Summer",
+      "Lawn",
+      "Frock"
+    ],
+    "body_html": "<p>100% Original Authentic Ethnic Kids Girls Pret Collection. Vibrant mustard yellow floral printed lawn stitched frock with straight trousers and matching printed dupatta.</p>",
+    "created_at": "2026-08-25T10:00:00Z"
+  },
+  {
+    "id": 8004,
+    "title": "Sapphire Kids Boys Royal Navy Embroidered Kurta with Trousers",
+    "handle": "sapphire-kids-boys-royal-navy-embroidered-kurta-trouser",
+    "vendor": "Sapphire",
+    "category": "Kids",
+    "category_type": "Boys Kurta",
+    "season": "All Seasons",
+    "gender": "Kids",
+    "fabric": "Rich Poly-Cotton Blend",
+    "price": 2650,
+    "compare_at_price": 3850,
+    "save_amount": 1200,
+    "discount_percent": 31,
+    "available": true,
+    "sku": "SP-KD26-8004-R",
+    "barcode": "SP-KD26-8004-R",
+    "image": "assets/images/catalog/kids_boys_sapphire.jpg",
+    "hover_image": "assets/images/catalog/kids_boys_sapphire.jpg",
+    "images": [
+      "assets/images/catalog/kids_boys_sapphire.jpg"
+    ],
+    "featured_image": "assets/images/catalog/kids_boys_sapphire.jpg",
+    "tags": [
+      "Kids",
+      "Boys Kurta",
+      "Sapphire",
+      "All Seasons",
+      "Kurta",
+      "Navy"
+    ],
+    "body_html": "<p>100% Original Authentic Sapphire Kids Boys Stitched Kurta Suit in opulent royal navy blue with gold neck embroidery and coordinating slim-fit trousers.</p>",
+    "created_at": "2026-08-25T10:00:00Z"
+  },
+  {
+    "id": 7001,
+    "title": "Baroque Luxury Winter Velvet Embroidered 3PC Suit with Pashmina Shawl (Emerald)",
+    "handle": "baroque-luxury-winter-velvet-embroidered-3pc-pashmina-shawl-emerald",
+    "vendor": "Baroque",
+    "category": "Unstitched",
+    "category_type": "3PC",
+    "season": "Winter",
+    "gender": "Women",
+    "fabric": "Heavy Micro Velvet & Kashmiri Pashmina Shawl",
+    "price": 7850,
+    "compare_at_price": 11500,
+    "save_amount": 3650,
+    "discount_percent": 32,
+    "available": true,
+    "sku": "BQ-W26-7001-R",
+    "barcode": "BQ-W26-7001-R",
+    "image": "assets/images/catalog/winter_baroque.jpg",
+    "hover_image": "assets/images/catalog/winter_baroque.jpg",
+    "images": [
+      "assets/images/catalog/winter_baroque.jpg"
+    ],
+    "featured_image": "assets/images/catalog/winter_baroque.jpg",
+    "tags": [
+      "3PC",
+      "Unstitched",
+      "Baroque",
+      "Winter",
+      "Velvet",
+      "Women"
+    ],
+    "body_html": "<p>100% Original Authentic Baroque Winter Luxury Micro Velvet Embroidered 3PC Suit with opulent Kashmiri Pashmina Shawl.</p>",
+    "created_at": "2026-08-21T10:00:00Z"
+  },
+  {
+    "id": 7002,
+    "title": "Asim Jofa Luxury Winter Heavy Khaddar Embroidered 3PC Suit with Wool Shawl (Maroon)",
+    "handle": "asim-jofa-luxury-winter-khaddar-embroidered-3pc-wool-shawl-maroon",
+    "vendor": "Asim Jofa",
+    "category": "Unstitched",
+    "category_type": "3PC",
+    "season": "Winter",
+    "gender": "Women",
+    "fabric": "Premium Slub Khaddar & Warm Woolen Shawl",
+    "price": 5490,
+    "compare_at_price": 8950,
+    "save_amount": 3460,
+    "discount_percent": 39,
+    "available": true,
+    "sku": "AJ-W26-7002-R",
+    "barcode": "AJ-W26-7002-R",
+    "image": "assets/images/catalog/winter_asim_jofa.jpg",
+    "hover_image": "assets/images/catalog/winter_asim_jofa.jpg",
+    "images": [
+      "assets/images/catalog/winter_asim_jofa.jpg"
+    ],
+    "featured_image": "assets/images/catalog/winter_asim_jofa.jpg",
+    "tags": [
+      "3PC",
+      "Unstitched",
+      "Asim Jofa",
+      "Winter",
+      "Khaddar",
+      "Women"
+    ],
+    "body_html": "<p>100% Original Authentic Asim Jofa Luxury Winter Heavy Embroidered Slub Khaddar Suit with warm floral wool shawl.</p>",
+    "created_at": "2026-08-21T10:00:00Z"
+  },
+  {
+    "id": 7003,
+    "title": "Sapphire Luxury Winter Woven Karandi Embroidered 3PC Suit with Wool Shawl (Royal Navy)",
+    "handle": "sapphire-luxury-winter-woven-karandi-embroidered-3pc-navy",
+    "vendor": "Sapphire",
+    "category": "Unstitched",
+    "category_type": "3PC",
+    "season": "Winter",
+    "gender": "Women",
+    "fabric": "Woven Karandi & Rich Jacquard Wool Shawl",
+    "price": 6250,
+    "compare_at_price": 9450,
+    "save_amount": 3200,
+    "discount_percent": 34,
+    "available": true,
+    "sku": "SP-W26-7003-R",
+    "barcode": "SP-W26-7003-R",
+    "image": "assets/images/catalog/winter_sapphire.jpg",
+    "hover_image": "assets/images/catalog/winter_sapphire.jpg",
+    "images": [
+      "assets/images/catalog/winter_sapphire.jpg"
+    ],
+    "featured_image": "assets/images/catalog/winter_sapphire.jpg",
+    "tags": [
+      "3PC",
+      "Unstitched",
+      "Sapphire",
+      "Winter",
+      "Karandi",
+      "Women"
+    ],
+    "body_html": "<p>100% Original Authentic Sapphire Luxury Winter Woven Karandi Embroidered 3-Piece Suit with pure wool shawl.</p>",
+    "created_at": "2026-08-21T10:00:00Z"
+  },
+  {
+    "id": 7004,
+    "title": "Maria.B Luxury Winter Embroidered Linen 3PC Suit with Velvet Wool Shawl (Plum)",
+    "handle": "mariab-luxury-winter-embroidered-linen-3pc-velvet-shawl-plum",
+    "vendor": "Maria B",
+    "category": "Unstitched",
+    "category_type": "3PC",
+    "season": "Winter",
+    "gender": "Women",
+    "fabric": "Winter Linen Fabric & Heavy Velvet Embroidered Shawl",
+    "price": 6950,
+    "compare_at_price": 10500,
+    "save_amount": 3550,
+    "discount_percent": 34,
+    "available": true,
+    "sku": "MB-W26-7004-R",
+    "barcode": "MB-W26-7004-R",
+    "image": "assets/images/catalog/winter_mariab.jpg",
+    "hover_image": "assets/images/catalog/winter_mariab.jpg",
+    "images": [
+      "assets/images/catalog/winter_mariab.jpg"
+    ],
+    "featured_image": "assets/images/catalog/winter_mariab.jpg",
+    "tags": [
+      "3PC",
+      "Unstitched",
+      "Maria B",
+      "Winter",
+      "Linen",
+      "Women"
+    ],
+    "body_html": "<p>100% Original Authentic Maria.B Luxury Winter Embroidered Linen 3-Piece Suit with embroidered velvet wool shawl.</p>",
+    "created_at": "2026-08-21T10:00:00Z"
+  },
+  {
     "id": 8001,
     "title": "Nishat Linen 3PC Luxury Digital Printed Lawn Suit (Black & Floral)",
     "handle": "nishat-linen-3pc-luxury-digital-printed-lawn-black-floral",
@@ -16,19 +393,21 @@ window.CATALOG_PRODUCTS = [
     "image": "assets/images/catalog/nishat-3pc-42206126-r-main.jpg",
     "hover_image": "assets/images/catalog/nishat-3pc-42206126-r-view2.jpg",
     "images": [
-      "assets/images/catalog/nishat-3pc-42206126-r-main.jpg"
+      "assets/images/catalog/nishat-3pc-42206126-r-main.jpg",
+      "assets/images/catalog/nishat-3pc-42206126-r-view2.jpg"
     ],
     "tags": [
       "3PC",
       "Unstitched",
       "Nishat Linen",
-      "Luxury Lawn",
-      "Summer 2026",
-      "Al-Deewan"
+      "Summer",
+      "Women"
     ],
     "body_html": "\n    <p>Experience the pinnacle of elegance with this 100% authentic Nishat Linen 3-piece unstitched suit.</p>\n    <ul>\n      <li><strong>Brand:</strong> Nishat Linen (100% Original Authentic)</li>\n      <li><strong>Suit Type:</strong> Unstitched 3-Piece (Shirt, Dupatta & Trouser)</li>\n      <li><strong>Shirt Cutting:</strong> 3.0 Meters (Extra length for custom styling)</li>\n      <li><strong>Dupatta Cutting:</strong> 2.5 Meters (Full-length soft drape)</li>\n      <li><strong>Trouser Cutting:</strong> 2.5 Meters (Cambric / Cotton)</li>\n      <li><strong>Fabric Quality:</strong> Premium breathable lawn with color fastness guarantee</li>\n      <li><strong>Care:</strong> Machine wash cold, gentle cycle, iron medium</li>\n    </ul>\n    ",
     "created_at": "2026-08-19T10:00:00Z",
-    "featured_image": "assets/images/catalog/nishat-3pc-42206126-r-main.jpg"
+    "featured_image": "assets/images/catalog/nishat-3pc-42206126-r-main.jpg",
+    "gender": "Women",
+    "season": "Summer"
   },
   {
     "id": 8002,
@@ -47,19 +426,21 @@ window.CATALOG_PRODUCTS = [
     "image": "assets/images/catalog/nishat-3pc-42303181-r-main.jpg",
     "hover_image": "assets/images/catalog/nishat-3pc-42303181-r-view2.jpg",
     "images": [
-      "assets/images/catalog/nishat-3pc-42303181-r-main.jpg"
+      "assets/images/catalog/nishat-3pc-42303181-r-main.jpg",
+      "assets/images/catalog/nishat-3pc-42303181-r-view2.jpg"
     ],
     "tags": [
       "3PC",
       "Unstitched",
       "Nishat Linen",
-      "Luxury Lawn",
-      "Summer 2026",
-      "Al-Deewan"
+      "Summer",
+      "Women"
     ],
     "body_html": "\n    <p>Experience the pinnacle of elegance with this 100% authentic Nishat Linen 3-piece unstitched suit.</p>\n    <ul>\n      <li><strong>Brand:</strong> Nishat Linen (100% Original Authentic)</li>\n      <li><strong>Suit Type:</strong> Unstitched 3-Piece (Shirt, Dupatta & Trouser)</li>\n      <li><strong>Shirt Cutting:</strong> 3.0 Meters (Extra length for custom styling)</li>\n      <li><strong>Dupatta Cutting:</strong> 2.5 Meters (Full-length soft drape)</li>\n      <li><strong>Trouser Cutting:</strong> 2.5 Meters (Cambric / Cotton)</li>\n      <li><strong>Fabric Quality:</strong> Premium breathable lawn with color fastness guarantee</li>\n      <li><strong>Care:</strong> Machine wash cold, gentle cycle, iron medium</li>\n    </ul>\n    ",
     "created_at": "2026-08-19T10:00:00Z",
-    "featured_image": "assets/images/catalog/nishat-3pc-42303181-r-main.jpg"
+    "featured_image": "assets/images/catalog/nishat-3pc-42303181-r-main.jpg",
+    "gender": "Women",
+    "season": "Summer"
   },
   {
     "id": 8003,
@@ -78,19 +459,21 @@ window.CATALOG_PRODUCTS = [
     "image": "assets/images/catalog/nishat-3pc-42303202-r-main.jpg",
     "hover_image": "assets/images/catalog/nishat-3pc-42303202-r-view2.jpg",
     "images": [
-      "assets/images/catalog/nishat-3pc-42303202-r-main.jpg"
+      "assets/images/catalog/nishat-3pc-42303202-r-main.jpg",
+      "assets/images/catalog/nishat-3pc-42303202-r-view2.jpg"
     ],
     "tags": [
       "3PC",
       "Unstitched",
       "Nishat Linen",
-      "Luxury Lawn",
-      "Summer 2026",
-      "Al-Deewan"
+      "Summer",
+      "Women"
     ],
     "body_html": "\n    <p>Experience the pinnacle of elegance with this 100% authentic Nishat Linen 3-piece unstitched suit.</p>\n    <ul>\n      <li><strong>Brand:</strong> Nishat Linen (100% Original Authentic)</li>\n      <li><strong>Suit Type:</strong> Unstitched 3-Piece (Shirt, Dupatta & Trouser)</li>\n      <li><strong>Shirt Cutting:</strong> 3.0 Meters (Extra length for custom styling)</li>\n      <li><strong>Dupatta Cutting:</strong> 2.5 Meters (Full-length soft drape)</li>\n      <li><strong>Trouser Cutting:</strong> 2.5 Meters (Cambric / Cotton)</li>\n      <li><strong>Fabric Quality:</strong> Premium breathable lawn with color fastness guarantee</li>\n      <li><strong>Care:</strong> Machine wash cold, gentle cycle, iron medium</li>\n    </ul>\n    ",
     "created_at": "2026-08-19T10:00:00Z",
-    "featured_image": "assets/images/catalog/nishat-3pc-42303202-r-main.jpg"
+    "featured_image": "assets/images/catalog/nishat-3pc-42303202-r-main.jpg",
+    "gender": "Women",
+    "season": "Summer"
   },
   {
     "id": 8004,
@@ -109,19 +492,21 @@ window.CATALOG_PRODUCTS = [
     "image": "assets/images/catalog/nishat-3pc-42303186-r-main.jpg",
     "hover_image": "assets/images/catalog/nishat-3pc-42303186-r-view2.jpg",
     "images": [
-      "assets/images/catalog/nishat-3pc-42303186-r-main.jpg"
+      "assets/images/catalog/nishat-3pc-42303186-r-main.jpg",
+      "assets/images/catalog/nishat-3pc-42303186-r-view2.jpg"
     ],
     "tags": [
       "3PC",
       "Unstitched",
       "Nishat Linen",
-      "Luxury Lawn",
-      "Summer 2026",
-      "Al-Deewan"
+      "Summer",
+      "Women"
     ],
     "body_html": "\n    <p>Experience the pinnacle of elegance with this 100% authentic Nishat Linen 3-piece unstitched suit.</p>\n    <ul>\n      <li><strong>Brand:</strong> Nishat Linen (100% Original Authentic)</li>\n      <li><strong>Suit Type:</strong> Unstitched 3-Piece (Shirt, Dupatta & Trouser)</li>\n      <li><strong>Shirt Cutting:</strong> 3.0 Meters (Extra length for custom styling)</li>\n      <li><strong>Dupatta Cutting:</strong> 2.5 Meters (Full-length soft drape)</li>\n      <li><strong>Trouser Cutting:</strong> 2.5 Meters (Cambric / Cotton)</li>\n      <li><strong>Fabric Quality:</strong> Premium breathable lawn with color fastness guarantee</li>\n      <li><strong>Care:</strong> Machine wash cold, gentle cycle, iron medium</li>\n    </ul>\n    ",
     "created_at": "2026-08-19T10:00:00Z",
-    "featured_image": "assets/images/catalog/nishat-3pc-42303186-r-main.jpg"
+    "featured_image": "assets/images/catalog/nishat-3pc-42303186-r-main.jpg",
+    "gender": "Women",
+    "season": "Summer"
   },
   {
     "id": 8005,
@@ -146,13 +531,14 @@ window.CATALOG_PRODUCTS = [
       "2PC",
       "Unstitched",
       "Ethnic",
-      "Raw Silk",
-      "Co-ord Set",
-      "Al-Deewan"
+      "Summer",
+      "Women"
     ],
     "body_html": "\n    <p>Premium 100% authentic Ethnic 2-piece unstitched matching suit ensemble.</p>\n    <ul>\n      <li><strong>Brand:</strong> Ethnic by Outfitters (100% Guaranteed Authentic)</li>\n      <li><strong>Suit Type:</strong> Unstitched 2-Piece Matching Co-ord Set (Top & Bottom)</li>\n      <li><strong>Fabric:</strong> Premium Printed Raw Silk</li>\n      <li><strong>Cutting Length:</strong> 3.5 Yards (Generous length for tailored long shirts and trousers)</li>\n      <li><strong>Print:</strong> HD All-Over Digital Print</li>\n      <li><strong>Care:</strong> Gentle hand wash or dry clean recommended; iron low heat on reverse</li>\n    </ul>\n    ",
     "created_at": "2026-08-19T10:00:00Z",
-    "featured_image": "assets/images/catalog/ETH-2PC-001_Pink-Green-Vertical-Stripes.jpg"
+    "featured_image": "assets/images/catalog/ETH-2PC-001_Pink-Green-Vertical-Stripes.jpg",
+    "gender": "Women",
+    "season": "Summer"
   },
   {
     "id": 8006,
@@ -177,13 +563,14 @@ window.CATALOG_PRODUCTS = [
       "2PC",
       "Unstitched",
       "Ethnic",
-      "Raw Silk",
-      "Co-ord Set",
-      "Al-Deewan"
+      "Summer",
+      "Women"
     ],
     "body_html": "\n    <p>Premium 100% authentic Ethnic 2-piece unstitched matching suit ensemble.</p>\n    <ul>\n      <li><strong>Brand:</strong> Ethnic by Outfitters (100% Guaranteed Authentic)</li>\n      <li><strong>Suit Type:</strong> Unstitched 2-Piece Matching Co-ord Set (Top & Bottom)</li>\n      <li><strong>Fabric:</strong> Premium Printed Raw Silk</li>\n      <li><strong>Cutting Length:</strong> 3.5 Yards (Generous length for tailored long shirts and trousers)</li>\n      <li><strong>Print:</strong> HD All-Over Digital Print</li>\n      <li><strong>Care:</strong> Gentle hand wash or dry clean recommended; iron low heat on reverse</li>\n    </ul>\n    ",
     "created_at": "2026-08-19T10:00:00Z",
-    "featured_image": "assets/images/catalog/ETH-2PC-002_Magenta-Horizontal-Stripes.jpg"
+    "featured_image": "assets/images/catalog/ETH-2PC-002_Magenta-Horizontal-Stripes.jpg",
+    "gender": "Women",
+    "season": "Summer"
   },
   {
     "id": 8007,
@@ -208,13 +595,14 @@ window.CATALOG_PRODUCTS = [
       "2PC",
       "Unstitched",
       "Ethnic",
-      "Raw Silk",
-      "Co-ord Set",
-      "Al-Deewan"
+      "Summer",
+      "Women"
     ],
     "body_html": "\n    <p>Premium 100% authentic Ethnic 2-piece unstitched matching suit ensemble.</p>\n    <ul>\n      <li><strong>Brand:</strong> Ethnic by Outfitters (100% Guaranteed Authentic)</li>\n      <li><strong>Suit Type:</strong> Unstitched 2-Piece Matching Co-ord Set (Top & Bottom)</li>\n      <li><strong>Fabric:</strong> Premium Printed Raw Silk</li>\n      <li><strong>Cutting Length:</strong> 3.5 Yards (Generous length for tailored long shirts and trousers)</li>\n      <li><strong>Print:</strong> HD All-Over Digital Print</li>\n      <li><strong>Care:</strong> Gentle hand wash or dry clean recommended; iron low heat on reverse</li>\n    </ul>\n    ",
     "created_at": "2026-08-19T10:00:00Z",
-    "featured_image": "assets/images/catalog/ETH-2PC-003_Yellow-Pink-Polka-Dots.jpg"
+    "featured_image": "assets/images/catalog/ETH-2PC-003_Yellow-Pink-Polka-Dots.jpg",
+    "gender": "Women",
+    "season": "Summer"
   },
   {
     "id": 8008,
@@ -239,13 +627,14 @@ window.CATALOG_PRODUCTS = [
       "2PC",
       "Unstitched",
       "Ethnic",
-      "Raw Silk",
-      "Co-ord Set",
-      "Al-Deewan"
+      "Summer",
+      "Women"
     ],
     "body_html": "\n    <p>Premium 100% authentic Ethnic 2-piece unstitched matching suit ensemble.</p>\n    <ul>\n      <li><strong>Brand:</strong> Ethnic by Outfitters (100% Guaranteed Authentic)</li>\n      <li><strong>Suit Type:</strong> Unstitched 2-Piece Matching Co-ord Set (Top & Bottom)</li>\n      <li><strong>Fabric:</strong> Premium Printed Raw Silk</li>\n      <li><strong>Cutting Length:</strong> 3.5 Yards (Generous length for tailored long shirts and trousers)</li>\n      <li><strong>Print:</strong> HD All-Over Digital Print</li>\n      <li><strong>Care:</strong> Gentle hand wash or dry clean recommended; iron low heat on reverse</li>\n    </ul>\n    ",
     "created_at": "2026-08-19T10:00:00Z",
-    "featured_image": "assets/images/catalog/ETH-2PC-004_Sage-White-Floral-Lineart.jpg"
+    "featured_image": "assets/images/catalog/ETH-2PC-004_Sage-White-Floral-Lineart.jpg",
+    "gender": "Women",
+    "season": "Summer"
   },
   {
     "id": 8009,
@@ -270,13 +659,14 @@ window.CATALOG_PRODUCTS = [
       "2PC",
       "Unstitched",
       "Ethnic",
-      "Raw Silk",
-      "Co-ord Set",
-      "Al-Deewan"
+      "Summer",
+      "Women"
     ],
     "body_html": "\n    <p>Premium 100% authentic Ethnic 2-piece unstitched matching suit ensemble.</p>\n    <ul>\n      <li><strong>Brand:</strong> Ethnic by Outfitters (100% Guaranteed Authentic)</li>\n      <li><strong>Suit Type:</strong> Unstitched 2-Piece Matching Co-ord Set (Top & Bottom)</li>\n      <li><strong>Fabric:</strong> Premium Printed Raw Silk</li>\n      <li><strong>Cutting Length:</strong> 3.5 Yards (Generous length for tailored long shirts and trousers)</li>\n      <li><strong>Print:</strong> HD All-Over Digital Print</li>\n      <li><strong>Care:</strong> Gentle hand wash or dry clean recommended; iron low heat on reverse</li>\n    </ul>\n    ",
     "created_at": "2026-08-19T10:00:00Z",
-    "featured_image": "assets/images/catalog/ETH-2PC-005_Rose-Patchwork-Blocks.jpg"
+    "featured_image": "assets/images/catalog/ETH-2PC-005_Rose-Patchwork-Blocks.jpg",
+    "gender": "Women",
+    "season": "Summer"
   },
   {
     "id": 8010,
@@ -301,13 +691,14 @@ window.CATALOG_PRODUCTS = [
       "2PC",
       "Unstitched",
       "Ethnic",
-      "Raw Silk",
-      "Co-ord Set",
-      "Al-Deewan"
+      "Summer",
+      "Women"
     ],
     "body_html": "\n    <p>Premium 100% authentic Ethnic 2-piece unstitched matching suit ensemble.</p>\n    <ul>\n      <li><strong>Brand:</strong> Ethnic by Outfitters (100% Guaranteed Authentic)</li>\n      <li><strong>Suit Type:</strong> Unstitched 2-Piece Matching Co-ord Set (Top & Bottom)</li>\n      <li><strong>Fabric:</strong> Premium Printed Raw Silk</li>\n      <li><strong>Cutting Length:</strong> 3.5 Yards (Generous length for tailored long shirts and trousers)</li>\n      <li><strong>Print:</strong> HD All-Over Digital Print</li>\n      <li><strong>Care:</strong> Gentle hand wash or dry clean recommended; iron low heat on reverse</li>\n    </ul>\n    ",
     "created_at": "2026-08-19T10:00:00Z",
-    "featured_image": "assets/images/catalog/ETH-2PC-006_Purple-White-Large-Dots.jpg"
+    "featured_image": "assets/images/catalog/ETH-2PC-006_Purple-White-Large-Dots.jpg",
+    "gender": "Women",
+    "season": "Summer"
   },
   {
     "id": 8011,
@@ -332,13 +723,14 @@ window.CATALOG_PRODUCTS = [
       "2PC",
       "Unstitched",
       "Ethnic",
-      "Raw Silk",
-      "Co-ord Set",
-      "Al-Deewan"
+      "Summer",
+      "Women"
     ],
     "body_html": "\n    <p>Premium 100% authentic Ethnic 2-piece unstitched matching suit ensemble.</p>\n    <ul>\n      <li><strong>Brand:</strong> Ethnic by Outfitters (100% Guaranteed Authentic)</li>\n      <li><strong>Suit Type:</strong> Unstitched 2-Piece Matching Co-ord Set (Top & Bottom)</li>\n      <li><strong>Fabric:</strong> Premium Printed Raw Silk</li>\n      <li><strong>Cutting Length:</strong> 3.5 Yards (Generous length for tailored long shirts and trousers)</li>\n      <li><strong>Print:</strong> HD All-Over Digital Print</li>\n      <li><strong>Care:</strong> Gentle hand wash or dry clean recommended; iron low heat on reverse</li>\n    </ul>\n    ",
     "created_at": "2026-08-19T10:00:00Z",
-    "featured_image": "assets/images/catalog/ETH-2PC-007_White-Blue-Floral-Sprigs.jpg"
+    "featured_image": "assets/images/catalog/ETH-2PC-007_White-Blue-Floral-Sprigs.jpg",
+    "gender": "Women",
+    "season": "Summer"
   },
   {
     "id": 8012,
@@ -363,13 +755,14 @@ window.CATALOG_PRODUCTS = [
       "2PC",
       "Unstitched",
       "Ethnic",
-      "Raw Silk",
-      "Co-ord Set",
-      "Al-Deewan"
+      "Summer",
+      "Women"
     ],
     "body_html": "\n    <p>Premium 100% authentic Ethnic 2-piece unstitched matching suit ensemble.</p>\n    <ul>\n      <li><strong>Brand:</strong> Ethnic by Outfitters (100% Guaranteed Authentic)</li>\n      <li><strong>Suit Type:</strong> Unstitched 2-Piece Matching Co-ord Set (Top & Bottom)</li>\n      <li><strong>Fabric:</strong> Premium Printed Raw Silk</li>\n      <li><strong>Cutting Length:</strong> 3.5 Yards (Generous length for tailored long shirts and trousers)</li>\n      <li><strong>Print:</strong> HD All-Over Digital Print</li>\n      <li><strong>Care:</strong> Gentle hand wash or dry clean recommended; iron low heat on reverse</li>\n    </ul>\n    ",
     "created_at": "2026-08-19T10:00:00Z",
-    "featured_image": "assets/images/catalog/ETH-2PC-008_Cream-Multicolor-Medallion.jpg"
+    "featured_image": "assets/images/catalog/ETH-2PC-008_Cream-Multicolor-Medallion.jpg",
+    "gender": "Women",
+    "season": "Summer"
   },
   {
     "id": 8013,
@@ -394,13 +787,14 @@ window.CATALOG_PRODUCTS = [
       "2PC",
       "Unstitched",
       "Ethnic",
-      "Raw Silk",
-      "Co-ord Set",
-      "Al-Deewan"
+      "Summer",
+      "Women"
     ],
     "body_html": "\n    <p>Premium 100% authentic Ethnic 2-piece unstitched matching suit ensemble.</p>\n    <ul>\n      <li><strong>Brand:</strong> Ethnic by Outfitters (100% Guaranteed Authentic)</li>\n      <li><strong>Suit Type:</strong> Unstitched 2-Piece Matching Co-ord Set (Top & Bottom)</li>\n      <li><strong>Fabric:</strong> Premium Printed Raw Silk</li>\n      <li><strong>Cutting Length:</strong> 3.5 Yards (Generous length for tailored long shirts and trousers)</li>\n      <li><strong>Print:</strong> HD All-Over Digital Print</li>\n      <li><strong>Care:</strong> Gentle hand wash or dry clean recommended; iron low heat on reverse</li>\n    </ul>\n    ",
     "created_at": "2026-08-19T10:00:00Z",
-    "featured_image": "assets/images/catalog/ETH-2PC-009_SkyBlue-White-Dotted-Floral.jpg"
+    "featured_image": "assets/images/catalog/ETH-2PC-009_SkyBlue-White-Dotted-Floral.jpg",
+    "gender": "Women",
+    "season": "Summer"
   },
   {
     "id": 8014,
@@ -425,13 +819,14 @@ window.CATALOG_PRODUCTS = [
       "2PC",
       "Unstitched",
       "Ethnic",
-      "Raw Silk",
-      "Co-ord Set",
-      "Al-Deewan"
+      "Summer",
+      "Women"
     ],
     "body_html": "\n    <p>Premium 100% authentic Ethnic 2-piece unstitched matching suit ensemble.</p>\n    <ul>\n      <li><strong>Brand:</strong> Ethnic by Outfitters (100% Guaranteed Authentic)</li>\n      <li><strong>Suit Type:</strong> Unstitched 2-Piece Matching Co-ord Set (Top & Bottom)</li>\n      <li><strong>Fabric:</strong> Premium Printed Raw Silk</li>\n      <li><strong>Cutting Length:</strong> 3.5 Yards (Generous length for tailored long shirts and trousers)</li>\n      <li><strong>Print:</strong> HD All-Over Digital Print</li>\n      <li><strong>Care:</strong> Gentle hand wash or dry clean recommended; iron low heat on reverse</li>\n    </ul>\n    ",
     "created_at": "2026-08-19T10:00:00Z",
-    "featured_image": "assets/images/catalog/ETH-2PC-010_Green-Pink-Diagonal-Stripes.jpg"
+    "featured_image": "assets/images/catalog/ETH-2PC-010_Green-Pink-Diagonal-Stripes.jpg",
+    "gender": "Women",
+    "season": "Summer"
   },
   {
     "id": 8015,
@@ -456,13 +851,14 @@ window.CATALOG_PRODUCTS = [
       "2PC",
       "Unstitched",
       "Ethnic",
-      "Raw Silk",
-      "Co-ord Set",
-      "Al-Deewan"
+      "Summer",
+      "Women"
     ],
     "body_html": "\n    <p>Premium 100% authentic Ethnic 2-piece unstitched matching suit ensemble.</p>\n    <ul>\n      <li><strong>Brand:</strong> Ethnic by Outfitters (100% Guaranteed Authentic)</li>\n      <li><strong>Suit Type:</strong> Unstitched 2-Piece Matching Co-ord Set (Top & Bottom)</li>\n      <li><strong>Fabric:</strong> Premium Printed Raw Silk</li>\n      <li><strong>Cutting Length:</strong> 3.5 Yards (Generous length for tailored long shirts and trousers)</li>\n      <li><strong>Print:</strong> HD All-Over Digital Print</li>\n      <li><strong>Care:</strong> Gentle hand wash or dry clean recommended; iron low heat on reverse</li>\n    </ul>\n    ",
     "created_at": "2026-08-19T10:00:00Z",
-    "featured_image": "assets/images/catalog/ETH-2PC-011_Peach-Rose-Cluster.jpg"
+    "featured_image": "assets/images/catalog/ETH-2PC-011_Peach-Rose-Cluster.jpg",
+    "gender": "Women",
+    "season": "Summer"
   },
   {
     "id": 8016,
@@ -487,13 +883,14 @@ window.CATALOG_PRODUCTS = [
       "2PC",
       "Unstitched",
       "Ethnic",
-      "Raw Silk",
-      "Co-ord Set",
-      "Al-Deewan"
+      "Summer",
+      "Women"
     ],
     "body_html": "\n    <p>Premium 100% authentic Ethnic 2-piece unstitched matching suit ensemble.</p>\n    <ul>\n      <li><strong>Brand:</strong> Ethnic by Outfitters (100% Guaranteed Authentic)</li>\n      <li><strong>Suit Type:</strong> Unstitched 2-Piece Matching Co-ord Set (Top & Bottom)</li>\n      <li><strong>Fabric:</strong> Premium Printed Raw Silk</li>\n      <li><strong>Cutting Length:</strong> 3.5 Yards (Generous length for tailored long shirts and trousers)</li>\n      <li><strong>Print:</strong> HD All-Over Digital Print</li>\n      <li><strong>Care:</strong> Gentle hand wash or dry clean recommended; iron low heat on reverse</li>\n    </ul>\n    ",
     "created_at": "2026-08-19T10:00:00Z",
-    "featured_image": "assets/images/catalog/ETH-2PC-012_Black-Pink-Floral-Motif.jpg"
+    "featured_image": "assets/images/catalog/ETH-2PC-012_Black-Pink-Floral-Motif.jpg",
+    "gender": "Women",
+    "season": "Summer"
   },
   {
     "id": 8017,
@@ -518,13 +915,14 @@ window.CATALOG_PRODUCTS = [
       "2PC",
       "Unstitched",
       "Ethnic",
-      "Raw Silk",
-      "Co-ord Set",
-      "Al-Deewan"
+      "Summer",
+      "Women"
     ],
     "body_html": "\n    <p>Premium 100% authentic Ethnic 2-piece unstitched matching suit ensemble.</p>\n    <ul>\n      <li><strong>Brand:</strong> Ethnic by Outfitters (100% Guaranteed Authentic)</li>\n      <li><strong>Suit Type:</strong> Unstitched 2-Piece Matching Co-ord Set (Top & Bottom)</li>\n      <li><strong>Fabric:</strong> Premium Printed Raw Silk</li>\n      <li><strong>Cutting Length:</strong> 3.5 Yards (Generous length for tailored long shirts and trousers)</li>\n      <li><strong>Print:</strong> HD All-Over Digital Print</li>\n      <li><strong>Care:</strong> Gentle hand wash or dry clean recommended; iron low heat on reverse</li>\n    </ul>\n    ",
     "created_at": "2026-08-19T10:00:00Z",
-    "featured_image": "assets/images/catalog/ETH-2PC-013_Sage-White-Ditsy-Floral.jpg"
+    "featured_image": "assets/images/catalog/ETH-2PC-013_Sage-White-Ditsy-Floral.jpg",
+    "gender": "Women",
+    "season": "Summer"
   },
   {
     "id": 8018,
@@ -549,13 +947,14 @@ window.CATALOG_PRODUCTS = [
       "2PC",
       "Unstitched",
       "Ethnic",
-      "Raw Silk",
-      "Co-ord Set",
-      "Al-Deewan"
+      "Summer",
+      "Women"
     ],
     "body_html": "\n    <p>Premium 100% authentic Ethnic 2-piece unstitched matching suit ensemble.</p>\n    <ul>\n      <li><strong>Brand:</strong> Ethnic by Outfitters (100% Guaranteed Authentic)</li>\n      <li><strong>Suit Type:</strong> Unstitched 2-Piece Matching Co-ord Set (Top & Bottom)</li>\n      <li><strong>Fabric:</strong> Premium Printed Raw Silk</li>\n      <li><strong>Cutting Length:</strong> 3.5 Yards (Generous length for tailored long shirts and trousers)</li>\n      <li><strong>Print:</strong> HD All-Over Digital Print</li>\n      <li><strong>Care:</strong> Gentle hand wash or dry clean recommended; iron low heat on reverse</li>\n    </ul>\n    ",
     "created_at": "2026-08-19T10:00:00Z",
-    "featured_image": "assets/images/catalog/ETH-2PC-014_White-Navy-Paisley.jpg"
+    "featured_image": "assets/images/catalog/ETH-2PC-014_White-Navy-Paisley.jpg",
+    "gender": "Women",
+    "season": "Summer"
   },
   {
     "id": 8019,
@@ -580,13 +979,14 @@ window.CATALOG_PRODUCTS = [
       "2PC",
       "Unstitched",
       "Ethnic",
-      "Raw Silk",
-      "Co-ord Set",
-      "Al-Deewan"
+      "Summer",
+      "Women"
     ],
     "body_html": "\n    <p>Premium 100% authentic Ethnic 2-piece unstitched matching suit ensemble.</p>\n    <ul>\n      <li><strong>Brand:</strong> Ethnic by Outfitters (100% Guaranteed Authentic)</li>\n      <li><strong>Suit Type:</strong> Unstitched 2-Piece Matching Co-ord Set (Top & Bottom)</li>\n      <li><strong>Fabric:</strong> Premium Printed Raw Silk</li>\n      <li><strong>Cutting Length:</strong> 3.5 Yards (Generous length for tailored long shirts and trousers)</li>\n      <li><strong>Print:</strong> HD All-Over Digital Print</li>\n      <li><strong>Care:</strong> Gentle hand wash or dry clean recommended; iron low heat on reverse</li>\n    </ul>\n    ",
     "created_at": "2026-08-19T10:00:00Z",
-    "featured_image": "assets/images/catalog/ETH-2PC-015_Navy-Pink-Medallion.jpg"
+    "featured_image": "assets/images/catalog/ETH-2PC-015_Navy-Pink-Medallion.jpg",
+    "gender": "Women",
+    "season": "Summer"
   },
   {
     "id": 8020,
@@ -611,13 +1011,14 @@ window.CATALOG_PRODUCTS = [
       "2PC",
       "Unstitched",
       "Ethnic",
-      "Raw Silk",
-      "Co-ord Set",
-      "Al-Deewan"
+      "Summer",
+      "Women"
     ],
     "body_html": "\n    <p>Premium 100% authentic Ethnic 2-piece unstitched matching suit ensemble.</p>\n    <ul>\n      <li><strong>Brand:</strong> Ethnic by Outfitters (100% Guaranteed Authentic)</li>\n      <li><strong>Suit Type:</strong> Unstitched 2-Piece Matching Co-ord Set (Top & Bottom)</li>\n      <li><strong>Fabric:</strong> Premium Printed Raw Silk</li>\n      <li><strong>Cutting Length:</strong> 3.5 Yards (Generous length for tailored long shirts and trousers)</li>\n      <li><strong>Print:</strong> HD All-Over Digital Print</li>\n      <li><strong>Care:</strong> Gentle hand wash or dry clean recommended; iron low heat on reverse</li>\n    </ul>\n    ",
     "created_at": "2026-08-19T10:00:00Z",
-    "featured_image": "assets/images/catalog/ETH-2PC-016_Cream-Multicolor-Grid-Floral.jpg"
+    "featured_image": "assets/images/catalog/ETH-2PC-016_Cream-Multicolor-Grid-Floral.jpg",
+    "gender": "Women",
+    "season": "Summer"
   },
   {
     "id": 8021,
@@ -639,16 +1040,17 @@ window.CATALOG_PRODUCTS = [
       "assets/images/catalog/nishat-shell-seed-pink-botanical-lawn-shirt.jpg"
     ],
     "tags": [
-      "1PC",
-      "Shirt",
+      "1PC Shirt",
       "Ready To Wear",
       "Nishat Linen",
-      "Lawn 3.5m",
-      "Al-Deewan"
+      "Summer",
+      "Women"
     ],
     "body_html": "\n    <p>Elevate your everyday style with this 100% authentic Nishat Linen digitally printed shirt piece.</p>\n    <ul>\n      <li><strong>Brand:</strong> Nishat Linen (100% Original Authentic)</li>\n      <li><strong>Piece Type:</strong> Unstitched Single Shirt Piece</li>\n      <li><strong>Fabric:</strong> High-Grade Breathable Printed Lawn / Cotton</li>\n      <li><strong>Cutting Length:</strong> 3.5 Meters (Generous cut for versatile shirt styling & long lengths)</li>\n      <li><strong>Print Type:</strong> High-Definition Digital Print</li>\n      <li><strong>Care:</strong> Machine wash cold on delicate cycle, do not bleach, iron medium</li>\n    </ul>\n    ",
     "created_at": "2026-08-19T10:00:00Z",
-    "featured_image": "assets/images/catalog/nishat-shell-seed-pink-botanical-lawn-shirt.jpg"
+    "featured_image": "assets/images/catalog/nishat-shell-seed-pink-botanical-lawn-shirt.jpg",
+    "gender": "Women",
+    "season": "Summer"
   },
   {
     "id": 8022,
@@ -670,16 +1072,17 @@ window.CATALOG_PRODUCTS = [
       "assets/images/catalog/nishat-olive-lotus-bloom-lawn-shirt.jpg"
     ],
     "tags": [
-      "1PC",
-      "Shirt",
+      "1PC Shirt",
       "Ready To Wear",
       "Nishat Linen",
-      "Lawn 3.5m",
-      "Al-Deewan"
+      "Summer",
+      "Women"
     ],
     "body_html": "\n    <p>Elevate your everyday style with this 100% authentic Nishat Linen digitally printed shirt piece.</p>\n    <ul>\n      <li><strong>Brand:</strong> Nishat Linen (100% Original Authentic)</li>\n      <li><strong>Piece Type:</strong> Unstitched Single Shirt Piece</li>\n      <li><strong>Fabric:</strong> High-Grade Breathable Printed Lawn / Cotton</li>\n      <li><strong>Cutting Length:</strong> 3.5 Meters (Generous cut for versatile shirt styling & long lengths)</li>\n      <li><strong>Print Type:</strong> High-Definition Digital Print</li>\n      <li><strong>Care:</strong> Machine wash cold on delicate cycle, do not bleach, iron medium</li>\n    </ul>\n    ",
     "created_at": "2026-08-19T10:00:00Z",
-    "featured_image": "assets/images/catalog/nishat-olive-lotus-bloom-lawn-shirt.jpg"
+    "featured_image": "assets/images/catalog/nishat-olive-lotus-bloom-lawn-shirt.jpg",
+    "gender": "Women",
+    "season": "Summer"
   },
   {
     "id": 8023,
@@ -701,16 +1104,17 @@ window.CATALOG_PRODUCTS = [
       "assets/images/catalog/nishat-ombre-lime-magenta-charcoal-snowflake-lawn-shirt.jpg"
     ],
     "tags": [
-      "1PC",
-      "Shirt",
+      "1PC Shirt",
       "Ready To Wear",
       "Nishat Linen",
-      "Lawn 3.5m",
-      "Al-Deewan"
+      "Summer",
+      "Women"
     ],
     "body_html": "\n    <p>Elevate your everyday style with this 100% authentic Nishat Linen digitally printed shirt piece.</p>\n    <ul>\n      <li><strong>Brand:</strong> Nishat Linen (100% Original Authentic)</li>\n      <li><strong>Piece Type:</strong> Unstitched Single Shirt Piece</li>\n      <li><strong>Fabric:</strong> High-Grade Breathable Printed Lawn / Cotton</li>\n      <li><strong>Cutting Length:</strong> 3.5 Meters (Generous cut for versatile shirt styling & long lengths)</li>\n      <li><strong>Print Type:</strong> High-Definition Digital Print</li>\n      <li><strong>Care:</strong> Machine wash cold on delicate cycle, do not bleach, iron medium</li>\n    </ul>\n    ",
     "created_at": "2026-08-19T10:00:00Z",
-    "featured_image": "assets/images/catalog/nishat-ombre-lime-magenta-charcoal-snowflake-lawn-shirt.jpg"
+    "featured_image": "assets/images/catalog/nishat-ombre-lime-magenta-charcoal-snowflake-lawn-shirt.jpg",
+    "gender": "Women",
+    "season": "Summer"
   },
   {
     "id": 8024,
@@ -732,16 +1136,17 @@ window.CATALOG_PRODUCTS = [
       "assets/images/catalog/nishat-white-tribal-blockprint-lawn-shirt.jpg"
     ],
     "tags": [
-      "1PC",
-      "Shirt",
+      "1PC Shirt",
       "Ready To Wear",
       "Nishat Linen",
-      "Lawn 3.5m",
-      "Al-Deewan"
+      "Summer",
+      "Women"
     ],
     "body_html": "\n    <p>Elevate your everyday style with this 100% authentic Nishat Linen digitally printed shirt piece.</p>\n    <ul>\n      <li><strong>Brand:</strong> Nishat Linen (100% Original Authentic)</li>\n      <li><strong>Piece Type:</strong> Unstitched Single Shirt Piece</li>\n      <li><strong>Fabric:</strong> High-Grade Breathable Printed Lawn / Cotton</li>\n      <li><strong>Cutting Length:</strong> 3.5 Meters (Generous cut for versatile shirt styling & long lengths)</li>\n      <li><strong>Print Type:</strong> High-Definition Digital Print</li>\n      <li><strong>Care:</strong> Machine wash cold on delicate cycle, do not bleach, iron medium</li>\n    </ul>\n    ",
     "created_at": "2026-08-19T10:00:00Z",
-    "featured_image": "assets/images/catalog/nishat-white-tribal-blockprint-lawn-shirt.jpg"
+    "featured_image": "assets/images/catalog/nishat-white-tribal-blockprint-lawn-shirt.jpg",
+    "gender": "Women",
+    "season": "Summer"
   },
   {
     "id": 8025,
@@ -763,16 +1168,17 @@ window.CATALOG_PRODUCTS = [
       "assets/images/catalog/nishat-charcoal-bandhani-dot-lawn-shirt.jpg"
     ],
     "tags": [
-      "1PC",
-      "Shirt",
+      "1PC Shirt",
       "Ready To Wear",
       "Nishat Linen",
-      "Lawn 3.5m",
-      "Al-Deewan"
+      "Summer",
+      "Women"
     ],
     "body_html": "\n    <p>Elevate your everyday style with this 100% authentic Nishat Linen digitally printed shirt piece.</p>\n    <ul>\n      <li><strong>Brand:</strong> Nishat Linen (100% Original Authentic)</li>\n      <li><strong>Piece Type:</strong> Unstitched Single Shirt Piece</li>\n      <li><strong>Fabric:</strong> High-Grade Breathable Printed Lawn / Cotton</li>\n      <li><strong>Cutting Length:</strong> 3.5 Meters (Generous cut for versatile shirt styling & long lengths)</li>\n      <li><strong>Print Type:</strong> High-Definition Digital Print</li>\n      <li><strong>Care:</strong> Machine wash cold on delicate cycle, do not bleach, iron medium</li>\n    </ul>\n    ",
     "created_at": "2026-08-19T10:00:00Z",
-    "featured_image": "assets/images/catalog/nishat-charcoal-bandhani-dot-lawn-shirt.jpg"
+    "featured_image": "assets/images/catalog/nishat-charcoal-bandhani-dot-lawn-shirt.jpg",
+    "gender": "Women",
+    "season": "Summer"
   },
   {
     "id": 8026,
@@ -794,16 +1200,17 @@ window.CATALOG_PRODUCTS = [
       "assets/images/catalog/nishat-black-white-abstract-botanical-lawn-shirt.jpg"
     ],
     "tags": [
-      "1PC",
-      "Shirt",
+      "1PC Shirt",
       "Ready To Wear",
       "Nishat Linen",
-      "Lawn 3.5m",
-      "Al-Deewan"
+      "Summer",
+      "Women"
     ],
     "body_html": "\n    <p>Elevate your everyday style with this 100% authentic Nishat Linen digitally printed shirt piece.</p>\n    <ul>\n      <li><strong>Brand:</strong> Nishat Linen (100% Original Authentic)</li>\n      <li><strong>Piece Type:</strong> Unstitched Single Shirt Piece</li>\n      <li><strong>Fabric:</strong> High-Grade Breathable Printed Lawn / Cotton</li>\n      <li><strong>Cutting Length:</strong> 3.5 Meters (Generous cut for versatile shirt styling & long lengths)</li>\n      <li><strong>Print Type:</strong> High-Definition Digital Print</li>\n      <li><strong>Care:</strong> Machine wash cold on delicate cycle, do not bleach, iron medium</li>\n    </ul>\n    ",
     "created_at": "2026-08-19T10:00:00Z",
-    "featured_image": "assets/images/catalog/nishat-black-white-abstract-botanical-lawn-shirt.jpg"
+    "featured_image": "assets/images/catalog/nishat-black-white-abstract-botanical-lawn-shirt.jpg",
+    "gender": "Women",
+    "season": "Summer"
   },
   {
     "id": 8027,
@@ -825,16 +1232,17 @@ window.CATALOG_PRODUCTS = [
       "assets/images/catalog/nishat-dahlia-magenta-bloom-lawn-shirt.jpg"
     ],
     "tags": [
-      "1PC",
-      "Shirt",
+      "1PC Shirt",
       "Ready To Wear",
       "Nishat Linen",
-      "Lawn 3.5m",
-      "Al-Deewan"
+      "Summer",
+      "Women"
     ],
     "body_html": "\n    <p>Elevate your everyday style with this 100% authentic Nishat Linen digitally printed shirt piece.</p>\n    <ul>\n      <li><strong>Brand:</strong> Nishat Linen (100% Original Authentic)</li>\n      <li><strong>Piece Type:</strong> Unstitched Single Shirt Piece</li>\n      <li><strong>Fabric:</strong> High-Grade Breathable Printed Lawn / Cotton</li>\n      <li><strong>Cutting Length:</strong> 3.5 Meters (Generous cut for versatile shirt styling & long lengths)</li>\n      <li><strong>Print Type:</strong> High-Definition Digital Print</li>\n      <li><strong>Care:</strong> Machine wash cold on delicate cycle, do not bleach, iron medium</li>\n    </ul>\n    ",
     "created_at": "2026-08-19T10:00:00Z",
-    "featured_image": "assets/images/catalog/nishat-dahlia-magenta-bloom-lawn-shirt.jpg"
+    "featured_image": "assets/images/catalog/nishat-dahlia-magenta-bloom-lawn-shirt.jpg",
+    "gender": "Women",
+    "season": "Summer"
   },
   {
     "id": 8028,
@@ -856,16 +1264,17 @@ window.CATALOG_PRODUCTS = [
       "assets/images/catalog/nishat-peach-retro-daisy-lawn-shirt.jpg"
     ],
     "tags": [
-      "1PC",
-      "Shirt",
+      "1PC Shirt",
       "Ready To Wear",
       "Nishat Linen",
-      "Lawn 3.5m",
-      "Al-Deewan"
+      "Summer",
+      "Women"
     ],
     "body_html": "\n    <p>Elevate your everyday style with this 100% authentic Nishat Linen digitally printed shirt piece.</p>\n    <ul>\n      <li><strong>Brand:</strong> Nishat Linen (100% Original Authentic)</li>\n      <li><strong>Piece Type:</strong> Unstitched Single Shirt Piece</li>\n      <li><strong>Fabric:</strong> High-Grade Breathable Printed Lawn / Cotton</li>\n      <li><strong>Cutting Length:</strong> 3.5 Meters (Generous cut for versatile shirt styling & long lengths)</li>\n      <li><strong>Print Type:</strong> High-Definition Digital Print</li>\n      <li><strong>Care:</strong> Machine wash cold on delicate cycle, do not bleach, iron medium</li>\n    </ul>\n    ",
     "created_at": "2026-08-19T10:00:00Z",
-    "featured_image": "assets/images/catalog/nishat-peach-retro-daisy-lawn-shirt.jpg"
+    "featured_image": "assets/images/catalog/nishat-peach-retro-daisy-lawn-shirt.jpg",
+    "gender": "Women",
+    "season": "Summer"
   },
   {
     "id": 8029,
@@ -887,16 +1296,17 @@ window.CATALOG_PRODUCTS = [
       "assets/images/catalog/nishat-white-sketched-rose-lawn-shirt.jpg"
     ],
     "tags": [
-      "1PC",
-      "Shirt",
+      "1PC Shirt",
       "Ready To Wear",
       "Nishat Linen",
-      "Lawn 3.5m",
-      "Al-Deewan"
+      "Summer",
+      "Women"
     ],
     "body_html": "\n    <p>Elevate your everyday style with this 100% authentic Nishat Linen digitally printed shirt piece.</p>\n    <ul>\n      <li><strong>Brand:</strong> Nishat Linen (100% Original Authentic)</li>\n      <li><strong>Piece Type:</strong> Unstitched Single Shirt Piece</li>\n      <li><strong>Fabric:</strong> High-Grade Breathable Printed Lawn / Cotton</li>\n      <li><strong>Cutting Length:</strong> 3.5 Meters (Generous cut for versatile shirt styling & long lengths)</li>\n      <li><strong>Print Type:</strong> High-Definition Digital Print</li>\n      <li><strong>Care:</strong> Machine wash cold on delicate cycle, do not bleach, iron medium</li>\n    </ul>\n    ",
     "created_at": "2026-08-19T10:00:00Z",
-    "featured_image": "assets/images/catalog/nishat-white-sketched-rose-lawn-shirt.jpg"
+    "featured_image": "assets/images/catalog/nishat-white-sketched-rose-lawn-shirt.jpg",
+    "gender": "Women",
+    "season": "Summer"
   },
   {
     "id": 8030,
@@ -918,16 +1328,17 @@ window.CATALOG_PRODUCTS = [
       "assets/images/catalog/nishat-ivory-textured-embroidered-lawn-shirt.jpg"
     ],
     "tags": [
-      "1PC",
-      "Shirt",
+      "1PC Shirt",
       "Ready To Wear",
       "Nishat Linen",
-      "Lawn 3.5m",
-      "Al-Deewan"
+      "Summer",
+      "Women"
     ],
     "body_html": "\n    <p>Elevate your everyday style with this 100% authentic Nishat Linen digitally printed shirt piece.</p>\n    <ul>\n      <li><strong>Brand:</strong> Nishat Linen (100% Original Authentic)</li>\n      <li><strong>Piece Type:</strong> Unstitched Single Shirt Piece</li>\n      <li><strong>Fabric:</strong> High-Grade Breathable Printed Lawn / Cotton</li>\n      <li><strong>Cutting Length:</strong> 3.5 Meters (Generous cut for versatile shirt styling & long lengths)</li>\n      <li><strong>Print Type:</strong> High-Definition Digital Print</li>\n      <li><strong>Care:</strong> Machine wash cold on delicate cycle, do not bleach, iron medium</li>\n    </ul>\n    ",
     "created_at": "2026-08-19T10:00:00Z",
-    "featured_image": "assets/images/catalog/nishat-ivory-textured-embroidered-lawn-shirt.jpg"
+    "featured_image": "assets/images/catalog/nishat-ivory-textured-embroidered-lawn-shirt.jpg",
+    "gender": "Women",
+    "season": "Summer"
   },
   {
     "id": 8031,
@@ -949,16 +1360,17 @@ window.CATALOG_PRODUCTS = [
       "assets/images/catalog/nishat-pink-rose-lace-trim-lawn-shirt.jpg"
     ],
     "tags": [
-      "1PC",
-      "Shirt",
+      "1PC Shirt",
       "Ready To Wear",
       "Nishat Linen",
-      "Lawn 3.5m",
-      "Al-Deewan"
+      "Summer",
+      "Women"
     ],
     "body_html": "\n    <p>Elevate your everyday style with this 100% authentic Nishat Linen digitally printed shirt piece.</p>\n    <ul>\n      <li><strong>Brand:</strong> Nishat Linen (100% Original Authentic)</li>\n      <li><strong>Piece Type:</strong> Unstitched Single Shirt Piece</li>\n      <li><strong>Fabric:</strong> High-Grade Breathable Printed Lawn / Cotton</li>\n      <li><strong>Cutting Length:</strong> 3.5 Meters (Generous cut for versatile shirt styling & long lengths)</li>\n      <li><strong>Print Type:</strong> High-Definition Digital Print</li>\n      <li><strong>Care:</strong> Machine wash cold on delicate cycle, do not bleach, iron medium</li>\n    </ul>\n    ",
     "created_at": "2026-08-19T10:00:00Z",
-    "featured_image": "assets/images/catalog/nishat-pink-rose-lace-trim-lawn-shirt.jpg"
+    "featured_image": "assets/images/catalog/nishat-pink-rose-lace-trim-lawn-shirt.jpg",
+    "gender": "Women",
+    "season": "Summer"
   },
   {
     "id": 8032,
@@ -980,16 +1392,17 @@ window.CATALOG_PRODUCTS = [
       "assets/images/catalog/nishat-lavender-swissdot-mukaish-lawn-shirt.jpg"
     ],
     "tags": [
-      "1PC",
-      "Shirt",
+      "1PC Shirt",
       "Ready To Wear",
       "Nishat Linen",
-      "Lawn 3.5m",
-      "Al-Deewan"
+      "Summer",
+      "Women"
     ],
     "body_html": "\n    <p>Elevate your everyday style with this 100% authentic Nishat Linen digitally printed shirt piece.</p>\n    <ul>\n      <li><strong>Brand:</strong> Nishat Linen (100% Original Authentic)</li>\n      <li><strong>Piece Type:</strong> Unstitched Single Shirt Piece</li>\n      <li><strong>Fabric:</strong> High-Grade Breathable Printed Lawn / Cotton</li>\n      <li><strong>Cutting Length:</strong> 3.5 Meters (Generous cut for versatile shirt styling & long lengths)</li>\n      <li><strong>Print Type:</strong> High-Definition Digital Print</li>\n      <li><strong>Care:</strong> Machine wash cold on delicate cycle, do not bleach, iron medium</li>\n    </ul>\n    ",
     "created_at": "2026-08-19T10:00:00Z",
-    "featured_image": "assets/images/catalog/nishat-lavender-swissdot-mukaish-lawn-shirt.jpg"
+    "featured_image": "assets/images/catalog/nishat-lavender-swissdot-mukaish-lawn-shirt.jpg",
+    "gender": "Women",
+    "season": "Summer"
   },
   {
     "id": 8033,
@@ -1011,16 +1424,17 @@ window.CATALOG_PRODUCTS = [
       "assets/images/catalog/nishat-white-pink-petal-grid-lawn-shirt.jpg"
     ],
     "tags": [
-      "1PC",
-      "Shirt",
+      "1PC Shirt",
       "Ready To Wear",
       "Nishat Linen",
-      "Lawn 3.5m",
-      "Al-Deewan"
+      "Summer",
+      "Women"
     ],
     "body_html": "\n    <p>Elevate your everyday style with this 100% authentic Nishat Linen digitally printed shirt piece.</p>\n    <ul>\n      <li><strong>Brand:</strong> Nishat Linen (100% Original Authentic)</li>\n      <li><strong>Piece Type:</strong> Unstitched Single Shirt Piece</li>\n      <li><strong>Fabric:</strong> High-Grade Breathable Printed Lawn / Cotton</li>\n      <li><strong>Cutting Length:</strong> 3.5 Meters (Generous cut for versatile shirt styling & long lengths)</li>\n      <li><strong>Print Type:</strong> High-Definition Digital Print</li>\n      <li><strong>Care:</strong> Machine wash cold on delicate cycle, do not bleach, iron medium</li>\n    </ul>\n    ",
     "created_at": "2026-08-19T10:00:00Z",
-    "featured_image": "assets/images/catalog/nishat-white-pink-petal-grid-lawn-shirt.jpg"
+    "featured_image": "assets/images/catalog/nishat-white-pink-petal-grid-lawn-shirt.jpg",
+    "gender": "Women",
+    "season": "Summer"
   },
   {
     "id": 8034,
@@ -1042,16 +1456,17 @@ window.CATALOG_PRODUCTS = [
       "assets/images/catalog/nishat-navy-teal-paisley-lawn-shirt.jpg"
     ],
     "tags": [
-      "1PC",
-      "Shirt",
+      "1PC Shirt",
       "Ready To Wear",
       "Nishat Linen",
-      "Lawn 3.5m",
-      "Al-Deewan"
+      "Summer",
+      "Women"
     ],
     "body_html": "\n    <p>Elevate your everyday style with this 100% authentic Nishat Linen digitally printed shirt piece.</p>\n    <ul>\n      <li><strong>Brand:</strong> Nishat Linen (100% Original Authentic)</li>\n      <li><strong>Piece Type:</strong> Unstitched Single Shirt Piece</li>\n      <li><strong>Fabric:</strong> High-Grade Breathable Printed Lawn / Cotton</li>\n      <li><strong>Cutting Length:</strong> 3.5 Meters (Generous cut for versatile shirt styling & long lengths)</li>\n      <li><strong>Print Type:</strong> High-Definition Digital Print</li>\n      <li><strong>Care:</strong> Machine wash cold on delicate cycle, do not bleach, iron medium</li>\n    </ul>\n    ",
     "created_at": "2026-08-19T10:00:00Z",
-    "featured_image": "assets/images/catalog/nishat-navy-teal-paisley-lawn-shirt.jpg"
+    "featured_image": "assets/images/catalog/nishat-navy-teal-paisley-lawn-shirt.jpg",
+    "gender": "Women",
+    "season": "Summer"
   },
   {
     "id": 8035,
@@ -1073,16 +1488,17 @@ window.CATALOG_PRODUCTS = [
       "assets/images/catalog/nishat-plum-gold-embroidered-lawn-shirt.jpg"
     ],
     "tags": [
-      "1PC",
-      "Shirt",
+      "1PC Shirt",
       "Ready To Wear",
       "Nishat Linen",
-      "Lawn 3.5m",
-      "Al-Deewan"
+      "Summer",
+      "Women"
     ],
     "body_html": "\n    <p>Elevate your everyday style with this 100% authentic Nishat Linen digitally printed shirt piece.</p>\n    <ul>\n      <li><strong>Brand:</strong> Nishat Linen (100% Original Authentic)</li>\n      <li><strong>Piece Type:</strong> Unstitched Single Shirt Piece</li>\n      <li><strong>Fabric:</strong> High-Grade Breathable Printed Lawn / Cotton</li>\n      <li><strong>Cutting Length:</strong> 3.5 Meters (Generous cut for versatile shirt styling & long lengths)</li>\n      <li><strong>Print Type:</strong> High-Definition Digital Print</li>\n      <li><strong>Care:</strong> Machine wash cold on delicate cycle, do not bleach, iron medium</li>\n    </ul>\n    ",
     "created_at": "2026-08-19T10:00:00Z",
-    "featured_image": "assets/images/catalog/nishat-plum-gold-embroidered-lawn-shirt.jpg"
+    "featured_image": "assets/images/catalog/nishat-plum-gold-embroidered-lawn-shirt.jpg",
+    "gender": "Women",
+    "season": "Summer"
   },
   {
     "id": 8036,
@@ -1104,16 +1520,17 @@ window.CATALOG_PRODUCTS = [
       "assets/images/catalog/nishat-multicolor-balochi-tribal-lawn-shirt.jpg"
     ],
     "tags": [
-      "1PC",
-      "Shirt",
+      "1PC Shirt",
       "Ready To Wear",
       "Nishat Linen",
-      "Lawn 3.5m",
-      "Al-Deewan"
+      "Summer",
+      "Women"
     ],
     "body_html": "\n    <p>Elevate your everyday style with this 100% authentic Nishat Linen digitally printed shirt piece.</p>\n    <ul>\n      <li><strong>Brand:</strong> Nishat Linen (100% Original Authentic)</li>\n      <li><strong>Piece Type:</strong> Unstitched Single Shirt Piece</li>\n      <li><strong>Fabric:</strong> High-Grade Breathable Printed Lawn / Cotton</li>\n      <li><strong>Cutting Length:</strong> 3.5 Meters (Generous cut for versatile shirt styling & long lengths)</li>\n      <li><strong>Print Type:</strong> High-Definition Digital Print</li>\n      <li><strong>Care:</strong> Machine wash cold on delicate cycle, do not bleach, iron medium</li>\n    </ul>\n    ",
     "created_at": "2026-08-19T10:00:00Z",
-    "featured_image": "assets/images/catalog/nishat-multicolor-balochi-tribal-lawn-shirt.jpg"
+    "featured_image": "assets/images/catalog/nishat-multicolor-balochi-tribal-lawn-shirt.jpg",
+    "gender": "Women",
+    "season": "Summer"
   },
   {
     "id": 8037,
@@ -1135,16 +1552,17 @@ window.CATALOG_PRODUCTS = [
       "assets/images/catalog/nishat-dusty-pink-red-rose-threadwork-lawn-shirt.jpg"
     ],
     "tags": [
-      "1PC",
-      "Shirt",
+      "1PC Shirt",
       "Ready To Wear",
       "Nishat Linen",
-      "Lawn 3.5m",
-      "Al-Deewan"
+      "Summer",
+      "Women"
     ],
     "body_html": "\n    <p>Elevate your everyday style with this 100% authentic Nishat Linen digitally printed shirt piece.</p>\n    <ul>\n      <li><strong>Brand:</strong> Nishat Linen (100% Original Authentic)</li>\n      <li><strong>Piece Type:</strong> Unstitched Single Shirt Piece</li>\n      <li><strong>Fabric:</strong> High-Grade Breathable Printed Lawn / Cotton</li>\n      <li><strong>Cutting Length:</strong> 3.5 Meters (Generous cut for versatile shirt styling & long lengths)</li>\n      <li><strong>Print Type:</strong> High-Definition Digital Print</li>\n      <li><strong>Care:</strong> Machine wash cold on delicate cycle, do not bleach, iron medium</li>\n    </ul>\n    ",
     "created_at": "2026-08-19T10:00:00Z",
-    "featured_image": "assets/images/catalog/nishat-dusty-pink-red-rose-threadwork-lawn-shirt.jpg"
+    "featured_image": "assets/images/catalog/nishat-dusty-pink-red-rose-threadwork-lawn-shirt.jpg",
+    "gender": "Women",
+    "season": "Summer"
   },
   {
     "id": 8038,
@@ -1166,16 +1584,17 @@ window.CATALOG_PRODUCTS = [
       "assets/images/catalog/nishat-white-multicolor-leaf-botanical-lawn-shirt.jpg"
     ],
     "tags": [
-      "1PC",
-      "Shirt",
+      "1PC Shirt",
       "Ready To Wear",
       "Nishat Linen",
-      "Lawn 3.5m",
-      "Al-Deewan"
+      "Summer",
+      "Women"
     ],
     "body_html": "\n    <p>Elevate your everyday style with this 100% authentic Nishat Linen digitally printed shirt piece.</p>\n    <ul>\n      <li><strong>Brand:</strong> Nishat Linen (100% Original Authentic)</li>\n      <li><strong>Piece Type:</strong> Unstitched Single Shirt Piece</li>\n      <li><strong>Fabric:</strong> High-Grade Breathable Printed Lawn / Cotton</li>\n      <li><strong>Cutting Length:</strong> 3.5 Meters (Generous cut for versatile shirt styling & long lengths)</li>\n      <li><strong>Print Type:</strong> High-Definition Digital Print</li>\n      <li><strong>Care:</strong> Machine wash cold on delicate cycle, do not bleach, iron medium</li>\n    </ul>\n    ",
     "created_at": "2026-08-19T10:00:00Z",
-    "featured_image": "assets/images/catalog/nishat-white-multicolor-leaf-botanical-lawn-shirt.jpg"
+    "featured_image": "assets/images/catalog/nishat-white-multicolor-leaf-botanical-lawn-shirt.jpg",
+    "gender": "Women",
+    "season": "Summer"
   },
   {
     "id": 8039,
@@ -1197,16 +1616,17 @@ window.CATALOG_PRODUCTS = [
       "assets/images/catalog/nishat-cream-bauhaus-geometric-lawn-shirt.jpg"
     ],
     "tags": [
-      "1PC",
-      "Shirt",
+      "1PC Shirt",
       "Ready To Wear",
       "Nishat Linen",
-      "Lawn 3.5m",
-      "Al-Deewan"
+      "Summer",
+      "Women"
     ],
     "body_html": "\n    <p>Elevate your everyday style with this 100% authentic Nishat Linen digitally printed shirt piece.</p>\n    <ul>\n      <li><strong>Brand:</strong> Nishat Linen (100% Original Authentic)</li>\n      <li><strong>Piece Type:</strong> Unstitched Single Shirt Piece</li>\n      <li><strong>Fabric:</strong> High-Grade Breathable Printed Lawn / Cotton</li>\n      <li><strong>Cutting Length:</strong> 3.5 Meters (Generous cut for versatile shirt styling & long lengths)</li>\n      <li><strong>Print Type:</strong> High-Definition Digital Print</li>\n      <li><strong>Care:</strong> Machine wash cold on delicate cycle, do not bleach, iron medium</li>\n    </ul>\n    ",
     "created_at": "2026-08-19T10:00:00Z",
-    "featured_image": "assets/images/catalog/nishat-cream-bauhaus-geometric-lawn-shirt.jpg"
+    "featured_image": "assets/images/catalog/nishat-cream-bauhaus-geometric-lawn-shirt.jpg",
+    "gender": "Women",
+    "season": "Summer"
   },
   {
     "id": 8040,
@@ -1228,16 +1648,149 @@ window.CATALOG_PRODUCTS = [
       "assets/images/catalog/nishat-navy-polka-dot-gold-neckline-lawn-shirt.jpg"
     ],
     "tags": [
-      "1PC",
-      "Shirt",
+      "1PC Shirt",
       "Ready To Wear",
       "Nishat Linen",
-      "Lawn 3.5m",
-      "Al-Deewan"
+      "Summer",
+      "Women"
     ],
     "body_html": "\n    <p>Elevate your everyday style with this 100% authentic Nishat Linen digitally printed shirt piece.</p>\n    <ul>\n      <li><strong>Brand:</strong> Nishat Linen (100% Original Authentic)</li>\n      <li><strong>Piece Type:</strong> Unstitched Single Shirt Piece</li>\n      <li><strong>Fabric:</strong> High-Grade Breathable Printed Lawn / Cotton</li>\n      <li><strong>Cutting Length:</strong> 3.5 Meters (Generous cut for versatile shirt styling & long lengths)</li>\n      <li><strong>Print Type:</strong> High-Definition Digital Print</li>\n      <li><strong>Care:</strong> Machine wash cold on delicate cycle, do not bleach, iron medium</li>\n    </ul>\n    ",
     "created_at": "2026-08-19T10:00:00Z",
-    "featured_image": "assets/images/catalog/nishat-navy-polka-dot-gold-neckline-lawn-shirt.jpg"
+    "featured_image": "assets/images/catalog/nishat-navy-polka-dot-gold-neckline-lawn-shirt.jpg",
+    "gender": "Women",
+    "season": "Summer"
+  },
+  {
+    "id": 9001,
+    "title": "Al-Karam Studio Men Premium Unstitched Wash & Wear Suit (Charcoal Grey)",
+    "handle": "alkaram-men-premium-unstitched-wash-wear-charcoal-grey",
+    "vendor": "Al-Karam",
+    "category": "Menswear",
+    "category_type": "Menswear",
+    "season": "All Seasons",
+    "gender": "Men",
+    "fabric": "Luxury Wash & Wear Fabric (4.0 Meters)",
+    "price": 3450,
+    "compare_at_price": 4950,
+    "save_amount": 1500,
+    "discount_percent": 30,
+    "available": true,
+    "sku": "AK-MEN-9001-R",
+    "barcode": "AK-MEN-9001-R",
+    "image": "assets/images/catalog/mens_alkaram.jpg",
+    "hover_image": "assets/images/catalog/mens_alkaram.jpg",
+    "images": [
+      "assets/images/catalog/mens_alkaram.jpg"
+    ],
+    "featured_image": "assets/images/catalog/mens_alkaram.jpg",
+    "tags": [
+      "Menswear",
+      "Menswear",
+      "Al-Karam",
+      "All Seasons",
+      "Men"
+    ],
+    "body_html": "<p>100% Original Authentic Al-Karam Men Luxury Wash & Wear Unstitched Suit with custom buttons and embroidered collar band.</p>",
+    "created_at": "2026-08-20T10:00:00Z"
+  },
+  {
+    "id": 9002,
+    "title": "Sapphire Men Luxury Egyptian Cotton Latha Designer Suit (Crisp White)",
+    "handle": "sapphire-men-luxury-egyptian-cotton-latha-crisp-white",
+    "vendor": "Sapphire",
+    "category": "Menswear",
+    "category_type": "Menswear",
+    "season": "Summer",
+    "gender": "Men",
+    "fabric": "100% Egyptian Giza Cotton Latha (4.5 Meters)",
+    "price": 3850,
+    "compare_at_price": 5450,
+    "save_amount": 1600,
+    "discount_percent": 29,
+    "available": true,
+    "sku": "SP-MEN-9002-R",
+    "barcode": "SP-MEN-9002-R",
+    "image": "assets/images/catalog/mens_sapphire.jpg",
+    "hover_image": "assets/images/catalog/mens_sapphire.jpg",
+    "images": [
+      "assets/images/catalog/mens_sapphire.jpg"
+    ],
+    "featured_image": "assets/images/catalog/mens_sapphire.jpg",
+    "tags": [
+      "Menswear",
+      "Menswear",
+      "Sapphire",
+      "Summer",
+      "Men"
+    ],
+    "body_html": "<p>100% Original Authentic Sapphire Men Premium Unstitched Latha Suit made with superfine long-staple Egyptian cotton.</p>",
+    "created_at": "2026-08-20T10:00:00Z"
+  },
+  {
+    "id": 9003,
+    "title": "Bin Saeed Men Luxury Boski Silk Unstitched Suit (Cream Gold)",
+    "handle": "bin-saeed-men-luxury-boski-silk-unstitched-suit-cream-gold",
+    "vendor": "Bin Saeed",
+    "category": "Menswear",
+    "category_type": "Menswear",
+    "season": "All Seasons",
+    "gender": "Men",
+    "fabric": "100% Pure High-Density Boski Silk (4.0 Meters)",
+    "price": 4250,
+    "compare_at_price": 6200,
+    "save_amount": 1950,
+    "discount_percent": 31,
+    "available": true,
+    "sku": "BS-MEN-9003-R",
+    "barcode": "BS-MEN-9003-R",
+    "image": "assets/images/catalog/mens_binsaeed.jpg",
+    "hover_image": "assets/images/catalog/mens_binsaeed.jpg",
+    "images": [
+      "assets/images/catalog/mens_binsaeed.jpg"
+    ],
+    "featured_image": "assets/images/catalog/mens_binsaeed.jpg",
+    "tags": [
+      "Menswear",
+      "Menswear",
+      "Bin Saeed",
+      "All Seasons",
+      "Men"
+    ],
+    "body_html": "<p>Authentic Bin Saeed Men Luxury Boski Silk suit with intricate embroidered sherwani collar and custom embossed metallic buttons.</p>",
+    "created_at": "2026-08-20T10:00:00Z"
+  },
+  {
+    "id": 9004,
+    "title": "Nishat Linen Men Royal Navy Textured Cotton Kurta Fabric Piece",
+    "handle": "nishat-linen-men-royal-navy-textured-cotton-kurta-fabric",
+    "vendor": "Nishat Linen",
+    "category": "Menswear",
+    "category_type": "Menswear",
+    "season": "Summer",
+    "gender": "Men",
+    "fabric": "Textured Jacquard Cotton Kurta Fabric (2.5 Meters)",
+    "price": 2250,
+    "compare_at_price": 3200,
+    "save_amount": 950,
+    "discount_percent": 30,
+    "available": true,
+    "sku": "NL-MEN-9004-R",
+    "barcode": "NL-MEN-9004-R",
+    "image": "assets/images/catalog/mens_nishat.jpg",
+    "hover_image": "assets/images/catalog/mens_nishat.jpg",
+    "images": [
+      "assets/images/catalog/mens_nishat.jpg"
+    ],
+    "featured_image": "assets/images/catalog/mens_nishat.jpg",
+    "tags": [
+      "Menswear",
+      "Menswear",
+      "Nishat Linen",
+      "Summer",
+      "Men"
+    ],
+    "body_html": "<p>100% Original Nishat Linen Men Textured Navy Blue Kurta piece with premium antique metallic buttons.</p>",
+    "created_at": "2026-08-20T10:00:00Z"
   }
 ];
 
@@ -1246,19 +1799,19 @@ window.CATALOG_COLLECTIONS = [
     "id": 1,
     "title": "All Products",
     "handle": "all",
-    "products_count": 40
+    "products_count": 48
   },
   {
     "id": 2,
     "title": "Unstitched",
     "handle": "unstitched",
-    "products_count": 20
+    "products_count": 28
   },
   {
     "id": 3,
     "title": "3-Piece Suits",
     "handle": "3pc",
-    "products_count": 4
+    "products_count": 8
   },
   {
     "id": 4,
@@ -1274,14 +1827,20 @@ window.CATALOG_COLLECTIONS = [
   },
   {
     "id": 6,
+    "title": "Menswear Collection",
+    "handle": "menswear",
+    "products_count": 4
+  },
+  {
+    "id": 7,
     "title": "Single Shirts (3.5m)",
     "handle": "shirts",
     "products_count": 20
   },
   {
-    "id": 7,
+    "id": 8,
     "title": "New Arrival",
     "handle": "new-in",
-    "products_count": 40
+    "products_count": 48
   }
 ];

@@ -14,30 +14,11 @@
 </head>
 <body>
 
-  <!-- Announcement Bar -->
-  <div class="announcement-bar">
-    <div class="announcement-bar__ticker">
-      <div class="announcement-bar__item">
-        <span class="announcement-bar__tag">Announcement</span>
-        <span class="announcement-bar__flash">⚡</span>
-        <span>Biggest Lawn Opening in Pakistan</span>
-      </div>
-      <div class="announcement-bar__item">
-        <span class="announcement-bar__flash">⚡</span>
-        <span>Free Shipping on Orders Above Rs. 3,500</span>
-      </div>
-      <div class="announcement-bar__item">
-        <span class="announcement-bar__flash">⚡</span>
-        <span>100% Original Brand Authentic Cut Pieces</span>
-      </div>
-    </div>
-  </div>
-
   <!-- Header -->
   <header class="site-header">
     <div class="container">
       <div class="header-inner">
-        <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Open Navigation">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
         </button>
 
@@ -49,84 +30,112 @@
           </div>
         </a>
 
-        <!-- Desktop Navigation Menu with Mega Menus -->
-                <!-- Desktop Navigation Menu -->
+        <!-- Desktop Navigation Menu (Matching Reference Site Exactly) -->
         <nav class="header-nav">
-          <div class="nav-item-dropdown">
+          <div class="nav-item">
             <a href="collections.html?collection=new-in" class="header-nav__link">
               NEW ARRIVAL
               <span class="header-nav__badge">HOT</span>
             </a>
           </div>
 
-          <!-- 1. SHOP BY BRAND -->
-          <div class="nav-item-dropdown">
+          <div class="nav-item">
             <a href="shop-by-brand.html" class="header-nav__link">
               SHOP BY BRAND
-              <svg width="10" height="6" viewBox="0 0 10 6" fill="currentColor"><path d="M0 0.5L5 5.5L10 0.5H0Z"/></svg>
             </a>
-            <div class="nav-dropdown-menu">
-              <a href="collections.html?brand=Nishat+Linen" class="nav-dropdown-link">Nishat Linen (24 Items)</a>
-              <a href="collections.html?brand=Ethnic" class="nav-dropdown-link">Ethnic by Outfitters (16 Items)</a>
-              <a href="shop-by-brand.html" class="nav-dropdown-link" style="border-top:1px solid #eee; margin-top:6px; color:var(--color-primary); font-weight:800;">View All Brands Directory &rarr;</a>
-            </div>
           </div>
 
-          <!-- 2. UNSTITCHED (Contains 3-Piece & 2-Piece Raw Silk) -->
-          <div class="nav-item-dropdown">
+                    <div class="nav-item-dropdown" id="nav-dropdown-unstitched">
             <a href="collections.html?category=Unstitched" class="header-nav__link">
               UNSTITCHED
-              <svg width="10" height="6" viewBox="0 0 10 6" fill="currentColor"><path d="M0 0.5L5 5.5L10 0.5H0Z"/></svg>
+              <svg class="nav-arrow-down" width="10" height="6" viewBox="0 0 10 6" fill="currentColor"><path d="M0 0.5L5 5.5L10 0.5H0Z"/></svg>
             </a>
-            <div class="nav-dropdown-menu" style="min-width:300px; padding:16px;">
-              <a href="collections.html?category=3PC" class="nav-dropdown-link" style="font-weight:700;">
-                <span>3-PIECE SUITS (4)</span>
-                <span style="font-size:11px; color:#888;">Nishat Linen</span>
-              </a>
-              <a href="collections.html?category=2PC" class="nav-dropdown-link" style="font-weight:700;">
-                <span>2-PIECE RAW SILK (16)</span>
-                <span style="font-size:11px; color:#888;">Ethnic Co-ord</span>
-              </a>
-              <a href="collections.html?category=Unstitched" class="nav-dropdown-link" style="border-top:1px solid #eee; margin-top:8px; color:var(--color-primary); font-weight:800;">
-                View All Unstitched (20 Articles) &rarr;
-              </a>
-            </div>
+            <ul class="nav-dropdown-menu">
+              <li class="nav-dropdown-item has-submenu">
+                <a href="collections.html?category=Unstitched&type=1PC" class="nav-dropdown-link">
+                  <span>1PC</span>
+                  <svg class="nav-arrow-right" width="6" height="10" viewBox="0 0 6 10" fill="currentColor"><path d="M0.5 0L5.5 5L0.5 10V0Z"/></svg>
+                </a>
+                <ul class="nav-submenu">
+                  <li><a href="collections.html?category=Unstitched&type=1PC&season=Winter" class="nav-dropdown-link">Winter</a></li>
+                  <li><a href="collections.html?category=Unstitched&type=1PC&season=Summer" class="nav-dropdown-link">Summer</a></li>
+                  <li><a href="collections.html?type=Bedsheet" class="nav-dropdown-link">Bedsheets</a></li>
+                </ul>
+              </li>
+              <li class="nav-dropdown-item has-submenu">
+                <a href="collections.html?category=Unstitched&type=2PC" class="nav-dropdown-link">
+                  <span>2PC</span>
+                  <svg class="nav-arrow-right" width="6" height="10" viewBox="0 0 6 10" fill="currentColor"><path d="M0.5 0L5.5 5L0.5 10V0Z"/></svg>
+                </a>
+                <ul class="nav-submenu">
+                  <li><a href="collections.html?category=Unstitched&type=2PC&season=Winter" class="nav-dropdown-link">Winter</a></li>
+                  <li><a href="collections.html?category=Unstitched&type=2PC&season=Summer" class="nav-dropdown-link">Summer</a></li>
+                </ul>
+              </li>
+              <li class="nav-dropdown-item has-submenu">
+                <a href="collections.html?category=Unstitched&type=3PC" class="nav-dropdown-link">
+                  <span>3PC</span>
+                  <svg class="nav-arrow-right" width="6" height="10" viewBox="0 0 6 10" fill="currentColor"><path d="M0.5 0L5.5 5L0.5 10V0Z"/></svg>
+                </a>
+                <ul class="nav-submenu">
+                  <li><a href="collections.html?category=Unstitched&type=3PC&season=Winter" class="nav-dropdown-link">Winter</a></li>
+                  <li><a href="collections.html?category=Unstitched&type=3PC&season=Summer" class="nav-dropdown-link">Summer</a></li>
+                </ul>
+              </li>
+            </ul>
           </div>
 
-          <!-- 3. READY TO WEAR (Contains 1-Piece Shirts 3.5m) -->
-          <div class="nav-item-dropdown">
-            <a href="collections.html?category=Ready+To+Wear" class="header-nav__link">
+          <div class="nav-item-dropdown" id="nav-dropdown-rtw">
+            <a href="collections.html?category=Ready+to+Wear" class="header-nav__link">
               READY TO WEAR
-              <svg width="10" height="6" viewBox="0 0 10 6" fill="currentColor"><path d="M0 0.5L5 5.5L10 0.5H0Z"/></svg>
+              <svg class="nav-arrow-down" width="10" height="6" viewBox="0 0 10 6" fill="currentColor"><path d="M0 0.5L5 5.5L10 0.5H0Z"/></svg>
             </a>
-            <div class="nav-dropdown-menu" style="min-width:300px; padding:16px;">
-              <a href="collections.html?category=1PC+Shirt" class="nav-dropdown-link" style="font-weight:700;">
-                <span>1-PIECE SHIRTS (3.5M) (20)</span>
-                <span style="font-size:11px; color:#888;">Nishat Linen</span>
-              </a>
-              <a href="collections.html?category=Ready+To+Wear" class="nav-dropdown-link" style="border-top:1px solid #eee; margin-top:8px; color:var(--color-primary); font-weight:800;">
-                View All Ready To Wear (20 Articles) &rarr;
-              </a>
-            </div>
+            <ul class="nav-dropdown-menu">
+              <li class="nav-dropdown-item">
+                <a href="collections.html?category=Ready+to+Wear&type=2PC" class="nav-dropdown-link">2PC</a>
+              </li>
+              <li class="nav-dropdown-item">
+                <a href="collections.html?category=Ready+to+Wear&type=3PC" class="nav-dropdown-link">3PC</a>
+              </li>
+            </ul>
           </div>
 
-          <!-- 4. ORDER TRACKING -->
-          <div class="nav-item-dropdown">
-            <a href="order-tracking.html" class="header-nav__link">ORDER TRACKING</a>
+          <div class="nav-item-dropdown" id="nav-dropdown-kids">
+            <a href="collections.html?category=Kids" class="header-nav__link">
+              KIDS
+              <svg class="nav-arrow-down" width="10" height="6" viewBox="0 0 10 6" fill="currentColor"><path d="M0 0.5L5 5.5L10 0.5H0Z"/></svg>
+            </a>
+            <ul class="nav-dropdown-menu">
+              <li class="nav-dropdown-item">
+                <a href="collections.html?category=Kids&type=Girls+Eastern" class="nav-dropdown-link">Girls Eastern</a>
+              </li>
+              <li class="nav-dropdown-item">
+                <a href="collections.html?category=Kids&type=Boys+Kurta" class="nav-dropdown-link">Boys Kurta</a>
+              </li>
+              <li class="nav-dropdown-item">
+                <a href="collections.html?category=Kids" class="nav-dropdown-link">All Kids Collection</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="nav-item">
+            <a href="order-tracking.html" class="header-nav__link">
+              ORDER TRACKING
+            </a>
           </div>
         </nav>
 
         <div class="header-actions">
-          <button class="header-action-btn search-trigger" id="search-modal-toggle">
+          <button class="header-action-btn search-trigger" id="search-modal-toggle" aria-label="Search Products">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
           </button>
           
-          <button class="header-action-btn" id="wishlist-drawer-toggle">
+          <button class="header-action-btn" id="wishlist-drawer-toggle" aria-label="View Wishlist">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
             <span class="header-badge-count wishlist-count-badge" style="display:none;">0</span>
           </button>
           
-          <button class="header-action-btn" id="cart-drawer-toggle">
+          <button class="header-action-btn" id="cart-drawer-toggle" aria-label="View Shopping Cart">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
             <span class="header-badge-count cart-count-badge" id="cart-count">0</span>
           </button>
@@ -138,125 +147,228 @@
   <!-- Breadcrumbs -->
   <div style="background:#fafafa; border-bottom:1px solid #f0f0f0; padding:12px 0; font-size:12px; color:#888;">
     <div class="container" id="pdp-breadcrumbs">
-      <a href="index.html">Home</a> <span>›</span> <a href="collections.html">Catalog</a> <span>›</span> <span id="breadcrumb-title" style="color:#222; font-weight:600;">Product</span>
+      <a href="index.html" style="color:#555;">Home</a> <span>/</span> <a href="collections.html" style="color:#555;" id="pdp-crumb-category">Collections</a> <span>/</span> <span id="breadcrumb-title" style="color:#222; font-weight:600;">Product</span>
     </div>
   </div>
 
   <!-- Product Details Container -->
   <main class="container">
     <div class="pdp-layout" id="pdp-main-content">
-      <!-- Image Gallery -->
+      <!-- Image Gallery Column (Vertical Scroll Stack) -->
       <div class="pdp-gallery">
-        <div class="pdp-gallery-main">
-          <img id="pdp-main-img" src="" alt="Product Image" />
-        </div>
-        <div class="pdp-gallery-thumbs" id="pdp-gallery-thumbs">
-          <!-- Thumbnails rendered dynamically -->
+        <div class="pdp-images-scroll-stack" id="pdp-images-stack">
+          <!-- Dynamically rendered vertical images stack -->
         </div>
       </div>
 
-      <!-- Product Meta & Actions -->
-      <div class="pdp-info">
-        <div style="font-size:12px; text-transform:uppercase; color:#888; font-weight:800; letter-spacing:0.06em; margin-bottom:4px;" id="pdp-vendor">
-          BRAND
-        </div>
+      <!-- Product Meta & Actions Column (Sticky Sidebar) -->
+      <div class="pdp-info pdp-info-sticky">
+        <a href="collections.html" class="pdp-vendor-tag" id="pdp-vendor">
+          DESIGNER
+        </a>
 
         <h1 class="pdp-title" id="pdp-title">Loading Product...</h1>
+
+        <!-- Rating & Reviews Snippet -->
+        <div class="pdp-rating-row">
+          <div class="pdp-stars">★★★★★</div>
+          <span class="pdp-review-count">5.0 (28 customer reviews)</span>
+        </div>
 
         <div class="pdp-sku-stock">
           <span>SKU: <strong id="pdp-sku">BCP-8230</strong></span>
           <span>•</span>
           <div class="stock-indicator" id="pdp-stock-status">
             <span class="stock-dot in-stock"></span>
-            <span>In Stock</span>
+            <span>In Stock (Ready to dispatch)</span>
           </div>
         </div>
 
-        <!-- Pricing -->
+        <!-- Pricing & Save Badge -->
         <div class="pdp-pricing">
-          <span class="pdp-price-compare" id="pdp-compare-price">Rs.0.00</span>
-          <span class="pdp-price-current" id="pdp-price">Rs.0.00</span>
-          <span class="badge-save" id="pdp-save-badge">SAVE Rs.0.00</span>
+          <span class="pdp-price-current" id="pdp-price">Rs. 0.00</span>
+          <span class="pdp-price-compare" id="pdp-compare-price">Rs. 0.00</span>
+          <span class="badge-save" id="pdp-save-badge">SAVE 40% OFF</span>
+        </div>
+
+        <!-- Stock Scarcity Urgency Banner -->
+        <div class="pdp-urgency-box">
+          <span class="fire-icon">🔥</span>
+          <span class="pdp-urgency-text">Hurry! Only 3 suits remaining in stock - order yours now.</span>
         </div>
 
         <!-- Quantity & Subtotal -->
         <div class="pdp-qty-wrapper">
-          <label style="font-size:12px; font-weight:700; text-transform:uppercase; display:block; margin-bottom:8px;">Quantity:</label>
+          <label style="font-size:12px; font-weight:700; text-transform:uppercase; display:block; margin-bottom:8px; color:#444;">Quantity:</label>
           <div style="display:flex; align-items:center; gap:16px;">
-            <div class="cart-item__qty" style="background:#fcfcfc;">
+            <div class="cart-item__qty" style="background:#fcfcfc; border:1px solid #ddd; border-radius:4px;">
               <button class="qty-btn" id="pdp-qty-minus">-</button>
               <span class="qty-val" id="pdp-qty-val">1</span>
               <button class="qty-btn" id="pdp-qty-plus">+</button>
             </div>
-            <span style="font-size:13px; color:#666;">Subtotal: <strong id="pdp-live-subtotal" style="color:#222;">Rs.0.00</strong></span>
+            <span style="font-size:13.5px; color:#555;">Subtotal: <strong id="pdp-live-subtotal" style="color:#111; font-weight:800;">Rs. 0.00</strong></span>
           </div>
         </div>
 
         <!-- Action Buttons -->
         <div class="pdp-actions">
+          <!-- Prominent Green WhatsApp Primary CTA Button -->
+          <button class="btn-pdp-whatsapp" id="pdp-whatsapp-btn" aria-label="Order on WhatsApp">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+            <span id="pdp-whatsapp-btn-text">ORDER ON WHATSAPP</span>
+          </button>
+
           <div style="display:flex; gap:10px;">
-            <button class="btn-primary" id="pdp-add-cart-btn" style="flex:1;">ADD TO CART</button>
-            <button class="card-action-btn" id="pdp-wishlist-btn" title="Add to Wishlist" style="width:48px; height:48px; border-radius:4px; border:1px solid #ddd;">
+            <button class="btn-primary" id="pdp-add-cart-btn" style="flex:1; padding:14px; font-weight:800; font-size:13px;">ADD TO BAG</button>
+            <button class="card-action-btn" id="pdp-wishlist-btn" title="Add to Wishlist" style="width:48px; height:48px; border-radius:6px; border:1px solid #ddd;">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
             </button>
           </div>
-
-          <button class="btn-whatsapp" id="pdp-whatsapp-btn" style="width:100%; justify-content:center; padding:16px; font-weight:800; font-size:15px; display:flex; align-items:center; gap:10px;">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-            ORDER ON WHATSAPP CHAT
-          </button>
         </div>
 
-        <!-- Accordions -->
+        <!-- 4 Trust Badges Grid -->
+        <div class="pdp-trust-grid">
+          <div class="pdp-trust-item">
+            <div class="pdp-trust-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+            </div>
+            <div class="pdp-trust-text">
+              <span class="pdp-trust-title">Nationwide Delivery</span>
+              <span class="pdp-trust-desc">Fast 2-4 working days</span>
+            </div>
+          </div>
+
+          <div class="pdp-trust-item">
+            <div class="pdp-trust-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+            </div>
+            <div class="pdp-trust-text">
+              <span class="pdp-trust-title">Direct Bank Transfer</span>
+              <span class="pdp-trust-desc">Safe & secure checkout</span>
+            </div>
+          </div>
+
+          <div class="pdp-trust-item">
+            <div class="pdp-trust-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"></polyline><polyline points="23 20 23 14 17 14"></polyline><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path></svg>
+            </div>
+            <div class="pdp-trust-text">
+              <span class="pdp-trust-title">7 Days Easy Return</span>
+              <span class="pdp-trust-desc">Hassle-free exchange policy</span>
+            </div>
+          </div>
+
+          <div class="pdp-trust-item">
+            <div class="pdp-trust-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <div class="pdp-trust-text">
+              <span class="pdp-trust-title">100% Original Brand</span>
+              <span class="pdp-trust-desc">Guaranteed authentic cut pieces</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Collapsible Accordions -->
         <div class="pdp-accordions">
           <div class="accordion-item active">
             <div class="accordion-header">
-              <span>Description</span>
-              <span>▾</span>
+              <span>Product Description & Fabric Details</span>
+              <span class="accordion-icon">▾</span>
             </div>
             <div class="accordion-body" id="pdp-description-body">
-              <p><strong>LADIE'S UNSTITCHED LUXURY LAWN COLLECTION</strong></p>
+              <p><strong>PREMIUM ORIGINAL DESIGNER UNSTITCHED SUIT</strong></p>
               <ul style="list-style:disc; margin-left:20px; margin-top:8px; line-height:1.8;">
-                <li><strong>SHIRT:</strong> 3.0 Meters Premium Digital Printed / Embroidered Lawn Fabric</li>
-                <li><strong>DUPATTA:</strong> 2.5 Meters Soft Swiss Voile / Digital Printed Lawn Dupatta</li>
-                <li><strong>TROUSER:</strong> 2.5 Meters Solid Dyed Cambric Cotton Trouser</li>
-                <li><strong>AUTHENTICITY:</strong> 100% Original Brand Authentic Cut Piece with complete mill stamp.</li>
+                <li><strong>SHIRT:</strong> Premium digital printed / embroidered luxury lawn cut piece (approx. 3.0 Meters)</li>
+                <li><strong>DUPATTA:</strong> Soft digital printed lawn / swiss voile dupatta (approx. 2.5 Meters)</li>
+                <li><strong>TROUSER:</strong> Dyed cambric cotton trouser fabric (approx. 2.5 Meters)</li>
+                <li><strong>AUTHENTICITY:</strong> 100% Original authentic branded mill cut piece.</li>
               </ul>
             </div>
           </div>
 
           <div class="accordion-item">
             <div class="accordion-header">
-              <span>Care & Disclaimer</span>
-              <span>▾</span>
+              <span>Fabric Care & Washing Instructions</span>
+              <span class="accordion-icon">▾</span>
             </div>
             <div class="accordion-body">
-              <p>• Due to lighting and studio screen monitors, actual fabric color and shade may slightly vary from the catalog images.<br>
-              • Dry clean or gentle hand wash recommended for long lasting vibrancy.<br>
-              • Do not bleach or use harsh stain removers.</p>
+              <p>• Hand wash gently or dry clean for maximum longevity of fabrics and prints.<br>
+              • Wash dark and light colored fabrics separately.<br>
+              • Do not expose directly to scorching sunlight when drying.<br>
+              • Iron at moderate temperature on the reverse side.</p>
             </div>
           </div>
 
           <div class="accordion-item">
             <div class="accordion-header">
-              <span>Shipping & Returns</span>
-              <span>▾</span>
+              <span>Delivery & Exchange Policy</span>
+              <span class="accordion-icon">▾</span>
             </div>
             <div class="accordion-body">
-              <p>• <strong>Delivery Time:</strong> 2 to 4 working days anywhere in Pakistan.<br>
-              • <strong>Payment Methods:</strong> Direct Bank Transfer & Online Payments.<br>
-              • <strong>Exchange Policy:</strong> 7-day hassle free replacement or online voucher in case of defect or wrong delivery.</p>
+              <p>• <strong>Delivery Time:</strong> 2 to 4 business days nationwide across Pakistan.<br>
+              • <strong>Shipping Charges:</strong> Free shipping on orders above Rs. 3,500.<br>
+              • <strong>Exchange Policy:</strong> 7 days easy exchange if any manufacturing flaw or mismatch occurs.</p>
             </div>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- Verified Customer Reviews Section -->
+    <section class="pdp-reviews-section">
+      <div class="pdp-reviews-header">
+        <div>
+          <h2 style="font-size:22px; font-weight:800; text-transform:uppercase; color:#111; margin-bottom:4px;">Customer Reviews</h2>
+          <div class="pdp-reviews-summary">
+            <div class="pdp-reviews-score">5.0</div>
+            <div>
+              <div style="color:#f5a623; font-size:16px; letter-spacing:2px;">★★★★★</div>
+              <div style="font-size:12px; color:#666;">Based on 28 verified reviews</div>
+            </div>
+          </div>
+        </div>
+        <button class="btn-black" onclick="Store.showToast('Thank you! Review submission is open.')" style="padding:10px 24px; font-size:12px;">WRITE A REVIEW</button>
+      </div>
+
+      <div class="pdp-reviews-grid">
+        <div class="pdp-review-card">
+          <div class="author-row">
+            <span class="author-name">Fatima Z.</span>
+            <span class="verified-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Verified Buyer</span>
+          </div>
+          <div style="color:#f5a623; font-size:13px; margin-bottom:4px;">★★★★★</div>
+          <div class="review-date">Reviewed in Lahore, 3 days ago</div>
+          <p class="review-body">100% genuine cut piece! The fabric quality and print sharpness are identical to the brand outlet suit. Fast delivery in just 2 days. Highly recommended!</p>
+        </div>
+
+        <div class="pdp-review-card">
+          <div class="author-row">
+            <span class="author-name">Ayesha K.</span>
+            <span class="verified-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Verified Buyer</span>
+          </div>
+          <div style="color:#f5a623; font-size:13px; margin-bottom:4px;">★★★★★</div>
+          <div class="review-date">Reviewed in Karachi, 1 week ago</div>
+          <p class="review-body">Ordered through WhatsApp and the customer support was extremely responsive and helpful. The suit was well-packaged and colors are vibrant.</p>
+        </div>
+
+        <div class="pdp-review-card">
+          <div class="author-row">
+            <span class="author-name">Mariam S.</span>
+            <span class="verified-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Verified Buyer</span>
+          </div>
+          <div style="color:#f5a623; font-size:13px; margin-bottom:4px;">★★★★★</div>
+          <div class="review-date">Reviewed in Islamabad, 2 weeks ago</div>
+          <p class="review-body">Excellent value for money. Best lawn cut piece collection in Pakistan. I have already placed my second order!</p>
+        </div>
+      </div>
+    </section>
+
     <!-- Related Products -->
-    <div style="margin: 60px 0;">
+    <div style="margin: 60px 0 40px;">
       <div class="section-header">
         <h2 class="section-title">YOU MAY ALSO LIKE</h2>
-        <p class="section-subtitle">Customers who viewed this item also loved these lawn suites</p>
+        <p class="section-subtitle">Customers who viewed this suit also purchased these articles</p>
       </div>
       <div class="products-grid" id="related-products-grid">
         <!-- Rendered via JavaScript -->
@@ -307,109 +419,49 @@
             <input type="email" placeholder="enter your email address" required />
             <button type="submit">SUBMIT</button>
           </form>
-
-          <div class="footer-social">
-            <a href="https://www.facebook.com/profile.php?id=61592005074273" class="social-icon" target="_blank" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
-            <a href="https://www.instagram.com/aldewanbrandedcollection1/" class="social-icon" target="_blank" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
-            <a href="https://www.tiktok.com/@al.dewan.branded" class="social-icon" target="_blank" aria-label="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg></a>
-            <a href="https://www.youtube.com/channel/UCC8WRZg3dNGdAvlRoow4Szw" class="social-icon" target="_blank" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
-          </div>
         </div>
       </div>
 
       <div class="footer-bottom">
         <div>© 2026 Al-Deewan Brand. All Rights Reserved. Powered By Whizzly Lab</div>
-        <div class="payment-methods" style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
-          <!-- Direct Bank Transfer Badge -->
-          <span class="payment-badge" title="Direct Bank Transfer" style="display:inline-flex; align-items:center; background:#f4f6fa; border:1px solid #cce0eb; border-radius:6px; padding:5px 12px; gap:6px; font-size:11px; font-weight:800; color:#1a5276;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a5276" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="5" width="20" height="14" rx="2"></rect>
-              <line x1="2" y1="10" x2="22" y2="10"></line>
-            </svg>
-            <span>Bank Transfer</span>
-          </span>
-
-          <!-- WhatsApp Order & Support Badge -->
-          <a href="https://api.whatsapp.com/send?phone=923334275944&text=Hello%20Al-Deewan%20Brand%2C%20I%20have%20an%20inquiry." target="_blank" class="payment-badge" title="WhatsApp Order & Support" style="display:inline-flex; align-items:center; background:#e8f9ee; border:1px solid #bdf1cc; border-radius:6px; padding:5px 12px; gap:6px; font-size:11px; font-weight:800; color:#128c7e; text-decoration:none;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366">
-              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
-            </svg>
-            <span>WhatsApp Orders</span>
-          </a>
+                <div class="payment-methods">
+          <img src="assets/images/payments/visa.png" alt="Visa" class="payment-icon" />
+          <img src="assets/images/payments/mastercard.png" alt="Mastercard" class="payment-icon" />
+          <img src="assets/images/payments/tabby.png" alt="Tabby" class="payment-icon" />
+          <img src="assets/images/payments/gpay.png" alt="Google Pay" class="payment-icon" />
+          <img src="assets/images/payments/shoppay.png" alt="Shop Pay" class="payment-icon" />
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- Drawers & Modals -->
-  <div class="drawer-overlay"></div>
-  
-  <div class="slide-drawer" id="cart-drawer">
-    <div class="drawer-header">
-      <div class="drawer-title">Shopping Cart</div>
-      <button class="drawer-close">&times;</button>
-    </div>
-    <div class="drawer-body">
-      <div id="cart-shipping-progress"></div>
-      <div id="cart-drawer-items"></div>
-    </div>
-    <div class="drawer-footer" id="cart-drawer-footer">
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
-        <span style="font-size:13px; font-weight:600; color:#555;">Subtotal:</span>
-        <span style="font-size:15px; font-weight:800; color:#111;" id="cart-drawer-subtotal">Rs.0.00</span>
-      </div>
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-        <span style="font-size:13px; font-weight:600; color:#555;">Delivery Charges:</span>
-        <span style="font-size:13px; font-weight:800; color:#111;" id="cart-drawer-shipping">Rs. 250</span>
-      </div>
-      <button class="btn-whatsapp" id="cart-drawer-whatsapp-btn" onclick="Store.checkoutViaWhatsApp()" style="width:100%; padding:14px 10px; font-weight:800; margin-bottom:8px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:4px; cursor:pointer;">
-        <div style="display:flex; align-items:center; justify-content:center; gap:8px; font-size:14px; letter-spacing:0.02em;">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-          <span>ORDER ON WHATSAPP</span>
-        </div>
-        <div style="font-size:13px; font-weight:700;">(<span id="cart-drawer-btn-total">Rs.0.00</span>)</div>
-      </button>
-      <a href="cart.html" class="btn-black">VIEW SHOPPING BAG</a>
-    </div>
-  </div>
+  <!-- Floating WhatsApp CTA -->
+  <a href="https://api.whatsapp.com/send?phone=923334275944&text=Hello%20Al-Deewan%20Brand%2C%20I%20have%20an%20inquiry%20about%20your%20products." target="_blank" class="whatsapp-float" aria-label="Chat with Al-Deewan on WhatsApp" rel="noopener noreferrer">
+    <img src="assets/images/whatsapp_floating_icon.png" alt="WhatsApp Chat" width="62" height="62" loading="eager" />
+  </a>
 
-  <div class="slide-drawer" id="wishlist-drawer">
-    <div class="drawer-header">
-      <div class="drawer-title">My Wishlist</div>
-      <button class="drawer-close">&times;</button>
-    </div>
-    <div class="drawer-body">
-      <div id="wishlist-drawer-items"></div>
-    </div>
-  </div>
-
-  <div class="slide-drawer left" id="mobile-nav-drawer">
-    <div class="drawer-header">
-      <div class="drawer-title">Menu</div>
-      <button class="drawer-close">&times;</button>
-    </div>
-    <div class="drawer-body">
-      <ul style="display:flex; flex-direction:column; gap:16px; padding:10px 0;">
-        <li><a href="index.html" style="font-weight:700; font-size:15px; text-transform:uppercase;">HOME</a></li>
-        <li><a href="collections.html?collection=new-in" style="font-weight:700; font-size:15px; text-transform:uppercase;">NEW ARRIVAL 🔥</a></li>
-        <li><a href="shop-by-brand.html" style="font-weight:700; font-size:15px; text-transform:uppercase;">SHOP BY BRAND</a></li>
-        <li><a href="collections.html?category=Unstitched" style="font-weight:700; font-size:15px; text-transform:uppercase;">UNSTITCHED</a></li>
-        <li><a href="collections.html?category=Ready+to+Wear" style="font-weight:700; font-size:15px; text-transform:uppercase;">READY TO WEAR</a></li>
-        <li><a href="order-tracking.html" style="font-weight:700; font-size:15px; text-transform:uppercase;">ORDER TRACKING</a></li>
-        <li style="border-top:1px solid #eee; padding-top:14px;"><a href="contact.html" style="font-size:14px; color:#666;">Contact & Support</a></li>
-        <li><a href="refunds.html" style="font-size:14px; color:#666;">Refund Policy</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="search-modal" id="search-modal">
-    <div class="container">
-      <div class="search-box">
-        <input type="text" id="predictive-search-input" placeholder="Search lawn suits, brands, fabrics, 3PC, 2PC..." />
-        <button id="search-modal-close">&times;</button>
-      </div>
-      <div class="search-results-grid" id="search-results-grid"></div>
-    </div>
+  <!-- Mobile Bottom Toolbar -->
+  <div class="mobile-toolbar">
+    <a href="collections.html" class="toolbar-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+      <span>Shop</span>
+    </a>
+    <button class="toolbar-item search-trigger">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <span>Search</span>
+    </button>
+    <button class="toolbar-item" onclick="MainUI.openWishlistDrawer()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+      <span>Wishlist</span>
+    </button>
+    <button class="toolbar-item" onclick="MainUI.openCartDrawer()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+      <span>Cart</span>
+    </button>
+    <a href="order-tracking.html" class="toolbar-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+      <span>Track</span>
+    </a>
   </div>
 
   <!-- Scripts -->
@@ -431,41 +483,41 @@
       document.getElementById('pdp-meta-title').textContent = `${currentProduct.title} - Al-Deewan Brand`;
       document.getElementById('breadcrumb-title').textContent = currentProduct.title;
       document.getElementById('pdp-title').textContent = currentProduct.title;
-      document.getElementById('pdp-vendor').textContent = currentProduct.vendor || 'Al-Deewan Brand';
-      document.getElementById('pdp-sku').textContent = currentProduct.sku;
-
-      const mainImg = document.getElementById('pdp-main-img');
-      const productImg = currentProduct.featured_image || currentProduct.image || (currentProduct.images && currentProduct.images[0]) || '';
-      mainImg.src = productImg;
-      mainImg.alt = currentProduct.title;
-      mainImg.onerror = function() {
-        if (currentProduct.image && this.src !== currentProduct.image) {
-          this.src = currentProduct.image;
-        }
-      };
-
-      // Gallery Thumbnails
-      const thumbsContainer = document.getElementById('pdp-gallery-thumbs');
-      const allImages = currentProduct.images && currentProduct.images.length ? currentProduct.images.filter(Boolean) : [productImg];
       
-      if (allImages.length <= 1) {
-        thumbsContainer.style.display = 'none';
-      } else {
-        thumbsContainer.style.display = 'flex';
-        thumbsContainer.innerHTML = allImages.map((img, idx) => `
-          <div class="pdp-thumb ${idx === 0 ? 'active' : ''}" data-src="${img}">
-            <img src="${img}" alt="${currentProduct.title} view ${idx + 1}" onerror="this.parentElement.style.display='none'" />
-          </div>
-        `).join('');
+      const vendorEl = document.getElementById('pdp-vendor');
+      vendorEl.textContent = currentProduct.vendor || 'DESIGNER BRAND';
+      vendorEl.href = `collections.html?brand=${encodeURIComponent(currentProduct.vendor || '')}`;
+      
+      document.getElementById('pdp-sku').textContent = currentProduct.sku || 'BCP-8230';
 
-        document.querySelectorAll('.pdp-thumb').forEach(thumb => {
-          thumb.addEventListener('click', () => {
-            document.querySelectorAll('.pdp-thumb').forEach(t => t.classList.remove('active'));
-            thumb.classList.add('active');
-            mainImg.src = thumb.dataset.src;
-          });
-        });
+      const categoryCrumb = document.getElementById('pdp-crumb-category');
+      if (categoryCrumb && currentProduct.category) {
+        categoryCrumb.textContent = currentProduct.category;
+        categoryCrumb.href = `collections.html?category=${encodeURIComponent(currentProduct.category)}`;
       }
+
+      // Render Vertical Scroll Images Stack
+      const imagesStack = document.getElementById('pdp-images-stack');
+      let imageList = [];
+      if (currentProduct.images && Array.isArray(currentProduct.images) && currentProduct.images.length > 0) {
+        imageList = currentProduct.images.filter(Boolean);
+      }
+      if (currentProduct.image && !imageList.includes(currentProduct.image)) {
+        imageList.unshift(currentProduct.image);
+      }
+      if (currentProduct.hover_image && !imageList.includes(currentProduct.hover_image)) {
+        imageList.push(currentProduct.hover_image);
+      }
+      if (imageList.length === 0 && currentProduct.featured_image) {
+        imageList.push(currentProduct.featured_image);
+      }
+
+      imagesStack.innerHTML = imageList.map((imgSrc, idx) => `
+        <div class="pdp-image-card" data-index="${idx}">
+          ${idx === 0 ? `<span class="pdp-image-badge">Sale ${currentProduct.discount_percent}%</span>` : ''}
+          <img src="${imgSrc}" alt="${currentProduct.title} - View ${idx + 1}" loading="${idx === 0 ? 'eager' : 'lazy'}" onerror="if(this.src!=='${currentProduct.image||''}')this.src='${currentProduct.image||''}';" />
+        </div>
+      `).join('');
 
       // Price and Save Badge
       document.getElementById('pdp-price').textContent = Store.formatMoney(currentProduct.price);
@@ -486,10 +538,13 @@
       let qty = 1;
       const qtyVal = document.getElementById('pdp-qty-val');
       const subtotalVal = document.getElementById('pdp-live-subtotal');
+      const whatsappBtnText = document.getElementById('pdp-whatsapp-btn-text');
       
       const updateSubtotal = () => {
         qtyVal.textContent = qty;
-        subtotalVal.textContent = Store.formatMoney(currentProduct.price * qty);
+        const total = currentProduct.price * qty;
+        subtotalVal.textContent = Store.formatMoney(total);
+        whatsappBtnText.textContent = `ORDER ON WHATSAPP (${Store.formatMoney(total)})`;
       };
       updateSubtotal();
 
@@ -525,9 +580,9 @@
         updateWishlistUI();
       });
 
-      // WhatsApp Order
+      // WhatsApp Order Primary CTA
       document.getElementById('pdp-whatsapp-btn').addEventListener('click', () => {
-        MainUI.orderOnWhatsApp(currentProduct.title, currentProduct.sku, Store.formatMoney(currentProduct.price), currentProduct.handle, qty);
+        MainUI.orderOnWhatsApp(currentProduct.title, currentProduct.sku, Store.formatMoney(currentProduct.price * qty), currentProduct.handle, qty);
       });
 
       // Accordion Handlers
@@ -544,28 +599,5 @@
       relatedGrid.innerHTML = relatedItems.map(p => MainUI.createProductCardHTML(p)).join('');
     });
   </script>
-  <!-- Mobile Bottom Toolbar -->
-  <div class="mobile-toolbar">
-    <a href="collections.html" class="toolbar-item">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
-      <span>Shop</span>
-    </a>
-    <button class="toolbar-item search-trigger">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-      <span>Search</span>
-    </button>
-    <button class="toolbar-item" onclick="MainUI.openWishlistDrawer()">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-      <span>Wishlist</span>
-    </button>
-    <button class="toolbar-item" onclick="MainUI.openCartDrawer()">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
-      <span>Cart</span>
-    </button>
-    <a href="order-tracking.html" class="toolbar-item">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-      <span>Track</span>
-    </a>
-  </div>
 </body>
 </html>

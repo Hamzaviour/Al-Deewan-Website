@@ -976,6 +976,113 @@
       object-fit: contain;
     }
 
+    /* Multi-Image Gallery Manager in Modal */
+    .modal-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .modal-gallery-card {
+      position: relative;
+      background: #ffffff;
+      border: 1.5px solid var(--admin-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      transition: all 0.2s;
+    }
+
+    .modal-gallery-card.is-primary {
+      border-color: var(--admin-primary);
+      box-shadow: 0 0 0 2px rgba(94, 53, 133, 0.25);
+    }
+
+    .modal-gallery-thumb-wrap {
+      position: relative;
+      width: 100%;
+      height: 140px;
+      background: #f0f0f4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .modal-gallery-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .modal-gallery-badge {
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #fff;
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(2px);
+      z-index: 2;
+    }
+
+    .modal-gallery-badge.primary-badge {
+      background: var(--admin-primary);
+    }
+
+    .modal-gallery-badge.hover-badge {
+      background: #0369a1;
+    }
+
+    .modal-gallery-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px;
+      background: #fafafc;
+      border-top: 1px solid var(--admin-border);
+      gap: 4px;
+    }
+
+    .modal-gallery-btn {
+      background: #ffffff;
+      border: 1px solid #dcdce6;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 4px 6px;
+      cursor: pointer;
+      color: #444;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s;
+    }
+
+    .modal-gallery-btn:hover {
+      background: #f0f0f5;
+      color: #111;
+    }
+
+    .modal-gallery-btn.btn-delete:hover {
+      background: #fee2e2;
+      color: #dc2626;
+      border-color: #fca5a5;
+    }
+
+    .modal-gallery-btn.btn-make-primary:hover {
+      background: var(--admin-primary-light);
+      color: var(--admin-primary);
+      border-color: var(--admin-primary);
+    }
+
     /* Toast Notification */
     .admin-toast {
       position: fixed;
@@ -997,9 +1104,119 @@
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .admin-toast.show {
-      transform: translateY(0);
-      opacity: 1;
+    /* Brand Manager Styles */
+    .brand-favorites-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 16px;
+      margin-top: 14px;
+    }
+    .brand-card-admin {
+      background: #fff;
+      border: 1px solid var(--admin-border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      transition: all 0.2s ease;
+      box-shadow: var(--shadow-sm);
+    }
+    .brand-card-admin:hover {
+      border-color: var(--admin-primary);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .brand-card-logo-wrap {
+      width: 100%;
+      height: 70px;
+      background: #fafafa;
+      border: 1px solid #f0f0f4;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 12px;
+      margin-bottom: 12px;
+    }
+    .brand-card-logo-wrap img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+    .brand-card-name {
+      font-size: 14px;
+      font-weight: 800;
+      color: #111;
+      margin-bottom: 4px;
+    }
+    .brand-card-count {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--admin-text-muted);
+      margin-bottom: 12px;
+    }
+    .brand-card-actions {
+      display: flex;
+      gap: 6px;
+      width: 100%;
+      margin-top: auto;
+    }
+    .brand-card-actions .action-btn {
+      flex: 1;
+      margin: 0;
+      font-size: 11px;
+      padding: 6px 8px;
+    }
+    .brand-card-add-new {
+      border: 2px dashed #dcdce6;
+      background: #fafafc;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 180px;
+      border-radius: var(--radius-md);
+      color: var(--admin-primary);
+      font-weight: 800;
+      font-size: 13px;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .brand-card-add-new:hover {
+      border-color: var(--admin-primary);
+      background: var(--admin-primary-light);
+    }
+    .letter-filter-bar {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+      margin-bottom: 14px;
+    }
+    .letter-pill {
+      min-width: 28px;
+      height: 28px;
+      padding: 0 6px;
+      border-radius: 4px;
+      border: 1px solid var(--admin-border);
+      background: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #444;
+      transition: all 0.15s;
+    }
+    .letter-pill:hover, .letter-pill.active {
+      background: var(--admin-primary);
+      color: #fff;
+      border-color: var(--admin-primary);
     }
   </style>
 </head>
@@ -1073,6 +1290,7 @@
     <div class="admin-quick-tabs-bar">
       <button class="quick-tab-pill active" onclick="switchTab('overview')">📊 Overview</button>
       <button class="quick-tab-pill" onclick="switchTab('products')">👗 Articles</button>
+      <button class="quick-tab-pill" onclick="switchTab('brands')">🏷️ Brands Directory</button>
       <button class="quick-tab-pill" onclick="switchTab('headings')">🏷️ Headings</button>
       <button class="quick-tab-pill" onclick="switchTab('navigation')">📂 Dropdowns</button>
       <button class="quick-tab-pill" onclick="switchTab('banners')">🖼️ Banners</button>
@@ -1104,6 +1322,10 @@
         <button class="nav-tab-btn" data-tab="products">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
           <span>Articles / Products</span>
+        </button>
+        <button class="nav-tab-btn" data-tab="brands">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+          <span>Brands Directory</span>
         </button>
         <button class="nav-tab-btn" data-tab="headings">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
@@ -1220,17 +1442,33 @@
 
           <div class="admin-card">
             <div class="table-controls">
-              <input type="text" id="admin-search-input" class="search-input" placeholder="Search by title, brand, SKU..." oninput="renderAdminProductsTable()" />
-              <div class="filter-controls-group">
+              <input type="text" id="admin-search-input" class="search-input" placeholder="Search by title, brand, SKU, fabric..." oninput="renderAdminProductsTable()" />
+              <div class="filter-controls-group" style="display:flex; gap:8px; flex-wrap:wrap;">
                 <select id="admin-brand-filter" class="filter-select" onchange="renderAdminProductsTable()">
                   <option value="">All Brands</option>
                 </select>
                 <select id="admin-cat-filter" class="filter-select" onchange="renderAdminProductsTable()">
                   <option value="">All Categories</option>
-                  <option value="3PC">3-Piece Unstitched</option>
-                  <option value="2PC">2-Piece Raw Silk / Lawn</option>
-                  <option value="1PC">1-Piece Shirts</option>
-                  <option value="Ready to Wear">Ready to Wear</option>
+                  <option value="Unstitched">👗 Unstitched</option>
+                  <option value="Ready to Wear">👚 Ready to Wear</option>
+                  <option value="Menswear">👔 Menswear</option>
+                  <option value="Kids">👶 Kids / Children</option>
+                  <option value="3PC">3-Piece</option>
+                  <option value="2PC">2-Piece</option>
+                  <option value="1PC">1-Piece</option>
+                </select>
+                <select id="admin-season-filter" class="filter-select" onchange="renderAdminProductsTable()">
+                  <option value="">All Seasons</option>
+                  <option value="Summer">☀️ Summer Lawn</option>
+                  <option value="Winter">❄️ Winter Fabric</option>
+                  <option value="All Seasons">🌤️ All Seasons / Midsummer</option>
+                  <option value="Spring / Festive">🌸 Spring / Festive</option>
+                </select>
+                <select id="admin-gender-filter" class="filter-select" onchange="renderAdminProductsTable()">
+                  <option value="">All Sections</option>
+                  <option value="Women">👗 Women</option>
+                  <option value="Men">👔 Men / Menswear</option>
+                  <option value="Kids">👶 Kids</option>
                 </select>
               </div>
             </div>
@@ -1245,7 +1483,7 @@
                   <tr>
                     <th>Image</th>
                     <th>Suit Title & Brand</th>
-                    <th>Category</th>
+                    <th>Category & Season</th>
                     <th>SKU</th>
                     <th>Price (PKR)</th>
                     <th>Stock Status</th>
@@ -1260,25 +1498,124 @@
           </div>
         </section>
 
+        <!-- TAB: BRANDS DIRECTORY & TOP FAVORITES (CRUD) -->
+        <section id="tab-brands" class="tab-section">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Fashion Brands Directory & Top Favorites Manager</h2>
+              <p class="section-subtitle">Add new fashion brands, upload/link brand logos, feature Top Favorite brands with logos, and organize the A-Z directory</p>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <button onclick="openAddBrandModal()" class="btn-submit">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                <span>+ Add New Brand</span>
+              </button>
+              <button type="button" class="btn-header" onclick="handleResetBrands()" title="Restore default 58 Pakistani brands catalog">
+                🔄 Reset to Defaults
+              </button>
+            </div>
+          </div>
+
+          <!-- Guide Box -->
+          <div class="guide-box" style="margin-bottom:20px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+            <div>
+              <strong>Shop By Brand & Favorite Brands Management:</strong>
+              Any brand added here automatically appears on the <strong>Shop by Brand</strong> page and catalog brand filters. Brands marked as <strong>"⭐ Top Favorite"</strong> with a logo are featured prominently in the Top Favorite Brands grid with direct links to their collection.
+            </div>
+          </div>
+
+          <!-- Section 1: Top Favorite Brands with Logos -->
+          <div class="admin-card" style="margin-bottom:24px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:12px;">
+              <div>
+                <h3 class="card-title" style="margin-bottom:2px;">⭐ Top Favorite Brands (With Logos)</h3>
+                <p style="font-size:12px; color:var(--admin-text-muted);">These featured brands appear in the top logo grid on the Shop by Brand page.</p>
+              </div>
+              <button onclick="openAddBrandModal(true)" class="btn-header" style="font-size:12px; font-weight:800; border-color:var(--admin-primary); color:var(--admin-primary);">
+                + Feature Another Brand
+              </button>
+            </div>
+            <div class="brand-favorites-grid" id="admin-favorite-brands-grid">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+
+          <!-- Section 2: Complete A-Z Directory -->
+          <div class="admin-card">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:12px;">
+              <div>
+                <h3 class="card-title" style="margin-bottom:2px;">📚 All Brands Directory (A-Z)</h3>
+                <p style="font-size:12px; color:var(--admin-text-muted);">Complete alphabetical catalog of all fashion houses and designers.</p>
+              </div>
+            </div>
+
+            <div class="table-controls">
+              <input type="text" id="admin-brand-search-input" class="search-input" placeholder="Search brand by name..." oninput="renderAdminBrandsManager()" />
+            </div>
+
+            <div class="letter-filter-bar" id="admin-brand-letter-bar">
+              <!-- Letter Pills rendered via JS -->
+            </div>
+
+            <div class="admin-table-wrap">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th style="width:70px;">Logo</th>
+                    <th>Brand Name</th>
+                    <th>Letter</th>
+                    <th>Suits Count</th>
+                    <th>Top Favorite</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-brands-tbody">
+                  <!-- Rendered via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
         <!-- TAB 3: HOMEPAGE FEATURED COLLECTIONS & HEADINGS -->
         <section id="tab-headings" class="tab-section">
           <div class="section-header">
             <div>
               <h2 class="section-title">Homepage Featured Collections & Headings</h2>
-              <p class="section-subtitle">Customize titles, subtitles, and choose which exact articles appear under each collection</p>
+              <p class="section-subtitle">Customize titles, subtitles, view-all links, show/hide sections from homepage, and choose which exact articles appear in each of the homepage collection blocks or add new custom sections</p>
             </div>
-            <button type="button" class="action-btn" onclick="addFeaturedCollectionCard()" style="padding:10px 18px; font-size:13px; font-weight:800; background:#fff; border-color:var(--admin-primary); color:var(--admin-primary);">
-              + Add More Featured Collection
-            </button>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <button type="button" class="action-btn" onclick="addFeaturedCollectionCard()" style="padding:10px 18px; font-size:13px; font-weight:800; background:#fff; border-color:var(--admin-primary); color:var(--admin-primary);">
+                + Add Custom Section
+              </button>
+              <button type="button" class="btn-submit" onclick="saveAllFeaturedCollections()">
+                💾 Save All Collections
+              </button>
+            </div>
+          </div>
+
+          <!-- Live Homepage Sync Info Box -->
+          <div class="guide-box" style="margin-bottom:20px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+            <div>
+              <strong>Live Homepage Synchronization & Visibility Control:</strong>
+              Your homepage currently manages 4 core collections: <strong>1. Bin Saeed Stitched 2PC</strong>, <strong>2. Unstitched 3PC Printed & Embroidered Lawn</strong>, <strong>3. Ready to Wear Stitched Collection</strong>, and <strong>4. Top Designer Lawn Suits</strong>.
+              Use the <strong>"👁️ Show / 🚫 Hide from Homepage"</strong> toggle switch on each collection block to control whether it appears on the live store. You can also customize headings, destination "VIEW ALL" links, or manually select articles from your catalog.
+            </div>
           </div>
 
           <div id="featured-collections-container">
             <!-- Rendered dynamically via JS -->
           </div>
-
-          <div style="display:flex; gap:12px; margin-top:20px; flex-wrap:wrap;">
-            <button type="button" class="btn-submit" onclick="saveAllFeaturedCollections()">Save All Featured Collections</button>
-            <button type="button" class="btn-header" onclick="addFeaturedCollectionCard()">+ Add Another Collection</button>
+          <div style="display:flex; gap:12px; margin-top:24px; flex-wrap:wrap; padding:18px; background:#fff; border-radius:var(--radius-lg); border:1px solid var(--admin-border); box-shadow:var(--shadow-sm);">
+            <button type="button" class="btn-submit" onclick="saveAllFeaturedCollections()" style="font-size:13px; padding:12px 24px;">
+              💾 Save All Featured Collections
+            </button>
+            <button type="button" class="btn-header" onclick="addFeaturedCollectionCard()">
+              + Add Another Custom Collection
+            </button>
           </div>
         </section>
 
@@ -1286,45 +1623,30 @@
         <section id="tab-navigation" class="tab-section">
           <div class="section-header">
             <div>
-              <h2 class="section-title">Navigation Bar Dropdown Menus</h2>
-              <p class="section-subtitle">Choose which brands, categories, and links appear when customers hover over the top navigation</p>
+              <h2 class="section-title">Navigation Bar Dropdown Menus & Submenus</h2>
+              <p class="section-subtitle">Customize and manage the exact dropdown menus, submenus (1PC, 2PC, 3PC, Seasons), Ready to Wear, and Kids Collection that appear in the top navbar and mobile drawer</p>
+            </div>
+            <button type="button" class="btn-submit" onclick="saveAllNavigationMenus()">
+              💾 Save All Navigation Menus
+            </button>
+          </div>
+
+          <div class="guide-box" style="margin-bottom:20px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+            <div>
+              <strong>Hideable & Editable Navigation System:</strong>
+              Every main dropdown (<strong>UNSTITCHED</strong>, <strong>READY TO WEAR</strong>, <strong>KIDS</strong>) and nested submenu group (<strong>1PC</strong>, <strong>2PC</strong>, <strong>3PC</strong>) has its own <strong>"👁️ Show / 🚫 Hide"</strong> toggle switch. You can also add custom sublinks (e.g. Winter, Summer, All Seasons), edit URLs, and add <strong>1-Piece (1PC)</strong> links anytime. Changes instantly update both the desktop top navbar and the mobile drawer.
             </div>
           </div>
 
-          <!-- 1. Shop By Brand Dropdown -->
-          <div class="admin-card">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
-              <h3 class="card-title" style="margin-bottom:0;">1. "SHOP BY BRAND" Dropdown Items</h3>
-              <button type="button" class="action-btn" onclick="addDropdownItemRow('brand')">+ Add Brand Link</button>
-            </div>
-            <div id="brand-menu-list">
-              <!-- Rendered via JS -->
-            </div>
-            <button type="button" class="btn-submit" onclick="handleSaveBrandMenu()" style="margin-top:10px;">Save Brand Dropdown</button>
+          <div id="navigation-manager-container">
+            <!-- Rendered dynamically via renderDropdownMenusManager() -->
           </div>
 
-          <!-- 2. Unstitched Dropdown -->
-          <div class="admin-card">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
-              <h3 class="card-title" style="margin-bottom:0;">2. "UNSTITCHED" Menu Links</h3>
-              <button type="button" class="action-btn" onclick="addDropdownItemRow('unstitched')">+ Add Category Link</button>
-            </div>
-            <div id="unstitched-menu-list">
-              <!-- Rendered via JS -->
-            </div>
-            <button type="button" class="btn-submit" onclick="handleSaveUnstitchedMenu()" style="margin-top:10px;">Save Unstitched Menu</button>
-          </div>
-
-          <!-- 3. Ready To Wear Dropdown -->
-          <div class="admin-card">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
-              <h3 class="card-title" style="margin-bottom:0;">3. "READY TO WEAR" Menu Links</h3>
-              <button type="button" class="action-btn" onclick="addDropdownItemRow('rtw')">+ Add Category Link</button>
-            </div>
-            <div id="rtw-menu-list">
-              <!-- Rendered via JS -->
-            </div>
-            <button type="button" class="btn-submit" onclick="handleSaveRtwMenu()" style="margin-top:10px;">Save Ready To Wear Menu</button>
+          <div style="display:flex; gap:12px; margin-top:24px; flex-wrap:wrap; padding:18px; background:#fff; border-radius:var(--radius-lg); border:1px solid var(--admin-border); box-shadow:var(--shadow-sm);">
+            <button type="button" class="btn-submit" onclick="saveAllNavigationMenus()" style="font-size:13px; padding:12px 24px;">
+              💾 Save All Navigation Menus
+            </button>
           </div>
         </section>
 
@@ -1332,54 +1654,61 @@
         <section id="tab-banners" class="tab-section">
           <div class="section-header">
             <div>
-              <h2 class="section-title">Banner Images & Visual Promos</h2>
-              <p class="section-subtitle">Update homepage banners with dimension guidelines</p>
+              <h2 class="section-title">Banner Images & Moving Hero Carousel</h2>
+              <p class="section-subtitle">Update homepage moving hero carousel slides and promotional billboard banners</p>
             </div>
+            <button type="button" class="btn-submit" onclick="handleSaveHeroSlides()">
+              💾 Save Hero Carousel
+            </button>
           </div>
 
-          <!-- Hero Main Banner -->
+          <!-- Hero Main Banner Moving Slider -->
           <div class="admin-card">
-            <h3 class="card-title">1. Homepage Hero Main Banner</h3>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; flex-wrap:wrap; gap:12px;">
+              <div>
+                <h3 class="card-title" style="margin-bottom:2px;">1. Homepage Hero Main Banner Slider (Moving Carousel)</h3>
+                <span style="font-size:12px; color:#666;">Auto-swiping moving slider every 5 seconds (smooth left swipe) with responsive desktop & mobile images</span>
+              </div>
+              <div style="display:flex; gap:10px; align-items:center;">
+                <label style="font-size:12px; font-weight:800; color:#555;">Autoplay Speed:</label>
+                <select id="hero-autoplay-speed" class="filter-select" style="padding:6px 10px; font-weight:700;">
+                  <option value="3000">3 Seconds (Fast)</option>
+                  <option value="5000" selected>5 Seconds (Recommended)</option>
+                  <option value="7000">7 Seconds</option>
+                  <option value="10000">10 Seconds</option>
+                </select>
+                <button type="button" class="action-btn" onclick="addHeroSlideCard()">+ Add New Slide</button>
+              </div>
+            </div>
+
             <div class="guide-box">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
               <div>
-                <strong>Recommended Dimensions: 1900 x 827 px (Ratio 2.3:1)</strong><br />
-                Ensure high-resolution landscape banners with vibrant brand contrast. Keep file size under 1.2MB for instant mobile loading.
+                <strong>Recommended Dimensions:</strong><br />
+                • <strong>Desktop Banner:</strong> 1900 x 827 px (Ratio 2.3:1)<br />
+                • <strong>Mobile Banner:</strong> 800 x 900 px or 800 x 1000 px (Portrait Ratio 1:1.15)<br />
+                Provide both desktop and mobile image URLs/files for sharp responsive display across all phones and desktops.
               </div>
             </div>
 
-            <form onsubmit="event.preventDefault(); handleSaveHeroBanner();">
-              <div class="form-grid">
-                <div class="form-group">
-                  <label>Upload Image File (or enter URL below)</label>
-                  <input type="file" accept="image/*" class="form-control" onchange="handleFilePreview(this, 'hero-preview-img', 'hero-banner-url')" />
-                </div>
-                <div class="form-group">
-                  <label>Banner Image URL / Path</label>
-                  <input type="text" id="hero-banner-url" class="form-control" placeholder="assets/images/hero_banner.jpg" />
-                </div>
-                <div class="form-group full">
-                  <label>Destination Target Link</label>
-                  <input type="text" id="hero-banner-link" class="form-control" placeholder="collections.html" />
-                </div>
-              </div>
+            <div id="hero-slides-container">
+              <!-- Rendered via JS -->
+            </div>
 
-              <div class="image-preview-container" style="max-height:260px; margin-bottom:16px;">
-                <img id="hero-preview-img" src="assets/images/hero_banner.jpg" alt="Hero Banner Preview" />
-              </div>
-
-              <button type="submit" class="btn-submit">Save Hero Banner</button>
-            </form>
+            <div style="display:flex; gap:10px; margin-top:16px; flex-wrap:wrap;">
+              <button type="button" class="action-btn" onclick="addHeroSlideCard()">+ Add Another Slide</button>
+              <button type="button" class="btn-submit" onclick="handleSaveHeroSlides()">Save Hero Carousel Slides</button>
+            </div>
           </div>
 
           <!-- Welcome Promotional Banner -->
           <div class="admin-card">
-            <h3 class="card-title">2. Welcome Promotional Banner (Above Unstitched Collection)</h3>
+            <h3 class="card-title">2. Welcome Promotional Banner (Above Bin Saeed / Unstitched Collection)</h3>
             <div class="guide-box">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
               <div>
                 <strong>Recommended Dimensions: 1200 x 400 px (Ratio 3:1)</strong><br />
-                Displays as the middle promotional billboard on the homepage.
+                Displays as the promotional billboard on the homepage.
               </div>
             </div>
 
@@ -1391,16 +1720,16 @@
                 </div>
                 <div class="form-group">
                   <label>Banner Image URL / Path</label>
-                  <input type="text" id="promo-banner-url" class="form-control" placeholder="assets/images/welcome_promo_banner.png" />
+                  <input type="text" id="promo-banner-url" class="form-control" placeholder="assets/images/web_banner_promo.png" />
                 </div>
                 <div class="form-group full">
                   <label>Destination Target Link</label>
-                  <input type="text" id="promo-banner-link" class="form-control" placeholder="collections.html?category=Unstitched" />
+                  <input type="text" id="promo-banner-link" class="form-control" placeholder="https://api.whatsapp.com/send?phone=923334275944..." />
                 </div>
               </div>
 
               <div class="image-preview-container" style="max-height:220px; margin-bottom:16px;">
-                <img id="promo-preview-img" src="assets/images/welcome_promo_banner.png" alt="Promo Banner Preview" />
+                <img id="promo-preview-img" src="assets/images/web_banner_promo.png" alt="Promo Banner Preview" />
               </div>
 
               <button type="submit" class="btn-submit">Save Promotional Banner</button>
@@ -1413,25 +1742,64 @@
           <div class="section-header">
             <div>
               <h2 class="section-title">Announcements & Ticker Texts</h2>
-              <p class="section-subtitle">Customize top header marquee text and brand ticker titles</p>
+              <p class="section-subtitle">Customize the moving announcement marquee ticker below the homepage banner image and brand titles</p>
             </div>
           </div>
 
           <div class="admin-card">
-            <h3 class="card-title">Top Header Announcement Bar</h3>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+              <div>
+                <h3 class="card-title" style="margin-bottom:2px;">1. Homepage Banner Announcement Ticker</h3>
+                <span style="font-size:12px; color:#666;">Controls the moving animated marquee ticker positioned directly below the homepage hero banner slides</span>
+              </div>
+              <button type="button" class="btn-submit" onclick="handleSaveAnnouncement()" style="padding:8px 18px; font-size:12px;">
+                💾 Save Ticker Text
+              </button>
+            </div>
+
             <form onsubmit="event.preventDefault(); handleSaveAnnouncement();">
               <div class="form-group">
-                <label>Announcement Text (Displays in Purple Top Bar)</label>
-                <input type="text" id="announcement-text-input" class="form-control" value="⚡ Biggest Lawn Opening in Pakistan • 100% Genuine Branded Cut Pieces • Free Delivery on Orders Above Rs. 3,500 ⚡" />
+                <label>Announcement Ticker Text (Separate multiple messages with • or |)</label>
+                <input type="text" id="announcement-text-input" class="form-control" value="⚡ Biggest Lawn Opening in Pakistan • 100% Genuine Branded Cut Pieces • 50+ Top Designer Brands Launch ⚡" oninput="updateAnnouncementLivePreview(this.value)" placeholder="e.g. ⚡ Biggest Lawn Opening in Pakistan • 100% Genuine Branded Cut Pieces • 50+ Top Designer Brands Launch ⚡" />
               </div>
-              <div style="margin-bottom:16px; display:flex; gap:8px; flex-wrap:wrap;">
+
+              <!-- Quick Emoji Inserters -->
+              <div style="margin-bottom:14px; display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+                <span style="font-size:11px; font-weight:700; color:#666;">Insert Emoji:</span>
                 <button type="button" class="action-btn" onclick="insertAnnouncementEmoji('⚡')">⚡ Bolt</button>
                 <button type="button" class="action-btn" onclick="insertAnnouncementEmoji('🔥')">🔥 Fire</button>
-                <button type="button" class="action-btn" onclick="insertAnnouncementEmoji('🎉')">🎉 Celebration</button>
+                <button type="button" class="action-btn" onclick="insertAnnouncementEmoji('🎉')">🎉 Party</button>
                 <button type="button" class="action-btn" onclick="insertAnnouncementEmoji('👗')">👗 Dress</button>
                 <button type="button" class="action-btn" onclick="insertAnnouncementEmoji('✨')">✨ Sparkle</button>
+                <button type="button" class="action-btn" onclick="insertAnnouncementEmoji('•')">• Bullet Separator</button>
               </div>
-              <button type="submit" class="btn-submit">Save Announcement Text</button>
+
+              <!-- Live Interactive Preview Box -->
+              <div style="margin-bottom:16px;">
+                <label style="font-size:11px; font-weight:800; text-transform:uppercase; color:#555; display:block; margin-bottom:6px;">Live Homepage Ticker Preview:</label>
+                <div style="background:linear-gradient(90deg, #532479 0%, #682e96 50%, #532479 100%); color:#fff; border-radius:8px; padding:10px 16px; overflow:hidden; font-size:14px; font-weight:700; display:flex; align-items:center; box-shadow:inset 0 1px 3px rgba(0,0,0,0.2);">
+                  <div id="admin-ticker-preview" style="display:inline-flex; align-items:center; gap:24px; white-space:nowrap;">
+                    <!-- Rendered dynamically -->
+                  </div>
+                </div>
+              </div>
+
+              <button type="submit" class="btn-submit">Save Announcement Text to Live Homepage</button>
+            </form>
+          </div>
+
+          <div class="admin-card">
+            <h3 class="card-title">2. "Shop Your Favorite Brands" Section Title</h3>
+            <form onsubmit="event.preventDefault(); handleSaveBrandTickerText();">
+              <div class="form-group">
+                <label>Main Heading Text (Displays on Left of Brand Logo Ticker)</label>
+                <input type="text" id="brand-ticker-text-input" class="form-control" value="SHOP YOUR FAVORITE BRANDS" />
+              </div>
+              <div class="form-group">
+                <label>Subtitle / Description</label>
+                <input type="text" id="brand-ticker-subtitle-input" class="form-control" value="Explore 100% genuine cut pieces from top designer fashion houses" />
+              </div>
+              <button type="button" class="btn-submit" onclick="handleSaveBrandTickerText()">Save Brand Ticker Title</button>
             </form>
           </div>
         </section>
@@ -1626,6 +1994,7 @@
               <option value="Unstitched">Unstitched</option>
               <option value="Ready to Wear">Ready to Wear</option>
               <option value="Menswear">Menswear</option>
+              <option value="Kids">Kids / Children</option>
             </select>
           </div>
 
@@ -1635,7 +2004,38 @@
               <option value="3PC">3-Piece (Shirt, Dupatta, Trouser)</option>
               <option value="2PC">2-Piece (Shirt & Dupatta / Trouser)</option>
               <option value="1PC">1-Piece Shirt (3.5 Meters)</option>
+              <option value="Bedsheet">Bedsheet (Single / Double / King Bedding)</option>
+              <option value="4PC">4-Piece Suit (4PC)</option>
+              <option value="5PC">5-Piece Suit (5PC)</option>
+              <option value="Girls Eastern">Girls Eastern (Gharara / Frock / Kurti)</option>
+              <option value="Boys Kurta">Boys Kurta (Kurta Shalwar / Pajama)</option>
             </select>
+          </div>
+
+          <!-- Season / Weather Category Selector -->
+          <div class="form-group">
+            <label>Season / Weather Category *</label>
+            <select id="prod-season" class="form-control" required>
+              <option value="Summer">☀️ Summer (Lawn, Voile, Chiffon, Cotton)</option>
+              <option value="Winter">❄️ Winter (Khaddar, Linen, Karandi, Shawl, Velvet, Silk)</option>
+              <option value="All Seasons">🌤️ All Seasons / Midsummer (Year-Round)</option>
+              <option value="Spring / Festive">🌸 Spring / Festive Collection</option>
+            </select>
+          </div>
+
+          <!-- Target Audience / Section -->
+          <div class="form-group">
+            <label>Target Audience / Section *</label>
+            <select id="prod-gender" class="form-control" required>
+              <option value="Women">👗 Women / Ladies Collection</option>
+              <option value="Men">👔 Men / Menswear Collection</option>
+              <option value="Kids">👶 Kids / Girls Collection</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Fabric Material</label>
+            <input type="text" id="prod-fabric" class="form-control" placeholder="e.g. Premium Swiss Voile Lawn, Digital Printed Khaddar, Raw Silk..." />
           </div>
 
           <div class="form-group">
@@ -1656,24 +2056,43 @@
             <input type="number" id="prod-compare-price" class="form-control" placeholder="4990" />
           </div>
 
-          <!-- Image Uploader with Dimension Guidelines -->
+          <!-- Product Images Manager (1 or Multiple Images) -->
           <div class="form-group full">
-            <label>Product Image (File Upload or URL) *</label>
-            <div class="guide-box" style="margin-bottom:10px; font-size:12px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; flex-wrap:wrap; gap:8px;">
+              <label style="margin-bottom:0; font-size:13px; font-weight:800;">Product Images & Photo Gallery (1 or Multiple Photos) *</label>
+              <span id="modal-images-count-badge" style="font-size:11px; font-weight:800; color:var(--admin-primary); background:var(--admin-primary-light); padding:3px 10px; border-radius:12px;">1 image</span>
+            </div>
+
+            <div class="guide-box" style="margin-bottom:12px; font-size:12px;">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
               <div>
-                <strong>Recommended Dimensions: 600 x 750 px (3:4 Vertical Ratio)</strong><br />
-                Clear model or flat-lay shoot showcasing fabric embroidery and colors.
+                <strong>Flexible Image System:</strong> You can add <strong>1 single image</strong> or <strong>multiple images</strong> (front, back, dupatta, trouser, swatch angles).<br />
+                The <strong>1st image (⭐ Main Cover)</strong> is shown on catalog cards. The <strong>2nd image (🔄 Hover View)</strong> displays when customers hover over the card. All images appear in the product page vertical gallery.
               </div>
             </div>
 
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:8px;">
-              <input type="file" accept="image/*" class="form-control" onchange="handleFilePreview(this, 'prod-modal-preview-img', 'prod-image')" />
-              <input type="text" id="prod-image" class="form-control" placeholder="Image URL / Path..." required />
+            <!-- Upload / URL Input Controls -->
+            <div style="background:#fafafc; border:1px solid var(--admin-border); border-radius:var(--radius-md); padding:14px; margin-bottom:12px;">
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+                <div>
+                  <label style="font-size:11px; font-weight:800; text-transform:uppercase; color:#444; display:block; margin-bottom:6px;">Upload Files (Select 1 or Multiple)</label>
+                  <input type="file" id="prod-file-upload-multiple" accept="image/*" multiple class="form-control" onchange="handleMultipleFilesUpload(this)" />
+                  <span style="font-size:10px; color:#888; display:block; margin-top:4px;">Tip: Hold Ctrl / Shift to select multiple photos at once.</span>
+                </div>
+                <div>
+                  <label style="font-size:11px; font-weight:800; text-transform:uppercase; color:#444; display:block; margin-bottom:6px;">Or Add Image URL / Path</label>
+                  <div style="display:flex; gap:6px;">
+                    <input type="text" id="prod-image-url-input" class="form-control" placeholder="assets/images/catalog/suit-photo.jpg" onkeydown="if(event.key==='Enter'){event.preventDefault(); addImageUrlFromInput();}" />
+                    <button type="button" class="action-btn" onclick="addImageUrlFromInput()" style="white-space:nowrap; padding:0 14px;">+ Add URL</button>
+                  </div>
+                  <span style="font-size:10px; color:#888; display:block; margin-top:4px;">Press Enter or click "+ Add URL" to insert.</span>
+                </div>
+              </div>
             </div>
 
-            <div class="image-preview-container">
-              <img id="prod-modal-preview-img" src="assets/images/catalog/nishat-3pc-42206126-r-main.jpg" alt="Preview" />
+            <!-- Interactive Dynamic Gallery Grid -->
+            <div id="modal-images-gallery" class="modal-gallery-grid">
+              <!-- Rendered dynamically via JS -->
             </div>
           </div>
 
@@ -1735,6 +2154,95 @@
         <button type="button" class="btn-header" onclick="closeArticlePickerModal()">Cancel</button>
         <button type="button" class="btn-submit" onclick="savePickerSelection()">Apply Selected Articles</button>
       </div>
+    </div>
+  </div>
+
+  <!-- 5. Add / Edit Brand Modal -->
+  <div id="brand-modal" class="modal-overlay">
+    <div class="modal-box" style="max-width:540px;">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-brand-title">Add New Brand</h3>
+        <button class="modal-close" onclick="closeBrandModal()">&times;</button>
+      </div>
+
+      <form id="brand-form" onsubmit="event.preventDefault(); handleSaveBrand();">
+        <input type="hidden" id="brand-id-input" value="" />
+
+        <div class="form-grid">
+          <div class="form-group full">
+            <label>Brand Name *</label>
+            <input type="text" id="brand-name-input" class="form-control" placeholder="e.g. Charizma, Zara Shahjahan, Cross Stitch..." required oninput="handleBrandNameInput(this.value)" />
+          </div>
+
+          <div class="form-group">
+            <label>Alphabetical Letter Group *</label>
+            <select id="brand-letter-input" class="form-control" required>
+              <option value="A">A</option>
+              <option value="B">B</option>
+              <option value="C">C</option>
+              <option value="D">D</option>
+              <option value="E">E</option>
+              <option value="F">F</option>
+              <option value="G">G</option>
+              <option value="H">H</option>
+              <option value="I">I</option>
+              <option value="J">J</option>
+              <option value="K">K</option>
+              <option value="L">L</option>
+              <option value="M">M</option>
+              <option value="N">N</option>
+              <option value="O">O</option>
+              <option value="P">P</option>
+              <option value="Q">Q</option>
+              <option value="R">R</option>
+              <option value="S">S</option>
+              <option value="T">T</option>
+              <option value="U">U</option>
+              <option value="V">V</option>
+              <option value="W">W</option>
+              <option value="X">X</option>
+              <option value="Y">Y</option>
+              <option value="Z">Z</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Top Favorite Brand?</label>
+            <div style="padding-top:10px;">
+              <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-weight:700; font-size:13px; text-transform:none;">
+                <input type="checkbox" id="brand-fav-input" style="width:18px; height:18px; accent-color:var(--admin-primary);" />
+                <span>⭐ Feature with Logo</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group full">
+            <label>Brand Logo Image (PNG / JPG / WebP)</label>
+            <div style="display:flex; gap:8px; margin-bottom:8px;">
+              <input type="text" id="brand-img-input" class="form-control" placeholder="assets/images/brands/brand_logo.png" oninput="updateBrandLogoPreview(this.value)" />
+            </div>
+            <div style="background:#fafafc; border:1px solid var(--admin-border); border-radius:var(--radius-md); padding:10px; display:flex; gap:12px; align-items:center;">
+              <input type="file" id="brand-file-input" accept="image/*" class="form-control" onchange="handleBrandFileUpload(this)" style="font-size:12px;" />
+              <div style="width:70px; height:50px; background:#fff; border:1px solid #e0e0e6; border-radius:6px; display:flex; align-items:center; justify-content:center; overflow:hidden; flex-shrink:0;">
+                <img id="brand-logo-preview" src="" alt="Preview" style="max-width:90%; max-height:90%; object-fit:contain; display:none;" />
+                <span id="brand-logo-placeholder" style="font-size:10px; color:#aaa;">No Logo</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group full">
+            <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-weight:700; font-size:13px; text-transform:none;">
+              <input type="checkbox" id="brand-visible-input" checked style="width:18px; height:18px; accent-color:var(--admin-primary);" />
+              <span>Show Brand on Shop By Brand page & Filters</span>
+            </label>
+          </div>
+        </div>
+
+        <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:20px;">
+          <button type="button" class="btn-header" onclick="closeBrandModal()">Cancel</button>
+          <button type="submit" class="btn-submit">Save Brand</button>
+        </div>
+      </form>
     </div>
   </div>
 
@@ -1833,6 +2341,9 @@
       if (tabId === 'products') {
         renderAdminProductsTable();
       }
+      if (tabId === 'brands') {
+        renderAdminBrandsManager();
+      }
       closeAdminMobileSidebar();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -1845,53 +2356,52 @@
     function initDashboard() {
       const products = Store.getProducts();
       const settings = Store.getSiteSettings();
+      const allBrandsList = Store.getBrands();
 
       // Metric Counts
       document.getElementById('metric-total-prod').textContent = products.length;
       document.getElementById('metric-unstitched-count').textContent = products.filter(p => p.category === 'Unstitched' || p.category_type === '3PC' || p.category_type === '2PC').length;
       document.getElementById('metric-rtw-count').textContent = products.filter(p => p.category === 'Ready to Wear' || p.category_type === '1PC').length;
-      const brands = Array.from(new Set(products.map(p => p.vendor).filter(Boolean)));
-      document.getElementById('metric-brands-count').textContent = brands.length;
+      const brands = Array.from(new Set(products.map(p => p.vendor).concat(allBrandsList.map(b => b.name)).filter(Boolean)));
+      document.getElementById('metric-brands-count').textContent = allBrandsList.length;
 
       // Populate Brand Filter in Products Tab
       const brandFilter = document.getElementById('admin-brand-filter');
-      brandFilter.innerHTML = '<option value="">All Brands</option>' + brands.sort().map(b => `<option value="${b}">${b}</option>`).join('');
+      if (brandFilter) {
+        brandFilter.innerHTML = '<option value="">All Brands</option>' + brands.sort().map(b => `<option value="${b}">${b}</option>`).join('');
+      }
 
-      // Populate Featured Collections Tab
-      currentFeaturedSections = settings.featuredSections || [
-        {
-          id: 'section_new_arrivals',
-          title: settings.sectionHeadings?.newArrivalsTitle || 'SUMMER 2026 NEW ARRIVALS',
-          subtitle: settings.sectionHeadings?.newArrivalsSubtitle || 'Freshly dropped unstitched lawn 3-piece and 2-piece suites',
-          productIds: []
-        },
-        {
-          id: 'section_unstitched',
-          title: settings.sectionHeadings?.unstitchedTitle || 'UNSTITCHED 3PC PRINTED & EMBROIDERED LAWN',
-          subtitle: settings.sectionHeadings?.unstitchedSubtitle || 'Premium Swiss Voile & Digital Printed Lawn Dupatta Sets',
-          productIds: []
-        }
-      ];
+      // Populate Brands Directory Manager
+      renderAdminBrandsManager();
+
+      // Populate Featured Collections Tab with all homepage collections
+      currentFeaturedSections = (settings.featuredSections && Array.isArray(settings.featuredSections)) ? settings.featuredSections : Store.getDefaultSettings().featuredSections;
       renderFeaturedCollectionsManager();
 
       // Populate Navigation Dropdown Menus Tab
       renderDropdownMenusManager(settings.navDropdowns);
 
-      // Populate Banners & Tickers Settings
-      if (settings.heroBanner) {
-        document.getElementById('hero-banner-url').value = settings.heroBanner.image || '';
-        document.getElementById('hero-banner-link').value = settings.heroBanner.link || '';
-        document.getElementById('hero-preview-img').src = settings.heroBanner.image || 'assets/images/hero_banner.jpg';
-      }
+      // Populate Moving Hero Banner Carousel Slider
+      renderHeroSlidesManager(settings.heroSlides, settings.heroAutoplaySpeed || 5000);
 
       if (settings.welcomeBanner) {
         document.getElementById('promo-banner-url').value = settings.welcomeBanner.image || '';
         document.getElementById('promo-banner-link').value = settings.welcomeBanner.link || '';
-        document.getElementById('promo-preview-img').src = settings.welcomeBanner.image || 'assets/images/welcome_promo_banner.png';
+        document.getElementById('promo-preview-img').src = settings.welcomeBanner.image || 'assets/images/web_banner_promo.png';
       }
 
       if (settings.announcementText) {
         document.getElementById('announcement-text-input').value = settings.announcementText;
+      }
+      updateAnnouncementLivePreview(settings.announcementText || document.getElementById('announcement-text-input').value);
+
+      const brandTickerInput = document.getElementById('brand-ticker-text-input');
+      if (brandTickerInput) {
+        brandTickerInput.value = settings.brandTickerText || 'SHOP YOUR FAVORITE BRANDS';
+      }
+      const brandTickerSubInput = document.getElementById('brand-ticker-subtitle-input');
+      if (brandTickerSubInput) {
+        brandTickerSubInput.value = settings.brandTickerSubtitle || 'Explore 100% genuine cut pieces from top designer fashion houses';
       }
 
       loadDeliverySettings();
@@ -1901,40 +2411,97 @@
     // --- Featured Collections Manager ---
     function renderFeaturedCollectionsManager() {
       const container = document.getElementById('featured-collections-container');
+      if (!container) return;
       const allProducts = Store.getProducts();
+
+      const defaultNames = [
+        { label: 'Homepage Block 1', tag: 'BIN SAEED 2PC', color: '#5e3585', presetUrl: 'collections.html?brand=Bin+Saeed&type=2PC' },
+        { label: 'Homepage Block 2', tag: 'UNSTITCHED 3PC', color: '#1e7e4a', presetUrl: 'collections.html?category=Unstitched&type=3PC' },
+        { label: 'Homepage Block 3', tag: 'READY TO WEAR', color: '#e65100', presetUrl: 'collections.html?category=Ready+to+Wear' },
+        { label: 'Homepage Block 4', tag: 'TOP DESIGNER SUITS', color: '#0369a1', presetUrl: 'collections.html' }
+      ];
 
       container.innerHTML = currentFeaturedSections.map((sec, idx) => {
         const count = (sec.productIds || []).length;
-        const countLabel = count === 0 ? 'All Default Articles' : `${count} Specific Articles Selected`;
+        const countLabel = count === 0 ? 'Automatic (Smart Filter)' : `${count} Specific Article${count > 1 ? 's' : ''} Selected`;
+        const isCore = idx < 4;
+        const isVisible = sec.visible !== false;
+        const meta = defaultNames[idx] || { label: `Custom Section ${idx - 3}`, tag: 'CUSTOM BLOCK', color: '#555', presetUrl: 'collections.html' };
+
+        // Get selected product previews
+        const selectedProducts = count > 0 ? allProducts.filter(p => (sec.productIds || []).includes(p.id)) : [];
+        const previewChipsHTML = selectedProducts.slice(0, 6).map(p => `
+          <div style="display:inline-flex; align-items:center; gap:6px; background:#fff; border:1px solid #e0e0e6; padding:3px 8px 3px 4px; border-radius:6px; font-size:11px;">
+            <img src="${p.featured_image || p.image}" alt="${p.title}" style="width:24px; height:28px; object-fit:cover; border-radius:3px;" onerror="this.src='assets/images/catalog/nishat-3pc-42206126-r-main.jpg'" />
+            <span style="font-weight:700; max-width:110px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${p.title}</span>
+            <span style="color:#d32f2f; font-weight:800;">Rs.${(p.price || 0).toLocaleString('en-PK')}</span>
+          </div>
+        `).join('') + (selectedProducts.length > 6 ? `<span style="font-size:11px; font-weight:700; color:#666;">+${selectedProducts.length - 6} more</span>` : '');
 
         return `
-          <div class="admin-card" style="position:relative;">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
-              <h3 class="card-title" style="margin-bottom:0;">
-                Collection ${idx + 1}: <span style="color:var(--admin-primary);">${sec.title || 'Untitled'}</span>
-              </h3>
-              ${idx >= 2 ? `<button type="button" class="action-btn delete" onclick="deleteFeaturedCollectionCard(${idx})">🗑️ Delete Collection</button>` : ''}
+          <div class="admin-card" style="position:relative; border-left:4px solid ${isVisible ? meta.color : '#bbb'}; opacity:${isVisible ? '1' : '0.85'}; background:${isVisible ? '#fff' : '#fafafa'}; margin-bottom:20px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; flex-wrap:wrap; gap:10px;">
+              <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+                <span style="background:${meta.color}; color:#fff; font-size:11px; font-weight:800; padding:4px 10px; border-radius:20px; letter-spacing:0.04em;">
+                  ${meta.label}
+                </span>
+                <h3 class="card-title" style="margin-bottom:0; font-size:16px;">
+                  ${sec.title || 'Untitled Section'}
+                </h3>
+                <!-- Visibility Status Toggle Badge -->
+                <label style="display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:800; cursor:pointer; color:${isVisible ? '#1e7e4a' : '#d32f2f'}; background:${isVisible ? '#e8f8f0' : '#ffebee'}; padding:4px 10px; border-radius:14px; border:1px solid ${isVisible ? '#bbf7d0' : '#ffcdd2'};">
+                  <input type="checkbox" id="sec-vis-${idx}" class="section-vis-toggle" ${isVisible ? 'checked' : ''} onchange="currentFeaturedSections[${idx}].visible = this.checked; renderFeaturedCollectionsManager();" style="accent-color:var(--admin-primary); width:15px; height:15px; cursor:pointer;" />
+                  <span>${isVisible ? '👁️ Visible on Homepage' : '🚫 Hidden from Homepage'}</span>
+                </label>
+              </div>
+              <div style="display:flex; gap:6px; align-items:center;">
+                ${idx > 0 ? `<button type="button" class="action-btn" title="Move Section Up" onclick="moveFeaturedSection(${idx}, -1)">▲ Move Up</button>` : ''}
+                ${idx < currentFeaturedSections.length - 1 ? `<button type="button" class="action-btn" title="Move Section Down" onclick="moveFeaturedSection(${idx}, 1)">▼ Move Down</button>` : ''}
+                <button type="button" class="action-btn delete" onclick="deleteFeaturedCollectionCard(${idx})">🗑️ Delete Section</button>
+              </div>
             </div>
 
             <div class="form-grid">
               <div class="form-group full">
-                <label>Section Main Title</label>
-                <input type="text" class="form-control" value="${sec.title}" oninput="currentFeaturedSections[${idx}].title = this.value" placeholder="e.g. SUMMER 2026 NEW ARRIVALS" required />
+                <label>Section Heading Title *</label>
+                <input type="text" class="form-control" value="${sec.title || ''}" oninput="currentFeaturedSections[${idx}].title = this.value" placeholder="e.g. BIN SAEED STITCHED 2PC" required />
               </div>
               <div class="form-group full">
                 <label>Section Subtitle / Description</label>
-                <input type="text" class="form-control" value="${sec.subtitle || ''}" oninput="currentFeaturedSections[${idx}].subtitle = this.value" placeholder="e.g. Freshly dropped unstitched lawn 3-piece and 2-piece suites" />
+                <input type="text" class="form-control" value="${sec.subtitle || ''}" oninput="currentFeaturedSections[${idx}].subtitle = this.value" placeholder="e.g. Pure Lawn & Cotton Stitched 2-Piece Suits" />
               </div>
-              <div class="form-group full" style="background:#f8f8fb; padding:14px; border-radius:8px; border:1px solid #eee;">
-                <label style="margin-bottom:8px; display:block;">Featured Articles in this Collection</label>
-                <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
-                  <button type="button" class="btn-header btn-header-primary" onclick="openArticlePicker(${idx})">
-                    📦 Choose Articles (${countLabel})
-                  </button>
-                  <span style="font-size:12px; color:#666;">
-                    ${count > 0 ? `Ticked <strong>${count}</strong> articles to display.` : 'Showing default automatic products. Click button to choose exact articles.'}
-                  </span>
+              <div class="form-group full">
+                <label>Destination "VIEW ALL »" Link URL</label>
+                <input type="text" id="sec-url-${idx}" class="form-control" value="${sec.viewAllUrl || ''}" oninput="currentFeaturedSections[${idx}].viewAllUrl = this.value" placeholder="e.g. collections.html?brand=Bin+Saeed&type=2PC" />
+                <div style="display:flex; gap:6px; margin-top:6px; flex-wrap:wrap; font-size:11px;">
+                  <span style="color:#777; font-weight:700; align-self:center;">Quick Presets:</span>
+                  <button type="button" class="action-btn" style="font-size:10px; padding:3px 8px;" onclick="setSectionUrlPreset(${idx}, 'collections.html?brand=Bin+Saeed&type=2PC')">Bin Saeed 2PC</button>
+                  <button type="button" class="action-btn" style="font-size:10px; padding:3px 8px;" onclick="setSectionUrlPreset(${idx}, 'collections.html?category=Unstitched&type=3PC')">3PC Unstitched</button>
+                  <button type="button" class="action-btn" style="font-size:10px; padding:3px 8px;" onclick="setSectionUrlPreset(${idx}, 'collections.html?category=Ready+to+Wear')">Ready to Wear</button>
+                  <button type="button" class="action-btn" style="font-size:10px; padding:3px 8px;" onclick="setSectionUrlPreset(${idx}, 'collections.html?category=Kids')">Kids Collection</button>
+                  <button type="button" class="action-btn" style="font-size:10px; padding:3px 8px;" onclick="setSectionUrlPreset(${idx}, 'collections.html')">All Collections</button>
+                  <button type="button" class="action-btn" style="font-size:10px; padding:3px 8px;" onclick="setSectionUrlPreset(${idx}, 'collections.html?collection=new-in')">New Arrivals</button>
                 </div>
+              </div>
+              
+              <div class="form-group full" style="background:#fbfbfd; padding:16px; border-radius:10px; border:1px solid #e8e8ed;">
+                <label style="margin-bottom:8px; display:block;">Featured Articles in this Collection</label>
+                <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:10px;">
+                  <button type="button" class="btn-header btn-header-primary" onclick="openArticlePicker(${idx})">
+                    📦 Choose Specific Articles (${countLabel})
+                  </button>
+                  ${count > 0 ? `<button type="button" class="action-btn delete" onclick="clearSectionArticles(${idx})">✕ Clear Selection (Revert to Auto)</button>` : ''}
+                </div>
+                ${count > 0 ? `
+                  <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center; padding-top:8px; border-top:1px dashed #e0e0e0;">
+                    <span style="font-size:11px; font-weight:700; color:#555;">Selected items preview:</span>
+                    ${previewChipsHTML}
+                  </div>
+                ` : `
+                  <div style="font-size:12px; color:#777; line-height:1.4;">
+                    ⚡ Currently using <strong>automatic smart filters</strong> for this collection. Click "Choose Specific Articles" if you want to manually handpick exact suits to feature.
+                  </div>
+                `}
               </div>
             </div>
           </div>
@@ -1942,15 +2509,44 @@
       }).join('');
     }
 
+    function setSectionUrlPreset(idx, url) {
+      if (currentFeaturedSections[idx]) {
+        currentFeaturedSections[idx].viewAllUrl = url;
+        const input = document.getElementById(`sec-url-${idx}`);
+        if (input) input.value = url;
+        showAdminToast('Applied URL preset! Click "Save All Collections" to apply.');
+      }
+    }
+
+    function clearSectionArticles(idx) {
+      if (currentFeaturedSections[idx]) {
+        currentFeaturedSections[idx].productIds = [];
+        renderFeaturedCollectionsManager();
+        showAdminToast('Reverted to automatic product filtering. Click Save to apply.');
+      }
+    }
+
+    function moveFeaturedSection(idx, direction) {
+      const targetIdx = idx + direction;
+      if (targetIdx < 0 || targetIdx >= currentFeaturedSections.length) return;
+      const temp = currentFeaturedSections[idx];
+      currentFeaturedSections[idx] = currentFeaturedSections[targetIdx];
+      currentFeaturedSections[targetIdx] = temp;
+      renderFeaturedCollectionsManager();
+      showAdminToast('Reordered collections. Click "Save All Collections" to apply.');
+    }
+
     function addFeaturedCollectionCard() {
       currentFeaturedSections.push({
         id: 'section_' + Date.now(),
         title: 'NEW FEATURED COLLECTION',
         subtitle: 'Handpicked designer luxury suits',
-        productIds: []
+        viewAllUrl: 'collections.html',
+        productIds: [],
+        visible: true
       });
       renderFeaturedCollectionsManager();
-      showAdminToast('Added new featured collection section! Remember to click Save.');
+      showAdminToast('Added new custom collection! Remember to click Save.');
     }
 
     function deleteFeaturedCollectionCard(idx) {
@@ -1962,19 +2558,52 @@
     }
 
     function saveAllFeaturedCollections() {
-      // Sync headings settings as well
       const sectionHeadings = {
-        newArrivalsTitle: currentFeaturedSections[0]?.title || 'SUMMER 2026 NEW ARRIVALS',
-        newArrivalsSubtitle: currentFeaturedSections[0]?.subtitle || 'Freshly dropped unstitched lawn 3-piece and 2-piece suites',
+        binSaeedTitle: currentFeaturedSections[0]?.title || 'BIN SAEED STITCHED 2PC',
         unstitchedTitle: currentFeaturedSections[1]?.title || 'UNSTITCHED 3PC PRINTED & EMBROIDERED LAWN',
-        unstitchedSubtitle: currentFeaturedSections[1]?.subtitle || 'Premium Swiss Voile & Digital Printed Lawn Dupatta Sets'
+        rtwTitle: currentFeaturedSections[2]?.title || 'READY TO WEAR STITCHED COLLECTION',
+        designerTitle: currentFeaturedSections[3]?.title || 'TOP DESIGNER LAWN SUITS'
       };
 
       Store.saveSiteSettings({
         featuredSections: currentFeaturedSections,
         sectionHeadings
       });
-      showAdminToast('All Homepage Featured Collections & Selected Articles Saved Successfully!');
+      showAdminToast('All Homepage Collections & Articles Saved Successfully!');
+    }
+
+    function handleSaveAnnouncement() {
+      const text = (document.getElementById('announcement-text-input')?.value || '').trim();
+      Store.saveSiteSettings({
+        announcementText: text
+      });
+      showAdminToast('Top Header Announcement Bar saved successfully!');
+    }
+
+    function insertAnnouncementEmoji(emoji) {
+      const input = document.getElementById('announcement-text-input');
+      if (input) {
+        input.value = `${emoji} ${input.value.replace(/^[⚡🔥🎉👗✨\s]+|[⚡🔥🎉👗✨\s]+$/g, '')} ${emoji}`.trim();
+      }
+    }
+
+    function handleSavePromoBanner() {
+      const image = (document.getElementById('promo-banner-url')?.value || '').trim();
+      const link = (document.getElementById('promo-banner-link')?.value || '').trim();
+      Store.saveSiteSettings({
+        welcomeBanner: { image, link }
+      });
+      showAdminToast('Promotional Banner saved successfully!');
+    }
+
+    function handleSaveBrandTickerText() {
+      const text = (document.getElementById('brand-ticker-text-input')?.value || '').trim();
+      const subtitle = (document.getElementById('brand-ticker-subtitle-input')?.value || '').trim();
+      Store.saveSiteSettings({
+        brandTickerText: text || 'SHOP YOUR FAVORITE BRANDS',
+        brandTickerSubtitle: subtitle
+      });
+      showAdminToast('Brand Ticker Title updated successfully!');
     }
 
     // --- Article Picker Modal Logic ---
@@ -2016,8 +2645,8 @@
       grid.innerHTML = products.map(p => {
         const isChecked = tempSelectedProductIds.has(p.id);
         return `
-          <label style="display:flex; gap:10px; padding:10px; border-radius:8px; border:1.5px solid ${isChecked ? 'var(--admin-primary)' : '#e5e5eb'}; background:${isChecked ? '#faf5ff' : '#fff'}; cursor:pointer; align-items:flex-start; transition:all 0.15s;">
-            <input type="checkbox" style="margin-top:4px; transform:scale(1.2);" ${isChecked ? 'checked' : ''} onchange="togglePickerArticle(${p.id}, this.checked)" />
+          <label id="picker-item-${p.id}" style="display:flex; gap:10px; padding:10px; border-radius:8px; border:1.5px solid ${isChecked ? 'var(--admin-primary)' : '#e5e5eb'}; background:${isChecked ? '#faf5ff' : '#fff'}; cursor:pointer; align-items:flex-start; transition:all 0.15s;">
+            <input type="checkbox" style="margin-top:4px; transform:scale(1.2);" ${isChecked ? 'checked' : ''} onchange="togglePickerArticle(${p.id}, this.checked, this)" />
             <img src="${p.featured_image || p.image}" alt="${p.title}" style="width:42px; height:54px; object-fit:cover; border-radius:4px; flex-shrink:0;" onerror="this.src='assets/images/catalog/nishat-3pc-42206126-r-main.jpg'" />
             <div style="font-size:12px; line-height:1.3; overflow:hidden;">
               <div style="font-weight:700; white-space:nowrap; text-overflow:ellipsis; overflow:hidden;">${p.title}</div>
@@ -2029,13 +2658,22 @@
       }).join('');
     }
 
-    function togglePickerArticle(id, checked) {
+    function togglePickerArticle(id, checked, inputEl) {
       if (checked) {
         tempSelectedProductIds.add(id);
       } else {
         tempSelectedProductIds.delete(id);
       }
-      renderPickerArticlesList();
+      const label = document.getElementById(`picker-item-${id}`);
+      if (label) {
+        label.style.borderColor = checked ? 'var(--admin-primary)' : '#e5e5eb';
+        label.style.background = checked ? '#faf5ff' : '#fff';
+      }
+      const badge = document.getElementById('picker-count-badge');
+      const totalCount = Store.getProducts().length;
+      if (badge) {
+        badge.textContent = `${tempSelectedProductIds.size} of ${totalCount} articles selected`;
+      }
     }
 
     function togglePickerSelectAll(selectAll) {
@@ -2066,63 +2704,476 @@
       }
     }
 
-    // --- Navigation Dropdowns Manager Rendering ---
-    function renderDropdownMenusManager(navs) {
-      const brandList = document.getElementById('brand-menu-list');
-      const unstitchedList = document.getElementById('unstitched-menu-list');
-      const rtwList = document.getElementById('rtw-menu-list');
+    // --- Hero Carousel Slides Manager ---
+    let currentHeroSlides = [];
 
-      const brands = (navs && navs.shopByBrand) || [];
-      brandList.innerHTML = brands.map((b, idx) => `
-        <div class="menu-item-row" data-type="brand">
-          <input type="text" class="form-control menu-label" value="${b.label}" placeholder="Brand Name" />
-          <input type="text" class="form-control menu-url" value="${b.url}" placeholder="URL link" />
-          <button type="button" class="action-btn delete" onclick="this.parentElement.remove()">🗑️ Remove</button>
-        </div>
-      `).join('');
+    function renderHeroSlidesManager(slides, speed) {
+      const container = document.getElementById('hero-slides-container');
+      const speedSelect = document.getElementById('hero-autoplay-speed');
+      if (!container) return;
 
-      const unstitched = (navs && navs.unstitched) || [];
-      unstitchedList.innerHTML = unstitched.map((u, idx) => `
-        <div class="menu-item-row" data-type="unstitched">
-          <input type="text" class="form-control menu-label" value="${u.label}" placeholder="Category Label" />
-          <input type="text" class="form-control menu-url" value="${u.url}" placeholder="URL link" />
-          <button type="button" class="action-btn delete" onclick="this.parentElement.remove()">🗑️ Remove</button>
-        </div>
-      `).join('');
+      const defaultSlides = Store.getDefaultSettings().heroSlides;
+      currentHeroSlides = (slides && Array.isArray(slides) && slides.length > 0) ? slides : defaultSlides;
 
-      const rtw = (navs && navs.readyToWear) || [];
-      rtwList.innerHTML = rtw.map((r, idx) => `
-        <div class="menu-item-row" data-type="rtw">
-          <input type="text" class="form-control menu-label" value="${r.label}" placeholder="Category Label" />
-          <input type="text" class="form-control menu-url" value="${r.url}" placeholder="URL link" />
-          <button type="button" class="action-btn delete" onclick="this.parentElement.remove()">🗑️ Remove</button>
-        </div>
-      `).join('');
+      if (speedSelect && speed) {
+        speedSelect.value = speed.toString();
+      }
+
+      container.innerHTML = currentHeroSlides.map((slide, idx) => {
+        return `
+          <div class="admin-card" style="background:#fafafc; border:1.5px solid #e0e0e6; margin-bottom:16px; padding:18px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:10px;">
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span style="background:var(--admin-primary); color:#fff; font-size:11px; font-weight:800; padding:3px 10px; border-radius:14px;">
+                  Slide ${idx + 1}
+                </span>
+                <strong style="font-size:14px; color:#222;">${slide.title || `Slide ${idx + 1}`}</strong>
+              </div>
+              <div style="display:flex; gap:6px;">
+                ${idx > 0 ? `<button type="button" class="action-btn" onclick="moveHeroSlide(${idx}, -1)" title="Move Slide Up">▲ Move Up</button>` : ''}
+                ${idx < currentHeroSlides.length - 1 ? `<button type="button" class="action-btn" onclick="moveHeroSlide(${idx}, 1)" title="Move Slide Down">▼ Move Down</button>` : ''}
+                ${currentHeroSlides.length > 1 ? `<button type="button" class="action-btn delete" onclick="deleteHeroSlideCard(${idx})">🗑️ Delete Slide</button>` : ''}
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label>Slide Title / Caption</label>
+                <input type="text" class="form-control" value="${slide.title || ''}" oninput="currentHeroSlides[${idx}].title = this.value" placeholder="e.g. Luxury Lawn Collection 2026" />
+              </div>
+              <div class="form-group">
+                <label>Target Link URL (e.g. WhatsApp / Collection)</label>
+                <input type="text" class="form-control" value="${slide.link || ''}" oninput="currentHeroSlides[${idx}].link = this.value" placeholder="collections.html or WhatsApp link" />
+              </div>
+
+              <div class="form-group full">
+                <label>Banner Image URL (Responsive 1900 x 827 px)</label>
+                <div style="display:flex; gap:6px;">
+                  <input type="text" id="slide-desk-url-${idx}" class="form-control" value="${slide.image || ''}" oninput="currentHeroSlides[${idx}].image = this.value; document.getElementById('slide-desk-prev-${idx}').src = this.value;" placeholder="assets/images/banners/hero_slide_luxury.png" />
+                </div>
+                <input type="file" accept="image/*" class="form-control" style="margin-top:6px;" onchange="handleSlideFileUpload(this, ${idx}, 'image', 'slide-desk-prev-${idx}', 'slide-desk-url-${idx}')" />
+              </div>
+
+              <div class="form-group full" style="margin-top:4px;">
+                <span style="font-size:11px; font-weight:700; color:#666; display:block; margin-bottom:4px;">Banner Preview (Auto-Responsive on Desktop & Mobile)</span>
+                <div style="background:#f0f0f4; border:1px solid #e0e0e6; border-radius:6px; overflow:hidden; max-height:160px; display:flex; align-items:center; justify-content:center;">
+                  <img id="slide-desk-prev-${idx}" src="${slide.image || 'assets/images/banners/hero_slide_luxury.png'}" alt="Banner Preview" style="max-height:100%; max-width:100%; object-fit:contain;" />
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
     }
 
-    function addDropdownItemRow(type) {
+    function handleSlideFileUpload(input, idx, fieldName, previewId, urlInputId) {
+      if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          currentHeroSlides[idx][fieldName] = e.target.result;
+          const prev = document.getElementById(previewId);
+          if (prev) prev.src = e.target.result;
+          const urlIn = document.getElementById(urlInputId);
+          if (urlIn) urlIn.value = e.target.result;
+        };
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+
+    function addHeroSlideCard() {
+      currentHeroSlides.push({
+        id: Date.now(),
+        image: 'assets/images/banners/hero_slide_luxury.png',
+        title: 'New Designer Banner ' + (currentHeroSlides.length + 1),
+        link: 'collections.html'
+      });
+      renderHeroSlidesManager(currentHeroSlides, Number(document.getElementById('hero-autoplay-speed')?.value) || 5000);
+      showAdminToast('Added new hero slide! Remember to click Save.');
+    }
+
+    function deleteHeroSlideCard(idx) {
+      if (confirm('Delete this slide from the hero carousel?')) {
+        currentHeroSlides.splice(idx, 1);
+        renderHeroSlidesManager(currentHeroSlides, Number(document.getElementById('hero-autoplay-speed')?.value) || 5000);
+        showAdminToast('Deleted slide. Remember to click Save.');
+      }
+    }
+
+    function moveHeroSlide(idx, direction) {
+      const targetIdx = idx + direction;
+      if (targetIdx < 0 || targetIdx >= currentHeroSlides.length) return;
+      const temp = currentHeroSlides[idx];
+      currentHeroSlides[idx] = currentHeroSlides[targetIdx];
+      currentHeroSlides[targetIdx] = temp;
+      renderHeroSlidesManager(currentHeroSlides, Number(document.getElementById('hero-autoplay-speed')?.value) || 5000);
+      showAdminToast('Reordered slides. Click Save to apply.');
+    }
+
+    function handleSaveHeroSlides() {
+      const speed = Number(document.getElementById('hero-autoplay-speed')?.value) || 5000;
+      Store.saveSiteSettings({
+        heroSlides: currentHeroSlides,
+        heroAutoplaySpeed: speed,
+        heroBanner: {
+          image: currentHeroSlides[0]?.image || 'assets/images/banners/hero_slide_luxury.png',
+          link: currentHeroSlides[0]?.link || 'collections.html'
+        }
+      });
+      showAdminToast('Hero Banner Moving Carousel Saved Successfully!');
+    }
+
+    // --- Navigation Dropdowns Manager Rendering ---
+    let currentNavDropdowns = null;
+    let currentUnstitchedColumns = [];
+
+    function renderDropdownMenusManager(navs) {
+      const container = document.getElementById('navigation-manager-container');
+      if (!container) return;
+
+      const defaults = Store.getDefaultSettings().navDropdowns;
+      const navConfig = navs || defaults;
+      currentNavDropdowns = JSON.parse(JSON.stringify(navConfig));
+
+      const u = currentNavDropdowns.unstitched || defaults.unstitched;
+      const uVis = u.visible !== false;
+
+      // Ensure columns exist
+      if (Array.isArray(u.columns) && u.columns.length > 0) {
+        currentUnstitchedColumns = u.columns;
+      } else {
+        const u1 = u.items1pc || defaults.unstitched.columns[0];
+        const u2 = u.items2pc || defaults.unstitched.columns[1];
+        const u3 = u.items3pc || defaults.unstitched.columns[2];
+        const u4 = u.items4pc || defaults.unstitched.columns[3] || { visible: false, label: '4PC', sublinks: [] };
+        const u5 = u.items5pc || defaults.unstitched.columns[4] || { visible: false, label: '5PC', sublinks: [] };
+        currentUnstitchedColumns = [
+          { id: '1pc', label: u1.label || '1PC', url: u1.url || 'collections.html?category=Unstitched&type=1PC', visible: u1.visible !== false, isCustom: false, sublinks: u1.sublinks || [] },
+          { id: '2pc', label: u2.label || '2PC', url: u2.url || 'collections.html?category=Unstitched&type=2PC', visible: u2.visible !== false, isCustom: false, sublinks: u2.sublinks || [] },
+          { id: '3pc', label: u3.label || '3PC', url: u3.url || 'collections.html?category=Unstitched&type=3PC', visible: u3.visible !== false, isCustom: false, sublinks: u3.sublinks || [] },
+          { id: '4pc', label: u4.label || '4PC', url: u4.url || 'collections.html?category=Unstitched&type=4PC', visible: u4.visible === true, isCustom: false, sublinks: u4.sublinks || [] },
+          { id: '5pc', label: u5.label || '5PC', url: u5.url || 'collections.html?category=Unstitched&type=5PC', visible: u5.visible === true, isCustom: false, sublinks: u5.sublinks || [] }
+        ];
+      }
+
+      const rtw = currentNavDropdowns.readyToWear || defaults.readyToWear;
+      const rtwVis = rtw.visible !== false;
+
+      const kids = currentNavDropdowns.kids || defaults.kids;
+      const kidsVis = kids.visible !== false;
+
+      const mainNav = currentNavDropdowns.mainNavLinks || defaults.mainNavLinks;
+
+      container.innerHTML = `
+        <!-- 1. UNSTITCHED Dropdown Card -->
+        <div class="admin-card" style="border-left:4px solid ${uVis ? '#5e3585' : '#bbb'}; opacity:${uVis ? '1' : '0.9'}; background:${uVis ? '#fff' : '#fafafa'}; margin-bottom:24px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; flex-wrap:wrap; gap:10px;">
+            <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+              <span style="background:var(--admin-primary); color:#fff; font-size:11px; font-weight:800; padding:4px 10px; border-radius:20px;">
+                DROPDOWN 1
+              </span>
+              <h3 class="card-title" style="margin-bottom:0; font-size:17px;">
+                1. "UNSTITCHED" Dropdown Menu & Submenus (1PC, 2PC, 3PC, 4PC, 5PC + Custom)
+              </h3>
+              <label style="display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:800; cursor:pointer; color:${uVis ? '#1e7e4a' : '#d32f2f'}; background:${uVis ? '#e8f8f0' : '#ffebee'}; padding:4px 10px; border-radius:14px; border:1px solid ${uVis ? '#bbf7d0' : '#ffcdd2'};">
+                <input type="checkbox" id="unstitched-vis-toggle" ${uVis ? 'checked' : ''} onchange="currentNavDropdowns.unstitched.visible = this.checked;" style="accent-color:var(--admin-primary); width:15px; height:15px; cursor:pointer;" />
+                <span>${uVis ? '👁️ Visible in Top Navbar' : '🚫 Hidden from Navbar'}</span>
+              </label>
+            </div>
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <button type="button" class="btn-header" onclick="addUnstitchedColumn()" style="background:#f4f0fa; color:var(--admin-primary); border-color:var(--admin-primary); font-size:12px;">
+                ✨ + Add Custom Submenu Column
+              </button>
+              <button type="button" class="btn-submit" onclick="handleSaveUnstitchedMenu()" style="padding:8px 16px; font-size:12px;">
+                💾 Save Unstitched
+              </button>
+            </div>
+          </div>
+
+          <div class="form-grid" style="margin-bottom:16px;">
+            <div class="form-group">
+              <label>Dropdown Menu Label *</label>
+              <input type="text" id="unstitched-label-input" class="form-control" value="${u.label || 'UNSTITCHED'}" placeholder="e.g. UNSTITCHED" />
+            </div>
+            <div class="form-group">
+              <label>Top Link URL *</label>
+              <input type="text" id="unstitched-url-input" class="form-control" value="${u.url || 'collections.html?category=Unstitched'}" placeholder="e.g. collections.html?category=Unstitched" />
+            </div>
+          </div>
+
+          <!-- Dynamic Columns Container -->
+          <div id="unstitched-columns-container"></div>
+        </div>
+
+        <!-- 2. READY TO WEAR Dropdown Card -->
+        <div class="admin-card" style="border-left:4px solid ${rtwVis ? '#e65100' : '#bbb'}; opacity:${rtwVis ? '1' : '0.9'}; background:${rtwVis ? '#fff' : '#fafafa'}; margin-bottom:24px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; flex-wrap:wrap; gap:10px;">
+            <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+              <span style="background:#e65100; color:#fff; font-size:11px; font-weight:800; padding:4px 10px; border-radius:20px;">
+                DROPDOWN 2
+              </span>
+              <h3 class="card-title" style="margin-bottom:0; font-size:17px;">
+                2. "READY TO WEAR" Dropdown Menu Links (1PC, 2PC, 3PC, All Pret)
+              </h3>
+              <label style="display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:800; cursor:pointer; color:${rtwVis ? '#1e7e4a' : '#d32f2f'}; background:${rtwVis ? '#e8f8f0' : '#ffebee'}; padding:4px 10px; border-radius:14px; border:1px solid ${rtwVis ? '#bbf7d0' : '#ffcdd2'};">
+                <input type="checkbox" id="rtw-vis-toggle" ${rtwVis ? 'checked' : ''} onchange="currentNavDropdowns.readyToWear.visible = this.checked; renderDropdownMenusManager(currentNavDropdowns);" style="accent-color:var(--admin-primary); width:15px; height:15px; cursor:pointer;" />
+                <span>${rtwVis ? '👁️ Visible in Top Navbar' : '🚫 Hidden from Navbar'}</span>
+              </label>
+            </div>
+            <div style="display:flex; gap:8px;">
+              <button type="button" class="action-btn" onclick="addDropdownLinkRow('rtw')">+ Add Stitched Link</button>
+              <button type="button" class="btn-submit" onclick="handleSaveRtwMenu()" style="padding:8px 16px; font-size:12px;">
+                💾 Save RTW
+              </button>
+            </div>
+          </div>
+
+          <div class="form-grid" style="margin-bottom:16px;">
+            <div class="form-group">
+              <label>Dropdown Menu Label *</label>
+              <input type="text" id="rtw-label-input" class="form-control" value="${rtw.label || 'READY TO WEAR'}" placeholder="e.g. READY TO WEAR" />
+            </div>
+            <div class="form-group">
+              <label>Top Link URL *</label>
+              <input type="text" id="rtw-url-input" class="form-control" value="${rtw.url || 'collections.html?category=Ready+to+Wear'}" placeholder="e.g. collections.html?category=Ready+to+Wear" />
+            </div>
+          </div>
+
+          <div id="rtw-menu-list">
+            ${(rtw.links || []).map((item, i) => `
+              <div class="menu-item-row" data-type="rtw" data-idx="${i}" style="grid-template-columns:auto 1.2fr 1.5fr auto;">
+                <label style="display:inline-flex; align-items:center; gap:4px; font-size:11px; font-weight:700; color:#555; cursor:pointer;">
+                  <input type="checkbox" class="link-vis-toggle" ${item.visible !== false ? 'checked' : ''} />
+                  <span>Visible</span>
+                </label>
+                <input type="text" class="form-control menu-label" value="${item.label}" placeholder="e.g. 1PC (Kurtis) / 2PC" />
+                <input type="text" class="form-control menu-url" value="${item.url}" placeholder="URL link" />
+                <button type="button" class="action-btn delete" onclick="this.parentElement.remove()">🗑️ Remove</button>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+
+        <!-- 3. KIDS Dropdown Card -->
+        <div class="admin-card" style="border-left:4px solid ${kidsVis ? '#0369a1' : '#bbb'}; opacity:${kidsVis ? '1' : '0.9'}; background:${kidsVis ? '#fff' : '#fafafa'}; margin-bottom:24px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; flex-wrap:wrap; gap:10px;">
+            <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+              <span style="background:#0369a1; color:#fff; font-size:11px; font-weight:800; padding:4px 10px; border-radius:20px;">
+                DROPDOWN 3
+              </span>
+              <h3 class="card-title" style="margin-bottom:0; font-size:17px;">
+                3. "KIDS / CHILDREN" Dropdown Menu Links
+              </h3>
+              <label style="display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:800; cursor:pointer; color:${kidsVis ? '#1e7e4a' : '#d32f2f'}; background:${kidsVis ? '#e8f8f0' : '#ffebee'}; padding:4px 10px; border-radius:14px; border:1px solid ${kidsVis ? '#bbf7d0' : '#ffcdd2'};">
+                <input type="checkbox" id="kids-vis-toggle" ${kidsVis ? 'checked' : ''} onchange="currentNavDropdowns.kids.visible = this.checked; renderDropdownMenusManager(currentNavDropdowns);" style="accent-color:var(--admin-primary); width:15px; height:15px; cursor:pointer;" />
+                <span>${kidsVis ? '👁️ Visible in Top Navbar' : '🚫 Hidden from Navbar'}</span>
+              </label>
+            </div>
+            <div style="display:flex; gap:8px;">
+              <button type="button" class="action-btn" onclick="addDropdownLinkRow('kids')">+ Add Kids Link</button>
+              <button type="button" class="btn-submit" onclick="handleSaveKidsMenu()" style="padding:8px 16px; font-size:12px;">
+                💾 Save Kids
+              </button>
+            </div>
+          </div>
+
+          <div class="form-grid" style="margin-bottom:16px;">
+            <div class="form-group">
+              <label>Dropdown Menu Label *</label>
+              <input type="text" id="kids-label-input" class="form-control" value="${kids.label || 'KIDS'}" placeholder="e.g. KIDS" />
+            </div>
+            <div class="form-group">
+              <label>Top Link URL *</label>
+              <input type="text" id="kids-url-input" class="form-control" value="${kids.url || 'collections.html?category=Kids'}" placeholder="e.g. collections.html?category=Kids" />
+            </div>
+          </div>
+
+          <div id="kids-menu-list">
+            ${(kids.links || []).map((item, i) => `
+              <div class="menu-item-row" data-type="kids" data-idx="${i}" style="grid-template-columns:auto 1.2fr 1.5fr auto;">
+                <label style="display:inline-flex; align-items:center; gap:4px; font-size:11px; font-weight:700; color:#555; cursor:pointer;">
+                  <input type="checkbox" class="link-vis-toggle" ${item.visible !== false ? 'checked' : ''} />
+                  <span>Visible</span>
+                </label>
+                <input type="text" class="form-control menu-label" value="${item.label}" placeholder="e.g. Girls Eastern / Boys Kurta" />
+                <input type="text" class="form-control menu-url" value="${item.url}" placeholder="URL link" />
+                <button type="button" class="action-btn delete" onclick="this.parentElement.remove()">🗑️ Remove</button>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+
+        <!-- 4. Top Header Direct Nav Links Card -->
+        <div class="admin-card" style="margin-bottom:24px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; flex-wrap:wrap; gap:10px;">
+            <div>
+              <h3 class="card-title" style="margin-bottom:2px;">4. Top Header Direct Navigation Bar Links</h3>
+              <span style="font-size:12px; color:#666;">Controls top header direct navigation links (e.g. New Arrival, Shop By Brand, Order Tracking)</span>
+            </div>
+            <div style="display:flex; gap:8px;">
+              <button type="button" class="action-btn" onclick="addDropdownLinkRow('mainNav')">+ Add Nav Link</button>
+              <button type="button" class="btn-submit" onclick="handleSaveMainNav()" style="padding:8px 16px; font-size:12px;">
+                💾 Save Main Nav
+              </button>
+            </div>
+          </div>
+          <div id="main-nav-links-list">
+            ${(mainNav || []).map((item, i) => `
+              <div class="menu-item-row" data-type="mainNav" data-idx="${i}" style="grid-template-columns:auto 1.2fr 1.5fr auto;">
+                <label style="display:inline-flex; align-items:center; gap:4px; font-size:11px; font-weight:700; color:#555; cursor:pointer;">
+                  <input type="checkbox" class="link-vis-toggle" ${item.visible !== false ? 'checked' : ''} />
+                  <span>Visible</span>
+                </label>
+                <input type="text" class="form-control menu-label" value="${item.label}" placeholder="Nav Item Title" />
+                <input type="text" class="form-control menu-url" value="${item.url}" placeholder="URL link" />
+                <button type="button" class="action-btn delete" onclick="this.parentElement.remove()">🗑️ Remove</button>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+      renderUnstitchedColumnsList();
+    }
+
+    function renderUnstitchedColumnsList() {
+      const container = document.getElementById('unstitched-columns-container');
+      if (!container) return;
+
+      container.innerHTML = currentUnstitchedColumns.map((col, idx) => {
+        const isVis = col.visible !== false;
+        const colId = col.id || ('col_' + idx);
+        const isCustom = col.isCustom || (colId !== '1pc' && colId !== '2pc' && colId !== '3pc');
+        
+        return `
+          <div class="unstitched-col-card" data-idx="${idx}" data-col-id="${colId}" data-is-custom="${isCustom}" style="background:#fcfbfd; border:1.5px solid ${isVis ? '#e2d9eb' : '#ddd'}; border-radius:10px; padding:16px; margin-bottom:16px; opacity:${isVis ? '1' : '0.85'};">
+            <!-- Column Header -->
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+              <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+                <span style="background:var(--admin-primary); color:#fff; font-size:10px; font-weight:800; padding:2px 8px; border-radius:10px; text-transform:uppercase;">
+                  Column ${idx + 1}
+                </span>
+                <input type="text" class="form-control col-label-input" value="${col.label || ''}" placeholder="Submenu Title (e.g. 4PC / 5PC / Shawls)" oninput="currentUnstitchedColumns[${idx}].label = this.value" style="width:160px; font-weight:800; font-size:13px; padding:6px 10px;" />
+                
+                <label style="display:inline-flex; align-items:center; gap:6px; font-size:11px; font-weight:800; cursor:pointer; color:${isVis ? '#1e7e4a' : '#d32f2f'}; background:${isVis ? '#e8f8f0' : '#ffebee'}; padding:4px 10px; border-radius:12px; border:1px solid ${isVis ? '#bbf7d0' : '#ffcdd2'};">
+                  <input type="checkbox" id="unstitched-${colId}-vis" class="col-vis-toggle" ${isVis ? 'checked' : ''} onchange="currentUnstitchedColumns[${idx}].visible = this.checked; renderUnstitchedColumnsList();" style="accent-color:var(--admin-primary); width:14px; height:14px;" />
+                  <span>${isVis ? `👁️ ${col.label} Visible` : `🚫 ${col.label} Hidden (Invisible)`}</span>
+                </label>
+              </div>
+              <div style="display:flex; gap:6px;">
+                <button type="button" class="action-btn" onclick="addUnstitchedSublink(${idx})" style="font-size:11px;">+ Add Sublink</button>
+                ${isCustom ? `<button type="button" class="action-btn delete" onclick="deleteUnstitchedColumn(${idx})" style="font-size:11px;">🗑️ Delete Column</button>` : ''}
+              </div>
+            </div>
+
+            <!-- Column URL -->
+            <div style="margin-bottom:10px;">
+              <label style="font-size:11px; font-weight:700; color:#555; display:block; margin-bottom:4px;">Main Submenu URL link</label>
+              <input type="text" class="form-control col-url-input" value="${col.url || ''}" placeholder="e.g. collections.html?category=Unstitched&type=${encodeURIComponent(col.label || '')}" oninput="currentUnstitchedColumns[${idx}].url = this.value" style="font-size:12px; padding:6px 10px;" />
+            </div>
+
+            <!-- Sublinks List -->
+            <div style="font-size:11px; font-weight:700; color:#666; margin-bottom:6px;">Season / Category Sublinks:</div>
+            <div class="unstitched-sublinks-list" id="unstitched-${colId}-menu-list">
+              ${(col.sublinks || []).map((sub, sIdx) => `
+                <div class="menu-item-row" data-group="${colId}" data-idx="${sIdx}">
+                  <input type="text" class="form-control menu-label" value="${sub.label || ''}" placeholder="Label (e.g. Winter / Summer / Luxury)" oninput="currentUnstitchedColumns[${idx}].sublinks[${sIdx}].label = this.value" />
+                  <input type="text" class="form-control menu-url" value="${sub.url || ''}" placeholder="URL link" oninput="currentUnstitchedColumns[${idx}].sublinks[${sIdx}].url = this.value" />
+                  <button type="button" class="action-btn delete" onclick="removeUnstitchedSublink(${idx}, ${sIdx})">🗑️ Remove</button>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function addUnstitchedColumn() {
+      const newNum = currentUnstitchedColumns.length + 1;
+      const newLabel = newNum === 4 ? '4PC' : newNum === 5 ? '5PC' : `Custom Submenu ${newNum}`;
+      currentUnstitchedColumns.push({
+        id: 'col_' + Date.now(),
+        label: newLabel,
+        url: `collections.html?category=Unstitched&type=${encodeURIComponent(newLabel)}`,
+        visible: true,
+        isCustom: true,
+        sublinks: [
+          { label: 'Winter', url: `collections.html?category=Unstitched&type=${encodeURIComponent(newLabel)}&season=Winter` },
+          { label: 'Summer', url: `collections.html?category=Unstitched&type=${encodeURIComponent(newLabel)}&season=Summer` }
+        ]
+      });
+      renderUnstitchedColumnsList();
+      showAdminToast(`Added "${newLabel}" submenu column! Click "Save Unstitched" to apply.`);
+    }
+
+    function deleteUnstitchedColumn(idx) {
+      const col = currentUnstitchedColumns[idx];
+      if (confirm(`Are you sure you want to delete submenu column "${col.label}"?`)) {
+        currentUnstitchedColumns.splice(idx, 1);
+        renderUnstitchedColumnsList();
+        showAdminToast('Submenu column deleted. Remember to click "Save Unstitched" to apply.');
+      }
+    }
+
+    function addUnstitchedSublink(colIdx) {
+      const col = currentUnstitchedColumns[colIdx];
+      if (!col) return;
+      if (!Array.isArray(col.sublinks)) col.sublinks = [];
+      col.sublinks.push({
+        label: 'New Season',
+        url: col.url || `collections.html?category=Unstitched&type=${encodeURIComponent(col.label)}`
+      });
+      renderUnstitchedColumnsList();
+    }
+
+    function removeUnstitchedSublink(colIdx, sublinkIdx) {
+      const col = currentUnstitchedColumns[colIdx];
+      if (col && Array.isArray(col.sublinks)) {
+        col.sublinks.splice(sublinkIdx, 1);
+        renderUnstitchedColumnsList();
+      }
+    }
+
+    function addDropdownSublinkRow(group) {
+      const col = currentUnstitchedColumns.find(c => c.id === group || c.label.toLowerCase() === group.toLowerCase());
+      if (col) {
+        if (!Array.isArray(col.sublinks)) col.sublinks = [];
+        col.sublinks.push({
+          label: 'New Season / Type',
+          url: `collections.html?category=Unstitched&type=${group.toUpperCase()}`
+        });
+        renderUnstitchedColumnsList();
+      }
+    }
+
+    function addDropdownLinkRow(type) {
       let targetContainer;
-      let defaultLabel = 'New Brand / Category';
+      let defaultLabel = 'New Link';
       let defaultUrl = 'collections.html';
 
-      if (type === 'brand') {
-        targetContainer = document.getElementById('brand-menu-list');
-        defaultLabel = 'Brand Name';
-        defaultUrl = 'collections.html?brand=NewBrand';
-      } else if (type === 'unstitched') {
-        targetContainer = document.getElementById('unstitched-menu-list');
-        defaultLabel = 'New Category';
-        defaultUrl = 'collections.html?category=Unstitched';
-      } else {
+      if (type === 'rtw') {
         targetContainer = document.getElementById('rtw-menu-list');
-        defaultLabel = 'New Stitched Category';
-        defaultUrl = 'collections.html?category=Ready+to+Wear';
+        defaultLabel = '1PC (Kurtis)';
+        defaultUrl = 'collections.html?category=Ready+to+Wear&type=1PC';
+      } else if (type === 'kids') {
+        targetContainer = document.getElementById('kids-menu-list');
+        defaultLabel = 'New Kids Category';
+        defaultUrl = 'collections.html?category=Kids';
+      } else if (type === 'mainNav') {
+        targetContainer = document.getElementById('main-nav-links-list');
+        defaultLabel = 'NEW LINK';
+        defaultUrl = 'collections.html';
       }
+
+      if (!targetContainer) return;
 
       const row = document.createElement('div');
       row.className = 'menu-item-row';
       row.dataset.type = type;
+      row.style.gridTemplateColumns = 'auto 1.2fr 1.5fr auto';
       row.innerHTML = `
+        <label style="display:inline-flex; align-items:center; gap:4px; font-size:11px; font-weight:700; color:#555; cursor:pointer;">
+          <input type="checkbox" class="link-vis-toggle" checked />
+          <span>Visible</span>
+        </label>
         <input type="text" class="form-control menu-label" value="${defaultLabel}" placeholder="Label" />
         <input type="text" class="form-control menu-url" value="${defaultUrl}" placeholder="URL link" />
         <button type="button" class="action-btn delete" onclick="this.parentElement.remove()">🗑️ Remove</button>
@@ -2130,45 +3181,132 @@
       targetContainer.appendChild(row);
     }
 
-    function handleSaveBrandMenu() {
-      const rows = document.querySelectorAll('#brand-menu-list .menu-item-row');
-      const items = Array.from(rows).map(r => ({
+    function getUnstitchedFromForm() {
+      const uVis = document.getElementById('unstitched-vis-toggle')?.checked ?? true;
+      const uLabel = document.getElementById('unstitched-label-input')?.value.trim() || 'UNSTITCHED';
+      const uUrl = document.getElementById('unstitched-url-input')?.value.trim() || 'collections.html?category=Unstitched';
+
+      document.querySelectorAll('#unstitched-columns-container .unstitched-col-card').forEach((card, idx) => {
+        if (currentUnstitchedColumns[idx]) {
+          currentUnstitchedColumns[idx].label = card.querySelector('.col-label-input')?.value.trim() || currentUnstitchedColumns[idx].label;
+          currentUnstitchedColumns[idx].url = card.querySelector('.col-url-input')?.value.trim() || currentUnstitchedColumns[idx].url;
+          currentUnstitchedColumns[idx].visible = card.querySelector('.col-vis-toggle')?.checked ?? currentUnstitchedColumns[idx].visible;
+          
+          const sublinkRows = card.querySelectorAll('.menu-item-row');
+          currentUnstitchedColumns[idx].sublinks = Array.from(sublinkRows).map(r => ({
+            label: r.querySelector('.menu-label')?.value.trim() || '',
+            url: r.querySelector('.menu-url')?.value.trim() || ''
+          })).filter(i => i.label);
+        }
+      });
+
+      return {
+        visible: uVis,
+        label: uLabel,
+        url: uUrl,
+        columns: currentUnstitchedColumns,
+        items1pc: currentUnstitchedColumns.find(c => c.id === '1pc') || currentUnstitchedColumns[0],
+        items2pc: currentUnstitchedColumns.find(c => c.id === '2pc') || currentUnstitchedColumns[1],
+        items3pc: currentUnstitchedColumns.find(c => c.id === '3pc') || currentUnstitchedColumns[2],
+        items4pc: currentUnstitchedColumns.find(c => c.id === '4pc') || currentUnstitchedColumns[3],
+        items5pc: currentUnstitchedColumns.find(c => c.id === '5pc') || currentUnstitchedColumns[4]
+      };
+    }
+
+    function getRtwFromForm() {
+      const rtwVis = document.getElementById('rtw-vis-toggle')?.checked ?? true;
+      const rtwLabel = document.getElementById('rtw-label-input')?.value.trim() || 'READY TO WEAR';
+      const rtwUrl = document.getElementById('rtw-url-input')?.value.trim() || 'collections.html?category=Ready+to+Wear';
+
+      const rows = document.querySelectorAll('#rtw-menu-list .menu-item-row');
+      const links = Array.from(rows).map(r => ({
+        visible: r.querySelector('.link-vis-toggle') ? r.querySelector('.link-vis-toggle').checked : true,
         label: r.querySelector('.menu-label').value.trim(),
         url: r.querySelector('.menu-url').value.trim()
       })).filter(i => i.label);
 
-      const navDropdowns = Store.getSiteSettings().navDropdowns || {};
-      navDropdowns.shopByBrand = items;
-      Store.saveSiteSettings({ navDropdowns });
-      showAdminToast('Shop By Brand Dropdown Menu saved!');
+      return {
+        visible: rtwVis,
+        label: rtwLabel,
+        url: rtwUrl,
+        links
+      };
+    }
+
+    function getKidsFromForm() {
+      const kidsVis = document.getElementById('kids-vis-toggle')?.checked ?? true;
+      const kidsLabel = document.getElementById('kids-label-input')?.value.trim() || 'KIDS';
+      const kidsUrl = document.getElementById('kids-url-input')?.value.trim() || 'collections.html?category=Kids';
+
+      const rows = document.querySelectorAll('#kids-menu-list .menu-item-row');
+      const links = Array.from(rows).map(r => ({
+        visible: r.querySelector('.link-vis-toggle') ? r.querySelector('.link-vis-toggle').checked : true,
+        label: r.querySelector('.menu-label').value.trim(),
+        url: r.querySelector('.menu-url').value.trim()
+      })).filter(i => i.label);
+
+      return {
+        visible: kidsVis,
+        label: kidsLabel,
+        url: kidsUrl,
+        links
+      };
+    }
+
+    function getMainNavFromForm() {
+      const rows = document.querySelectorAll('#main-nav-links-list .menu-item-row');
+      return Array.from(rows).map(r => ({
+        visible: r.querySelector('.link-vis-toggle') ? r.querySelector('.link-vis-toggle').checked : true,
+        label: r.querySelector('.menu-label').value.trim(),
+        url: r.querySelector('.menu-url').value.trim(),
+        badge: ''
+      })).filter(i => i.label);
     }
 
     function handleSaveUnstitchedMenu() {
-      const rows = document.querySelectorAll('#unstitched-menu-list .menu-item-row');
-      const items = Array.from(rows).map(r => ({
-        label: r.querySelector('.menu-label').value.trim(),
-        url: r.querySelector('.menu-url').value.trim()
-      })).filter(i => i.label);
-
+      const unstitched = getUnstitchedFromForm();
       const navDropdowns = Store.getSiteSettings().navDropdowns || {};
-      navDropdowns.unstitched = items;
+      navDropdowns.unstitched = unstitched;
       Store.saveSiteSettings({ navDropdowns });
-      showAdminToast('Unstitched Menu saved!');
+      showAdminToast('Unstitched Dropdown & Submenus saved successfully!');
     }
 
     function handleSaveRtwMenu() {
-      const rows = document.querySelectorAll('#rtw-menu-list .menu-item-row');
-      const items = Array.from(rows).map(r => ({
-        label: r.querySelector('.menu-label').value.trim(),
-        url: r.querySelector('.menu-url').value.trim()
-      })).filter(i => i.label);
-
+      const readyToWear = getRtwFromForm();
       const navDropdowns = Store.getSiteSettings().navDropdowns || {};
-      navDropdowns.readyToWear = items;
+      navDropdowns.readyToWear = readyToWear;
       Store.saveSiteSettings({ navDropdowns });
-      showAdminToast('Ready To Wear Menu saved!');
+      showAdminToast('Ready To Wear Dropdown Menu saved successfully!');
     }
 
+    function handleSaveKidsMenu() {
+      const kids = getKidsFromForm();
+      const navDropdowns = Store.getSiteSettings().navDropdowns || {};
+      navDropdowns.kids = kids;
+      Store.saveSiteSettings({ navDropdowns });
+      showAdminToast('Kids Dropdown Menu saved successfully!');
+    }
+
+    function handleSaveMainNav() {
+      const mainNavLinks = getMainNavFromForm();
+      const navDropdowns = Store.getSiteSettings().navDropdowns || {};
+      navDropdowns.mainNavLinks = mainNavLinks;
+      Store.saveSiteSettings({ navDropdowns });
+      showAdminToast('Top Navigation Bar Links saved successfully!');
+    }
+
+    function saveAllNavigationMenus() {
+      const navDropdowns = {
+        unstitched: getUnstitchedFromForm(),
+        readyToWear: getRtwFromForm(),
+        kids: getKidsFromForm(),
+        mainNavLinks: getMainNavFromForm()
+      };
+      Store.saveSiteSettings({ navDropdowns });
+      showAdminToast('All Navigation Menus & Submenus Saved Successfully!');
+    }
+
+    // --- Products Table Rendering ---
     // --- Products Table Rendering ---
     function renderAdminProductsTable() {
       const tbody = document.getElementById('admin-products-tbody');
@@ -2179,6 +3317,10 @@
       const brandFilter = brandFilterEl ? brandFilterEl.value : '';
       const catFilterEl = document.getElementById('admin-cat-filter');
       const catFilter = catFilterEl ? catFilterEl.value : '';
+      const seasonFilterEl = document.getElementById('admin-season-filter');
+      const seasonFilter = seasonFilterEl ? seasonFilterEl.value : '';
+      const genderFilterEl = document.getElementById('admin-gender-filter');
+      const genderFilter = genderFilterEl ? genderFilterEl.value : '';
 
       let products = Store.getProducts();
 
@@ -2186,7 +3328,10 @@
         products = products.filter(p => 
           (p.title && p.title.toLowerCase().includes(search)) || 
           (p.vendor && p.vendor.toLowerCase().includes(search)) ||
-          (p.sku && p.sku.toLowerCase().includes(search))
+          (p.sku && p.sku.toLowerCase().includes(search)) ||
+          (p.season && p.season.toLowerCase().includes(search)) ||
+          (p.gender && p.gender.toLowerCase().includes(search)) ||
+          (p.fabric && p.fabric.toLowerCase().includes(search))
         );
       }
 
@@ -2198,19 +3343,61 @@
         products = products.filter(p => p.category === catFilter || p.category_type === catFilter);
       }
 
+      if (seasonFilter) {
+        products = products.filter(p => {
+          if (p.season) {
+            if (p.season === seasonFilter) return true;
+            if (p.season === 'All Seasons' && (seasonFilter === 'Summer' || seasonFilter === 'Winter')) return true;
+            return false;
+          }
+          const t = (p.title + ' ' + (p.fabric || '')).toLowerCase();
+          const isLawn = /\b(lawn|voile|chiffon|organza|summer)\b/i.test(t);
+          const isWinter = /\b(khaddar|karandi|velvet|shawl|wool|marina)\b/i.test(t) || (/\blinen\b/i.test(p.fabric || '') || (/\blinen\b/i.test(p.title || '') && !isLawn));
+          if (seasonFilter === 'Winter') return isWinter;
+          if (seasonFilter === 'Summer') return !isWinter;
+          return false;
+        });
+      }
+
+      if (genderFilter) {
+        products = products.filter(p => {
+          if (p.gender) return p.gender === genderFilter;
+          const t = (p.title + ' ' + (p.category || '')).toLowerCase();
+          if (genderFilter === 'Men') return p.category === 'Menswear' || /men|gents|kurta/i.test(t);
+          if (genderFilter === 'Women') return p.category !== 'Menswear';
+          return true;
+        });
+      }
+
       if (products.length === 0) {
         tbody.innerHTML = `<tr><td colspan="7" style="text-align:center; padding:30px; color:#888;">No articles found matching filters.</td></tr>`;
         return;
       }
 
-      tbody.innerHTML = products.map(p => `
+      tbody.innerHTML = products.map(p => {
+        const season = p.season || ((/\b(khaddar|karandi|velvet|shawl|wool|marina)\b/i.test(p.title) || (/\blinen\b/i.test(p.title) && !/\blawn\b/i.test(p.title))) ? 'Winter' : 'Summer');
+        const seasonIcon = season === 'Winter' ? '❄️ Winter' : (season === 'Summer' ? '☀️ Summer' : (season === 'Spring / Festive' ? '🌸 Spring' : '🌤️ ' + season));
+        const seasonBg = season === 'Winter' ? '#e0f2fe' : (season === 'Summer' ? '#fef3c7' : '#f3e8ff');
+        const seasonColor = season === 'Winter' ? '#0369a1' : (season === 'Summer' ? '#b45309' : '#6b21a8');
+
+        const gender = p.gender || (p.category === 'Menswear' || /men|gents/i.test(p.title) ? 'Men' : 'Women');
+        const genderBadge = gender === 'Men' ? '👔 Men' : (gender === 'Kids' ? '👶 Kids' : '👗 Women');
+
+        return `
         <tr>
           <td><img src="${p.featured_image || p.image}" alt="${p.title}" class="prod-thumb" onerror="this.src='assets/images/catalog/nishat-3pc-42206126-r-main.jpg'" /></td>
           <td>
             <div style="font-weight:700; max-width:280px; font-size:13px;">${p.title}</div>
             <div style="font-size:11px; color:#888; font-weight:600; text-transform:uppercase; margin-top:2px;">${p.vendor || 'Al-Deewan Brand'}</div>
+            ${p.fabric ? `<div style="font-size:11px; color:#5e3585; margin-top:2px; font-weight:600;">🧵 ${p.fabric}</div>` : ''}
           </td>
-          <td><span style="font-weight:700; font-size:12px; color:var(--admin-primary);">${p.category_type || p.category || '3PC'}</span></td>
+          <td>
+            <div style="display:flex; flex-direction:column; gap:4px; align-items:flex-start;">
+              <span style="font-weight:700; font-size:12px; color:var(--admin-primary);">${p.category_type || p.category || '3PC'}</span>
+              <span style="font-size:10px; font-weight:800; padding:2px 8px; border-radius:10px; background:${seasonBg}; color:${seasonColor}; display:inline-block;">${seasonIcon}</span>
+              <span style="font-size:10px; font-weight:700; padding:2px 6px; border-radius:4px; background:#f4f4f7; color:#555; display:inline-block;">${genderBadge}</span>
+            </div>
+          </td>
           <td><code style="background:#f4f4f7; padding:2px 6px; border-radius:4px; font-size:11px;">${p.sku || 'N/A'}</code></td>
           <td>
             <strong style="color:#d32f2f;">Rs. ${(p.price || 0).toLocaleString('en-PK')}</strong>
@@ -2226,7 +3413,8 @@
             <button class="action-btn delete" onclick="handleDeleteProduct(${p.id})">🗑️ Delete</button>
           </td>
         </tr>
-      `).join('');
+      `;
+      }).join('');
     }
 
     // --- Product CRUD Actions ---
@@ -2241,12 +3429,124 @@
       }
     }
 
+    let currentProductImages = [];
+
+    function renderModalImagesList() {
+      const container = document.getElementById('modal-images-gallery');
+      const countBadge = document.getElementById('modal-images-count-badge');
+      if (!container) return;
+
+      if (countBadge) {
+        const len = currentProductImages.length;
+        countBadge.textContent = `${len} image${len === 1 ? '' : 's'}`;
+      }
+
+      if (currentProductImages.length === 0) {
+        container.innerHTML = `
+          <div style="grid-column:1/-1; text-align:center; padding:24px; background:#f9f9fb; border:1.5px dashed #d5d5dd; border-radius:8px; color:#888; font-size:13px;">
+            📷 No images added yet. Click <strong>"Upload Files"</strong> or enter an image URL above to add photos.
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = currentProductImages.map((imgSrc, idx) => {
+        const isPrimary = idx === 0;
+        const isHover = idx === 1;
+        let badgeLabel = `Angle ${idx + 1}`;
+        let badgeClass = '';
+
+        if (isPrimary) {
+          badgeLabel = '⭐ Main Cover';
+          badgeClass = 'primary-badge';
+        } else if (isHover) {
+          badgeLabel = '🔄 Hover View';
+          badgeClass = 'hover-badge';
+        }
+
+        return `
+          <div class="modal-gallery-card ${isPrimary ? 'is-primary' : ''}">
+            <div class="modal-gallery-thumb-wrap">
+              <span class="modal-gallery-badge ${badgeClass}">${badgeLabel}</span>
+              <img src="${imgSrc}" class="modal-gallery-thumb" alt="Product Image ${idx + 1}" onerror="this.src='assets/images/catalog/nishat-3pc-42206126-r-main.jpg'" />
+            </div>
+            <div class="modal-gallery-actions">
+              <div style="display:flex; gap:3px;">
+                ${idx > 0 ? `<button type="button" class="modal-gallery-btn" title="Move left" onclick="moveModalProductImage(${idx}, -1)">◀</button>` : ''}
+                ${idx < currentProductImages.length - 1 ? `<button type="button" class="modal-gallery-btn" title="Move right" onclick="moveModalProductImage(${idx}, 1)">▶</button>` : ''}
+                ${!isPrimary ? `<button type="button" class="modal-gallery-btn btn-make-primary" title="Set as Main Cover Photo" onclick="makePrimaryModalProductImage(${idx})">⭐ Main</button>` : ''}
+              </div>
+              <button type="button" class="modal-gallery-btn btn-delete" title="Delete photo" onclick="removeModalProductImage(${idx})">🗑️</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function handleMultipleFilesUpload(input) {
+      if (input.files && input.files.length > 0) {
+        const filesArray = Array.from(input.files);
+        let loadedCount = 0;
+        filesArray.forEach(file => {
+          const reader = new FileReader();
+          reader.onload = function(e) {
+            currentProductImages.push(e.target.result);
+            loadedCount++;
+            if (loadedCount === filesArray.length) {
+              renderModalImagesList();
+              showAdminToast(`Added ${filesArray.length} image(s)!`);
+              input.value = '';
+            }
+          };
+          reader.readAsDataURL(file);
+        });
+      }
+    }
+
+    function addImageUrlFromInput() {
+      const input = document.getElementById('prod-image-url-input');
+      const url = (input?.value || '').trim();
+      if (!url) return;
+      currentProductImages.push(url);
+      input.value = '';
+      renderModalImagesList();
+      showAdminToast('Added image URL to product photos!');
+    }
+
+    function makePrimaryModalProductImage(idx) {
+      if (idx > 0 && idx < currentProductImages.length) {
+        const [target] = currentProductImages.splice(idx, 1);
+        currentProductImages.unshift(target);
+        renderModalImagesList();
+        showAdminToast('Set image as Primary Cover Photo!');
+      }
+    }
+
+    function moveModalProductImage(idx, direction) {
+      const targetIdx = idx + direction;
+      if (targetIdx < 0 || targetIdx >= currentProductImages.length) return;
+      const temp = currentProductImages[idx];
+      currentProductImages[idx] = currentProductImages[targetIdx];
+      currentProductImages[targetIdx] = temp;
+      renderModalImagesList();
+    }
+
+    function removeModalProductImage(idx) {
+      if (idx >= 0 && idx < currentProductImages.length) {
+        currentProductImages.splice(idx, 1);
+        renderModalImagesList();
+      }
+    }
+
     function openAddProductModal() {
       document.getElementById('modal-product-title').textContent = 'Add New Article to Catalog';
       document.getElementById('product-form').reset();
       document.getElementById('prod-id').value = '';
-      document.getElementById('prod-image').value = 'assets/images/catalog/nishat-3pc-42206126-r-main.jpg';
-      document.getElementById('prod-modal-preview-img').src = 'assets/images/catalog/nishat-3pc-42206126-r-main.jpg';
+      if (document.getElementById('prod-season')) document.getElementById('prod-season').value = 'Summer';
+      if (document.getElementById('prod-gender')) document.getElementById('prod-gender').value = 'Women';
+      if (document.getElementById('prod-fabric')) document.getElementById('prod-fabric').value = '';
+      currentProductImages = ['assets/images/catalog/nishat-3pc-42206126-r-main.jpg'];
+      renderModalImagesList();
       generateRandomSKU();
       insertDescriptionTemplate('3PC');
       document.getElementById('product-modal').classList.add('active');
@@ -2262,11 +3562,30 @@
       document.getElementById('prod-vendor').value = p.vendor || 'Al-Deewan Brand';
       document.getElementById('prod-category').value = p.category || 'Unstitched';
       document.getElementById('prod-category-type').value = p.category_type || '3PC';
+
+      const detectedSeason = p.season || ((/\b(khaddar|karandi|velvet|shawl|wool|marina)\b/i.test(p.title) || (/\blinen\b/i.test(p.title) && !/\blawn\b/i.test(p.title))) ? 'Winter' : 'Summer');
+      if (document.getElementById('prod-season')) document.getElementById('prod-season').value = detectedSeason;
+      
+      const detectedGender = p.gender || (p.category === 'Menswear' || /men|gents/i.test(p.title) ? 'Men' : (p.category === 'Kids' || /kids|girls|boys/i.test(p.title) ? 'Kids' : 'Women'));
+      if (document.getElementById('prod-gender')) document.getElementById('prod-gender').value = detectedGender;
+      
+      if (document.getElementById('prod-fabric')) document.getElementById('prod-fabric').value = p.fabric || '';
+
       document.getElementById('prod-sku').value = p.sku || '';
       document.getElementById('prod-price').value = p.price || '';
       document.getElementById('prod-compare-price').value = p.compare_at_price || '';
-      document.getElementById('prod-image').value = p.featured_image || p.image || '';
-      document.getElementById('prod-modal-preview-img').src = p.featured_image || p.image || 'assets/images/catalog/nishat-3pc-42206126-r-main.jpg';
+
+      // Load all product images
+      if (p.images && Array.isArray(p.images) && p.images.length > 0) {
+        currentProductImages = [...p.images];
+      } else {
+        currentProductImages = [p.featured_image || p.image || 'assets/images/catalog/nishat-3pc-42206126-r-main.jpg'];
+        if (p.hover_image && !currentProductImages.includes(p.hover_image)) {
+          currentProductImages.push(p.hover_image);
+        }
+      }
+      renderModalImagesList();
+
       document.getElementById('prod-description').value = (p.body_html || '').replace(/<[^>]*>?/gm, ' ').replace(/\s+/g, ' ').trim();
       document.getElementById('prod-available').value = p.available ? 'true' : 'false';
 
@@ -2283,10 +3602,16 @@
       const vendor = document.getElementById('prod-vendor').value.trim();
       const category = document.getElementById('prod-category').value;
       const category_type = document.getElementById('prod-category-type').value;
+      const season = document.getElementById('prod-season') ? document.getElementById('prod-season').value : 'Summer';
+      const gender = document.getElementById('prod-gender') ? document.getElementById('prod-gender').value : 'Women';
+      const fabric = document.getElementById('prod-fabric') ? document.getElementById('prod-fabric').value.trim() : '';
       const sku = document.getElementById('prod-sku').value.trim();
       const price = parseFloat(document.getElementById('prod-price').value) || 0;
       const compare_at_price = parseFloat(document.getElementById('prod-compare-price').value) || price;
-      const image = document.getElementById('prod-image').value.trim() || 'assets/images/catalog/nishat-3pc-42206126-r-main.jpg';
+      
+      const images = currentProductImages.length > 0 ? currentProductImages : ['assets/images/catalog/nishat-3pc-42206126-r-main.jpg'];
+      const mainImage = images[0];
+      const hoverImage = images[1] || images[0];
       const description = document.getElementById('prod-description').value.trim();
       const available = document.getElementById('prod-available').value === 'true';
 
@@ -2295,24 +3620,27 @@
         vendor,
         category,
         category_type,
+        season,
+        gender,
+        fabric,
         sku,
         barcode: sku,
         price,
         compare_at_price,
-        image,
-        featured_image: image,
-        hover_image: image,
-        images: [image],
+        image: mainImage,
+        featured_image: mainImage,
+        hover_image: hoverImage,
+        images: images,
         body_html: `<p>${description}</p>`,
         available
       };
 
       if (id) {
         Store.updateProduct(Number(id), data);
-        showAdminToast(`Updated "${title}" successfully!`);
+        showAdminToast(`Updated "${title}" [${season} • ${gender}] successfully!`);
       } else {
         Store.addProduct(data);
-        showAdminToast(`Added "${title}" to catalog!`);
+        showAdminToast(`Added "${title}" [${season} • ${gender}] to catalog!`);
       }
 
       closeProductModal();
@@ -2361,7 +3689,7 @@
     }
 
     function handleSaveHeroBanner() {
-      const image = document.getElementById('hero-banner-url').value.trim() || 'assets/images/hero_banner.jpg';
+      const image = document.getElementById('hero-banner-url').value.trim() || 'assets/images/al_deewan_hero_banner.png';
       const link = document.getElementById('hero-banner-link').value.trim() || 'collections.html';
       Store.saveSiteSettings({ heroBanner: { image, link } });
       showAdminToast('Hero Banner updated successfully!');
@@ -2374,16 +3702,39 @@
       showAdminToast('Welcome Promotional Banner updated successfully!');
     }
 
+    function updateAnnouncementLivePreview(text) {
+      const container = document.getElementById('admin-ticker-preview');
+      if (!container) return;
+      const rawText = (text || '').trim() || '⚡ Biggest Lawn Opening in Pakistan • 100% Genuine Branded Cut Pieces • 50+ Top Designer Brands Launch ⚡';
+      let parts = rawText.split(/[•|]/).map(s => s.trim().replace(/^⚡|⚡$/g, '').trim()).filter(Boolean);
+      if (!parts.length) parts = [rawText];
+      container.innerHTML = parts.map(p => `
+        <span style="display:inline-flex; align-items:center; gap:8px;">
+          <span style="color:#ffd700;">⚡</span>
+          <span>${p}</span>
+        </span>
+      `).join('') + parts.map(p => `
+        <span style="display:inline-flex; align-items:center; gap:8px;">
+          <span style="color:#ffd700;">⚡</span>
+          <span>${p}</span>
+        </span>
+      `).join('');
+    }
+
     function handleSaveAnnouncement() {
-      const text = document.getElementById('announcement-text-input').value.trim();
+      const input = document.getElementById('announcement-text-input');
+      const text = input ? input.value.trim() : '';
       Store.saveSiteSettings({ announcementText: text });
-      showAdminToast('Announcement Bar text updated!');
+      updateAnnouncementLivePreview(text);
+      showAdminToast('✅ Below-Banner Announcement Ticker updated successfully! Live on homepage.');
     }
 
     function insertAnnouncementEmoji(emoji) {
       const input = document.getElementById('announcement-text-input');
-      input.value += ' ' + emoji + ' ';
+      if (!input) return;
+      input.value += (input.value.endsWith(' ') ? '' : ' ') + emoji + ' ';
       input.focus();
+      updateAnnouncementLivePreview(input.value);
     }
 
     // --- Delivery & Shipping Settings Manager ---
@@ -2508,6 +3859,7 @@
     function exportFullBackupJSON() {
       const data = {
         catalog: Store.getProducts(),
+        brands: Store.getBrands(),
         settings: Store.getSiteSettings(),
         exportedAt: new Date().toISOString()
       };
@@ -2532,6 +3884,9 @@
             if (data.catalog && Array.isArray(data.catalog)) {
               Store.saveProducts(data.catalog);
             }
+            if (data.brands && Array.isArray(data.brands)) {
+              Store.saveBrands(data.brands);
+            }
             if (data.settings) {
               Store.saveSiteSettings(data.settings);
             }
@@ -2542,6 +3897,277 @@
           }
         };
         reader.readAsText(input.files[0]);
+      }
+    }
+
+    // --- Brands Manager Logic ---
+    let currentBrandLetterFilter = 'ALL';
+
+    function renderAdminBrandsManager() {
+      const allBrands = Store.getBrands();
+      const products = Store.getProducts();
+      const searchEl = document.getElementById('admin-brand-search-input');
+      const searchQuery = (searchEl ? searchEl.value : '').toLowerCase().trim();
+
+      // 1. Calculate active suit count per brand
+      const brandCounts = {};
+      allBrands.forEach(b => {
+        let count = 0;
+        products.forEach(p => {
+          if (p.vendor && Store.matchBrandName(p.vendor, b.name)) {
+            count++;
+          }
+        });
+        brandCounts[b.id] = count;
+      });
+
+      // 2. Render Top Favorite Brands Grid
+      const favGrid = document.getElementById('admin-favorite-brands-grid');
+      if (favGrid) {
+        const topFavs = allBrands.filter(b => b.isTopFavorite && !b.hidden);
+        let favHtml = topFavs.map(b => {
+          const count = brandCounts[b.id] || 0;
+          return `
+            <div class="brand-card-admin">
+              <div class="brand-card-logo-wrap">
+                ${b.logo ? `<img src="${b.logo}" alt="${b.name}" onerror="this.src='assets/images/brands/brand_fallback.png';" />` : `<span style="font-weight:900; font-size:14px; color:#5e3585;">${b.name}</span>`}
+              </div>
+              <div class="brand-card-name">${b.name}</div>
+              <div class="brand-card-count">${count} Active ${count === 1 ? 'Suit' : 'Suits'}</div>
+              <div class="brand-card-actions">
+                <button class="action-btn" onclick="openEditBrandModal('${b.id}')" title="Edit Brand">✏️ Edit</button>
+                <button class="action-btn" onclick="handleToggleBrandFavorite('${b.id}')" title="Remove from favorites" style="color:#e65100;">⭐ Remove</button>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+        favHtml += `
+          <div class="brand-card-add-new" onclick="openAddBrandModal(true)">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+            <span>+ Add / Feature Brand</span>
+          </div>
+        `;
+        favGrid.innerHTML = favHtml;
+      }
+
+      // 3. Render Letter Filter Pills
+      const letterBar = document.getElementById('admin-brand-letter-bar');
+      if (letterBar) {
+        const letters = ['ALL', '#', ...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')];
+        letterBar.innerHTML = letters.map(l => `
+          <button type="button" class="letter-pill ${currentBrandLetterFilter === l ? 'active' : ''}" onclick="filterAdminBrandsByLetter('${l}')">${l}</button>
+        `).join('');
+      }
+
+      // 4. Filter Brands Table
+      let filtered = allBrands;
+      if (searchQuery) {
+        filtered = filtered.filter(b => b.name.toLowerCase().includes(searchQuery));
+      } else if (currentBrandLetterFilter !== 'ALL') {
+        if (currentBrandLetterFilter === '#') {
+          filtered = filtered.filter(b => !/^[A-Za-z]/.test(b.name));
+        } else {
+          filtered = filtered.filter(b => (b.letter || b.name.charAt(0).toUpperCase()) === currentBrandLetterFilter);
+        }
+      }
+
+      // 5. Render A-Z Brands Table
+      const tbody = document.getElementById('admin-brands-tbody');
+      if (tbody) {
+        if (filtered.length === 0) {
+          tbody.innerHTML = `<tr><td colspan="7" style="text-align:center; padding:30px; color:#888;">No brands found matching criteria.</td></tr>`;
+          return;
+        }
+
+        tbody.innerHTML = filtered.map(b => {
+          const count = brandCounts[b.id] || 0;
+          return `
+            <tr>
+              <td>
+                <div style="width:48px; height:36px; background:#fafafa; border:1px solid #eee; border-radius:4px; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:2px;">
+                  ${b.logo ? `<img src="${b.logo}" alt="${b.name}" style="max-width:100%; max-height:100%; object-fit:contain;" onerror="this.style.display='none';" />` : `<span style="font-size:10px; font-weight:800; color:#888;">${b.letter || b.name.charAt(0)}</span>`}
+                </div>
+              </td>
+              <td>
+                <strong style="font-size:13px; color:#111;">${b.name}</strong>
+                ${b.isTopFavorite ? `<span style="margin-left:6px; font-size:10px; font-weight:800; background:#fef3c7; color:#d97706; padding:2px 6px; border-radius:10px;">⭐ FAVORITE</span>` : ''}
+              </td>
+              <td><span style="font-weight:800; color:var(--admin-primary);">${b.letter || b.name.charAt(0).toUpperCase()}</span></td>
+              <td>
+                <span class="status-badge ${count > 0 ? 'status-in-stock' : 'status-out-stock'}" style="font-size:10px;">
+                  ${count} ${count === 1 ? 'Suit' : 'Suits'}
+                </span>
+              </td>
+              <td>
+                <button type="button" class="action-btn" onclick="handleToggleBrandFavorite('${b.id}')" style="font-size:11px;">
+                  ${b.isTopFavorite ? '⭐ Featured' : '☆ Inactive'}
+                </button>
+              </td>
+              <td>
+                <button type="button" class="action-btn" onclick="handleToggleBrandVisibility('${b.id}')" style="font-size:11px;">
+                  ${b.hidden ? '🚫 Hidden' : '👁️ Visible'}
+                </button>
+              </td>
+              <td>
+                <button type="button" class="action-btn" onclick="openEditBrandModal('${b.id}')">✏️ Edit</button>
+                <button type="button" class="action-btn delete" onclick="handleDeleteBrand('${b.id}')">🗑️ Delete</button>
+              </td>
+            </tr>
+          `;
+        }).join('');
+      }
+    }
+
+    function filterAdminBrandsByLetter(letter) {
+      currentBrandLetterFilter = letter;
+      renderAdminBrandsManager();
+    }
+
+    function openAddBrandModal(setFavorite = false) {
+      const titleEl = document.getElementById('modal-brand-title') || document.getElementById('brand-modal-title');
+      if (titleEl) titleEl.textContent = 'Add New Fashion Brand';
+      document.getElementById('brand-id-input').value = '';
+      document.getElementById('brand-name-input').value = '';
+      document.getElementById('brand-letter-input').value = 'A';
+      document.getElementById('brand-fav-input').checked = !!setFavorite;
+      document.getElementById('brand-img-input').value = '';
+      document.getElementById('brand-file-input').value = '';
+      document.getElementById('brand-visible-input').checked = true;
+      updateBrandLogoPreview('');
+      document.getElementById('brand-modal').classList.add('active');
+    }
+
+    function openEditBrandModal(brandId) {
+      const allBrands = Store.getBrands();
+      const brand = allBrands.find(b => b.id === brandId);
+      if (!brand) return;
+
+      const titleEl = document.getElementById('modal-brand-title') || document.getElementById('brand-modal-title');
+      if (titleEl) titleEl.textContent = `Edit Brand: ${brand.name}`;
+      document.getElementById('brand-id-input').value = brand.id;
+      document.getElementById('brand-name-input').value = brand.name;
+      document.getElementById('brand-letter-input').value = brand.letter || brand.name.charAt(0).toUpperCase();
+      document.getElementById('brand-fav-input').checked = !!brand.isTopFavorite;
+      document.getElementById('brand-img-input').value = brand.logo || '';
+      document.getElementById('brand-file-input').value = '';
+      document.getElementById('brand-visible-input').checked = !brand.hidden;
+      updateBrandLogoPreview(brand.logo || '');
+      document.getElementById('brand-modal').classList.add('active');
+    }
+
+    function closeBrandModal() {
+      document.getElementById('brand-modal').classList.remove('active');
+    }
+
+    function handleBrandNameInput(name) {
+      if (name && name.trim()) {
+        const first = name.trim().charAt(0).toUpperCase();
+        if (/^[A-Z]$/.test(first)) {
+          document.getElementById('brand-letter-input').value = first;
+        }
+      }
+    }
+
+    function updateBrandLogoPreview(url) {
+      const img = document.getElementById('brand-logo-preview');
+      const placeholder = document.getElementById('brand-logo-placeholder');
+      if (url && url.trim()) {
+        img.src = url.trim();
+        img.style.display = 'block';
+        placeholder.style.display = 'none';
+        img.onerror = function() {
+          img.style.display = 'none';
+          placeholder.style.display = 'block';
+        };
+      } else {
+        img.style.display = 'none';
+        placeholder.style.display = 'block';
+      }
+    }
+
+    function handleBrandFileUpload(input) {
+      if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const dataUrl = e.target.result;
+          document.getElementById('brand-img-input').value = dataUrl;
+          updateBrandLogoPreview(dataUrl);
+        };
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+
+    function handleSaveBrand(event) {
+      if (event && event.preventDefault) event.preventDefault();
+      const id = document.getElementById('brand-id-input').value;
+      const name = document.getElementById('brand-name-input').value.trim();
+      const letter = document.getElementById('brand-letter-input').value;
+      const isTopFavorite = document.getElementById('brand-fav-input').checked;
+      const logo = document.getElementById('brand-img-input').value.trim();
+      const hidden = !document.getElementById('brand-visible-input').checked;
+
+      if (!name) {
+        alert('Please enter a brand name.');
+        return;
+      }
+
+      if (id) {
+        // Update existing brand
+        Store.updateBrand(id, { name, letter, isTopFavorite, logo, hidden });
+        showAdminToast(`Updated brand "${name}"!`);
+      } else {
+        // Add new brand
+        Store.addBrand({ name, letter, isTopFavorite, logo, hidden });
+        showAdminToast(`Added new brand "${name}"!`);
+      }
+
+      closeBrandModal();
+      renderAdminBrandsManager();
+      initDashboard();
+    }
+
+    function handleDeleteBrand(brandId) {
+      const allBrands = Store.getBrands();
+      const brand = allBrands.find(b => b.id === brandId);
+      if (!brand) return;
+
+      if (confirm(`Are you sure you want to delete brand "${brand.name}"?`)) {
+        Store.deleteBrand(brandId);
+        showAdminToast(`Deleted brand "${brand.name}"`);
+        renderAdminBrandsManager();
+        initDashboard();
+      }
+    }
+
+    function handleToggleBrandFavorite(brandId) {
+      const allBrands = Store.getBrands();
+      const brand = allBrands.find(b => b.id === brandId);
+      if (!brand) return;
+
+      const newFav = !brand.isTopFavorite;
+      Store.updateBrand(brandId, { isTopFavorite: newFav });
+      showAdminToast(`${brand.name} is now ${newFav ? 'marked as Top Favorite ⭐' : 'removed from Top Favorites'}`);
+      renderAdminBrandsManager();
+    }
+
+    function handleToggleBrandVisibility(brandId) {
+      const allBrands = Store.getBrands();
+      const brand = allBrands.find(b => b.id === brandId);
+      if (!brand) return;
+
+      const newHidden = !brand.hidden;
+      Store.updateBrand(brandId, { hidden: newHidden });
+      showAdminToast(`${brand.name} is now ${newHidden ? 'hidden from store 🚫' : 'visible on store 👁️'}`);
+      renderAdminBrandsManager();
+    }
+
+    function handleResetBrands() {
+      if (confirm('Reset all brands to the default list of 58 Pakistani fashion brands? Any custom brands added will be replaced.')) {
+        Store.resetBrands();
+        showAdminToast('Brands restored to default 58 fashion houses!');
+        renderAdminBrandsManager();
+        initDashboard();
       }
     }
 

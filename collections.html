@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Collections & Catalog - Al-Deewan Brand Online</title>
+  <title id="collections-page-title">Collections & Catalog - Al-Deewan Brand Online</title>
   <meta name="description" content="Browse our complete collection of unstitched lawn, stitched outfits, and designer cut pieces from top Pakistani clothing brands." />
   <link rel="icon" href="assets/images/favicon.png" type="image/png" />
   
@@ -13,29 +13,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  <!-- Announcement Bar -->
-  <div class="announcement-bar">
-    <div class="announcement-bar__ticker">
-      <div class="announcement-bar__item">
-        <span class="announcement-bar__tag">Announcement</span>
-        <span class="announcement-bar__flash">⚡</span>
-        <span>Biggest Lawn Opening in Pakistan</span>
-      </div>
-      <div class="announcement-bar__item">
-        <span class="announcement-bar__flash">⚡</span>
-        <span>50+ Brands Summer 2026 Launch</span>
-      </div>
-      <div class="announcement-bar__item">
-        <span class="announcement-bar__flash">⚡</span>
-        <span>New Stock Exclusive Discount Up to 60% OFF</span>
-      </div>
-      <div class="announcement-bar__item">
-        <span class="announcement-bar__flash">⚡</span>
-        <span>Free Shipping on Orders Above Rs. 3,500</span>
-      </div>
-    </div>
-  </div>
 
   <!-- Main Site Header -->
   <header class="site-header">
@@ -53,151 +30,112 @@
           </div>
         </a>
 
-        <!-- Desktop Navigation Menu with Mega Menus -->
+        <!-- Desktop Navigation Menu (Matching Reference Site Exactly) -->
         <nav class="header-nav">
-          <div class="nav-item-dropdown">
-            <a href="collections.html?collection=new-in" class="header-nav__link">
+          <div class="nav-item">
+            <a href="collections.html?collection=new-in" class="header-nav__link" id="nav-new-arrival">
               NEW ARRIVAL
               <span class="header-nav__badge">HOT</span>
             </a>
           </div>
 
-          <!-- Shop By Brand Dropdown -->
-          <div class="nav-item-dropdown">
+          <div class="nav-item">
             <a href="shop-by-brand.html" class="header-nav__link">
               SHOP BY BRAND
-              <svg width="10" height="6" viewBox="0 0 10 6" fill="currentColor"><path d="M0 0.5L5 5.5L10 0.5H0Z"/></svg>
             </a>
-            <div class="nav-dropdown-menu" style="min-width:320px; display:grid; grid-template-columns:1fr 1fr; gap:4px; padding:16px;">
-              <a href="collections.html?brand=Khaadi" class="nav-dropdown-link">Khaadi</a>
-              <a href="collections.html?brand=Sapphire" class="nav-dropdown-link">Sapphire</a>
-              <a href="collections.html?brand=Nishat" class="nav-dropdown-link">Nishat Linen</a>
-              <a href="collections.html?brand=Al+Karam" class="nav-dropdown-link">Al Karam</a>
-              <a href="collections.html?brand=Asim+Jofa" class="nav-dropdown-link">Asim Jofa</a>
-              <a href="collections.html?brand=Almirah" class="nav-dropdown-link">Almirah</a>
-              <a href="collections.html?brand=Baroque" class="nav-dropdown-link">Baroque</a>
-              <a href="collections.html?brand=Bareeze" class="nav-dropdown-link">Bareeze</a>
-              <a href="collections.html?brand=Suhana" class="nav-dropdown-link">Suhana</a>
-              <a href="collections.html?brand=Limelight" class="nav-dropdown-link">Limelight</a>
-              <a href="collections.html?brand=Ethnic" class="nav-dropdown-link">Ethnic</a>
-              <a href="collections.html?brand=Sana+Safinaz" class="nav-dropdown-link">Sana Safinaz</a>
-              <a href="collections.html?brand=Maria+B" class="nav-dropdown-link">Maria B</a>
-              <a href="shop-by-brand.html" class="nav-dropdown-link" style="grid-column:1/-1; border-top:1px solid #eee; margin-top:6px; color:var(--color-primary); font-weight:800;">View All 50+ Brands →</a>
-            </div>
           </div>
 
-          <!-- Unstitched Mega Menu -->
-          <div class="nav-item-dropdown">
+                    <div class="nav-item-dropdown" id="nav-dropdown-unstitched">
             <a href="collections.html?category=Unstitched" class="header-nav__link">
               UNSTITCHED
-              <svg width="10" height="6" viewBox="0 0 10 6" fill="currentColor"><path d="M0 0.5L5 5.5L10 0.5H0Z"/></svg>
+              <svg class="nav-arrow-down" width="10" height="6" viewBox="0 0 10 6" fill="currentColor"><path d="M0 0.5L5 5.5L10 0.5H0Z"/></svg>
             </a>
-            <div class="nav-megamenu">
-              <div>
-                <h4 class="megamenu-col-title">3-PIECE UNSTITCHED</h4>
-                <ul class="megamenu-links">
-                  <li><a href="collections.html?category=3PC">All 3-Piece Suits</a></li>
-                  <li><a href="collections.html?brand=Saya">Saya Unstitched 3pc</a></li>
-                  <li><a href="collections.html?brand=Bareeze">Bareeze Printed 3pc</a></li>
-                  <li><a href="collections.html?brand=Jacquard">Jacquard Lawn 3pc</a></li>
-                  <li><a href="collections.html?brand=Almirah">Almirah Luxury 3pc</a></li>
-                  <li><a href="collections.html?brand=Jaffrani">Jaffrani Printed 3pc</a></li>
+            <ul class="nav-dropdown-menu">
+              <li class="nav-dropdown-item has-submenu">
+                <a href="collections.html?category=Unstitched&type=1PC" class="nav-dropdown-link">
+                  <span>1PC</span>
+                  <svg class="nav-arrow-right" width="6" height="10" viewBox="0 0 6 10" fill="currentColor"><path d="M0.5 0L5.5 5L0.5 10V0Z"/></svg>
+                </a>
+                <ul class="nav-submenu">
+                  <li><a href="collections.html?category=Unstitched&type=1PC&season=Winter" class="nav-dropdown-link">Winter</a></li>
+                  <li><a href="collections.html?category=Unstitched&type=1PC&season=Summer" class="nav-dropdown-link">Summer</a></li>
+                  <li><a href="collections.html?type=Bedsheet" class="nav-dropdown-link">Bedsheets</a></li>
                 </ul>
-              </div>
-
-              <div>
-                <h4 class="megamenu-col-title">2-PIECE UNSTITCHED</h4>
-                <ul class="megamenu-links">
-                  <li><a href="collections.html?category=2PC">All 2-Piece Suits</a></li>
-                  <li><a href="collections.html?brand=Sapphire">Sapphire Plaino 2pc</a></li>
-                  <li><a href="collections.html?brand=Khaadi">Khaadi Printed 2pc</a></li>
-                  <li><a href="collections.html?brand=Designer">Designer Lawn 2pc</a></li>
-                  <li><a href="collections.html?brand=Baroque">Baroque Embroidered 2pc</a></li>
+              </li>
+              <li class="nav-dropdown-item has-submenu">
+                <a href="collections.html?category=Unstitched&type=2PC" class="nav-dropdown-link">
+                  <span>2PC</span>
+                  <svg class="nav-arrow-right" width="6" height="10" viewBox="0 0 6 10" fill="currentColor"><path d="M0.5 0L5.5 5L0.5 10V0Z"/></svg>
+                </a>
+                <ul class="nav-submenu">
+                  <li><a href="collections.html?category=Unstitched&type=2PC&season=Winter" class="nav-dropdown-link">Winter</a></li>
+                  <li><a href="collections.html?category=Unstitched&type=2PC&season=Summer" class="nav-dropdown-link">Summer</a></li>
                 </ul>
-              </div>
-
-              <div>
-                <h4 class="megamenu-col-title">MENSWEAR UNSTITCHED</h4>
-                <ul class="megamenu-links">
-                  <li><a href="collections.html?category=Menswear">Gents Summer Lawn</a></li>
-                  <li><a href="collections.html?brand=Almirah">Almirah Men's Shalwar Kameez</a></li>
-                  <li><a href="collections.html?brand=Asim+Studio">Asim Studio Unstitched</a></li>
-                  <li><a href="collections.html?brand=Zain+Zee">Zain Zee Winter Fabric</a></li>
+              </li>
+              <li class="nav-dropdown-item has-submenu">
+                <a href="collections.html?category=Unstitched&type=3PC" class="nav-dropdown-link">
+                  <span>3PC</span>
+                  <svg class="nav-arrow-right" width="6" height="10" viewBox="0 0 6 10" fill="currentColor"><path d="M0.5 0L5.5 5L0.5 10V0Z"/></svg>
+                </a>
+                <ul class="nav-submenu">
+                  <li><a href="collections.html?category=Unstitched&type=3PC&season=Winter" class="nav-dropdown-link">Winter</a></li>
+                  <li><a href="collections.html?category=Unstitched&type=3PC&season=Summer" class="nav-dropdown-link">Summer</a></li>
                 </ul>
-              </div>
-
-              <div class="megamenu-banner">
-                <img src="assets/images/Summer_Web_Banner.png" alt="Unstitched Summer Lawn" />
-                <div style="font-size:12px; font-weight:800; text-transform:uppercase; color:var(--color-primary); margin-bottom:4px;">SUMMER 2026 LAUNCH</div>
-                <p style="font-size:11px; color:#666; margin-bottom:8px;">Over 5,000+ new unstitched cut pieces in stock</p>
-                <a href="collections.html?category=Unstitched" class="btn-primary" style="padding:8px 16px; font-size:11px;">SHOP UNSTITCHED</a>
-              </div>
-            </div>
+              </li>
+            </ul>
           </div>
 
-          <!-- Ready To Wear Mega Menu -->
-          <div class="nav-item-dropdown">
-            <a href="collections.html?category=Ready+to+Wear" class="header-nav__link">
+          <div class="nav-item-dropdown" id="nav-dropdown-rtw">
+            <a href="collections.html?category=Ready+to+Wear" class="header-nav__link" id="nav-ready-to-wear">
               READY TO WEAR
-              <svg width="10" height="6" viewBox="0 0 10 6" fill="currentColor"><path d="M0 0.5L5 5.5L10 0.5H0Z"/></svg>
+              <svg class="nav-arrow-down" width="10" height="6" viewBox="0 0 10 6" fill="currentColor"><path d="M0 0.5L5 5.5L10 0.5H0Z"/></svg>
             </a>
-            <div class="nav-megamenu">
-              <div>
-                <h4 class="megamenu-col-title">STITCHED 2PC SUITS</h4>
-                <ul class="megamenu-links">
-                  <li><a href="collections.html?brand=Khaadi&category=Ready+to+Wear">Khaadi Stitched 2Pc</a></li>
-                  <li><a href="collections.html?brand=Sapphire&category=Ready+to+Wear">Sapphire Stitched 2Pc</a></li>
-                  <li><a href="collections.html?brand=Mahnur&category=Ready+to+Wear">Mahnur Stitched 2Pc</a></li>
-                  <li><a href="collections.html?brand=Limelight&category=Ready+to+Wear">Limelight Stitched 2Pc</a></li>
-                  <li><a href="collections.html?brand=Zellbury&category=Ready+to+Wear">Zellbury Stitched 2Pc</a></li>
-                </ul>
-              </div>
-
-              <div>
-                <h4 class="megamenu-col-title">STITCHED 3PC & KURTIS</h4>
-                <ul class="megamenu-links">
-                  <li><a href="collections.html?category=Ready+to+Wear">All Ready To Wear Suits</a></li>
-                  <li><a href="collections.html?brand=Stylo&category=Ready+to+Wear">Stylo Stitched Lawn 3pc</a></li>
-                  <li><a href="collections.html?brand=Tawakal&category=Ready+to+Wear">Tawakal Stitched Pret</a></li>
-                  <li><a href="collections.html?brand=Ethnic&category=Ready+to+Wear">Ethnic Stitched Luxury</a></li>
-                  <li><a href="collections.html?brand=Bin+Saeed&category=Ready+to+Wear">Bin Saeed Stitched 3pc</a></li>
-                </ul>
-              </div>
-
-              <div>
-                <h4 class="megamenu-col-title">MENS STITCHED</h4>
-                <ul class="megamenu-links">
-                  <li><a href="collections.html?brand=Almirah&category=Menswear">Almirah Men's Kurta Trouser</a></li>
-                  <li><a href="collections.html?category=Menswear">Stitched Shalwar Kameez</a></li>
-                  <li><a href="collections.html?category=Menswear">Men's Casual Kurtas</a></li>
-                </ul>
-              </div>
-
-              <div class="megamenu-banner">
-                <img src="assets/images/Luxury_Web_Banner.png" alt="Ready To Wear Pret" />
-                <div style="font-size:12px; font-weight:800; text-transform:uppercase; color:var(--color-primary); margin-bottom:4px;">READY TO WEAR PRET</div>
-                <p style="font-size:11px; color:#666; margin-bottom:8px;">Ready to dispatch stitched designer cut pieces</p>
-                <a href="collections.html?category=Ready+to+Wear" class="btn-primary" style="padding:8px 16px; font-size:11px;">SHOP STITCHED</a>
-              </div>
-            </div>
+            <ul class="nav-dropdown-menu">
+              <li class="nav-dropdown-item">
+                <a href="collections.html?category=Ready+to+Wear&type=2PC" class="nav-dropdown-link">2PC</a>
+              </li>
+              <li class="nav-dropdown-item">
+                <a href="collections.html?category=Ready+to+Wear&type=3PC" class="nav-dropdown-link">3PC</a>
+              </li>
+            </ul>
           </div>
 
-          <div class="nav-item-dropdown">
-            <a href="order-tracking.html" class="header-nav__link">ORDER TRACKING</a>
+          <div class="nav-item-dropdown" id="nav-dropdown-kids">
+            <a href="collections.html?category=Kids" class="header-nav__link">
+              KIDS
+              <svg class="nav-arrow-down" width="10" height="6" viewBox="0 0 10 6" fill="currentColor"><path d="M0 0.5L5 5.5L10 0.5H0Z"/></svg>
+            </a>
+            <ul class="nav-dropdown-menu">
+              <li class="nav-dropdown-item">
+                <a href="collections.html?category=Kids&type=Girls+Eastern" class="nav-dropdown-link">Girls Eastern</a>
+              </li>
+              <li class="nav-dropdown-item">
+                <a href="collections.html?category=Kids&type=Boys+Kurta" class="nav-dropdown-link">Boys Kurta</a>
+              </li>
+              <li class="nav-dropdown-item">
+                <a href="collections.html?category=Kids" class="nav-dropdown-link">All Kids Collection</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="nav-item">
+            <a href="order-tracking.html" class="header-nav__link">
+              ORDER TRACKING
+            </a>
           </div>
         </nav>
 
         <div class="header-actions">
-          <button class="header-action-btn search-trigger" id="search-modal-toggle">
+          <button class="header-action-btn search-trigger" id="search-modal-toggle" aria-label="Search Products">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
           </button>
           
-          <button class="header-action-btn" id="wishlist-drawer-toggle">
+          <button class="header-action-btn" id="wishlist-drawer-toggle" aria-label="View Wishlist">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
             <span class="header-badge-count wishlist-count-badge" style="display:none;">0</span>
           </button>
           
-          <button class="header-action-btn" id="cart-drawer-toggle">
+          <button class="header-action-btn" id="cart-drawer-toggle" aria-label="View Shopping Cart">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
             <span class="header-badge-count cart-count-badge" id="cart-count">0</span>
           </button>
@@ -209,116 +147,289 @@
   <!-- Page Banner & Header -->
   <div class="catalog-page-header">
     <div class="container">
-      <h1 class="section-title" id="catalog-title" style="margin-bottom:0;">ALL COLLECTIONS</h1>
-      <p class="section-subtitle" id="catalog-count-desc">Showing products from top Pakistani brands</p>
+      <div style="font-size:12.5px; color:#888; margin-bottom:8px;" id="collections-breadcrumbs">
+        <a href="index.html" style="color:#555;">Home</a> <span>/</span> <span style="color:#222; font-weight:600;" id="breadcrumb-current">Collections</span>
+      </div>
+      <h1 class="section-title" id="catalog-title" style="margin-bottom:6px; font-size:26px;">ALL COLLECTIONS</h1>
+      <p class="section-subtitle" id="catalog-count-desc" style="margin-bottom:0; font-size:13.5px;">Showing original designer suits from top Pakistani brands</p>
     </div>
   </div>
 
   <!-- Catalog Main Layout -->
-  <main class="container">
+  <main class="container" style="padding-top:20px; padding-bottom:60px;">
     <div class="catalog-layout">
-      <!-- Sidebar Filters -->
-      <aside class="catalog-sidebar">
-        <!-- Stock Filter -->
-        <div class="filter-group">
-          <h3 class="filter-group__title">Availability</h3>
-          <div class="filter-checkbox-list">
-            <label class="filter-checkbox-item">
-              <input type="checkbox" name="stock" value="in-stock" checked />
-              <span>In Stock</span>
-            </label>
-            <label class="filter-checkbox-item">
-              <input type="checkbox" name="stock" value="out-of-stock" />
-              <span>Out of Stock</span>
-            </label>
+      
+      <!-- Top Horizontal Filter Bar (Refined By) -->
+      <div class="facets-horizontal-bar" id="facets-bar">
+        <div class="facets-horizontal-label">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
+          <span>REFINED BY</span>
+        </div>
+
+        <!-- Availability Dropdown -->
+        <div class="facets-dropdown-wrapper" id="facet-wrapper-stock">
+          <button type="button" class="facets-dropdown-btn" data-facet="stock">
+            <span>AVAILABILITY</span>
+            <svg class="chevron-icon" viewBox="0 0 10 6" fill="currentColor"><path d="M0 0.5L5 5.5L10 0.5H0Z"/></svg>
+          </button>
+          <div class="facets-dropdown-menu">
+            <div class="facets-checkbox-list">
+              <label class="facets-checkbox-item">
+                <input type="checkbox" name="stock" value="in-stock" checked />
+                <span class="label-text">In stock</span>
+                <span class="item-count" id="count-instock">(160)</span>
+              </label>
+              <label class="facets-checkbox-item">
+                <input type="checkbox" name="stock" value="out-of-stock" />
+                <span class="label-text">Out of stock</span>
+                <span class="item-count" id="count-outofstock">(4)</span>
+              </label>
+            </div>
+            <div class="facets-popover-footer">
+              <button type="button" class="facets-reset-link" onclick="FacetController.resetFacet('stock')">Reset</button>
+              <button type="button" class="facets-apply-btn" onclick="FacetController.closeAll()">Apply</button>
+            </div>
           </div>
         </div>
 
-        <!-- Category Filter -->
-        <div class="filter-group">
-          <h3 class="filter-group__title">Category</h3>
-          <div class="filter-checkbox-list">
-            <label class="filter-checkbox-item">
-              <input type="checkbox" name="category" value="3PC" />
-              <span>3-Piece Suits</span>
-            </label>
-            <label class="filter-checkbox-item">
-              <input type="checkbox" name="category" value="2PC" />
-              <span>2-Piece Suits</span>
-            </label>
-            <label class="filter-checkbox-item">
-              <input type="checkbox" name="category" value="Unstitched" />
-              <span>Unstitched Lawn</span>
-            </label>
-            <label class="filter-checkbox-item">
-              <input type="checkbox" name="category" value="Ready to Wear" />
-              <span>Ready to Wear</span>
-            </label>
-            <label class="filter-checkbox-item">
-              <input type="checkbox" name="category" value="Menswear" />
-              <span>Menswear</span>
-            </label>
+        <!-- Price Dropdown -->
+        <div class="facets-dropdown-wrapper" id="facet-wrapper-price">
+          <button type="button" class="facets-dropdown-btn" data-facet="price">
+            <span>PRICE</span>
+            <svg class="chevron-icon" viewBox="0 0 10 6" fill="currentColor"><path d="M0 0.5L5 5.5L10 0.5H0Z"/></svg>
+          </button>
+          <div class="facets-dropdown-menu" style="min-width: 280px;">
+            <div style="margin-bottom: 12px;">
+              <div style="display:flex; justify-content:space-between; font-size:12px; font-weight:700; color:#333; margin-bottom:8px;">
+                <span>Price Range Filter</span>
+              </div>
+              <input type="range" id="price-slider" min="0" max="15000" step="500" value="15000" style="width:100%; accent-color:#111;" />
+              <div style="display:flex; justify-content:space-between; margin-top:8px; font-size:12px; color:#666;">
+                <span>Min: Rs. 0</span>
+                <span id="price-val-label" style="font-weight:700; color:#111;">Max: Rs. 15,000</span>
+              </div>
+            </div>
+            <div class="facets-popover-footer">
+              <button type="button" class="facets-reset-link" onclick="FacetController.resetPrice()">Reset</button>
+              <button type="button" class="facets-apply-btn" onclick="FacetController.closeAll()">Apply</button>
+            </div>
           </div>
         </div>
 
-        <!-- Brand Filter -->
-        <div class="filter-group">
-          <h3 class="filter-group__title">Brand</h3>
-          <div class="filter-checkbox-list" id="brand-filter-list">
-            <!-- Populated via JavaScript -->
+        <!-- Brand Dropdown -->
+        <div class="facets-dropdown-wrapper" id="facet-wrapper-brand">
+          <button type="button" class="facets-dropdown-btn" data-facet="brand">
+            <span>BRAND</span>
+            <svg class="chevron-icon" viewBox="0 0 10 6" fill="currentColor"><path d="M0 0.5L5 5.5L10 0.5H0Z"/></svg>
+          </button>
+          <div class="facets-dropdown-menu" style="min-width: 280px;">
+            <input type="text" class="facets-search-input" id="brand-search-input" placeholder="Search brands..." oninput="FacetController.filterBrandList(this.value)" />
+            <div class="facets-checkbox-list" id="brand-filter-list">
+              <!-- Populated via JS -->
+            </div>
+            <div class="facets-popover-footer">
+              <button type="button" class="facets-reset-link" onclick="FacetController.resetFacet('brand')">Reset</button>
+              <button type="button" class="facets-apply-btn" onclick="FacetController.closeAll()">Apply</button>
+            </div>
           </div>
         </div>
 
-        <!-- Price Filter -->
-        <div class="filter-group">
-          <h3 class="filter-group__title">Max Price: <span id="price-val-label">Rs. 15,000</span></h3>
-          <input type="range" id="price-slider" min="0" max="15000" step="500" value="15000" style="width:100%; accent-color:var(--color-primary);" />
-        </div>
-
-        <button class="btn-black" id="reset-filters-btn" style="padding:10px; font-size:12px;">RESET ALL FILTERS</button>
-      </aside>
-
-      <!-- Products Content Area -->
-      <section>
-        <!-- Catalog Toolbar -->
-        <div class="catalog-toolbar">
-          <div class="view-as-selector">
-            <span style="font-size:12px; font-weight:700; color:#888; align-self:center; margin-right:6px;">VIEW AS:</span>
-            <button class="view-as-btn active" data-cols="4" title="4 Columns">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="4" height="20"></rect><rect x="8" y="2" width="4" height="20"></rect><rect x="14" y="2" width="4" height="20"></rect><rect x="20" y="2" width="4" height="20"></rect></svg>
-            </button>
-            <button class="view-as-btn" data-cols="3" title="3 Columns">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="5" height="20"></rect><rect x="9.5" y="2" width="5" height="20"></rect><rect x="17" y="2" width="5" height="20"></rect></svg>
-            </button>
-            <button class="view-as-btn" data-cols="2" title="2 Columns">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="2" width="8" height="20"></rect><rect x="13" y="2" width="8" height="20"></rect></svg>
-            </button>
-          </div>
-
-          <div class="sort-selector">
-            <label for="sort-by" style="font-size:12px; font-weight:700; color:#888; margin-right:6px;">SORT BY:</label>
-            <select id="sort-by">
-              <option value="featured">Featured</option>
-              <option value="price-asc">Price: Low to High</option>
-              <option value="price-desc">Price: High to Low</option>
-              <option value="title-asc">Alphabetically: A-Z</option>
-              <option value="title-desc">Alphabetically: Z-A</option>
-              <option value="discount">Biggest Discount</option>
-            </select>
+        <!-- Category Dropdown -->
+        <div class="facets-dropdown-wrapper" id="facet-wrapper-category">
+          <button type="button" class="facets-dropdown-btn" data-facet="category">
+            <span>CATEGORY</span>
+            <svg class="chevron-icon" viewBox="0 0 10 6" fill="currentColor"><path d="M0 0.5L5 5.5L10 0.5H0Z"/></svg>
+          </button>
+          <div class="facets-dropdown-menu">
+            <div class="facets-checkbox-list" id="category-filter-list">
+              <label class="facets-checkbox-item">
+                <input type="checkbox" name="category" value="Unstitched" />
+                <span class="label-text">Unstitched</span>
+                <span class="item-count" id="count-unstitched">(120)</span>
+              </label>
+              <label class="facets-checkbox-item">
+                <input type="checkbox" name="category" value="Ready to Wear" />
+                <span class="label-text">Ready to Wear</span>
+                <span class="item-count" id="count-rtw">(44)</span>
+              </label>
+              <label class="facets-checkbox-item">
+                <input type="checkbox" name="category" value="Kids" />
+                <span class="label-text">Kids / Children</span>
+                <span class="item-count" id="count-kids">(4)</span>
+              </label>
+              <label class="facets-checkbox-item">
+                <input type="checkbox" name="category" value="Menswear" />
+                <span class="label-text">Menswear</span>
+                <span class="item-count" id="count-menswear">(12)</span>
+              </label>
+            </div>
+            <div class="facets-popover-footer">
+              <button type="button" class="facets-reset-link" onclick="FacetController.resetFacet('category')">Reset</button>
+              <button type="button" class="facets-apply-btn" onclick="FacetController.closeAll()">Apply</button>
+            </div>
           </div>
         </div>
 
-        <!-- Products Grid Container -->
-        <div class="products-grid" id="catalog-products-grid">
-          <!-- Rendered via JavaScript -->
+        <!-- Suit Type Dropdown -->
+        <div class="facets-dropdown-wrapper" id="facet-wrapper-type">
+          <button type="button" class="facets-dropdown-btn" data-facet="type">
+            <span>SUIT TYPE</span>
+            <svg class="chevron-icon" viewBox="0 0 10 6" fill="currentColor"><path d="M0 0.5L5 5.5L10 0.5H0Z"/></svg>
+          </button>
+          <div class="facets-dropdown-menu">
+            <div class="facets-checkbox-list" id="type-filter-list">
+              <label class="facets-checkbox-item">
+                <input type="checkbox" name="type" value="2PC" />
+                <span class="label-text">2-Piece Suits (2PC)</span>
+                <span class="item-count" id="count-2pc">(85)</span>
+              </label>
+              <label class="facets-checkbox-item">
+                <input type="checkbox" name="type" value="3PC" />
+                <span class="label-text">3-Piece Suits (3PC)</span>
+                <span class="item-count" id="count-3pc">(72)</span>
+              </label>
+              <label class="facets-checkbox-item">
+                <input type="checkbox" name="type" value="1PC" />
+                <span class="label-text">1-Piece Shirt (1PC)</span>
+                <span class="item-count" id="count-1pc">(7)</span>
+              </label>
+              <label class="facets-checkbox-item">
+                <input type="checkbox" name="type" value="Bedsheet" />
+                <span class="label-text">Bedsheet / Bedding</span>
+                <span class="item-count" id="count-bedsheet">(0)</span>
+              </label>
+              <label class="facets-checkbox-item">
+                <input type="checkbox" name="type" value="4PC" />
+                <span class="label-text">4-Piece Suits (4PC)</span>
+                <span class="item-count" id="count-4pc">(0)</span>
+              </label>
+              <label class="facets-checkbox-item">
+                <input type="checkbox" name="type" value="5PC" />
+                <span class="label-text">5-Piece Suits (5PC)</span>
+                <span class="item-count" id="count-5pc">(0)</span>
+              </label>
+              <label class="facets-checkbox-item">
+                <input type="checkbox" name="type" value="Girls Eastern" />
+                <span class="label-text">Girls Eastern Wear</span>
+                <span class="item-count" id="count-girls-eastern">(2)</span>
+              </label>
+              <label class="facets-checkbox-item">
+                <input type="checkbox" name="type" value="Boys Kurta" />
+                <span class="label-text">Boys Kurta Shalwar</span>
+                <span class="item-count" id="count-boys-kurta">(2)</span>
+              </label>
+            </div>
+            <div class="facets-popover-footer">
+              <button type="button" class="facets-reset-link" onclick="FacetController.resetFacet('type')">Reset</button>
+              <button type="button" class="facets-apply-btn" onclick="FacetController.closeAll()">Apply</button>
+            </div>
+          </div>
         </div>
 
-        <!-- Pagination & Load More -->
-        <div style="text-align: center; margin-top: 50px;">
-          <p id="pagination-status" style="font-size:13px; color:#888; margin-bottom:14px;">Showing 1 - 24 of 164 total</p>
-          <button id="load-more-btn" class="btn-black" style="display:inline-block; width:auto; padding:14px 48px;">SHOW MORE PRODUCTS</button>
+        <!-- Season Dropdown -->
+        <div class="facets-dropdown-wrapper" id="facet-wrapper-season">
+          <button type="button" class="facets-dropdown-btn" data-facet="season">
+            <span>SEASON</span>
+            <svg class="chevron-icon" viewBox="0 0 10 6" fill="currentColor"><path d="M0 0.5L5 5.5L10 0.5H0Z"/></svg>
+          </button>
+          <div class="facets-dropdown-menu">
+            <div class="facets-checkbox-list" id="season-filter-list">
+              <label class="facets-checkbox-item">
+                <input type="checkbox" name="season" value="Summer" />
+                <span class="label-text">Summer Lawn</span>
+                <span class="item-count" id="count-summer">(110)</span>
+              </label>
+              <label class="facets-checkbox-item">
+                <input type="checkbox" name="season" value="Winter" />
+                <span class="label-text">Winter Fabric</span>
+                <span class="item-count" id="count-winter">(54)</span>
+              </label>
+            </div>
+            <div class="facets-popover-footer">
+              <button type="button" class="facets-reset-link" onclick="FacetController.resetFacet('season')">Reset</button>
+              <button type="button" class="facets-apply-btn" onclick="FacetController.closeAll()">Apply</button>
+            </div>
+          </div>
         </div>
-      </section>
+
+        <!-- Clear All Action -->
+        <button type="button" class="facets-clear-all-btn" id="facets-clear-all" style="display:none;" onclick="FacetController.clearAllFilters()">
+          Clear All
+        </button>
+      </div>
+
+      <!-- Mobile Filter Trigger Bar (Visible on Mobile/Tablet) -->
+      <div class="mobile-filter-bar" id="mobile-filter-bar">
+        <button type="button" class="mobile-filter-btn" id="mobile-filter-open-btn" onclick="FacetController.openMobileDrawer()">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2">
+            <line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line>
+            <line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line>
+            <line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line>
+          </svg>
+          <span>FILTERS</span>
+          <span class="mobile-filter-badge" id="mobile-filter-badge" style="display:none;">0</span>
+        </button>
+        <div class="mobile-sort-wrap">
+          <label for="sort-by-mobile">Sort:</label>
+          <select id="sort-by-mobile" onchange="document.getElementById('sort-by').value = this.value; window.CatalogManager && window.CatalogManager.applyFiltersAndRender();">
+            <option value="featured">Featured</option>
+            <option value="most-relevant" selected>Most relevant</option>
+            <option value="best-selling">Best selling</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="title-asc">Alphabetically, A-Z</option>
+            <option value="title-desc">Alphabetically, Z-A</option>
+            <option value="date-new">Newest First</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Active Filter Chips Tag Bar -->
+      <div class="active-filter-chips" id="active-filter-chips" style="display:none;"></div>
+
+      <!-- Toolbar: View As & Sort By -->
+      <div class="catalog-toolbar">
+        <div class="view-as-selector">
+          <span class="view-as-label">VIEW AS</span>
+          <button type="button" class="view-as-btn active" data-cols="4" title="4 Columns">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="3.5" height="20"></rect><rect x="8" y="2" width="3.5" height="20"></rect><rect x="14" y="2" width="3.5" height="20"></rect><rect x="20" y="2" width="3.5" height="20"></rect></svg>
+          </button>
+          <button type="button" class="view-as-btn" data-cols="3" title="3 Columns">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="5" height="20"></rect><rect x="9.5" y="2" width="5" height="20"></rect><rect x="17" y="2" width="5" height="20"></rect></svg>
+          </button>
+          <button type="button" class="view-as-btn" data-cols="2" title="2 Columns">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="2" width="8" height="20"></rect><rect x="13" y="2" width="8" height="20"></rect></svg>
+          </button>
+        </div>
+
+        <div class="sort-selector">
+          <label for="sort-by">SORT BY</label>
+          <select id="sort-by">
+            <option value="featured">Featured</option>
+            <option value="most-relevant" selected>Most relevant</option>
+            <option value="best-selling">Best selling</option>
+            <option value="title-asc">Alphabetically, A-Z</option>
+            <option value="title-desc">Alphabetically, Z-A</option>
+            <option value="price-asc">Price, low to high</option>
+            <option value="price-desc">Price, high to low</option>
+            <option value="date-new">Date, new to old</option>
+            <option value="date-old">Date, old to new</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Products Grid (Full Width) -->
+      <div class="products-grid" id="catalog-products-grid">
+        <!-- Rendered via JavaScript -->
+      </div>
+
+      <!-- Pagination & Load More -->
+      <div style="text-align: center; margin-top: 50px;">
+        <p id="pagination-status" style="font-size:13px; color:#888; margin-bottom:14px;">Showing 1 - 24 of 164 total</p>
+        <button id="load-more-btn" class="btn-black" style="display:inline-block; width:auto; padding:14px 48px;">SHOW MORE PRODUCTS</button>
+      </div>
+
     </div>
   </main>
 
@@ -336,7 +447,7 @@
           </a>
           <div class="footer-info-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-            <span>Physical address: 86-Dogar Plaza, Gulshan Block Iqbal Town Near Makki Masjid, Lahore</span>
+            <span>86-Dogar Plaza, Gulshan Block Iqbal Town Near Makki Masjid, Lahore</span>
           </div>
           <div class="footer-info-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
@@ -355,13 +466,13 @@
             <li><a href="refunds.html">Refund & Exchange Policy</a></li>
             <li><a href="customer-services.html">Shipping Policy</a></li>
             <li><a href="privacy-policy.html">Privacy Policy</a></li>
-            </ul>
+          </ul>
         </div>
 
         <div>
-          <h3 class="footer-heading">NEWSLETTER</h3>
-          <p style="font-size:13px; color:#666;">Subscribe to get exclusive deals sent directly to your inbox.</p>
-          <form class="newsletter-form" onsubmit="event.preventDefault(); Store.showToast('Subscribed successfully!');">
+          <h3 class="footer-heading">NEWSLETTER SIGN UP</h3>
+          <p style="font-size:13px; color:#666; line-height:1.5;">Subscribe to get exclusive discount vouchers, lawn launch alerts, and VIP offers sent directly to your inbox.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); Store.showToast('Subscribed successfully!'); this.reset();">
             <input type="email" placeholder="enter your email address" required />
             <button type="submit">SUBMIT</button>
           </form>
@@ -370,254 +481,22 @@
 
       <div class="footer-bottom">
         <div>© 2026 Al-Deewan Brand. All Rights Reserved. Powered By Whizzly Lab</div>
-        <div class="payment-methods" style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
-          <!-- Direct Bank Transfer Badge -->
-          <span class="payment-badge" title="Direct Bank Transfer" style="display:inline-flex; align-items:center; background:#f4f6fa; border:1px solid #cce0eb; border-radius:6px; padding:5px 12px; gap:6px; font-size:11px; font-weight:800; color:#1a5276;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a5276" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="5" width="20" height="14" rx="2"></rect>
-              <line x1="2" y1="10" x2="22" y2="10"></line>
-            </svg>
-            <span>Bank Transfer</span>
-          </span>
-
-          <!-- WhatsApp Order & Support Badge -->
-          <a href="https://api.whatsapp.com/send?phone=923334275944&text=Hello%20Al-Deewan%20Brand%2C%20I%20have%20an%20inquiry." target="_blank" class="payment-badge" title="WhatsApp Order & Support" style="display:inline-flex; align-items:center; background:#e8f9ee; border:1px solid #bdf1cc; border-radius:6px; padding:5px 12px; gap:6px; font-size:11px; font-weight:800; color:#128c7e; text-decoration:none;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366">
-              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
-            </svg>
-            <span>WhatsApp Orders</span>
-          </a>
+                <div class="payment-methods">
+          <img src="assets/images/payments/visa.png" alt="Visa" class="payment-icon" />
+          <img src="assets/images/payments/mastercard.png" alt="Mastercard" class="payment-icon" />
+          <img src="assets/images/payments/tabby.png" alt="Tabby" class="payment-icon" />
+          <img src="assets/images/payments/gpay.png" alt="Google Pay" class="payment-icon" />
+          <img src="assets/images/payments/shoppay.png" alt="Shop Pay" class="payment-icon" />
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- Drawers & Modals -->
-  <div class="drawer-overlay"></div>
-  
-  <div class="slide-drawer" id="cart-drawer">
-    <div class="drawer-header">
-      <div class="drawer-title">Shopping Cart</div>
-      <button class="drawer-close">&times;</button>
-    </div>
-    <div class="drawer-body">
-      <div id="cart-shipping-progress"></div>
-      <div id="cart-drawer-items"></div>
-    </div>
-    <div class="drawer-footer" id="cart-drawer-footer">
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
-        <span style="font-size:13px; font-weight:600; color:#555;">Subtotal:</span>
-        <span style="font-size:15px; font-weight:800; color:#111;" id="cart-drawer-subtotal">Rs.0.00</span>
-      </div>
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-        <span style="font-size:13px; font-weight:600; color:#555;">Delivery Charges:</span>
-        <span style="font-size:13px; font-weight:800; color:#111;" id="cart-drawer-shipping">Rs. 250</span>
-      </div>
-      <button class="btn-whatsapp" id="cart-drawer-whatsapp-btn" onclick="Store.checkoutViaWhatsApp()" style="width:100%; padding:14px 10px; font-weight:800; margin-bottom:8px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:4px; cursor:pointer;">
-        <div style="display:flex; align-items:center; justify-content:center; gap:8px; font-size:14px; letter-spacing:0.02em;">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-          <span>ORDER ON WHATSAPP</span>
-        </div>
-        <div style="font-size:13px; font-weight:700;">(<span id="cart-drawer-btn-total">Rs.0.00</span>)</div>
-      </button>
-      <a href="cart.html" class="btn-black">VIEW SHOPPING BAG</a>
-    </div>
-  </div>
+  <!-- Floating WhatsApp CTA -->
+  <a href="https://api.whatsapp.com/send?phone=923334275944&text=Hello%20Al-Deewan%20Brand%2C%20I%20have%20an%20inquiry%20about%20your%20products." target="_blank" class="whatsapp-float" aria-label="Chat with Al-Deewan on WhatsApp" rel="noopener noreferrer">
+    <img src="assets/images/whatsapp_floating_icon.png" alt="WhatsApp Chat" width="62" height="62" loading="eager" />
+  </a>
 
-  <div class="slide-drawer" id="wishlist-drawer">
-    <div class="drawer-header">
-      <div class="drawer-title">My Wishlist</div>
-      <button class="drawer-close">&times;</button>
-    </div>
-    <div class="drawer-body">
-      <div id="wishlist-drawer-items"></div>
-    </div>
-  </div>
-
-  <div class="slide-drawer left" id="mobile-nav-drawer">
-    <div class="drawer-header">
-      <div class="drawer-title">Menu</div>
-      <button class="drawer-close">&times;</button>
-    </div>
-    <div class="drawer-body">
-      <ul style="display:flex; flex-direction:column; gap:16px; padding:10px 0;">
-        <li><a href="index.html" style="font-weight:700; font-size:15px; text-transform:uppercase;">HOME</a></li>
-        <li><a href="collections.html?collection=new-in" style="font-weight:700; font-size:15px; text-transform:uppercase;">NEW ARRIVAL 🔥</a></li>
-        <li><a href="shop-by-brand.html" style="font-weight:700; font-size:15px; text-transform:uppercase;">SHOP BY BRAND</a></li>
-        <li><a href="collections.html?category=Unstitched" style="font-weight:700; font-size:15px; text-transform:uppercase;">UNSTITCHED</a></li>
-        <li><a href="collections.html?category=Ready+to+Wear" style="font-weight:700; font-size:15px; text-transform:uppercase;">READY TO WEAR</a></li>
-        <li><a href="order-tracking.html" style="font-weight:700; font-size:15px; text-transform:uppercase;">ORDER TRACKING</a></li>
-        <li style="border-top:1px solid #eee; padding-top:14px;"><a href="contact.html" style="font-size:14px; color:#666;">Contact & Support</a></li>
-        <li><a href="refunds.html" style="font-size:14px; color:#666;">Refund Policy</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="search-modal" id="search-modal">
-    <div class="container">
-      <div class="search-box">
-        <input type="text" id="predictive-search-input" placeholder="Search lawn suits, brands, fabrics, 3PC, 2PC..." />
-        <button id="search-modal-close">&times;</button>
-      </div>
-      <div class="search-results-grid" id="search-results-grid"></div>
-    </div>
-  </div>
-
-  <!-- Scripts -->
-  <script src="assets/js/catalog-data.js"></script>
-  <script src="assets/js/store.js"></script>
-  <script src="assets/js/main.js"></script>
-  <script>
-    // Catalog Dynamic Controller
-    document.addEventListener('DOMContentLoaded', () => {
-      const allProducts = Store.getProducts();
-      if (!allProducts || allProducts.length === 0) return;
-
-      const grid = document.getElementById('catalog-products-grid');
-      const titleEl = document.getElementById('catalog-title');
-      const countEl = document.getElementById('catalog-count-desc');
-      const loadMoreBtn = document.getElementById('load-more-btn');
-      const statusEl = document.getElementById('pagination-status');
-      const sortSelect = document.getElementById('sort-by');
-      const priceSlider = document.getElementById('price-slider');
-      const priceLabel = document.getElementById('price-val-label');
-      const brandFilterList = document.getElementById('brand-filter-list');
-
-      const urlParams = new URLSearchParams(window.location.search);
-      const paramBrand = urlParams.get('brand');
-      const paramCategory = urlParams.get('category');
-      const paramCollection = urlParams.get('collection');
-
-      // Populate Brand Filter Checkboxes
-      const brands = Array.from(new Set(allProducts.map(p => p.vendor).filter(Boolean))).sort();
-      brandFilterList.innerHTML = brands.slice(0, 20).map(b => `
-        <label class="filter-checkbox-item">
-          <input type="checkbox" name="brand" value="${b}" ${paramBrand && paramBrand.toLowerCase() === b.toLowerCase() ? 'checked' : ''} />
-          <span>${b}</span>
-        </label>
-      `).join('');
-
-      if (paramBrand) {
-        titleEl.textContent = `${paramBrand.toUpperCase()} COLLECTION`;
-      } else if (paramCategory) {
-        titleEl.textContent = `${paramCategory.toUpperCase()} LAWN`;
-      } else if (paramCollection) {
-        titleEl.textContent = `${paramCollection.replace('-', ' ').toUpperCase()} COLLECTION`;
-      }
-
-      let pageSize = 24;
-      let currentPage = 1;
-
-      const applyFiltersAndRender = () => {
-        let filtered = [...Store.getProducts()];
-
-        // Stock filter
-        const checkedStock = Array.from(document.querySelectorAll('input[name="stock"]:checked')).map(i => i.value);
-        if (checkedStock.length === 1) {
-          if (checkedStock[0] === 'in-stock') filtered = filtered.filter(p => p.available);
-          if (checkedStock[0] === 'out-of-stock') filtered = filtered.filter(p => !p.available);
-        }
-
-        // Category filter
-        const checkedCats = Array.from(document.querySelectorAll('input[name="category"]:checked')).map(i => i.value);
-        if (checkedCats.length > 0) {
-          filtered = filtered.filter(p => checkedCats.some(cat => p.category.includes(cat) || p.category_type.includes(cat)));
-        } else if (paramCategory) {
-          filtered = filtered.filter(p => p.category.toLowerCase().includes(paramCategory.toLowerCase()));
-        }
-
-        // Brand filter
-        const checkedBrands = Array.from(document.querySelectorAll('input[name="brand"]:checked')).map(i => i.value.toLowerCase());
-        if (checkedBrands.length > 0) {
-          filtered = filtered.filter(p => checkedBrands.includes(p.vendor.toLowerCase()));
-        } else if (paramBrand) {
-          filtered = filtered.filter(p => p.vendor.toLowerCase().includes(paramBrand.toLowerCase()));
-        }
-
-        // Price filter
-        const maxPrice = parseFloat(priceSlider.value);
-        filtered = filtered.filter(p => p.price <= maxPrice);
-
-        // Sorting
-        const sortVal = sortSelect.value;
-        if (sortVal === 'price-asc') filtered.sort((a, b) => a.price - b.price);
-        else if (sortVal === 'price-desc') filtered.sort((a, b) => b.price - a.price);
-        else if (sortVal === 'title-asc') filtered.sort((a, b) => a.title.localeCompare(b.title));
-        else if (sortVal === 'title-desc') filtered.sort((a, b) => b.title.localeCompare(a.title));
-        else if (sortVal === 'discount') filtered.sort((a, b) => b.discount_percent - a.discount_percent);
-
-        // Render Page
-        const itemsToShow = filtered.slice(0, currentPage * pageSize);
-        if (filtered.length === 0) {
-          grid.innerHTML = `
-            <div class="no-products-found" style="grid-column: 1 / -1; width: 100%; text-align: center; padding: 60px 20px; background: #faf9fd; border-radius: 12px; border: 1.5px dashed #e0d8eb;">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5" style="margin-bottom:14px;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-              <h3 style="font-size:18px; font-weight:800; color:#111; margin-bottom:8px;">No Products Found</h3>
-              <p style="font-size:13px; color:#666; margin-bottom:20px;">No articles match your active filter criteria. Try adjusting your filters or resetting.</p>
-              <button onclick="document.getElementById('reset-filters-btn').click()" class="btn-primary" style="display:inline-block; width:auto; padding:10px 26px; font-size:12px;">RESET ALL FILTERS</button>
-            </div>
-          `;
-          countEl.textContent = `Found 0 products`;
-          statusEl.textContent = `Showing 0 of 0 total`;
-          loadMoreBtn.style.display = 'none';
-        } else {
-          grid.innerHTML = itemsToShow.map(p => MainUI.createProductCardHTML(p)).join('');
-          countEl.textContent = `Found ${filtered.length} products`;
-          statusEl.textContent = `Showing 1 - ${itemsToShow.length} of ${filtered.length} total`;
-          if (itemsToShow.length >= filtered.length) {
-            loadMoreBtn.style.display = 'none';
-          } else {
-            loadMoreBtn.style.display = 'inline-block';
-          }
-        }
-      };
-
-      // Event Listeners for Filters
-      document.querySelectorAll('.catalog-sidebar input').forEach(input => {
-        input.addEventListener('change', () => {
-          currentPage = 1;
-          applyFiltersAndRender();
-        });
-      });
-
-      priceSlider.addEventListener('input', (e) => {
-        priceLabel.textContent = Store.formatMoney(e.target.value);
-        currentPage = 1;
-        applyFiltersAndRender();
-      });
-
-      sortSelect.addEventListener('change', () => {
-        currentPage = 1;
-        applyFiltersAndRender();
-      });
-
-      loadMoreBtn.addEventListener('click', () => {
-        currentPage++;
-        applyFiltersAndRender();
-      });
-
-      document.getElementById('reset-filters-btn').addEventListener('click', () => {
-        document.querySelectorAll('.catalog-sidebar input[type="checkbox"]').forEach(c => c.checked = false);
-        document.querySelector('input[name="stock"][value="in-stock"]').checked = true;
-        priceSlider.value = 15000;
-        priceLabel.textContent = 'Rs. 15,000';
-        currentPage = 1;
-        applyFiltersAndRender();
-      });
-
-      // View As Columns Switcher
-      document.querySelectorAll('.view-as-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          document.querySelectorAll('.view-as-btn').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          const cols = btn.dataset.cols;
-          grid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
-        });
-      });
-
-      applyFiltersAndRender();
-    });
-  </script>
   <!-- Mobile Bottom Toolbar -->
   <div class="mobile-toolbar">
     <a href="collections.html" class="toolbar-item">
@@ -641,5 +520,704 @@
       <span>Track</span>
     </a>
   </div>
+
+  <!-- Mobile Filter Sidebar Drawer (Off-Canvas) -->
+  <div class="slide-drawer left" id="mobile-filter-sidebar">
+    <div class="drawer-header">
+      <div class="drawer-title">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+        </svg>
+        <span>Filters & Refine</span>
+        <span class="drawer-count-badge" id="mobile-drawer-count-badge" style="display:none;">0</span>
+      </div>
+      <button type="button" class="drawer-close" onclick="FacetController.closeMobileDrawer()">&times;</button>
+    </div>
+    <div class="drawer-body filter-drawer-body">
+      <!-- Accordion 1: Availability -->
+      <div class="filter-accordion-group open">
+        <button type="button" class="filter-accordion-header" onclick="this.parentElement.classList.toggle('open')">
+          <span>AVAILABILITY</span>
+          <svg class="accordion-chevron" width="10" height="6" viewBox="0 0 10 6" fill="currentColor"><path d="M0 0.5L5 5.5L10 0.5H0Z"/></svg>
+        </button>
+        <div class="filter-accordion-content">
+          <div class="facets-checkbox-list">
+            <label class="facets-checkbox-item">
+              <input type="checkbox" name="stock" value="in-stock" checked onchange="FacetController.syncCheckboxes('stock', this.value, this.checked)" />
+              <span class="label-text">In stock</span>
+              <span class="item-count" id="count-instock-mob">(160)</span>
+            </label>
+            <label class="facets-checkbox-item">
+              <input type="checkbox" name="stock" value="out-of-stock" onchange="FacetController.syncCheckboxes('stock', this.value, this.checked)" />
+              <span class="label-text">Out of stock</span>
+              <span class="item-count" id="count-outofstock-mob">(4)</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion 2: Price Range -->
+      <div class="filter-accordion-group open">
+        <button type="button" class="filter-accordion-header" onclick="this.parentElement.classList.toggle('open')">
+          <span>PRICE RANGE</span>
+          <svg class="accordion-chevron" width="10" height="6" viewBox="0 0 10 6" fill="currentColor"><path d="M0 0.5L5 5.5L10 0.5H0Z"/></svg>
+        </button>
+        <div class="filter-accordion-content">
+          <div style="padding:4px 0 10px;">
+            <input type="range" id="price-slider-mobile" min="0" max="15000" step="500" value="15000" style="width:100%; accent-color:#111;" oninput="FacetController.syncPriceSlider(this.value)" />
+            <div style="display:flex; justify-content:space-between; margin-top:6px; font-size:12px; color:#666;">
+              <span>Min: Rs. 0</span>
+              <span id="price-val-label-mobile" style="font-weight:700; color:#111;">Max: Rs. 15,000</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion 3: Brand -->
+      <div class="filter-accordion-group open">
+        <button type="button" class="filter-accordion-header" onclick="this.parentElement.classList.toggle('open')">
+          <span>BRAND</span>
+          <svg class="accordion-chevron" width="10" height="6" viewBox="0 0 10 6" fill="currentColor"><path d="M0 0.5L5 5.5L10 0.5H0Z"/></svg>
+        </button>
+        <div class="filter-accordion-content">
+          <input type="text" class="facets-search-input" id="brand-search-input-mobile" placeholder="Search brands..." oninput="FacetController.filterMobileBrandList(this.value)" style="margin-bottom:10px;" />
+          <div class="facets-checkbox-list" id="brand-filter-list-mobile" style="max-height:200px; overflow-y:auto;"></div>
+        </div>
+      </div>
+
+      <!-- Accordion 4: Suit Type -->
+      <div class="filter-accordion-group open">
+        <button type="button" class="filter-accordion-header" onclick="this.parentElement.classList.toggle('open')">
+          <span>SUIT TYPE</span>
+          <svg class="accordion-chevron" width="10" height="6" viewBox="0 0 10 6" fill="currentColor"><path d="M0 0.5L5 5.5L10 0.5H0Z"/></svg>
+        </button>
+        <div class="filter-accordion-content">
+          <div class="facets-checkbox-list">
+            <label class="facets-checkbox-item">
+              <input type="checkbox" name="type" value="2PC" onchange="FacetController.syncCheckboxes('type', this.value, this.checked)" />
+              <span class="label-text">2-Piece Suits (2PC)</span>
+              <span class="item-count">(85)</span>
+            </label>
+            <label class="facets-checkbox-item">
+              <input type="checkbox" name="type" value="3PC" onchange="FacetController.syncCheckboxes('type', this.value, this.checked)" />
+              <span class="label-text">3-Piece Suits (3PC)</span>
+              <span class="item-count">(72)</span>
+            </label>
+            <label class="facets-checkbox-item">
+              <input type="checkbox" name="type" value="Girls Eastern" onchange="FacetController.syncCheckboxes('type', this.value, this.checked)" />
+              <span class="label-text">Girls Eastern Wear</span>
+              <span class="item-count">(2)</span>
+            </label>
+            <label class="facets-checkbox-item">
+              <input type="checkbox" name="type" value="Boys Kurta" onchange="FacetController.syncCheckboxes('type', this.value, this.checked)" />
+              <span class="label-text">Boys Kurta Shalwar</span>
+              <span class="item-count">(2)</span>
+            </label>
+            <label class="facets-checkbox-item">
+              <input type="checkbox" name="type" value="1PC" onchange="FacetController.syncCheckboxes('type', this.value, this.checked)" />
+              <span class="label-text">1-Piece Shirt (1PC)</span>
+              <span class="item-count">(7)</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion 5: Category -->
+      <div class="filter-accordion-group open">
+        <button type="button" class="filter-accordion-header" onclick="this.parentElement.classList.toggle('open')">
+          <span>CATEGORY</span>
+          <svg class="accordion-chevron" width="10" height="6" viewBox="0 0 10 6" fill="currentColor"><path d="M0 0.5L5 5.5L10 0.5H0Z"/></svg>
+        </button>
+        <div class="filter-accordion-content">
+          <div class="facets-checkbox-list">
+            <label class="facets-checkbox-item">
+              <input type="checkbox" name="category" value="Unstitched" onchange="FacetController.syncCheckboxes('category', this.value, this.checked)" />
+              <span class="label-text">Unstitched</span>
+              <span class="item-count">(120)</span>
+            </label>
+            <label class="facets-checkbox-item">
+              <input type="checkbox" name="category" value="Ready to Wear" onchange="FacetController.syncCheckboxes('category', this.value, this.checked)" />
+              <span class="label-text">Ready to Wear</span>
+              <span class="item-count">(44)</span>
+            </label>
+            <label class="facets-checkbox-item">
+              <input type="checkbox" name="category" value="Kids" onchange="FacetController.syncCheckboxes('category', this.value, this.checked)" />
+              <span class="label-text">Kids / Children</span>
+              <span class="item-count">(4)</span>
+            </label>
+            <label class="facets-checkbox-item">
+              <input type="checkbox" name="category" value="Menswear" onchange="FacetController.syncCheckboxes('category', this.value, this.checked)" />
+              <span class="label-text">Menswear</span>
+              <span class="item-count">(12)</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion 6: Season -->
+      <div class="filter-accordion-group open">
+        <button type="button" class="filter-accordion-header" onclick="this.parentElement.classList.toggle('open')">
+          <span>SEASON</span>
+          <svg class="accordion-chevron" width="10" height="6" viewBox="0 0 10 6" fill="currentColor"><path d="M0 0.5L5 5.5L10 0.5H0Z"/></svg>
+        </button>
+        <div class="filter-accordion-content">
+          <div class="facets-checkbox-list">
+            <label class="facets-checkbox-item">
+              <input type="checkbox" name="season" value="Summer" onchange="FacetController.syncCheckboxes('season', this.value, this.checked)" />
+              <span class="label-text">Summer Lawn</span>
+              <span class="item-count">(110)</span>
+            </label>
+            <label class="facets-checkbox-item">
+              <input type="checkbox" name="season" value="Winter" onchange="FacetController.syncCheckboxes('season', this.value, this.checked)" />
+              <span class="label-text">Winter Fabric</span>
+              <span class="item-count">(54)</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="drawer-footer filter-drawer-footer">
+      <button type="button" class="btn-clear-filters-drawer" onclick="FacetController.clearAllFilters()">Reset All</button>
+      <button type="button" class="btn-primary" id="mobile-apply-filters-btn" onclick="FacetController.closeMobileDrawer()">
+        Apply Filters
+      </button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/catalog-data.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Global Facet Controller
+    const FacetController = {
+      closeAll() {
+        document.querySelectorAll('.facets-dropdown-wrapper').forEach(w => w.classList.remove('is-open'));
+      },
+      openMobileDrawer() {
+        this.closeAll();
+        const drawer = document.getElementById('mobile-filter-sidebar');
+        const overlay = document.querySelector('.drawer-overlay');
+        if (drawer) {
+          drawer.classList.add('active');
+          if (overlay) overlay.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+      },
+      closeMobileDrawer() {
+        const drawer = document.getElementById('mobile-filter-sidebar');
+        const overlay = document.querySelector('.drawer-overlay');
+        if (drawer) drawer.classList.remove('active');
+        if (overlay) overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      },
+      syncCheckboxes(name, value, checked) {
+        document.querySelectorAll(`input[name="${name}"][value="${value}"]`).forEach(cb => {
+          cb.checked = checked;
+        });
+        window.CatalogManager && window.CatalogManager.applyFiltersAndRender();
+      },
+      syncPriceSlider(val) {
+        const slider1 = document.getElementById('price-slider');
+        const slider2 = document.getElementById('price-slider-mobile');
+        const label1 = document.getElementById('price-val-label');
+        const label2 = document.getElementById('price-val-label-mobile');
+        const formatted = 'Max: ' + Store.formatMoney(val);
+        if (slider1) slider1.value = val;
+        if (slider2) slider2.value = val;
+        if (label1) label1.textContent = formatted;
+        if (label2) label2.textContent = formatted;
+        window.CatalogManager && window.CatalogManager.applyFiltersAndRender();
+      },
+      resetFacet(name) {
+        document.querySelectorAll(`input[name="${name}"]`).forEach(c => c.checked = false);
+        if (name === 'stock') {
+          document.querySelectorAll('input[name="stock"][value="in-stock"]').forEach(cb => cb.checked = true);
+        }
+        window.CatalogManager && window.CatalogManager.applyFiltersAndRender();
+      },
+      resetPrice() {
+        this.syncPriceSlider(15000);
+      },
+      clearAllFilters() {
+        document.querySelectorAll('.facets-checkbox-list input[type="checkbox"]').forEach(c => c.checked = false);
+        document.querySelectorAll('input[name="stock"][value="in-stock"]').forEach(cb => cb.checked = true);
+        this.resetPrice();
+      },
+      filterBrandList(query) {
+        const q = (query || '').toLowerCase().trim();
+        document.querySelectorAll('#brand-filter-list .facets-checkbox-item').forEach(item => {
+          const text = item.querySelector('.label-text').textContent.toLowerCase();
+          item.style.display = text.includes(q) ? 'flex' : 'none';
+        });
+      },
+      filterMobileBrandList(query) {
+        const q = (query || '').toLowerCase().trim();
+        document.querySelectorAll('#brand-filter-list-mobile .facets-checkbox-item').forEach(item => {
+          const text = item.querySelector('.label-text').textContent.toLowerCase();
+          item.style.display = text.includes(q) ? 'flex' : 'none';
+        });
+      }
+    };
+
+    // Catalog Manager
+    document.addEventListener('DOMContentLoaded', () => {
+      const allProducts = Store.getProducts();
+      if (!allProducts || allProducts.length === 0) return;
+
+      const grid = document.getElementById('catalog-products-grid');
+      const titleEl = document.getElementById('catalog-title');
+      const countEl = document.getElementById('catalog-count-desc');
+      const breadcrumbCurrent = document.getElementById('breadcrumb-current');
+      const loadMoreBtn = document.getElementById('load-more-btn');
+      const statusEl = document.getElementById('pagination-status');
+      const sortSelect = document.getElementById('sort-by');
+      const sortSelectMobile = document.getElementById('sort-by-mobile');
+      const priceSlider = document.getElementById('price-slider');
+      const priceLabel = document.getElementById('price-val-label');
+      const brandFilterList = document.getElementById('brand-filter-list');
+      const brandFilterListMobile = document.getElementById('brand-filter-list-mobile');
+      const clearAllBtn = document.getElementById('facets-clear-all');
+      const mobileBadge = document.getElementById('mobile-filter-badge');
+      const mobileDrawerBadge = document.getElementById('mobile-drawer-count-badge');
+      const chipsContainer = document.getElementById('active-filter-chips');
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const paramBrand = urlParams.get('brand');
+      const paramCategory = urlParams.get('category');
+      const paramType = urlParams.get('type');
+      const paramSeason = urlParams.get('season');
+      const paramCollection = urlParams.get('collection');
+
+      // Brand Normalization & Matching Helper
+      const normalizeBrandStr = (str) => {
+        if (!str) return '';
+        return str.toLowerCase().replace(/[^a-z0-9]/g, '');
+      };
+
+      const matchBrandName = (vendor, target) => {
+        if (!vendor || !target) return false;
+        const v = normalizeBrandStr(vendor);
+        const t = normalizeBrandStr(target);
+        if (v === t) return true;
+
+        // Specific aliases & brand mappings
+        if ((v.includes('alkaram') || v.includes('alkaramstudio')) && (t.includes('alkaram') || t.includes('alkaramstudio'))) return true;
+        if ((v.includes('nishat') || v.includes('nishatlinen')) && (t.includes('nishat') || t.includes('nishatlinen'))) return true;
+        if ((v.includes('gulahmed') || v.includes('ideas')) && (t.includes('gulahmed') || t.includes('ideas'))) return true;
+        if ((v === 'j' || v.includes('junaidjamshed')) && (t === 'j' || t.includes('junaidjamshed'))) return true;
+        if (v.includes('ethnic') && t.includes('ethnic')) return true;
+        if (v.includes('mariab') && t.includes('mariab')) return true;
+        if (v.includes('binsaeed') && t.includes('binsaeed')) return true;
+        if (v.includes('asimjofa') && t.includes('asimjofa')) return true;
+        if (v.includes('baroque') && t.includes('baroque')) return true;
+        if (v.includes('sapphire') && t.includes('sapphire')) return true;
+        if (v.includes('kayseria') && t.includes('kayseria')) return true;
+        if (v.includes('aghanoor') && t.includes('aghanoor')) return true;
+        if (v.includes('bonanza') && t.includes('bonanza')) return true;
+        if (v.includes('limelight') && t.includes('limelight')) return true;
+        if (v.includes('khaadi') && t.includes('khaadi')) return true;
+        if (v.includes('bareeze') && t.includes('bareeze')) return true;
+        if (v.includes('beechtree') && t.includes('beechtree')) return true;
+
+        return v.includes(t) || t.includes(v);
+      };
+
+      // 50+ Known Pakistani Brands List (Loaded dynamically from Store)
+      const storedBrands = (window.Store && window.Store.getBrands) ? window.Store.getBrands().filter(b => b.visible !== false).map(b => b.name) : [
+        'Afrozeh', 'Agha Noor', 'Al Karam', 'Alkaram Studio', 'Almirah', 'Asim Jofa',
+        'Bareeze', 'Baroque', 'Beechtree', 'Bin Ilyas', 'Bin Saeed', 'Bonanza Satrangi',
+        'Coco', 'Designer Lawn', 'Dhanak', 'Edenrobe', 'Ethnic', 'Ethnic by Outfitters',
+        'Generation', 'Gul Ahmed', 'Hania & Minnahil', 'Hussain Rehar', 'Ideas',
+        'J. (Junaid Jamshed)', 'Jacquard', 'Jade', 'Jafrani', 'Johra',
+        'Kayseria', 'Khaadi', 'Kross Kulture', 'Lala', 'Limelight', 'Mahnur', 'Maria B',
+        'Meerak', 'Mix Brand', 'Nishat Linen', 'Noor Jahan', 'Parishay', 'Pop Corn',
+        'Prime Point', 'Rajbari', 'Rang Rasiya', 'Regalia', 'Safa Iman', 'Sana Safinaz',
+        'Sapphire', 'Saya', 'Soha Afreen', 'Stylo', 'Suhana', 'Taana Baana', 'Tawakal',
+        'Thames', 'Warda', 'Wirs', 'Zaha', 'Zain Zee', 'Zellbury'
+      ];
+
+      // Populate Brand Checkboxes (both desktop and mobile)
+      const allBrandNamesSet = new Set(storedBrands);
+      allProducts.forEach(p => {
+        if (p.vendor) allBrandNamesSet.add(p.vendor);
+      });
+      if (paramBrand) {
+        allBrandNamesSet.add(paramBrand);
+      }
+      const brands = Array.from(allBrandNamesSet).sort((a, b) => a.localeCompare(b));
+
+      const brandCountMap = {};
+      brands.forEach(b => {
+        brandCountMap[b] = allProducts.filter(p => matchBrandName(p.vendor, b)).length;
+      });
+
+      const isBrandChecked = (b) => {
+        if (!paramBrand) return false;
+        return matchBrandName(b, paramBrand) || b.toLowerCase() === paramBrand.toLowerCase();
+      };
+
+      const brandItemsHTML = brands.map(b => `
+        <label class="facets-checkbox-item">
+          <input type="checkbox" name="brand" value="${b}" ${isBrandChecked(b) ? 'checked' : ''} onchange="FacetController.syncCheckboxes('brand', this.value, this.checked)" />
+          <span class="label-text">${b}</span>
+          <span class="item-count">(${brandCountMap[b] || 0})</span>
+        </label>
+      `).join('');
+      if (brandFilterList) brandFilterList.innerHTML = brandItemsHTML;
+      if (brandFilterListMobile) brandFilterListMobile.innerHTML = brandItemsHTML;
+
+      // Auto-check Category checkboxes from URL params
+      if (paramCategory) {
+        document.querySelectorAll('input[name="category"]').forEach(cb => {
+          if (cb.value.toLowerCase() === paramCategory.toLowerCase()) {
+            cb.checked = true;
+          }
+        });
+      }
+
+      // Auto-check Type checkboxes from URL params
+      if (paramType) {
+        document.querySelectorAll('input[name="type"]').forEach(cb => {
+          if (cb.value.toLowerCase() === paramType.toLowerCase()) {
+            cb.checked = true;
+          }
+        });
+      }
+
+      // Auto-check Season checkboxes from URL params
+      if (paramSeason) {
+        document.querySelectorAll('input[name="season"]').forEach(cb => {
+          if (cb.value.toLowerCase() === paramSeason.toLowerCase()) {
+            cb.checked = true;
+          }
+        });
+      }
+
+      // Set Page Title & Breadcrumbs
+      let dynamicTitle = 'ALL COLLECTIONS';
+      let breadcrumbText = 'Collections';
+
+      if (paramBrand) {
+        dynamicTitle = `${paramBrand.toUpperCase()} COLLECTION`;
+        breadcrumbText = paramBrand;
+      } else if (paramType && /bedsheet/i.test(paramType)) {
+        dynamicTitle = 'LUXURY BEDSHEETS & BEDDING COLLECTION';
+        breadcrumbText = 'Bedsheets';
+      } else if (paramCategory && paramType && paramSeason) {
+        dynamicTitle = `${paramCategory.toUpperCase()} ${paramType.toUpperCase()} - ${paramSeason.toUpperCase()} COLLECTION`;
+        breadcrumbText = `${paramCategory} > ${paramType} (${paramSeason})`;
+      } else if (paramCategory && paramType) {
+        dynamicTitle = `${paramCategory.toUpperCase()} ${paramType.toUpperCase()} SUITS`;
+        breadcrumbText = `${paramCategory} > ${paramType}`;
+      } else if (paramType) {
+        dynamicTitle = `${paramType.toUpperCase()} COLLECTION`;
+        breadcrumbText = paramType;
+      } else if (paramCategory) {
+        dynamicTitle = `${paramCategory.toUpperCase()} COLLECTION`;
+        breadcrumbText = paramCategory;
+      } else if (paramCollection === 'new-in') {
+        dynamicTitle = 'NEW ARRIVALS 2026';
+        breadcrumbText = 'New Arrival';
+      }
+
+      titleEl.textContent = dynamicTitle;
+      document.title = `${dynamicTitle} - Al-Deewan Brand Online`;
+      breadcrumbCurrent.textContent = breadcrumbText;
+
+      let pageSize = 24;
+      let currentPage = 1;
+      window._resetCatalogPage = () => { currentPage = 1; };
+
+      const updateFacetButtonBadges = (filteredCount) => {
+        const facets = ['stock', 'price', 'brand', 'category', 'type', 'season'];
+        let activeCount = 0;
+        let activeChips = [];
+
+        facets.forEach(facet => {
+          const wrapper = document.getElementById(`facet-wrapper-${facet}`);
+          const btn = wrapper ? wrapper.querySelector('.facets-dropdown-btn') : null;
+          
+          if (facet === 'price') {
+            const isPriceChanged = priceSlider && parseFloat(priceSlider.value) < 15000;
+            if (isPriceChanged) {
+              if (btn) btn.classList.add('has-selected');
+              activeCount++;
+              activeChips.push({ label: `Max: ${Store.formatMoney(priceSlider.value)}`, action: () => FacetController.resetPrice() });
+            } else {
+              if (btn) btn.classList.remove('has-selected');
+            }
+          } else {
+            const checkedInputs = Array.from(document.querySelectorAll(`input[name="${facet}"]:checked`));
+            const uniqueVals = [...new Set(checkedInputs.map(i => i.value))];
+            
+            if (facet === 'stock') {
+              if (uniqueVals.length === 1 && uniqueVals[0] === 'out-of-stock') {
+                if (btn) btn.classList.add('has-selected');
+                activeCount++;
+                activeChips.push({ label: 'Out of Stock', action: () => FacetController.resetFacet('stock') });
+              } else {
+                if (btn) btn.classList.remove('has-selected');
+              }
+            } else if (uniqueVals.length > 0) {
+              if (btn) btn.classList.add('has-selected');
+              activeCount += uniqueVals.length;
+              uniqueVals.forEach(val => {
+                activeChips.push({ label: val, action: () => FacetController.syncCheckboxes(facet, val, false) });
+              });
+            } else {
+              if (btn) btn.classList.remove('has-selected');
+            }
+          }
+        });
+
+        if (clearAllBtn) {
+          clearAllBtn.style.display = activeCount > 0 ? 'inline-block' : 'none';
+        }
+
+        // Update Mobile Filter Badge
+        if (mobileBadge) {
+          mobileBadge.textContent = activeCount;
+          mobileBadge.style.display = activeCount > 0 ? 'inline-flex' : 'none';
+        }
+        if (mobileDrawerBadge) {
+          mobileDrawerBadge.textContent = `${activeCount} active`;
+          mobileDrawerBadge.style.display = activeCount > 0 ? 'inline-block' : 'none';
+        }
+
+        // Render Active Filter Chips
+        if (chipsContainer) {
+          if (activeChips.length > 0) {
+            chipsContainer.style.display = 'flex';
+            chipsContainer.innerHTML = activeChips.map((chip, idx) => `
+              <span class="filter-chip" onclick="window._chipActions[${idx}]()">
+                <span>${chip.label}</span>
+                <span class="chip-remove">&times;</span>
+              </span>
+            `).join('') + `
+              <button type="button" class="filter-chip-clear" onclick="FacetController.clearAllFilters()">Clear All</button>
+            `;
+            window._chipActions = activeChips.map(c => c.action);
+          } else {
+            chipsContainer.style.display = 'none';
+            chipsContainer.innerHTML = '';
+          }
+        }
+
+        // Update Mobile Apply Button text
+        const mobileApplyBtn = document.getElementById('mobile-apply-filters-btn');
+        if (mobileApplyBtn && filteredCount !== undefined) {
+          mobileApplyBtn.textContent = `Apply Filters (${filteredCount} Products)`;
+        }
+      };
+
+      const applyFiltersAndRender = () => {
+        let filtered = [...Store.getProducts()];
+
+        // Stock filter
+        const checkedStock = [...new Set(Array.from(document.querySelectorAll('input[name="stock"]:checked')).map(i => i.value))];
+        if (checkedStock.length === 1) {
+          if (checkedStock[0] === 'in-stock') filtered = filtered.filter(p => p.available);
+          if (checkedStock[0] === 'out-of-stock') filtered = filtered.filter(p => !p.available);
+        }
+
+        // Category filter
+        const checkedCats = [...new Set(Array.from(document.querySelectorAll('input[name="category"]:checked')).map(i => i.value.toLowerCase()))];
+        if (checkedCats.length > 0) {
+          filtered = filtered.filter(p => {
+            const cat = (p.category || '').toLowerCase();
+            const gender = (p.gender || '').toLowerCase();
+            return checkedCats.some(c => cat.includes(c) || gender.includes(c));
+          });
+        }
+
+        // Type filter (2PC, 3PC, 1PC)
+        const checkedTypes = [...new Set(Array.from(document.querySelectorAll('input[name="type"]:checked')).map(i => i.value.toUpperCase()))];
+        if (checkedTypes.length > 0) {
+          filtered = filtered.filter(p => {
+            const pType = (p.category_type || '').toUpperCase();
+            const pTitle = (p.title || '').toUpperCase();
+            return checkedTypes.some(t => pType.includes(t) || pTitle.includes(t));
+          });
+        }
+
+        // Season filter (Winter / Summer / All Seasons)
+        const checkedSeasons = [...new Set(Array.from(document.querySelectorAll('input[name="season"]:checked')).map(i => i.value.toLowerCase()))];
+        if (checkedSeasons.length > 0) {
+          filtered = filtered.filter(p => {
+            // 1. If explicit p.season is set on product
+            if (p.season) {
+              const ps = p.season.toLowerCase().trim();
+              if (checkedSeasons.includes(ps)) return true;
+              if (ps === 'all seasons' || ps === 'four seasons' || ps === 'year-round') return true;
+              if (checkedSeasons.includes('summer') && (ps.includes('summer') || ps.includes('spring'))) return true;
+              if (checkedSeasons.includes('winter') && ps.includes('winter')) return true;
+              return false; // Explicit season set - strictly do not match other seasons
+            }
+
+            // 2. Fallback only if p.season is missing
+            const title = (p.title || '').toLowerCase();
+            const fabric = (p.fabric || '').toLowerCase();
+            const text = `${title} ${fabric} ${(p.tags || []).join(' ')}`.toLowerCase();
+
+            const isExplicitLawn = /\b(lawn|voile|chiffon|organza|summer)\b/i.test(text);
+            const isWinterFabric = /\b(khaddar|karandi|shawl|pashmina|velvet|wool|marina)\b/i.test(text) || (/\blinen\b/i.test(fabric) || (/\blinen\b/i.test(title) && !isExplicitLawn));
+
+            if (checkedSeasons.includes('winter') && isWinterFabric) return true;
+            if (checkedSeasons.includes('summer') && !isWinterFabric) return true;
+            return false;
+          });
+        }
+
+        // Brand filter with robust matchBrandName
+        const checkedBrands = [...new Set(Array.from(document.querySelectorAll('input[name="brand"]:checked')).map(i => i.value))];
+        if (checkedBrands.length > 0) {
+          filtered = filtered.filter(p => {
+            return checkedBrands.some(b => matchBrandName(p.vendor, b));
+          });
+        }
+
+        // Price filter
+        if (priceSlider) {
+          const maxPrice = parseFloat(priceSlider.value);
+          filtered = filtered.filter(p => p.price <= maxPrice);
+        }
+
+        // Sorting
+        const sortVal = sortSelect ? sortSelect.value : 'most-relevant';
+        if (sortVal === 'price-asc') filtered.sort((a, b) => a.price - b.price);
+        else if (sortVal === 'price-desc') filtered.sort((a, b) => b.price - a.price);
+        else if (sortVal === 'title-asc') filtered.sort((a, b) => a.title.localeCompare(b.title));
+        else if (sortVal === 'title-desc') filtered.sort((a, b) => b.title.localeCompare(a.title));
+        else if (sortVal === 'best-selling') filtered.sort((a, b) => (b.reviews_count || 0) - (a.reviews_count || 0));
+        else if (sortVal === 'date-new') filtered.sort((a, b) => b.id - a.id);
+        else if (sortVal === 'date-old') filtered.sort((a, b) => a.id - b.id);
+
+        // Render Page
+        const itemsToShow = filtered.slice(0, currentPage * pageSize);
+        if (filtered.length === 0) {
+          const activeBrandName = checkedBrands.length > 0 ? checkedBrands.join(', ') : (paramBrand || '');
+          if (activeBrandName) {
+            grid.innerHTML = `
+              <div class="no-products-found" style="grid-column: 1 / -1; width: 100%; text-align: center; padding: 60px 20px; background: #faf9fd; border-radius: 14px; border: 1.5px dashed #dcd3ea;">
+                <div style="width: 68px; height: 68px; margin: 0 auto 16px; background: #f0ebf7; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                  <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </div>
+                <h3 style="font-size:20px; font-weight:800; color:#111; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.5px;">No Products Available for ${activeBrandName}</h3>
+                <p style="font-size:14px; color:#666; max-width:540px; margin:0 auto 24px; line-height:1.6;">
+                  Currently, there are no articles available for <strong>${activeBrandName}</strong> in our catalog. New original designer cut pieces arrive weekly! Please check back soon or browse our other top fashion houses.
+                </p>
+                <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+                  <a href="shop-by-brand.html" class="btn-primary" style="display:inline-block; width:auto; padding:12px 28px; font-size:13px; font-weight:700; text-transform:uppercase;">BROWSE ALL 50+ BRANDS</a>
+                  <button type="button" onclick="FacetController.clearAllFilters()" class="btn-secondary" style="display:inline-block; width:auto; padding:12px 28px; font-size:13px; font-weight:700; background:#fff; border:1.5px solid #111; color:#111; cursor:pointer; border-radius:4px; text-transform:uppercase;">VIEW ALL PRODUCTS</button>
+                </div>
+              </div>
+            `;
+            countEl.textContent = `Found 0 products in ${activeBrandName}`;
+          } else {
+            grid.innerHTML = `
+              <div class="no-products-found" style="grid-column: 1 / -1; width: 100%; text-align: center; padding: 60px 20px; background: #faf9fd; border-radius: 14px; border: 1.5px dashed #e0d8eb;">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5" style="margin-bottom:14px;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <h3 style="font-size:18px; font-weight:800; color:#111; margin-bottom:8px;">No Products Found</h3>
+                <p style="font-size:13px; color:#666; margin-bottom:20px;">No articles match your active filter criteria. Try adjusting your filters or resetting.</p>
+                <button onclick="FacetController.clearAllFilters()" class="btn-primary" style="display:inline-block; width:auto; padding:10px 26px; font-size:12px;">RESET ALL FILTERS</button>
+              </div>
+            `;
+            countEl.textContent = `Found 0 products`;
+          }
+          statusEl.textContent = `Showing 0 of 0 total`;
+          loadMoreBtn.style.display = 'none';
+        } else {
+          grid.innerHTML = itemsToShow.map(p => MainUI.createProductCardHTML(p)).join('');
+          countEl.textContent = `Found ${filtered.length} products`;
+          statusEl.textContent = `Showing 1 - ${itemsToShow.length} of ${filtered.length} total`;
+          if (itemsToShow.length >= filtered.length) {
+            loadMoreBtn.style.display = 'none';
+          } else {
+            loadMoreBtn.style.display = 'inline-block';
+          }
+        }
+
+        updateFacetButtonBadges(filtered.length);
+      };
+
+      window.CatalogManager = { applyFiltersAndRender };
+
+      // Facet Dropdown Toggle Listeners
+      document.querySelectorAll('.facets-dropdown-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const wrapper = btn.closest('.facets-dropdown-wrapper');
+          const isOpen = wrapper.classList.contains('is-open');
+          FacetController.closeAll();
+          if (!isOpen) {
+            wrapper.classList.add('is-open');
+          }
+        });
+      });
+
+      // Prevent closing when clicking inside popover menu
+      document.querySelectorAll('.facets-dropdown-menu').forEach(menu => {
+        menu.addEventListener('click', (e) => {
+          e.stopPropagation();
+        });
+      });
+
+      // Close on outside click or Esc
+      document.addEventListener('click', () => {
+        FacetController.closeAll();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          FacetController.closeAll();
+          FacetController.closeMobileDrawer();
+        }
+      });
+
+      // Event Listeners for Filters
+      document.querySelectorAll('.facets-checkbox-list input').forEach(input => {
+        input.addEventListener('change', () => {
+          currentPage = 1;
+          applyFiltersAndRender();
+        });
+      });
+
+      if (priceSlider) {
+        priceSlider.addEventListener('input', (e) => {
+          FacetController.syncPriceSlider(e.target.value);
+          currentPage = 1;
+          applyFiltersAndRender();
+        });
+      }
+
+      if (sortSelect) {
+        sortSelect.addEventListener('change', () => {
+          if (sortSelectMobile) sortSelectMobile.value = sortSelect.value;
+          currentPage = 1;
+          applyFiltersAndRender();
+        });
+      }
+
+      loadMoreBtn.addEventListener('click', () => {
+        currentPage++;
+        applyFiltersAndRender();
+      });
+
+      // View As Columns Switcher
+      document.querySelectorAll('.view-as-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.view-as-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const cols = btn.dataset.cols;
+          grid.className = 'products-grid';
+          if (cols === '3') grid.classList.add('grid-cols-3');
+          else if (cols === '2') grid.classList.add('grid-cols-2');
+        });
+      });
+
+      applyFiltersAndRender();
+    });
+  </script>
 </body>
 </html>
