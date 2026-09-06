@@ -795,8 +795,13 @@ const Store = {
 
     // 3. Welcome Promotional Banner
     const promoImg = document.querySelector('.welcome-promo-banner img, #home-promo-banner img');
-    if (promoImg && settings.welcomeBanner && settings.welcomeBanner.image) {
-      promoImg.src = settings.welcomeBanner.image;
+    if (promoImg) {
+      const bannerSrc = (settings.welcomeBanner && settings.welcomeBanner.image) ? settings.welcomeBanner.image : 'assets/images/web_banner_promo.png';
+      promoImg.src = bannerSrc;
+      promoImg.onerror = function() {
+        this.onerror = null;
+        this.src = 'assets/images/web_banner_promo.png';
+      };
     }
     const promoLink = document.querySelector('.welcome-promo-banner a, #home-promo-banner a');
     if (promoLink && settings.welcomeBanner && settings.welcomeBanner.link) {

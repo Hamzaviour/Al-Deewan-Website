@@ -3696,7 +3696,7 @@
     }
 
     function handleSavePromoBanner() {
-      const image = document.getElementById('promo-banner-url').value.trim() || 'assets/images/welcome_promo_banner.png';
+      const image = document.getElementById('promo-banner-url').value.trim() || 'assets/images/web_banner_promo.png';
       const link = document.getElementById('promo-banner-link').value.trim() || 'collections.html?category=Unstitched';
       Store.saveSiteSettings({ welcomeBanner: { image, link } });
       showAdminToast('Welcome Promotional Banner updated successfully!');
