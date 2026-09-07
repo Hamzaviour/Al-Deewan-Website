@@ -299,7 +299,12 @@
       `).join('');
 
       const subtotal = Store.getCartSubtotal();
-      const shipping = subtotal >= 3500 ? 0 : 200;
+      const settings = (window.Store && window.Store.getSiteSettings) ? window.Store.getSiteSettings() : {};
+      const deliv = settings.deliverySettings || {};
+      const fee = deliv.standardShippingFee !== undefined ? Number(deliv.standardShippingFee) : 250;
+      const threshold = deliv.freeShippingThreshold !== undefined ? Number(deliv.freeShippingThreshold) : 3500;
+      const enableFree = deliv.enableFreeShipping !== false;
+      const shipping = (enableFree && subtotal >= threshold) ? 0 : fee;
       let discount = discountApplied ? (subtotal * 0.10) : 0;
       const total = subtotal + shipping - discount;
 

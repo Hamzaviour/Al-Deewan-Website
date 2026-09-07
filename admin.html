@@ -1282,6 +1282,10 @@
           <strong style="font-size:15px; font-weight:900; letter-spacing:0.04em;">AL-DEEWAN BRAND</strong>
         </a>
         <span class="admin-badge">ADMIN CONTROL PANEL</span>
+        <span id="server-sync-badge" style="display:inline-flex; align-items:center; gap:6px; background:#ecfdf5; color:#065f46; font-size:11px; font-weight:700; padding:4px 10px; border-radius:14px; border:1px solid #a7f3d0;" title="Changes made here sync live to the server and update all devices and visitors">
+          <span style="width:7px; height:7px; border-radius:50%; background:#10b981; box-shadow:0 0 6px #10b981;"></span>
+          LIVE SERVER SYNC ACTIVE
+        </span>
       </div>
 
       <div class="admin-header-actions">
@@ -2306,9 +2310,10 @@
       if (input === validPass || input === 'deewan2026' || input.toLowerCase() === 'deewan2026') {
         sessionStorage.setItem('aldeewan_admin_logged_in', 'true');
         localStorage.setItem('aldeewan_admin_logged_in', 'true');
+        localStorage.setItem('aldeewan_admin_pass', input);
         document.getElementById('auth-error-msg').style.display = 'none';
         checkAuth();
-        showAdminToast('Welcome, Administrator!');
+        showAdminToast('Welcome, Administrator! Server sync active ☁️');
       } else {
         document.getElementById('auth-error-msg').style.display = 'block';
         inputEl.select();
@@ -2318,6 +2323,7 @@
     function handleAdminLogout() {
       sessionStorage.removeItem('aldeewan_admin_logged_in');
       localStorage.removeItem('aldeewan_admin_logged_in');
+      localStorage.removeItem('aldeewan_admin_pass');
       checkAuth();
     }
 
@@ -4187,6 +4193,23 @@
       toast.classList.add('show');
       setTimeout(() => toast.classList.remove('show'), 3500);
     }
+
+    // Live Server Sync listener: If server settings, catalog, or brands arrive, refresh admin UI
+    window.addEventListener('settings:updated', () => {
+      if (document.getElementById('admin-app') && document.getElementById('admin-app').style.display !== 'none') {
+        initDashboard();
+      }
+    });
+    window.addEventListener('catalog:updated', () => {
+      if (document.getElementById('admin-app') && document.getElementById('admin-app').style.display !== 'none') {
+        initDashboard();
+      }
+    });
+    window.addEventListener('brands:updated', () => {
+      if (document.getElementById('admin-app') && document.getElementById('admin-app').style.display !== 'none') {
+        initDashboard();
+      }
+    });
 
     // Initialize on Load
     document.addEventListener('DOMContentLoaded', checkAuth);

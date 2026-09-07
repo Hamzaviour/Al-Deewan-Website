@@ -306,7 +306,7 @@ const Store = {
     return window.CATALOG_PRODUCTS || [];
   },
 
-  saveProducts(products) {
+  saveProducts(products, adminPasscode) {
     window.CATALOG_PRODUCTS = products;
     try {
       localStorage.setItem('aldeewan_custom_catalog', JSON.stringify(products));
@@ -314,6 +314,17 @@ const Store = {
       console.error('Failed to save custom catalog to localStorage:', e);
     }
     window.dispatchEvent(new CustomEvent('catalog:updated', { detail: { products } }));
+
+    // Sync to server API so all devices and visitors receive new/updated articles
+    const passcode = adminPasscode || localStorage.getItem('aldeewan_admin_pass') || 'deewan2026';
+    fetch('api/products.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Admin-Passcode': passcode
+      },
+      body: JSON.stringify({ products, adminPasscode: passcode })
+    }).catch(e => console.warn('Product server sync note:', e));
   },
 
   addProduct(productData) {
@@ -740,7 +751,7 @@ const Store = {
     return defaults;
   },
 
-  saveSiteSettings(newSettings) {
+  saveSiteSettings(newSettings, adminPasscode) {
     try {
       const current = this.getSiteSettings();
       const updated = {
@@ -754,6 +765,27 @@ const Store = {
       localStorage.setItem('aldeewan_site_settings', JSON.stringify(updated));
       this.applySiteSettings();
       window.dispatchEvent(new CustomEvent('settings:updated', { detail: updated }));
+
+      // Sync to Server API so all devices and visitors receive changes live
+      const passcode = adminPasscode || localStorage.getItem('aldeewan_admin_pass') || 'deewan2026';
+      fetch('api/settings.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Admin-Passcode': passcode
+        },
+        body: JSON.stringify({ ...updated, adminPasscode: passcode })
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.success) {
+          console.log('✅ Site settings synced to server for all devices:', data.message);
+        } else {
+          console.warn('⚠️ Server response on settings sync:', data);
+        }
+      })
+      .catch(e => console.warn('Site settings server sync note:', e));
+
       return true;
     } catch (e) {
       console.error('Failed to save settings:', e);
@@ -1097,10 +1129,28 @@ const Store = {
     return defaults;
   },
 
-  saveBrands(brands) {
+  saveBrands(brands, adminPasscode) {
     try {
       localStorage.setItem('aldeewan_brands', JSON.stringify(brands));
       window.dispatchEvent(new CustomEvent('brands:updated', { detail: { brands } }));
+
+      // Sync to Server API so all devices and visitors receive updated brands live
+      const passcode = adminPasscode || localStorage.getItem('aldeewan_admin_pass') || 'deewan2026';
+      fetch('api/brands.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Admin-Passcode': passcode
+        },
+        body: JSON.stringify({ brands, adminPasscode: passcode })
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.success) {
+          console.log('✅ Brands synced to server for all devices:', data.message);
+        }
+      })
+      .catch(e => console.warn('Brands server sync note:', e));
     } catch (e) {
       console.error('Error saving brands:', e);
     }
@@ -1226,12 +1276,119 @@ const Store = {
     window.location.reload();
   },
 
+  // Server-Wide Live Synchronization Engine (Multi-Device & Visitor Sync)
+  async syncFromServer() {
+    // 1. Sync Site Settings (Ticker, Hero Slides, Banners, Nav Dropdowns, Sections)
+    try {
+      let settingsData = null;
+      try {
+        const res = await fetch(`api/settings.php?_t=${Date.now()}`, { cache: 'no-store' });
+        if (res.ok) {
+          const contentType = res.headers.get('content-type') || '';
+          if (contentType.includes('application/json')) {
+            settingsData = await res.json();
+          }
+        }
+      } catch (err) {
+        // Fallback to data/settings.json
+      }
+
+      if (!settingsData || settingsData.status === 'empty') {
+        try {
+          const resStatic = await fetch(`data/settings.json?_t=${Date.now()}`, { cache: 'no-store' });
+          if (resStatic.ok) {
+            settingsData = await resStatic.json();
+          }
+        } catch (err2) {}
+      }
+
+      if (settingsData && typeof settingsData === 'object' && !Array.isArray(settingsData) && Object.keys(settingsData).length > 0) {
+        const current = localStorage.getItem('aldeewan_site_settings');
+        const currentObj = current ? JSON.parse(current) : null;
+        
+        const merged = {
+          ...(this.getDefaultSettings()),
+          ...(currentObj || {}),
+          ...settingsData
+        };
+
+        localStorage.setItem('aldeewan_site_settings', JSON.stringify(merged));
+        this.applySiteSettings();
+        window.dispatchEvent(new CustomEvent('settings:updated', { detail: merged }));
+      }
+    } catch (e) {
+      console.warn('Server settings sync note:', e);
+    }
+
+    // 2. Sync Products Catalog
+    try {
+      let productsData = null;
+      try {
+        const res = await fetch(`api/products.php?_t=${Date.now()}`, { cache: 'no-store' });
+        if (res.ok) {
+          const contentType = res.headers.get('content-type') || '';
+          if (contentType.includes('application/json')) {
+            productsData = await res.json();
+          }
+        }
+      } catch (err) {}
+
+      if (!productsData || !Array.isArray(productsData) || productsData.length === 0) {
+        try {
+          const resStatic = await fetch(`data/products.json?_t=${Date.now()}`, { cache: 'no-store' });
+          if (resStatic.ok) {
+            productsData = await resStatic.json();
+          }
+        } catch (err2) {}
+      }
+
+      if (Array.isArray(productsData) && productsData.length > 0) {
+        window.CATALOG_PRODUCTS = productsData;
+        localStorage.setItem('aldeewan_custom_catalog', JSON.stringify(productsData));
+        window.dispatchEvent(new CustomEvent('catalog:updated', { detail: { products: productsData } }));
+      }
+    } catch (e) {
+      console.warn('Server products sync note:', e);
+    }
+
+    // 3. Sync Brands Directory
+    try {
+      let brandsData = null;
+      try {
+        const res = await fetch(`api/brands.php?_t=${Date.now()}`, { cache: 'no-store' });
+        if (res.ok) {
+          const contentType = res.headers.get('content-type') || '';
+          if (contentType.includes('application/json')) {
+            brandsData = await res.json();
+          }
+        }
+      } catch (err) {}
+
+      if (!brandsData || !Array.isArray(brandsData) || brandsData.length === 0) {
+        try {
+          const resStatic = await fetch(`data/brands.json?_t=${Date.now()}`, { cache: 'no-store' });
+          if (resStatic.ok) {
+            brandsData = await resStatic.json();
+          }
+        } catch (err2) {}
+      }
+
+      if (Array.isArray(brandsData) && brandsData.length > 0) {
+        localStorage.setItem('aldeewan_brands', JSON.stringify(brandsData));
+        window.dispatchEvent(new CustomEvent('brands:updated', { detail: { brands: brandsData } }));
+      }
+    } catch (e) {
+      console.warn('Server brands sync note:', e);
+    }
+  },
+
   // Init
   init() {
     this.initCatalog();
     this.updateCartCount();
     this.updateWishlistCount();
     this.applySiteSettings();
+    this.syncFromServer();
   }
 };
 

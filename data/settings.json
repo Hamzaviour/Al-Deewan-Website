@@ -1,0 +1,251 @@
+{
+  "heroSlides": [
+    {
+      "id": 1,
+      "image": "assets/images/banners/hero_slide_luxury.png",
+      "title": "Al-Deewan Luxury Lawn Collection 2026",
+      "link": "https://api.whatsapp.com/send?phone=923334275944&text=Hello%20Al-Deewan%20Brand%2C%20I%20would%20like%20to%20order%20from%20the%20Luxury%20Lawn%20Collection."
+    },
+    {
+      "id": 2,
+      "image": "assets/images/banners/hero_slide_winter.png",
+      "title": "Al-Deewan Winter Khaddar & Karandi Shawl Collection",
+      "link": "collections.html?season=Winter"
+    },
+    {
+      "id": 3,
+      "image": "assets/images/banners/hero_slide_unstitched.png",
+      "title": "Al-Deewan 100% Original Designer Cut Pieces",
+      "link": "collections.html?category=Unstitched"
+    }
+  ],
+  "heroAutoplaySpeed": 5000,
+  "heroBanner": {
+    "image": "assets/images/banners/hero_slide_luxury.png",
+    "link": "https://api.whatsapp.com/send?phone=923334275944&text=Hello%20Al-Deewan%20Brand%2C%20I%20would%20like%20to%20order%20from%20the%20Branded%20Collection."
+  },
+  "welcomeBanner": {
+    "image": "assets/images/web_banner_promo.png",
+    "link": "https://api.whatsapp.com/send?phone=923334275944&text=Hello%20Al-Deewan%20Brand%2C%20I%20would%20like%20to%20order%20from%20the%20Branded%20Collection."
+  },
+  "announcementText": "⚡ 100% Genuine Branded Pieces • 50+ Top Designer Brands Launch • Biggest Lawn Opening in Pakistan ⚡",
+  "brandTickerText": "SHOP YOUR FAVORITE BRANDS",
+  "brandTickerSubtitle": "Explore 100% genuine cut pieces from top designer fashion houses",
+  "deliverySettings": {
+    "standardShippingFee": 250,
+    "freeShippingThreshold": 3500,
+    "enableFreeShipping": true
+  },
+  "featuredSections": [
+    {
+      "id": "section_binsaeed",
+      "title": "BIN SAEED STITCHED 2PC",
+      "subtitle": "Pure Lawn & Cotton Stitched 2-Piece Suits with Matching Trousers / Dupattas",
+      "viewAllUrl": "collections.html?brand=Bin+Saeed&type=2PC",
+      "targetGridId": "binsaeed-products-grid",
+      "productIds": [],
+      "visible": true
+    },
+    {
+      "id": "section_unstitched",
+      "title": "UNSTITCHED 3PC PRINTED & EMBROIDERED LAWN",
+      "subtitle": "Premium Swiss Voile & Digital Printed Lawn Dupatta Sets",
+      "viewAllUrl": "collections.html?category=Unstitched&type=3PC",
+      "targetGridId": "unstitched-products-grid",
+      "productIds": [],
+      "visible": true
+    },
+    {
+      "id": "section_rtw",
+      "title": "READY TO WEAR STITCHED COLLECTION",
+      "subtitle": "Designer Stitched Kurties, 2-Piece & 3-Piece Pret Ensembles",
+      "viewAllUrl": "collections.html?category=Ready+to+Wear",
+      "targetGridId": "rtw-products-grid",
+      "productIds": [],
+      "visible": false
+    },
+    {
+      "id": "section_designer",
+      "title": "TOP DESIGNER LAWN SUITS",
+      "subtitle": "Exclusive Cut Pieces from Pakistan Top 50+ Fashion Houses",
+      "viewAllUrl": "collections.html",
+      "targetGridId": "featured-brands-products-grid",
+      "productIds": [],
+      "visible": true
+    }
+  ],
+  "sectionHeadings": {
+    "binSaeedTitle": "BIN SAEED STITCHED 2PC",
+    "unstitchedTitle": "UNSTITCHED 3PC PRINTED & EMBROIDERED LAWN",
+    "rtwTitle": "READY TO WEAR STITCHED COLLECTION",
+    "designerTitle": "TOP DESIGNER LAWN SUITS"
+  },
+  "navDropdowns": {
+    "unstitched": {
+      "visible": true,
+      "label": "UNSTITCHED",
+      "url": "collections.html?category=Unstitched",
+      "columns": [
+        {
+          "id": "1pc",
+          "label": "1PC",
+          "url": "collections.html?category=Unstitched&type=1PC",
+          "visible": true,
+          "isCustom": false,
+          "sublinks": [
+            {
+              "label": "Winter",
+              "url": "collections.html?category=Unstitched&type=1PC&season=Winter"
+            },
+            {
+              "label": "Summer",
+              "url": "collections.html?category=Unstitched&type=1PC&season=Summer"
+            },
+            {
+              "label": "Bedsheets",
+              "url": "collections.html?type=Bedsheet"
+            }
+          ]
+        },
+        {
+          "id": "2pc",
+          "label": "2PC",
+          "url": "collections.html?category=Unstitched&type=2PC",
+          "visible": true,
+          "isCustom": false,
+          "sublinks": [
+            {
+              "label": "Winter",
+              "url": "collections.html?category=Unstitched&type=2PC&season=Winter"
+            },
+            {
+              "label": "Summer",
+              "url": "collections.html?category=Unstitched&type=2PC&season=Summer"
+            }
+          ]
+        },
+        {
+          "id": "3pc",
+          "label": "3PC",
+          "url": "collections.html?category=Unstitched&type=3PC",
+          "visible": true,
+          "isCustom": false,
+          "sublinks": [
+            {
+              "label": "Winter",
+              "url": "collections.html?category=Unstitched&type=3PC&season=Winter"
+            },
+            {
+              "label": "Summer",
+              "url": "collections.html?category=Unstitched&type=3PC&season=Summer"
+            }
+          ]
+        },
+        {
+          "id": "4pc",
+          "label": "4PC",
+          "url": "collections.html?category=Unstitched&type=4PC",
+          "visible": false,
+          "isCustom": false,
+          "sublinks": [
+            {
+              "label": "Winter",
+              "url": "collections.html?category=Unstitched&type=4PC&season=Winter"
+            },
+            {
+              "label": "Summer",
+              "url": "collections.html?category=Unstitched&type=4PC&season=Summer"
+            }
+          ]
+        },
+        {
+          "id": "5pc",
+          "label": "5PC",
+          "url": "collections.html?category=Unstitched&type=5PC",
+          "visible": false,
+          "isCustom": false,
+          "sublinks": [
+            {
+              "label": "Winter",
+              "url": "collections.html?category=Unstitched&type=5PC&season=Winter"
+            },
+            {
+              "label": "Summer",
+              "url": "collections.html?category=Unstitched&type=5PC&season=Summer"
+            }
+          ]
+        }
+      ]
+    },
+    "readyToWear": {
+      "visible": true,
+      "label": "READY TO WEAR",
+      "url": "collections.html?category=Ready+to+Wear",
+      "links": [
+        {
+          "label": "1PC (Kurtis)",
+          "url": "collections.html?category=Ready+to+Wear&type=1PC",
+          "visible": true
+        },
+        {
+          "label": "2PC",
+          "url": "collections.html?category=Ready+to+Wear&type=2PC",
+          "visible": true
+        },
+        {
+          "label": "3PC",
+          "url": "collections.html?category=Ready+to+Wear&type=3PC",
+          "visible": true
+        },
+        {
+          "label": "All Ready to Wear",
+          "url": "collections.html?category=Ready+to+Wear",
+          "visible": true
+        }
+      ]
+    },
+    "kids": {
+      "visible": true,
+      "label": "KIDS",
+      "url": "collections.html?category=Kids",
+      "links": [
+        {
+          "label": "Girls Eastern",
+          "url": "collections.html?category=Kids&type=Girls+Eastern",
+          "visible": true
+        },
+        {
+          "label": "Boys Kurta",
+          "url": "collections.html?category=Kids&type=Boys+Kurta",
+          "visible": true
+        },
+        {
+          "label": "All Kids Collection",
+          "url": "collections.html?category=Kids",
+          "visible": true
+        }
+      ]
+    },
+    "mainNavLinks": [
+      {
+        "label": "NEW ARRIVAL",
+        "url": "collections.html?collection=new-in",
+        "badge": "HOT",
+        "visible": true
+      },
+      {
+        "label": "SHOP BY BRAND",
+        "url": "shop-by-brand.html",
+        "badge": "",
+        "visible": true
+      },
+      {
+        "label": "ORDER TRACKING",
+        "url": "order-tracking.html",
+        "badge": "",
+        "visible": true
+      }
+    ]
+  },
+  "adminPassword": "deewan2026"
+}

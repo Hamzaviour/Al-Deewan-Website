@@ -1,0 +1,6 @@
+# Protect and serve data files
+Options -Indexes
+<Files "*.json">
+    Header set Access-Control-Allow-Origin "*"
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+</Files>
