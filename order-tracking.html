@@ -26,7 +26,8 @@
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"></noscript>
   
   <style>
     .tracking-page {
@@ -342,7 +343,7 @@
         </button>
 
         <a href="index.html" class="header-logo">
-          <img src="assets/images/al_deewan_header_logo.png" alt="Al-Deewan Brand Logo" />
+          <img src="assets/images/al_deewan_header_logo.png" alt="Al-Deewan Brand Logo"  width="180" height="40" loading="eager"/>
           <div class="header-logo__text">
             <span class="brand-main">AL-DEEWAN</span>
             <span class="brand-sub">BRAND</span>
@@ -499,7 +500,7 @@
         </div>
 
         <!-- Search Form -->
-        <form id="tracking-form" onsubmit="event.preventDefault(); handleTrackingLookup();">
+        <form id="tracking-form" onsubmit="event.preventDefault(); handleTrackingLookup();" aria-label="Order tracking form">
           <div class="clean-search-row">
             <input type="text" id="tracking-input" placeholder="e.g. 123456789 (M&P Consignment Number)" required class="clean-input" />
             <button type="submit" class="clean-btn">
@@ -645,7 +646,7 @@
       <div class="footer-top">
         <div>
           <a href="index.html" class="footer-logo">
-            <img src="assets/images/al_deewan_header_logo.png" alt="Al-Deewan Brand Logo" loading="lazy" decoding="async" />
+            <img src="assets/images/al_deewan_header_logo.png" alt="Al-Deewan Brand Logo" loading="lazy" decoding="async"  width="180" height="40" loading="eager"/>
             <div class="footer-logo__text">
               <span class="footer-logo__main">AL-DEEWAN</span>
               <span class="footer-logo__sub">BRAND</span>
@@ -678,7 +679,7 @@
         <div>
           <h3 class="footer-heading">NEWSLETTER SIGN UP</h3>
           <p style="font-size:13px; color:#666; line-height:1.5;">Subscribe to get exclusive discount vouchers, lawn launch alerts, and VIP offers sent directly to your inbox.</p>
-          <form class="newsletter-form" onsubmit="event.preventDefault(); Store.showToast('Subscribed successfully!'); this.reset();">
+          <form class="newsletter-form" onsubmit="event.preventDefault(); Store.showToast('Subscribed successfully!'); this.reset();" aria-label="Newsletter subscription">
             <input type="email" placeholder="enter your email address" required />
             <button type="submit">SUBMIT</button>
           </form>
@@ -695,11 +696,11 @@
       <div class="footer-bottom">
         <div>© 2026 Al-Deewan Brand. All Rights Reserved. Powered By <a href="https://www.whizzlylab.com" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;">Whizzly Lab</a></div>
         <div class="payment-methods">
-          <img src="assets/images/payments/visa.png" alt="Visa Card Payment" class="payment-icon" loading="lazy" decoding="async" />
-          <img src="assets/images/payments/mastercard.png" alt="Mastercard Payment" class="payment-icon" loading="lazy" decoding="async" />
-          <img src="assets/images/payments/tabby.png" alt="Tabby 4 Installments" class="payment-icon" loading="lazy" decoding="async" />
-          <img src="assets/images/payments/gpay.png" alt="Google Pay Secure" class="payment-icon" loading="lazy" decoding="async" />
-          <img src="assets/images/payments/shoppay.png" alt="Shop Pay One-Click" class="payment-icon" loading="lazy" decoding="async" />
+          <img src="assets/images/payments/visa.png" alt="Visa Card Payment" class="payment-icon" loading="lazy" decoding="async"  width="40" height="25" loading="lazy"/>
+          <img src="assets/images/payments/mastercard.png" alt="Mastercard Payment" class="payment-icon" loading="lazy" decoding="async"  width="40" height="25" loading="lazy"/>
+          <img src="assets/images/payments/tabby.png" alt="Tabby 4 Installments" class="payment-icon" loading="lazy" decoding="async"  width="40" height="25" loading="lazy"/>
+          <img src="assets/images/payments/gpay.png" alt="Google Pay Secure" class="payment-icon" loading="lazy" decoding="async"  width="40" height="25" loading="lazy"/>
+          <img src="assets/images/payments/shoppay.png" alt="Shop Pay One-Click" class="payment-icon" loading="lazy" decoding="async"  width="40" height="25" loading="lazy"/>
         </div>
       </div>
     </div>

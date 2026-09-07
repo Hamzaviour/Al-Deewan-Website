@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shopping Bag | Al-Deewan</title>
   <meta name="description" content="Review items in your shopping bag, calculate shipping rates, and proceed to secure checkout or direct WhatsApp order with Al-Deewan." />
+  <meta name="robots" content="noindex, follow" />
   <link rel="canonical" href="https://aldeewancollection.com/cart.html" />
   
   <!-- Open Graph / Facebook -->
@@ -25,7 +26,8 @@
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"></noscript>
   <style>
     .cart-grid-layout {
       display: grid;
@@ -50,7 +52,7 @@
     <div class="container">
       <div class="header-inner">
         <a href="index.html" class="header-logo">
-          <img src="assets/images/al_deewan_header_logo.png" alt="Al-Deewan Brand Logo" />
+          <img src="assets/images/al_deewan_header_logo.png" alt="Al-Deewan Brand Logo"  width="180" height="40" loading="eager"/>
           <div class="header-logo__text">
             <span class="brand-main">AL-DEEWAN</span>
             <span class="brand-sub">BRAND</span>
@@ -222,11 +224,11 @@
       <div class="footer-bottom">
         <div>© 2026 Al-Deewan Brand. All Rights Reserved. Powered By <a href="https://www.whizzlylab.com" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;">Whizzly Lab</a></div>
         <div class="payment-methods">
-          <img src="assets/images/payments/visa.png" alt="Visa Card Payment" class="payment-icon" loading="lazy" decoding="async" />
-          <img src="assets/images/payments/mastercard.png" alt="Mastercard Payment" class="payment-icon" loading="lazy" decoding="async" />
-          <img src="assets/images/payments/tabby.png" alt="Tabby 4 Installments" class="payment-icon" loading="lazy" decoding="async" />
-          <img src="assets/images/payments/gpay.png" alt="Google Pay Secure" class="payment-icon" loading="lazy" decoding="async" />
-          <img src="assets/images/payments/shoppay.png" alt="Shop Pay One-Click" class="payment-icon" loading="lazy" decoding="async" />
+          <img src="assets/images/payments/visa.png" alt="Visa Card Payment" class="payment-icon" loading="lazy" decoding="async"  width="40" height="25" loading="lazy"/>
+          <img src="assets/images/payments/mastercard.png" alt="Mastercard Payment" class="payment-icon" loading="lazy" decoding="async"  width="40" height="25" loading="lazy"/>
+          <img src="assets/images/payments/tabby.png" alt="Tabby 4 Installments" class="payment-icon" loading="lazy" decoding="async"  width="40" height="25" loading="lazy"/>
+          <img src="assets/images/payments/gpay.png" alt="Google Pay Secure" class="payment-icon" loading="lazy" decoding="async"  width="40" height="25" loading="lazy"/>
+          <img src="assets/images/payments/shoppay.png" alt="Shop Pay One-Click" class="payment-icon" loading="lazy" decoding="async"  width="40" height="25" loading="lazy"/>
         </div>
       </div>
     </div>

@@ -4,10 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Admin Portal - Al-Deewan Brand</title>
+  <meta name="robots" content="noindex, nofollow" />
   <link rel="icon" href="assets/images/favicon.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"></noscript>
   <style>
     :root {
       --admin-primary: #5e3585;
@@ -1226,7 +1228,7 @@
   <div id="auth-screen">
     <div class="auth-card">
       <div class="auth-logo">
-        <img src="assets/images/al_deewan_header_logo.png" alt="Al-Deewan Brand" />
+        <img src="assets/images/al_deewan_header_logo.png" alt="Al-Deewan Brand"  width="180" height="40" loading="eager"/>
         <div class="auth-logo-text">
           AL-DEEWAN
           <span>PORTAL ADMIN</span>
@@ -1268,7 +1270,7 @@
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
         </button>
         <a href="index.html" class="admin-header-brand">
-          <img src="assets/images/al_deewan_header_logo.png" alt="Al-Deewan Logo" />
+          <img src="assets/images/al_deewan_header_logo.png" alt="Al-Deewan Logo"  width="180" height="40" loading="eager"/>
           <strong style="font-size:15px; font-weight:900; letter-spacing:0.04em;">AL-DEEWAN BRAND</strong>
         </a>
         <span class="admin-badge">ADMIN CONTROL PANEL</span>
@@ -1309,7 +1311,7 @@
       <aside class="admin-sidebar" id="admin-sidebar">
         <div class="admin-sidebar-header-mobile">
           <div style="display:flex; align-items:center; gap:8px;">
-            <img src="assets/images/al_deewan_header_logo.png" alt="Logo" style="height:28px;" />
+            <img src="assets/images/al_deewan_header_logo.png" alt="Logo" style="height:28px;"  width="180" height="40" loading="eager"/>
             <span style="font-weight:900; font-size:13px;">ADMIN MENU</span>
           </div>
           <button onclick="closeAdminMobileSidebar()" class="admin-sidebar-close" aria-label="Close Sidebar">&times;</button>
@@ -1729,7 +1731,7 @@
               </div>
 
               <div class="image-preview-container" style="max-height:220px; margin-bottom:16px;">
-                <img id="promo-preview-img" src="assets/images/web_banner_promo.png" alt="Promo Banner Preview" />
+                <img id="promo-preview-img" src="assets/images/web_banner_promo.png" alt="Promo Banner Preview"  width="1200" height="400" loading="lazy"/>
               </div>
 
               <button type="submit" class="btn-submit">Save Promotional Banner</button>

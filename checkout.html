@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Secure Checkout | Al-Deewan</title>
   <meta name="description" content="Complete your order securely with Cash on Delivery or Bank Transfer. Fast nationwide shipping across Pakistan from Al-Deewan." />
+  <meta name="robots" content="noindex, follow" />
   <link rel="canonical" href="https://aldeewancollection.com/checkout.html" />
   
   <!-- Open Graph / Facebook -->
@@ -25,7 +26,8 @@
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"></noscript>
   <style>
     .checkout-layout {
       display: grid;
@@ -82,7 +84,7 @@
   <header style="background:#fff; border-bottom:1px solid #eee; padding:20px 0;">
     <div class="container" style="display:flex; justify-content:space-between; align-items:center;">
       <a href="index.html" class="header-logo">
-          <img src="assets/images/al_deewan_header_logo.png" alt="Al-Deewan Brand Logo" />
+          <img src="assets/images/al_deewan_header_logo.png" alt="Al-Deewan Brand Logo"  width="180" height="40" loading="eager"/>
           <div class="header-logo__text">
             <span class="brand-main">AL-DEEWAN</span>
             <span class="brand-sub">BRAND</span>
@@ -92,11 +94,12 @@
     </div>
   </header>
 
+  <h1 class="visually-hidden">Secure Checkout — Al-Deewan</h1>
   <main class="container">
     <div class="checkout-layout">
       <!-- Left: Checkout Form -->
       <div>
-        <form id="checkout-form" onsubmit="event.preventDefault(); handlePlaceOrder();">
+        <form id="checkout-form" onsubmit="event.preventDefault(); handlePlaceOrder();" aria-label="Checkout order form">
           <!-- Contact Info -->
           <div style="background:#fff; border:1px solid #eee; border-radius:8px; padding:24px; margin-bottom:24px;">
             <h2 style="font-size:16px; font-weight:800; text-transform:uppercase; margin-bottom:16px;">1. Contact Information</h2>

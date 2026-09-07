@@ -93,11 +93,13 @@
   <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"></noscript>
   <!-- Preload Critical Hero Banner (Above-the-Fold) -->
   <link rel="preload" as="image" href="assets/images/banners/hero_slide_luxury.png" fetchpriority="high" />
 </head>
 <body>
+  <h1 class="visually-hidden">Al-Deewan — 100% Original Pakistani Lawn & Designer Cut Pieces</h1>
 
   <!-- Main Site Header with Rich Mega Menus -->
   <header class="site-header">
@@ -110,7 +112,7 @@
 
         <!-- Brand Logo -->
         <a href="index.html" class="header-logo">
-          <img src="assets/images/al_deewan_header_logo.png" alt="Al-Deewan Brand Logo" />
+          <img src="assets/images/al_deewan_header_logo.png" alt="Al-Deewan Brand Logo"  width="180" height="40" loading="eager"/>
           <div class="header-logo__text">
             <span class="brand-main">AL-DEEWAN</span>
             <span class="brand-sub">BRAND</span>
@@ -242,7 +244,7 @@
           <a href="https://api.whatsapp.com/send?phone=923334275944&text=Hello%20Al-Deewan%20Brand%2C%20I%20would%20like%20to%20order%20from%20the%20Luxury%20Lawn%20Collection." target="_blank" class="hero-slide-link" aria-label="Luxury Lawn Collection">
             <picture>
               <source media="(max-width: 768px)" srcset="assets/images/banners/hero_slide_luxury_mob.png">
-              <img src="assets/images/banners/hero_slide_luxury.png" alt="Al-Deewan Luxury Lawn Collection 2026" class="hero-slide-img" loading="eager" onerror="this.onerror=null; this.src='assets/images/al_deewan_hero_banner.png';" />
+              <img src="assets/images/banners/hero_slide_luxury.png" alt="Al-Deewan Luxury Lawn Collection 2026" class="hero-slide-img" loading="eager" onerror="this.onerror=null; this.src='assets/images/al_deewan_hero_banner.png';"  width="1440" height="550"/>
             </picture>
           </a>
         </div>
@@ -251,7 +253,7 @@
           <a href="collections.html?season=Winter" class="hero-slide-link" aria-label="Winter Collection">
             <picture>
               <source media="(max-width: 768px)" srcset="assets/images/banners/hero_slide_winter_mob.png">
-              <img src="assets/images/banners/hero_slide_winter.png" alt="Al-Deewan Winter Khaddar & Karandi Shawl Collection" class="hero-slide-img" loading="lazy" onerror="this.onerror=null; this.src='assets/images/al_deewan_hero_banner.png';" />
+              <img src="assets/images/banners/hero_slide_winter.png" alt="Al-Deewan Winter Khaddar & Karandi Shawl Collection" class="hero-slide-img" loading="lazy" onerror="this.onerror=null; this.src='assets/images/al_deewan_hero_banner.png';"  width="1440" height="550"/>
             </picture>
           </a>
         </div>
@@ -260,7 +262,7 @@
           <a href="collections.html?season=Summer" class="hero-slide-link" aria-label="Summer Lawn 2026">
             <picture>
               <source media="(max-width: 768px)" srcset="assets/images/banners/hero_slide_summer_mob.png">
-              <img src="assets/images/banners/hero_slide_summer.png" alt="Al-Deewan Summer Lawn 2026 Launch" class="hero-slide-img" loading="lazy" onerror="this.onerror=null; this.src='assets/images/al_deewan_hero_banner.png';" />
+              <img src="assets/images/banners/hero_slide_summer.png" alt="Al-Deewan Summer Lawn 2026 Launch" class="hero-slide-img" loading="lazy" onerror="this.onerror=null; this.src='assets/images/al_deewan_hero_banner.png';"  width="1440" height="550"/>
             </picture>
           </a>
         </div>
@@ -563,7 +565,7 @@
     <div class="container">
       <div style="border-radius: 14px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08);" class="welcome-promo-banner" id="home-promo-banner">
         <a href="https://api.whatsapp.com/send?phone=923334275944&text=Hello%20Al-Deewan%20Brand%2C%20I%20would%20like%20to%20order%20from%20the%20Branded%20Collection." target="_blank" aria-label="Al-Deewan Brand Welcome Banner">
-          <img src="assets/images/web_banner_promo.png" alt="Al-Deewan Brand Welcome - Brands We Offer" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='assets/images/web_banner_promo.png';" style="width:100%; height:auto; display:block;" />
+          <img src="assets/images/web_banner_promo.png" alt="Al-Deewan Brand Welcome - Brands We Offer" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='assets/images/web_banner_promo.png';" style="width:100%; height:auto; display:block;"  width="1200" height="400" loading="lazy"/>
         </a>
       </div>
     </div>
@@ -699,7 +701,7 @@
       <div class="usp-grid">
         <div class="usp-item">
           <div class="usp-icon">
-            <img src="assets/images/free-delivery_11153380.png" alt="Free Shipping" loading="lazy" decoding="async" />
+            <img src="assets/images/free-delivery_11153380.png" alt="Free Shipping" loading="lazy" decoding="async"  width="48" height="48" loading="lazy"/>
           </div>
           <div>
             <div class="usp-title">FREE DELIVERY</div>
@@ -719,7 +721,7 @@
 
         <div class="usp-item">
           <div class="usp-icon">
-            <img src="assets/images/delivery-status_6734859.png" alt="Real-time Tracking" loading="lazy" decoding="async" />
+            <img src="assets/images/delivery-status_6734859.png" alt="Real-time Tracking" loading="lazy" decoding="async"  width="48" height="48" loading="lazy"/>
           </div>
           <div>
             <div class="usp-title">EXPRESS TRACKING</div>
@@ -747,7 +749,7 @@
         <!-- Store Information -->
         <div>
           <a href="index.html" class="footer-logo">
-            <img src="assets/images/al_deewan_header_logo.png" alt="Al-Deewan Brand" loading="lazy" decoding="async" />
+            <img src="assets/images/al_deewan_header_logo.png" alt="Al-Deewan Brand" loading="lazy" decoding="async"  width="180" height="40" loading="eager"/>
             <div class="footer-logo__text">
               <span class="footer-logo__main">AL-DEEWAN</span>
               <span class="footer-logo__sub">BRAND</span>
@@ -785,7 +787,7 @@
           <h3 class="footer-heading">NEWSLETTER SIGN UP</h3>
           <p style="font-size:13px; color:#666; line-height:1.5;">Subscribe to get exclusive discount vouchers, lawn launch alerts, and VIP offers sent directly to your inbox.</p>
           
-          <form class="newsletter-form" onsubmit="event.preventDefault(); Store.showToast('Thank you for subscribing to our newsletter!'); this.reset();">
+          <form class="newsletter-form" onsubmit="event.preventDefault(); Store.showToast('Thank you for subscribing to our newsletter!'); this.reset();" aria-label="Newsletter subscription">
             <input type="email" placeholder="enter your email address" required />
             <button type="submit">SUBMIT</button>
           </form>
@@ -802,11 +804,11 @@
       <div class="footer-bottom">
         <div>© 2026 Al-Deewan Brand. All Rights Reserved. Powered By <a href="https://www.whizzlylab.com" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;">Whizzly Lab</a></div>
                 <div class="payment-methods">
-          <img src="assets/images/payments/visa.png" alt="Visa" class="payment-icon" loading="lazy" decoding="async" />
-          <img src="assets/images/payments/mastercard.png" alt="Mastercard" class="payment-icon" loading="lazy" decoding="async" />
-          <img src="assets/images/payments/tabby.png" alt="Tabby" class="payment-icon" loading="lazy" decoding="async" />
-          <img src="assets/images/payments/gpay.png" alt="Google Pay" class="payment-icon" loading="lazy" decoding="async" />
-          <img src="assets/images/payments/shoppay.png" alt="Shop Pay" class="payment-icon" loading="lazy" decoding="async" />
+          <img src="assets/images/payments/visa.png" alt="Visa" class="payment-icon" loading="lazy" decoding="async"  width="40" height="25" loading="lazy"/>
+          <img src="assets/images/payments/mastercard.png" alt="Mastercard" class="payment-icon" loading="lazy" decoding="async"  width="40" height="25" loading="lazy"/>
+          <img src="assets/images/payments/tabby.png" alt="Tabby" class="payment-icon" loading="lazy" decoding="async"  width="40" height="25" loading="lazy"/>
+          <img src="assets/images/payments/gpay.png" alt="Google Pay" class="payment-icon" loading="lazy" decoding="async"  width="40" height="25" loading="lazy"/>
+          <img src="assets/images/payments/shoppay.png" alt="Shop Pay" class="payment-icon" loading="lazy" decoding="async"  width="40" height="25" loading="lazy"/>
         </div>
       </div>
     </div>
