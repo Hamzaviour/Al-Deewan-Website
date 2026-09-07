@@ -442,15 +442,9 @@ const MainUI = {
     const subtotal = Store.getCartSubtotal();
 
     
-    // Render Parcel Weight Delivery Notice
     const shippingProgressEl = document.getElementById('cart-shipping-progress');
     if (shippingProgressEl) {
-      shippingProgressEl.innerHTML = `
-        <div class="cart-weight-notice" style="background:#f5effc; border:1px solid #dcd3ea; border-radius:8px; padding:10px 14px; font-size:12px; font-weight:700; color:#5e3585; margin-bottom:14px; display:flex; align-items:center; gap:8px;">
-          <span style="font-size:15px;">⚖️</span>
-          <span>Delivery Charges will be according to the weight of the parcel.</span>
-        </div>
-      `;
+      shippingProgressEl.innerHTML = '';
     }
     
     if (cart.length === 0) {
