@@ -307,12 +307,13 @@ ul, ol {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--color-text);
-  padding: 24px 0;
+  padding: 24px 10px;
   position: relative;
   display: inline-flex;
   align-items: center;
   gap: 6px;
   transition: var(--transition);
+  white-space: nowrap;
 }
 
 .header-nav__link:hover,
@@ -324,16 +325,18 @@ ul, ol {
   content: '';
   position: absolute;
   bottom: 16px;
-  left: 0;
-  width: 0;
+  left: 10px;
+  right: 10px;
   height: 2px;
   background-color: var(--color-primary);
-  transition: var(--transition);
+  transition: transform 0.25s ease;
+  transform: scaleX(0);
+  transform-origin: center;
 }
 
 .header-nav__link:hover::after,
 .header-nav__link.active::after {
-  width: 100%;
+  transform: scaleX(1);
 }
 
 .header-nav__badge {
