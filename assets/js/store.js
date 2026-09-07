@@ -317,14 +317,27 @@ const Store = {
 
     // Sync to server API so all devices and visitors receive new/updated articles
     const passcode = adminPasscode || localStorage.getItem('aldeewan_admin_pass') || 'deewan2026';
-    fetch('api/products.php', {
+    return fetch('api/products.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'X-Admin-Passcode': passcode
       },
       body: JSON.stringify({ products, adminPasscode: passcode })
-    }).catch(e => console.warn('Product server sync note:', e));
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data && data.success) {
+        console.log('✅ Products synced to server for all devices:', data.count);
+      } else {
+        console.warn('⚠️ Server response on product sync:', data);
+      }
+      return data;
+    })
+    .catch(e => {
+      console.warn('Product server sync note:', e);
+      return null;
+    });
   },
 
   addProduct(productData) {
@@ -732,10 +745,7 @@ const Store = {
           navDropdowns.mainNavLinks = defaults.navDropdowns.mainNavLinks;
         }
 
-        let announcementText = parsed.announcementText;
-        if (!announcementText || announcementText.includes('Cut Pieces') || announcementText.includes('New Stock Exclusive')) {
-          announcementText = defaults.announcementText;
-        }
+        let announcementText = parsed.announcementText || defaults.announcementText;
 
         return {
           ...defaults,
@@ -1125,7 +1135,9 @@ const Store = {
       console.warn('Error reading saved brands:', e);
     }
     const defaults = this.getDefaultBrands();
-    this.saveBrands(defaults);
+    try {
+      localStorage.setItem('aldeewan_brands', JSON.stringify(defaults));
+    } catch (e) {}
     return defaults;
   },
 
