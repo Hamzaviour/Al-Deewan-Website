@@ -264,12 +264,13 @@ ul, ol {
 .header-nav {
   display: flex;
   align-items: center;
+  gap: 18px;
 }
 
 .nav-list {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 18px;
   list-style: none;
   margin: 0;
   padding: 0;
