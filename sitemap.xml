@@ -12,9 +12,30 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- 2. Core Sitelink Category Pages (0.8 - 0.9 Priority) -->
+  <!-- 2. Core Google Sitelink Target Pages (0.9 Priority) -->
   <url>
-    <loc>https://aldeewancollection.com/collections.html</loc>
+    <loc>https://aldeewancollection.com/ready-to-wear.html</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://aldeewancollection.com/unstitched.html</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://aldeewancollection.com/new-arrivals.html</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://aldeewancollection.com/sale.html</loc>
     <lastmod>2026-09-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
@@ -28,41 +49,28 @@
   </url>
 
   <url>
-    <loc>https://aldeewancollection.com/collections.html?category=Unstitched</loc>
+    <loc>https://aldeewancollection.com/collections.html</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 3. Key Discovery & Tracking Pages -->
+  <url>
+    <loc>https://aldeewancollection.com/sitemap.html</loc>
     <lastmod>2026-09-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <url>
-    <loc>https://aldeewancollection.com/collections.html?category=Ready+to+Wear</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://aldeewancollection.com/collections.html?category=Kids</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://aldeewancollection.com/collections.html?collection=new-in</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- 3. Key Utility & Support Pages -->
   <url>
     <loc>https://aldeewancollection.com/order-tracking.html</loc>
     <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
 
+  <!-- 4. Support & Information Pages -->
   <url>
     <loc>https://aldeewancollection.com/contact.html</loc>
     <lastmod>2026-09-07</lastmod>
@@ -74,7 +82,7 @@
     <loc>https://aldeewancollection.com/customer-services.html</loc>
     <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
 
   <url>
@@ -96,13 +104,6 @@
     <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
-  </url>
-
-  <url>
-    <loc>https://aldeewancollection.com/product.html</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
   </url>
 
 </urlset>

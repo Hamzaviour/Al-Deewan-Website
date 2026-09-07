@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lawn Collections & Catalog | Al-Deewan</title>
-  <meta name="description" content="Explore 20,000+ unstitched lawn, 2PC & 3PC suits, and ready-to-wear dresses from top Pakistani brands with nationwide fast delivery across Pakistan." />
-  <link rel="canonical" href="https://aldeewancollection.com/collections.html" />
+    <title>Sale & Clearance Outfits | Al-Deewan</title>
+  <meta name="description" content="Shop exclusive discounts on original designer Pakistani lawn suits at Al-Deewan. Save up to 50% on branded unstitched cut pieces and stitched suits." />
+  <link rel="canonical" href="https://aldeewancollection.com/sale.html" />
   
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Al-Deewan" />
-  <meta property="og:url" content="https://aldeewancollection.com/collections.html" />
-  <meta property="og:title" content="Lawn Collections & Catalog | Al-Deewan" />
-  <meta property="og:description" content="Explore 20,000+ unstitched lawn, 2PC & 3PC suits, and ready-to-wear dresses from top Pakistani brands with nationwide fast delivery across Pakistan." />
+  <meta property="og:url" content="https://aldeewancollection.com/sale.html" />
+  <meta property="og:title" content="Sale & Clearance Outfits | Al-Deewan" />
+  <meta property="og:description" content="Shop exclusive discounts on original designer Pakistani lawn suits at Al-Deewan. Save up to 50% on branded unstitched cut pieces and stitched suits." />
   <meta property="og:image" content="https://aldeewancollection.com/assets/images/banners/hero_slide_luxury.png" />
   <meta property="og:locale" content="en_PK" />
 
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Lawn Collections & Catalog | Al-Deewan" />
-  <meta name="twitter:description" content="Explore 20,000+ unstitched lawn, 2PC & 3PC suits, and ready-to-wear dresses from top Pakistani brands with nationwide fast delivery across Pakistan." />
+  <meta name="twitter:title" content="Sale & Clearance Outfits | Al-Deewan" />
+  <meta name="twitter:description" content="Shop exclusive discounts on original designer Pakistani lawn suits at Al-Deewan. Save up to 50% on branded unstitched cut pieces and stitched suits." />
   <meta name="twitter:image" content="https://aldeewancollection.com/assets/images/banners/hero_slide_luxury.png" />
   
     <link rel="icon" href="/favicon.png" sizes="192x192">
@@ -30,6 +30,46 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"></noscript>
+
+  <!-- JSON-LD Structured Data: CollectionPage & BreadcrumbList for Google SERP -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": "https://aldeewancollection.com/sale.html#collection",
+        "url": "https://aldeewancollection.com/sale.html",
+        "name": "Sale & Clearance Outfits | Al-Deewan",
+        "description": "Shop exclusive discounts on original designer Pakistani lawn suits at Al-Deewan. Save up to 50% on branded unstitched cut pieces and stitched suits.",
+        "isPartOf": {
+          "@type": "WebSite",
+          "@id": "https://aldeewancollection.com/#website",
+          "name": "Al-Deewan",
+          "url": "https://aldeewancollection.com/"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://aldeewancollection.com/sale.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://aldeewancollection.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Sale & Clearance",
+            "item": "https://aldeewancollection.com/sale.html"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -169,10 +209,10 @@
   <div class="catalog-page-header">
     <div class="container">
       <div style="font-size:12.5px; color:#888; margin-bottom:8px;" id="collections-breadcrumbs">
-        <a href="index.html" style="color:#555;">Home</a> <span>/</span> <span style="color:#222; font-weight:600;" id="breadcrumb-current">Collections</span>
+        <a href="index.html" style="color:#555;">Home</a> <span>/</span> <span style="color:#222; font-weight:600;" id="breadcrumb-current">Sale & Clearance</span>
       </div>
-      <h1 class="section-title" id="catalog-title" style="margin-bottom:6px; font-size:26px;">ALL COLLECTIONS</h1>
-      <p class="section-subtitle" id="catalog-count-desc" style="margin-bottom:0; font-size:13.5px;">Showing original designer suits from top Pakistani brands</p>
+      <h1 class="section-title" id="catalog-title" style="margin-bottom:6px; font-size:26px;">SALE & CLEARANCE DEALS</h1>
+      <p class="section-subtitle" id="catalog-count-desc" style="margin-bottom:0; font-size:13.5px;">Save up to 50% on 100% original designer lawn suits, stitched ready-to-wear outfits and clearance cut pieces.</p>
     </div>
   </div>
 
@@ -917,34 +957,16 @@
       }
 
       // Set Page Title & Breadcrumbs
-      let dynamicTitle = 'ALL COLLECTIONS';
-      let breadcrumbText = 'Collections';
+      let dynamicTitle = 'SALE & CLEARANCE DEALS';
+      let breadcrumbText = 'Sale';
 
       if (paramBrand) {
-        dynamicTitle = `${paramBrand.toUpperCase()} COLLECTION`;
-        breadcrumbText = paramBrand;
-      } else if (paramType && /bedsheet/i.test(paramType)) {
-        dynamicTitle = 'LUXURY BEDSHEETS & BEDDING COLLECTION';
-        breadcrumbText = 'Bedsheets';
-      } else if (paramCategory && paramType && paramSeason) {
-        dynamicTitle = `${paramCategory.toUpperCase()} ${paramType.toUpperCase()} - ${paramSeason.toUpperCase()} COLLECTION`;
-        breadcrumbText = `${paramCategory} > ${paramType} (${paramSeason})`;
-      } else if (paramCategory && paramType) {
-        dynamicTitle = `${paramCategory.toUpperCase()} ${paramType.toUpperCase()} SUITS`;
-        breadcrumbText = `${paramCategory} > ${paramType}`;
-      } else if (paramType) {
-        dynamicTitle = `${paramType.toUpperCase()} COLLECTION`;
-        breadcrumbText = paramType;
-      } else if (paramCategory) {
-        dynamicTitle = `${paramCategory.toUpperCase()} COLLECTION`;
-        breadcrumbText = paramCategory;
-      } else if (paramCollection === 'new-in') {
-        dynamicTitle = 'NEW ARRIVALS 2026';
-        breadcrumbText = 'New Arrival';
+        dynamicTitle = `${paramBrand.toUpperCase()} SALE DEALS`;
+        breadcrumbText = `${paramBrand} Sale`;
       }
 
       titleEl.textContent = dynamicTitle;
-      document.title = `${dynamicTitle} - Al-Deewan Brand Online`;
+      document.title = 'Sale & Clearance Outfits | Al-Deewan';
       breadcrumbCurrent.textContent = breadcrumbText;
 
       let pageSize = 24;
@@ -1035,6 +1057,8 @@
 
       const applyFiltersAndRender = () => {
         let filtered = [...Store.getProducts()];
+        // Filter for products on sale or with discounted compare price
+        filtered = filtered.filter(p => (p.compare_at_price && p.compare_at_price > p.price) || (p.tags && p.tags.includes('sale')));
 
         // Stock filter
         const checkedStock = [...new Set(Array.from(document.querySelectorAll('input[name="stock"]:checked')).map(i => i.value))];
