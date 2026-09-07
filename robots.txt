@@ -1,0 +1,9 @@
+# robots.txt for https://aldeewancollection.com/
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /checkout.html
+Disallow: /thank-you.html
+
+# XML Sitemap Location
+Sitemap: https://aldeewancollection.com/sitemap.xml

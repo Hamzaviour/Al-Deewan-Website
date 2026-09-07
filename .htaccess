@@ -1,9 +1,22 @@
 # ----------------------------------------------------------------------
-# Al-Deewan Brand - High Performance & Optimization Config (.htaccess)
+# Al-Deewan Brand - High Performance & SEO Server Configuration (.htaccess)
 # Designed for Hostinger Apache / LiteSpeed Web Servers
 # ----------------------------------------------------------------------
 
-# 1. Enable GZIP & Deflate Compression
+# 1. Force HTTPS & Canonical Domain
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Redirect HTTP to HTTPS
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# 2. Custom 404 Error Document
+ErrorDocument 404 /404.html
+
+# 3. Enable GZIP & Deflate Compression
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/plain
   AddOutputFilterByType DEFLATE text/html
@@ -24,7 +37,7 @@
   AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
 </IfModule>
 
-# 2. Leverage Browser Caching via mod_expires
+# 4. Leverage Browser Caching via mod_expires
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresDefault "access plus 1 month"
@@ -61,7 +74,7 @@
   ExpiresByType application/font-woff2 "access plus 1 year"
 </IfModule>
 
-# 3. Cache-Control & Performance Headers
+# 5. Cache-Control & Performance Headers
 <IfModule mod_headers.c>
   # 1 Year Cache for Static Assets
   <FilesMatch "\.(ico|jpe?g|png|gif|webp|svg|woff|woff2|ttf|otf|mp4)$">
@@ -80,13 +93,13 @@
     Header set Expires "0"
   </FilesMatch>
 
-  # Security & Performance Headers
+  # Security & SEO Headers
   Header always set X-Content-Type-Options "nosniff"
   Header always set X-Frame-Options "SAMEORIGIN"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
 </IfModule>
 
-# 4. MIME Types
+# 6. MIME Types
 <IfModule mod_mime.c>
   AddType image/webp .webp
   AddType image/svg+xml .svg
