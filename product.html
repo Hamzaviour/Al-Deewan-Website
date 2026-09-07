@@ -382,7 +382,7 @@
       <div class="footer-top">
         <div>
           <a href="index.html" class="footer-logo">
-            <img src="assets/images/al_deewan_header_logo.png" alt="Al-Deewan Brand" />
+            <img src="assets/images/al_deewan_header_logo.png" alt="Al-Deewan Brand" loading="lazy" decoding="async" />
             <div class="footer-logo__text">
               <span class="footer-logo__main">AL-DEEWAN</span>
               <span class="footer-logo__sub">BRAND</span>
@@ -425,11 +425,11 @@
       <div class="footer-bottom">
         <div>© 2026 Al-Deewan Brand. All Rights Reserved. Powered By Whizzly Lab</div>
                 <div class="payment-methods">
-          <img src="assets/images/payments/visa.png" alt="Visa" class="payment-icon" />
-          <img src="assets/images/payments/mastercard.png" alt="Mastercard" class="payment-icon" />
-          <img src="assets/images/payments/tabby.png" alt="Tabby" class="payment-icon" />
-          <img src="assets/images/payments/gpay.png" alt="Google Pay" class="payment-icon" />
-          <img src="assets/images/payments/shoppay.png" alt="Shop Pay" class="payment-icon" />
+          <img src="assets/images/payments/visa.png" alt="Visa" class="payment-icon" loading="lazy" decoding="async" />
+          <img src="assets/images/payments/mastercard.png" alt="Mastercard" class="payment-icon" loading="lazy" decoding="async" />
+          <img src="assets/images/payments/tabby.png" alt="Tabby" class="payment-icon" loading="lazy" decoding="async" />
+          <img src="assets/images/payments/gpay.png" alt="Google Pay" class="payment-icon" loading="lazy" decoding="async" />
+          <img src="assets/images/payments/shoppay.png" alt="Shop Pay" class="payment-icon" loading="lazy" decoding="async" />
         </div>
       </div>
     </div>
@@ -515,7 +515,7 @@
       imagesStack.innerHTML = imageList.map((imgSrc, idx) => `
         <div class="pdp-image-card" data-index="${idx}">
           ${idx === 0 ? `<span class="pdp-image-badge">Sale ${currentProduct.discount_percent}%</span>` : ''}
-          <img src="${imgSrc}" alt="${currentProduct.title} - View ${idx + 1}" loading="${idx === 0 ? 'eager' : 'lazy'}" onerror="if(this.src!=='${currentProduct.image||''}')this.src='${currentProduct.image||''}';" />
+          <img src="${imgSrc}" alt="${currentProduct.title} - View ${idx + 1}" loading="${idx === 0 ? 'eager' : 'lazy'}" decoding="async" onerror="if(this.src!=='${currentProduct.image||''}')this.src='${currentProduct.image||''}';" />
         </div>
       `).join('');
 
