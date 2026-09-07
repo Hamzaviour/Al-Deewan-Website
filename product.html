@@ -488,26 +488,44 @@
   <script src="assets/js/store.js"></script>
   <script src="assets/js/main.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
+    function initProductPage() {
       const allProducts = Store.getProducts();
       if (!allProducts || allProducts.length === 0) return;
 
       const urlParams = new URLSearchParams(window.location.search);
       const handle = urlParams.get('handle');
+      const id = urlParams.get('id');
 
-      let currentProduct = allProducts.find(p => p.handle === handle) || allProducts[0];
+      let currentProduct = null;
+      if (handle) {
+        currentProduct = allProducts.find(p => p.handle === handle || String(p.id) === String(handle));
+      }
+      if (!currentProduct && id) {
+        currentProduct = allProducts.find(p => String(p.id) === String(id));
+      }
+      if (!currentProduct) {
+        currentProduct = allProducts[0];
+      }
 
       // Populate Elements
       document.title = `${currentProduct.title} - Al-Deewan Brand`;
-      document.getElementById('pdp-meta-title').textContent = `${currentProduct.title} - Al-Deewan Brand`;
-      document.getElementById('breadcrumb-title').textContent = currentProduct.title;
-      document.getElementById('pdp-title').textContent = currentProduct.title;
+      const metaTitle = document.getElementById('pdp-meta-title');
+      if (metaTitle) metaTitle.textContent = `${currentProduct.title} - Al-Deewan Brand`;
+
+      const breadcrumbTitle = document.getElementById('breadcrumb-title');
+      if (breadcrumbTitle) breadcrumbTitle.textContent = currentProduct.title;
+
+      const titleEl = document.getElementById('pdp-title');
+      if (titleEl) titleEl.textContent = currentProduct.title;
       
       const vendorEl = document.getElementById('pdp-vendor');
-      vendorEl.textContent = currentProduct.vendor || 'DESIGNER BRAND';
-      vendorEl.href = `collections.html?brand=${encodeURIComponent(currentProduct.vendor || '')}`;
+      if (vendorEl) {
+        vendorEl.textContent = currentProduct.vendor || 'DESIGNER BRAND';
+        vendorEl.href = `collections.html?brand=${encodeURIComponent(currentProduct.vendor || '')}`;
+      }
       
-      document.getElementById('pdp-sku').textContent = currentProduct.sku || 'BCP-8230';
+      const skuEl = document.getElementById('pdp-sku');
+      if (skuEl) skuEl.textContent = currentProduct.sku || 'BCP-8230';
 
       const categoryCrumb = document.getElementById('pdp-crumb-category');
       if (categoryCrumb && currentProduct.category) {
@@ -612,11 +630,18 @@
         });
       });
 
-      // Related Products
       const relatedGrid = document.getElementById('related-products-grid');
-      const relatedItems = Store.getProducts().filter(p => p.id !== currentProduct.id && (p.vendor === currentProduct.vendor || p.category_type === currentProduct.category_type)).slice(0, 4);
-      relatedGrid.innerHTML = relatedItems.map(p => MainUI.createProductCardHTML(p)).join('');
-    });
+      if (relatedGrid) {
+        const relatedItems = Store.getProducts().filter(p => p.id !== currentProduct.id && (p.vendor === currentProduct.vendor || p.category_type === currentProduct.category_type)).slice(0, 4);
+        relatedGrid.innerHTML = relatedItems.map(p => MainUI.createProductCardHTML(p)).join('');
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initProductPage);
+    } else {
+      initProductPage();
+    }
   </script>
 </body>
 </html>

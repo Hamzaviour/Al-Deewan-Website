@@ -54,8 +54,7 @@ html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   min-height: 100%;
-  height: -webkit-fill-available;
-  overflow-x: clip;
+  overflow-x: hidden;
   width: 100%;
 }
 
@@ -67,11 +66,9 @@ body {
   color: var(--color-text);
   background-color: var(--color-white);
   min-height: 100vh;
-  min-height: 100dvh;
-  min-height: -webkit-fill-available;
   display: flex;
   flex-direction: column;
-  overflow-x: clip;
+  overflow-x: hidden;
   width: 100%;
   position: relative;
   -webkit-font-smoothing: antialiased;
