@@ -1770,7 +1770,7 @@
             <form onsubmit="event.preventDefault(); handleSaveAnnouncement();">
               <div class="form-group">
                 <label>Announcement Ticker Text (Separate multiple messages with • or |)</label>
-                <input type="text" id="announcement-text-input" class="form-control" value="⚡ Biggest Lawn Opening in Pakistan • 100% Genuine Branded Cut Pieces • 50+ Top Designer Brands Launch ⚡" oninput="updateAnnouncementLivePreview(this.value)" placeholder="e.g. ⚡ Biggest Lawn Opening in Pakistan • 100% Genuine Branded Cut Pieces • 50+ Top Designer Brands Launch ⚡" />
+                <input type="text" id="announcement-text-input" class="form-control" value="⚡ 100% Genuine Branded Pieces • 50+ Top Designer Brands Launch • Biggest Lawn Opening in Pakistan ⚡" oninput="updateAnnouncementLivePreview(this.value)" placeholder="e.g. ⚡ 100% Genuine Branded Pieces • 50+ Top Designer Brands Launch • Biggest Lawn Opening in Pakistan ⚡" />
               </div>
 
               <!-- Quick Emoji Inserters -->
@@ -3715,7 +3715,7 @@
     function updateAnnouncementLivePreview(text) {
       const container = document.getElementById('admin-ticker-preview');
       if (!container) return;
-      const rawText = (text || '').trim() || '⚡ Biggest Lawn Opening in Pakistan • 100% Genuine Branded Cut Pieces • 50+ Top Designer Brands Launch ⚡';
+      const rawText = (text || '').trim() || '⚡ 100% Genuine Branded Pieces • 50+ Top Designer Brands Launch • Biggest Lawn Opening in Pakistan ⚡';
       let parts = rawText.split(/[•|]/).map(s => s.trim().replace(/^⚡|⚡$/g, '').trim()).filter(Boolean);
       if (!parts.length) parts = [rawText];
       container.innerHTML = parts.map(p => `

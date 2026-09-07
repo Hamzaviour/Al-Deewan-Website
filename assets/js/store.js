@@ -469,7 +469,7 @@ const Store = {
         image: 'assets/images/web_banner_promo.png',
         link: 'https://api.whatsapp.com/send?phone=923334275944&text=Hello%20Al-Deewan%20Brand%2C%20I%20would%20like%20to%20order%20from%20the%20Branded%20Collection.'
       },
-      announcementText: '⚡ Biggest Lawn Opening in Pakistan • 100% Genuine Branded Cut Pieces • 50+ Top Designer Brands Launch ⚡',
+      announcementText: '⚡ 100% Genuine Branded Pieces • 50+ Top Designer Brands Launch • Biggest Lawn Opening in Pakistan ⚡',
       brandTickerText: 'SHOP YOUR FAVORITE BRANDS',
       brandTickerSubtitle: 'Explore 100% genuine cut pieces from top designer fashion houses',
       deliverySettings: {
@@ -721,9 +721,15 @@ const Store = {
           navDropdowns.mainNavLinks = defaults.navDropdowns.mainNavLinks;
         }
 
+        let announcementText = parsed.announcementText;
+        if (!announcementText || announcementText.includes('Cut Pieces') || announcementText.includes('New Stock Exclusive')) {
+          announcementText = defaults.announcementText;
+        }
+
         return {
           ...defaults,
           ...parsed,
+          announcementText,
           featuredSections: mergedSections,
           navDropdowns
         };
