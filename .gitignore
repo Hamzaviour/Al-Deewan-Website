@@ -56,3 +56,13 @@ yarn-error.log*
 # Utility Scripts (not for deployment)
 *.py
 vercel.json
+
+# Live Client Data & User Uploads (Safeguarded from Git Deployment Overwrites)
+data/*.json
+!data/*.example.json
+data/uploads/
+data/backups/
+uploads/
+assets/uploads/
+assets/banners/*
+!assets/banners/.gitkeep

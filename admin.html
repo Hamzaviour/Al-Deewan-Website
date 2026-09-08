@@ -2772,6 +2772,7 @@
         const reader = new FileReader();
         reader.onload = function(e) {
           currentHeroSlides[idx][fieldName] = e.target.result;
+          currentHeroSlides[idx].mobileImage = e.target.result;
           const prev = document.getElementById(previewId);
           if (prev) prev.src = e.target.result;
           const urlIn = document.getElementById(urlInputId);
@@ -2785,6 +2786,7 @@
       currentHeroSlides.push({
         id: Date.now(),
         image: 'assets/images/banners/hero_slide_luxury.png',
+        mobileImage: 'assets/images/banners/hero_slide_luxury.png',
         title: 'New Designer Banner ' + (currentHeroSlides.length + 1),
         link: 'collections.html'
       });
@@ -2812,6 +2814,11 @@
 
     function handleSaveHeroSlides() {
       const speed = Number(document.getElementById('hero-autoplay-speed')?.value) || 5000;
+      currentHeroSlides.forEach(slide => {
+        if (slide.image) {
+          slide.mobileImage = slide.image;
+        }
+      });
       Store.saveSiteSettings({
         heroSlides: currentHeroSlides,
         heroAutoplaySpeed: speed,

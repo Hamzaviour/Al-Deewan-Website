@@ -10,12 +10,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit;
 }
 
-$dataFile = __DIR__ . '/../data/settings.json';
+$dataDir = __DIR__ . '/../data';
+$uploadDir = __DIR__ . '/../uploads';
+$bannersDir = __DIR__ . '/../assets/banners';
+
+// Dynamically create data & upload directories if missing (preserves live data on deployment)
+foreach ([$dataDir, $uploadDir, $bannersDir] as $dir) {
+    if (!is_dir($dir)) {
+        @mkdir($dir, 0755, true);
+    }
+}
+
+$dataFile = $dataDir . '/settings.json';
+$exampleFile = $dataDir . '/settings.json.example';
 
 // GET: Return current settings
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     if (file_exists($dataFile)) {
         echo file_get_contents($dataFile);
+    } elseif (file_exists($exampleFile)) {
+        // Auto-seed from template on first deployment
+        $initialData = file_get_contents($exampleFile);
+        @file_put_contents($dataFile, $initialData, LOCK_EX);
+        echo $initialData;
     } else {
         echo json_encode(["status" => "empty"]);
     }
@@ -68,10 +85,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (!is_dir(dirname($dataFile))) {
-        mkdir(dirname($dataFile), 0755, true);
+        @mkdir(dirname($dataFile), 0755, true);
     }
 
-    file_put_contents($dataFile, json_encode($merged, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+    file_put_contents($dataFile, json_encode($merged, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE), LOCK_EX);
     echo json_encode(["success" => true, "message" => "Settings successfully saved to server", "data" => $merged]);
     exit;
 }

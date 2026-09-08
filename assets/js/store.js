@@ -465,21 +465,18 @@ const Store = {
         {
           id: 1,
           image: 'assets/images/banners/hero_slide_luxury.png',
-          mobileImage: 'assets/images/banners/hero_slide_luxury_mob.png',
           title: 'Luxury Lawn Collection 2026',
           link: 'https://api.whatsapp.com/send?phone=923334275944&text=Hello%20Al-Deewan%20Brand%2C%20I%20would%20like%20to%20order%20from%20the%20Luxury%20Lawn%20Collection.'
         },
         {
           id: 2,
           image: 'assets/images/banners/hero_slide_winter.png',
-          mobileImage: 'assets/images/banners/hero_slide_winter_mob.png',
           title: 'Winter Khaddar & Karandi Shawl Collection',
           link: 'collections.html?season=Winter'
         },
         {
           id: 3,
           image: 'assets/images/banners/hero_slide_summer.png',
-          mobileImage: 'assets/images/banners/hero_slide_summer_mob.png',
           title: 'Summer Lawn 2026 Launch',
           link: 'collections.html?season=Summer'
         }
@@ -836,6 +833,11 @@ const Store = {
     if (heroImg && settings.heroSlides && settings.heroSlides[0]) {
       heroImg.src = settings.heroSlides[0].image;
     }
+    document.querySelectorAll('.hero-slider-section picture source, .hero-banner picture source, .hero-banner-section picture source').forEach(source => {
+      if (settings.heroSlides && settings.heroSlides[0]) {
+        source.srcset = settings.heroSlides[0].image;
+      }
+    });
     const heroLink = document.querySelector('.hero-banner a, .hero-section a, .hero-banner-section a, .hero-banner-link');
     if (heroLink && settings.heroSlides && settings.heroSlides[0]) {
       heroLink.href = settings.heroSlides[0].link || '#';
@@ -846,6 +848,7 @@ const Store = {
     if (promoImg) {
       const bannerSrc = (settings.welcomeBanner && settings.welcomeBanner.image) ? settings.welcomeBanner.image : 'assets/images/web_banner_promo.png';
       promoImg.src = bannerSrc;
+      promoImg.loading = 'eager';
       promoImg.onerror = function() {
         this.onerror = null;
         this.src = 'assets/images/web_banner_promo.png';

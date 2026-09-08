@@ -363,10 +363,7 @@ const MainUI = {
       track.innerHTML = slidesData.map((s, idx) => `
         <div class="hero-slide" data-index="${idx}">
           <a href="${s.link || '#'}" class="hero-slide-link" aria-label="${s.title || 'Slide ' + (idx + 1)}">
-            <picture>
-              ${s.mobileImage ? `<source media="(max-width: 768px)" srcset="${s.mobileImage}">` : ''}
-              <img src="${s.image}" alt="${s.title || 'Hero Banner Slide ' + (idx + 1)}" class="hero-slide-img" loading="${idx === 0 ? 'eager' : 'lazy'}" onerror="this.onerror=null; this.src='assets/images/al_deewan_hero_banner.png';" />
-            </picture>
+            <img src="${s.image || 'assets/images/banners/hero_slide_luxury.png'}" alt="${s.title || 'Hero Banner Slide ' + (idx + 1)}" class="hero-slide-img" loading="${idx === 0 ? 'eager' : 'lazy'}" onerror="this.onerror=null; this.src='assets/images/al_deewan_hero_banner.png';" />
           </a>
         </div>
       `).join('');
