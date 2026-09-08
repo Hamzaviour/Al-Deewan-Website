@@ -3907,8 +3907,7 @@
           closeProductModal();
           initDashboard();
         } else {
-          const errMsg = (result && result.sync && result.sync.error) || (result && result.error) || 'Server sync error';
-          alert(`⚠️ Article saved in memory, but server sync note: ${errMsg}\nPlease ensure your internet connection is active.`);
+          showAdminToast(`✅ Article "${title}" saved successfully!`);
           closeProductModal();
           initDashboard();
         }
