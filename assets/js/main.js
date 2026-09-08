@@ -355,18 +355,21 @@ const MainUI = {
       container.addEventListener('mouseleave', startAutoplay);
     }
 
-    // Expose dynamic render helper
+      // Expose dynamic render helper
     window.MainUI_renderHeroSlider = (slidesData, speedMs) => {
       if (!slidesData || !slidesData.length) return;
       if (speedMs) autoplaySpeed = speedMs;
       
-      track.innerHTML = slidesData.map((s, idx) => `
+      track.innerHTML = slidesData.map((s, idx) => {
+        const bannerImg = s.image || s.mobileImage || 'assets/images/banners/hero_slide_luxury.png';
+        return `
         <div class="hero-slide" data-index="${idx}">
           <a href="${s.link || '#'}" class="hero-slide-link" aria-label="${s.title || 'Slide ' + (idx + 1)}">
-            <img src="${s.image || 'assets/images/banners/hero_slide_luxury.png'}" alt="${s.title || 'Hero Banner Slide ' + (idx + 1)}" class="hero-slide-img" loading="${idx === 0 ? 'eager' : 'lazy'}" onerror="this.onerror=null; this.src='assets/images/al_deewan_hero_banner.png';" />
+            <img src="${bannerImg}" alt="${s.title || 'Hero Banner Slide ' + (idx + 1)}" class="hero-slide-img" loading="${idx === 0 ? 'eager' : 'lazy'}" onerror="this.onerror=null; this.src='assets/images/al_deewan_hero_banner.png';" />
           </a>
         </div>
-      `).join('');
+      `;
+      }).join('');
 
       if (dotsContainer) {
         dotsContainer.innerHTML = slidesData.map((_, idx) => `
@@ -378,8 +381,26 @@ const MainUI = {
       startAutoplay();
     };
 
-    updateSlider(0, false);
-    startAutoplay();
+    // Auto-render from active settings if available
+    if (window.Store && typeof window.Store.getSiteSettings === 'function') {
+      const activeSettings = window.Store.getSiteSettings();
+      if (activeSettings && activeSettings.heroSlides && activeSettings.heroSlides.length > 0) {
+        window.MainUI_renderHeroSlider(activeSettings.heroSlides, activeSettings.heroAutoplaySpeed);
+      } else {
+        updateSlider(0, false);
+        startAutoplay();
+      }
+    } else {
+      updateSlider(0, false);
+      startAutoplay();
+    }
+
+    // Real-time listener for settings updates
+    window.addEventListener('settings:updated', (e) => {
+      if (e.detail && Array.isArray(e.detail.heroSlides) && e.detail.heroSlides.length > 0) {
+        window.MainUI_renderHeroSlider(e.detail.heroSlides, e.detail.heroAutoplaySpeed);
+      }
+    });
   },
 
   // Drawers & Overlays

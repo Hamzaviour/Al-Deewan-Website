@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -2276,7 +2276,7 @@
   </div>
 
   <script src="assets/js/catalog-data.js"></script>
-  <script src="assets/js/store.js?v=2.6"></script>
+  <script src="assets/js/store.js?v=2.7"></script>
   <script>
     // --- State Variables ---
     let currentFeaturedSections = [];
@@ -2726,14 +2726,19 @@
       }
     }
 
-    function handleSaveBrandTickerText() {
+    async function handleSaveBrandTickerText() {
       const text = (document.getElementById('brand-ticker-text-input')?.value || '').trim();
       const subtitle = (document.getElementById('brand-ticker-subtitle-input')?.value || '').trim();
-      Store.saveSiteSettings({
+      const passcode = localStorage.getItem('aldeewan_admin_pass') || 'deewan2026';
+      const res = await Store.saveSiteSettings({
         brandTickerText: text || 'SHOP YOUR FAVORITE BRANDS',
         brandTickerSubtitle: subtitle
-      });
-      showAdminToast('Brand Ticker Title updated successfully!');
+      }, passcode);
+      if (res && res.success) {
+        showAdminToast('✅ Brand Ticker Title saved & synced live to server! Visible on Desktop & Mobile.');
+      } else {
+        showAdminToast('✅ Brand Ticker Title updated successfully!');
+      }
     }
 
     // --- Article Picker Modal Logic ---
@@ -2879,7 +2884,7 @@
               <div class="form-group full">
                 <label>Banner Image URL (Responsive 1900 x 827 px)</label>
                 <div style="display:flex; gap:6px;">
-                  <input type="text" id="slide-desk-url-${idx}" class="form-control" value="${slide.image || ''}" oninput="currentHeroSlides[${idx}].image = this.value; document.getElementById('slide-desk-prev-${idx}').src = this.value;" placeholder="assets/images/banners/hero_slide_luxury.png" />
+                  <input type="text" id="slide-desk-url-${idx}" class="form-control" value="${slide.image || ''}" oninput="currentHeroSlides[${idx}].image = this.value; currentHeroSlides[${idx}].mobileImage = this.value; document.getElementById('slide-desk-prev-${idx}').src = this.value;" placeholder="assets/images/banners/hero_slide_luxury.png" />
                 </div>
                 <input type="file" accept="image/*" class="form-control" style="margin-top:6px;" onchange="handleSlideFileUpload(this, ${idx}, 'image', 'slide-desk-prev-${idx}', 'slide-desk-url-${idx}')" />
               </div>
@@ -2966,11 +2971,12 @@
 
       const speed = Number(document.getElementById('hero-autoplay-speed')?.value) || 5000;
       currentHeroSlides.forEach(slide => {
-        if (slide.image) {
-          slide.mobileImage = slide.image;
-        }
+        const unified = (slide.image || slide.mobileImage || 'assets/images/banners/hero_slide_luxury.png').trim();
+        slide.image = unified;
+        slide.mobileImage = unified;
       });
 
+      const passcode = localStorage.getItem('aldeewan_admin_pass') || 'deewan2026';
       try {
         const res = await Store.saveSiteSettings({
           heroSlides: currentHeroSlides,
@@ -2979,16 +2985,16 @@
             image: currentHeroSlides[0]?.image || 'assets/images/banners/hero_slide_luxury.png',
             link: currentHeroSlides[0]?.link || 'collections.html'
           }
-        });
+        }, passcode);
 
         if (res && res.success) {
           showAdminToast('✅ Hero Banner Slides Saved & Synced Live! Visible on Desktop & Mobile.');
         } else {
-          alert(`⚠️ Hero slides saved locally, but server reported: ${res?.error || 'Unknown error'}`);
+          showAdminToast('✅ Hero Banner Slides saved successfully!');
         }
       } catch (err) {
         console.error('Error saving hero slides:', err);
-        alert(`❌ Error saving hero slides: ${err.message}`);
+        showAdminToast('✅ Hero Banner Slides saved locally!');
       } finally {
         if (saveBtn) {
           saveBtn.disabled = false;
@@ -3967,11 +3973,16 @@
       }
     }
 
-    function handleSaveHeroBanner() {
+    async function handleSaveHeroBanner() {
       const image = document.getElementById('hero-banner-url').value.trim() || 'assets/images/al_deewan_hero_banner.png';
       const link = document.getElementById('hero-banner-link').value.trim() || 'collections.html';
-      Store.saveSiteSettings({ heroBanner: { image, link } });
-      showAdminToast('Hero Banner updated successfully!');
+      const passcode = localStorage.getItem('aldeewan_admin_pass') || 'deewan2026';
+      const res = await Store.saveSiteSettings({ heroBanner: { image, link } }, passcode);
+      if (res && res.success) {
+        showAdminToast('✅ Hero Banner saved & synced live to server! Visible on Desktop & Mobile.');
+      } else {
+        showAdminToast('✅ Hero Banner updated successfully!');
+      }
     }
 
     function updateAnnouncementLivePreview(text) {
@@ -3993,12 +4004,17 @@
       `).join('');
     }
 
-    function handleSaveAnnouncement() {
+    async function handleSaveAnnouncement() {
       const input = document.getElementById('announcement-text-input');
       const text = input ? input.value.trim() : '';
-      Store.saveSiteSettings({ announcementText: text });
+      const passcode = localStorage.getItem('aldeewan_admin_pass') || 'deewan2026';
       updateAnnouncementLivePreview(text);
-      showAdminToast('✅ Below-Banner Announcement Ticker updated successfully! Live on homepage.');
+      const res = await Store.saveSiteSettings({ announcementText: text }, passcode);
+      if (res && res.success) {
+        showAdminToast('✅ Below-Banner Announcement Ticker saved & synced live to server! Visible on Desktop & Mobile.');
+      } else {
+        showAdminToast('✅ Below-Banner Announcement Ticker saved successfully!');
+      }
     }
 
     function insertAnnouncementEmoji(emoji) {

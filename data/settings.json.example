@@ -3,18 +3,21 @@
     {
       "id": 1,
       "image": "assets/images/banners/hero_slide_luxury.png",
+      "mobileImage": "assets/images/banners/hero_slide_luxury.png",
       "title": "Al-Deewan Luxury Lawn Collection 2026",
       "link": "https://api.whatsapp.com/send?phone=923334275944&text=Hello%20Al-Deewan%20Brand%2C%20I%20would%20like%20to%20order%20from%20the%20Luxury%20Lawn%20Collection."
     },
     {
       "id": 2,
       "image": "assets/images/banners/hero_slide_winter.png",
+      "mobileImage": "assets/images/banners/hero_slide_winter.png",
       "title": "Al-Deewan Winter Khaddar & Karandi Shawl Collection",
       "link": "collections.html?season=Winter"
     },
     {
       "id": 3,
       "image": "assets/images/banners/hero_slide_summer.png",
+      "mobileImage": "assets/images/banners/hero_slide_summer.png",
       "title": "Al-Deewan 100% Original Designer Cut Pieces",
       "link": "collections.html?category=Unstitched"
     }

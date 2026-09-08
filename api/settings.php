@@ -84,6 +84,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $merged[$key] = $val;
     }
 
+    // Ensure heroSlides in server settings always unifies desktop and mobile banner image
+    if (!empty($merged['heroSlides']) && is_array($merged['heroSlides'])) {
+        foreach ($merged['heroSlides'] as &$slide) {
+            if (is_array($slide)) {
+                $unifiedImg = !empty($slide['image']) ? $slide['image'] : (!empty($slide['mobileImage']) ? $slide['mobileImage'] : 'assets/images/banners/hero_slide_luxury.png');
+                $slide['image'] = $unifiedImg;
+                $slide['mobileImage'] = $unifiedImg;
+            }
+        }
+        unset($slide);
+    }
+
     if (!is_dir(dirname($dataFile))) {
         @mkdir(dirname($dataFile), 0755, true);
     }
@@ -95,6 +107,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo json_encode(["success" => false, "error" => "Failed to write settings to disk. Check folder write permissions for data/ directory."]);
         exit;
     }
+
+    // Also update settings.json.example as deployment fallback
+    @file_put_contents($exampleFile, $jsonStr, LOCK_EX);
 
     echo json_encode(["success" => true, "message" => "Settings successfully saved to server", "data" => $merged]);
     exit;

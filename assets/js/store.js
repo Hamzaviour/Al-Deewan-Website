@@ -772,12 +772,16 @@ const Store = {
         }
       };
       
-      // Ensure heroSlides mobileImage is synchronized with image
+      // Ensure heroSlides mobileImage is ALWAYS identical to image so desktop and mobile never diverge
       if (Array.isArray(updated.heroSlides)) {
-        updated.heroSlides = updated.heroSlides.map(slide => ({
-          ...slide,
-          mobileImage: slide.image || slide.mobileImage
-        }));
+        updated.heroSlides = updated.heroSlides.map(slide => {
+          const unifiedImage = slide.image || slide.mobileImage || 'assets/images/banners/hero_slide_luxury.png';
+          return {
+            ...slide,
+            image: unifiedImage,
+            mobileImage: unifiedImage
+          };
+        });
       }
 
       try {
@@ -820,14 +824,14 @@ const Store = {
     }
   },
 
-  // Apply Site Settings Dynamically to DOM
+  // Apply Site Settings Dynamically to DOM (Universal for Desktop & Mobile)
   applySiteSettings() {
     const settings = this.getSiteSettings();
 
     // 1. Below-Hero Animated Marquee Ticker (Controlled by Announcement Text in Admin)
     if (settings.announcementText) {
-      const tickerContainer = document.querySelector('.announcement-bar__ticker');
-      if (tickerContainer) {
+      const tickerContainers = document.querySelectorAll('.announcement-bar__ticker');
+      if (tickerContainers.length > 0) {
         const rawText = settings.announcementText.trim();
         let parts = rawText.split(/[•|]/).map(s => s.trim().replace(/^⚡|⚡$/g, '').trim()).filter(Boolean);
         if (!parts.length) parts = [rawText];
@@ -837,25 +841,40 @@ const Store = {
             <span>${p}</span>
           </div>
         `).join('');
-        tickerContainer.innerHTML = makeItems() + makeItems() + makeItems() + makeItems();
+        const tickerHtml = makeItems() + makeItems() + makeItems() + makeItems();
+        tickerContainers.forEach(container => {
+          container.innerHTML = tickerHtml;
+        });
       }
     }
 
-    // 2. Hero Banner Slider Carousel
+    // 2. Hero Banner Slider Carousel - desktop and mobile strictly unified
     if (settings.heroSlides && settings.heroSlides.length > 0) {
       if (typeof window.MainUI_renderHeroSlider === 'function') {
         window.MainUI_renderHeroSlider(settings.heroSlides, settings.heroAutoplaySpeed || 5000);
       }
+      // Direct DOM update fallback for all hero slide images
+      document.querySelectorAll('#hero-slider-track .hero-slide').forEach((slideEl, idx) => {
+        const s = settings.heroSlides[idx];
+        if (s) {
+          const img = slideEl.querySelector('img');
+          const slideImg = s.image || s.mobileImage || 'assets/images/banners/hero_slide_luxury.png';
+          if (img && img.getAttribute('src') !== slideImg) img.src = slideImg;
+          const link = slideEl.querySelector('a');
+          if (link && s.link) link.href = s.link;
+        }
+      });
     }
 
     // Fallback single hero banner
     const heroImg = document.querySelector('.hero-banner img, .hero-section img, .hero-banner-section img, .hero-banner-img');
     if (heroImg && settings.heroSlides && settings.heroSlides[0]) {
-      heroImg.src = settings.heroSlides[0].image;
+      const firstSlideImg = settings.heroSlides[0].image || settings.heroSlides[0].mobileImage || 'assets/images/banners/hero_slide_luxury.png';
+      heroImg.src = firstSlideImg;
     }
     document.querySelectorAll('.hero-slider-section picture source, .hero-banner picture source, .hero-banner-section picture source').forEach(source => {
       if (settings.heroSlides && settings.heroSlides[0]) {
-        source.srcset = settings.heroSlides[0].image;
+        source.srcset = settings.heroSlides[0].image || settings.heroSlides[0].mobileImage || 'assets/images/banners/hero_slide_luxury.png';
       }
     });
     const heroLink = document.querySelector('.hero-banner a, .hero-section a, .hero-banner-section a, .hero-banner-link');
@@ -1356,10 +1375,14 @@ const Store = {
         
         // Normalize heroSlides so desktop and mobile use identical responsive banner image
         if (Array.isArray(settingsData.heroSlides)) {
-          settingsData.heroSlides = settingsData.heroSlides.map(slide => ({
-            ...slide,
-            mobileImage: slide.image || slide.mobileImage
-          }));
+          settingsData.heroSlides = settingsData.heroSlides.map(slide => {
+            const unifiedImg = slide.image || slide.mobileImage || 'assets/images/banners/hero_slide_luxury.png';
+            return {
+              ...slide,
+              image: unifiedImg,
+              mobileImage: unifiedImg
+            };
+          });
         }
 
         const merged = {
@@ -1371,6 +1394,15 @@ const Store = {
         // Server settings heroSlides must override any stale local storage slides
         if (Array.isArray(settingsData.heroSlides) && settingsData.heroSlides.length > 0) {
           merged.heroSlides = settingsData.heroSlides;
+        }
+        if (settingsData.announcementText) {
+          merged.announcementText = settingsData.announcementText;
+        }
+        if (settingsData.brandTickerText) {
+          merged.brandTickerText = settingsData.brandTickerText;
+        }
+        if (settingsData.brandTickerSubtitle) {
+          merged.brandTickerSubtitle = settingsData.brandTickerSubtitle;
         }
 
         try {
