@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 
 $dataDir = __DIR__ . '/../data';
 $uploadDir = __DIR__ . '/../uploads';
-$bannersDir = __DIR__ . '/../assets/banners';
+$bannersDir = __DIR__ . '/../assets/images/banners';
 
 // Dynamically create data & upload directories if missing (preserves live data on deployment)
 foreach ([$dataDir, $uploadDir, $bannersDir] as $dir) {
@@ -24,10 +24,60 @@ foreach ([$dataDir, $uploadDir, $bannersDir] as $dir) {
 $dataFile = $dataDir . '/settings.json';
 $exampleFile = $dataDir . '/settings.json.example';
 
+// Helper to extract base64 images to file and unify mobile & desktop image URLs
+function processHeroSlidesClean(&$settingsObj, $uploadDir, $bannersDir) {
+    $modified = false;
+    if (!empty($settingsObj['heroSlides']) && is_array($settingsObj['heroSlides'])) {
+        foreach ($settingsObj['heroSlides'] as &$slide) {
+            if (is_array($slide)) {
+                $img = !empty($slide['image']) ? $slide['image'] : (!empty($slide['mobileImage']) ? $slide['mobileImage'] : 'assets/images/banners/hero_slide_3.jpg');
+                if (strpos($img, 'data:image/') === 0) {
+                    if (preg_match('/^data:image\/(\w+);base64,(.+)$/s', $img, $matches)) {
+                        $ext = strtolower($matches[1]);
+                        if ($ext === 'jpeg') $ext = 'jpg';
+                        $imgData = base64_decode($matches[2]);
+                        if ($imgData !== false) {
+                            $slideId = !empty($slide['id']) ? $slide['id'] : uniqid();
+                            $fileName = 'hero_slide_' . $slideId . '.' . $ext;
+                            $saved = false;
+                            if (is_dir($bannersDir) && @file_put_contents($bannersDir . '/' . $fileName, $imgData, LOCK_EX)) {
+                                $img = 'assets/images/banners/' . $fileName;
+                                $saved = true;
+                            } elseif (@file_put_contents($uploadDir . '/' . $fileName, $imgData, LOCK_EX)) {
+                                $img = 'uploads/' . $fileName;
+                                $saved = true;
+                            }
+                            if ($saved) {
+                                $modified = true;
+                            }
+                        }
+                    }
+                }
+                $slide['image'] = $img;
+                $slide['mobileImage'] = $img;
+            }
+        }
+        unset($slide);
+    }
+    return $modified;
+}
+
 // GET: Return current settings
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     if (file_exists($dataFile)) {
-        echo file_get_contents($dataFile);
+        $raw = file_get_contents($dataFile);
+        $curr = json_decode($raw, true);
+        if (is_array($curr)) {
+            $changed = processHeroSlidesClean($curr, $uploadDir, $bannersDir);
+            if ($changed) {
+                $cleanJson = json_encode($curr, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+                @file_put_contents($dataFile, $cleanJson, LOCK_EX);
+                @file_put_contents($exampleFile, $cleanJson, LOCK_EX);
+            }
+            echo json_encode($curr, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+            exit;
+        }
+        echo $raw;
     } elseif (file_exists($exampleFile)) {
         // Auto-seed from template on first deployment
         $initialData = file_get_contents($exampleFile);
@@ -84,17 +134,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $merged[$key] = $val;
     }
 
-    // Ensure heroSlides in server settings always unifies desktop and mobile banner image
-    if (!empty($merged['heroSlides']) && is_array($merged['heroSlides'])) {
-        foreach ($merged['heroSlides'] as &$slide) {
-            if (is_array($slide)) {
-                $unifiedImg = !empty($slide['image']) ? $slide['image'] : (!empty($slide['mobileImage']) ? $slide['mobileImage'] : 'assets/images/banners/hero_slide_luxury.png');
-                $slide['image'] = $unifiedImg;
-                $slide['mobileImage'] = $unifiedImg;
-            }
-        }
-        unset($slide);
-    }
+    // Automatically convert any base64 slide images to files and unify mobileImage & image
+    processHeroSlidesClean($merged, $uploadDir, $bannersDir);
 
     if (!is_dir(dirname($dataFile))) {
         @mkdir(dirname($dataFile), 0755, true);

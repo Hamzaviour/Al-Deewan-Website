@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -1774,7 +1774,7 @@
             <form onsubmit="event.preventDefault(); handleSaveAnnouncement();">
               <div class="form-group">
                 <label>Announcement Ticker Text (Separate multiple messages with • or |)</label>
-                <input type="text" id="announcement-text-input" class="form-control" value="⚡ 100% Genuine Branded Pieces • 50+ Top Designer Brands Launch • Biggest Lawn Opening in Pakistan ⚡" oninput="updateAnnouncementLivePreview(this.value)" placeholder="e.g. ⚡ 100% Genuine Branded Pieces • 50+ Top Designer Brands Launch • Biggest Lawn Opening in Pakistan ⚡" />
+                <input type="text" id="announcement-text-input" class="form-control" value="⚡ 100% Genuine Branded Pieces • Zellbury Latest Chicken Kari Now Avialable At Amazing Discount • Biggest Lawn Opening in Pakistan ⚡  Johra Embroided  Winter Latest Luxury Suits" oninput="updateAnnouncementLivePreview(this.value)" placeholder="e.g. ⚡ 100% Genuine Branded Pieces • Zellbury Latest Chicken Kari Now Avialable At Amazing Discount • Biggest Lawn Opening in Pakistan ⚡  Johra Embroided  Winter Latest Luxury Suits" />
               </div>
 
               <!-- Quick Emoji Inserters -->
@@ -2276,7 +2276,7 @@
   </div>
 
   <script src="assets/js/catalog-data.js"></script>
-  <script src="assets/js/store.js?v=2.7"></script>
+  <script src="assets/js/store.js?v=2.8"></script>
   <script>
     // --- State Variables ---
     let currentFeaturedSections = [];
@@ -2884,7 +2884,7 @@
               <div class="form-group full">
                 <label>Banner Image URL (Responsive 1900 x 827 px)</label>
                 <div style="display:flex; gap:6px;">
-                  <input type="text" id="slide-desk-url-${idx}" class="form-control" value="${slide.image || ''}" oninput="currentHeroSlides[${idx}].image = this.value; currentHeroSlides[${idx}].mobileImage = this.value; document.getElementById('slide-desk-prev-${idx}').src = this.value;" placeholder="assets/images/banners/hero_slide_luxury.png" />
+                  <input type="text" id="slide-desk-url-${idx}" class="form-control" value="${slide.image || ''}" oninput="currentHeroSlides[${idx}].image = this.value; currentHeroSlides[${idx}].mobileImage = this.value; document.getElementById('slide-desk-prev-${idx}').src = this.value;" placeholder="assets/images/banners/hero_slide_3.jpg" />
                 </div>
                 <input type="file" accept="image/*" class="form-control" style="margin-top:6px;" onchange="handleSlideFileUpload(this, ${idx}, 'image', 'slide-desk-prev-${idx}', 'slide-desk-url-${idx}')" />
               </div>
@@ -2892,7 +2892,7 @@
               <div class="form-group full" style="margin-top:4px;">
                 <span style="font-size:11px; font-weight:700; color:#666; display:block; margin-bottom:4px;">Banner Preview (Auto-Responsive on Desktop & Mobile)</span>
                 <div style="background:#f0f0f4; border:1px solid #e0e0e6; border-radius:6px; overflow:hidden; max-height:160px; display:flex; align-items:center; justify-content:center;">
-                  <img id="slide-desk-prev-${idx}" src="${slide.image || 'assets/images/banners/hero_slide_luxury.png'}" alt="Banner Preview" style="max-height:100%; max-width:100%; object-fit:contain;" />
+                  <img id="slide-desk-prev-${idx}" src="${slide.image || 'assets/images/banners/hero_slide_3.jpg'}" alt="Banner Preview" style="max-height:100%; max-width:100%; object-fit:contain;" />
                 </div>
               </div>
             </div>
@@ -2934,8 +2934,8 @@
     function addHeroSlideCard() {
       currentHeroSlides.push({
         id: Date.now(),
-        image: 'assets/images/banners/hero_slide_luxury.png',
-        mobileImage: 'assets/images/banners/hero_slide_luxury.png',
+        image: 'assets/images/banners/hero_slide_3.jpg',
+        mobileImage: 'assets/images/banners/hero_slide_3.jpg',
         title: 'New Designer Banner ' + (currentHeroSlides.length + 1),
         link: 'collections.html'
       });
@@ -2971,7 +2971,7 @@
 
       const speed = Number(document.getElementById('hero-autoplay-speed')?.value) || 5000;
       currentHeroSlides.forEach(slide => {
-        const unified = (slide.image || slide.mobileImage || 'assets/images/banners/hero_slide_luxury.png').trim();
+        const unified = (slide.image || slide.mobileImage || 'assets/images/banners/hero_slide_3.jpg').trim();
         slide.image = unified;
         slide.mobileImage = unified;
       });
@@ -2982,7 +2982,7 @@
           heroSlides: currentHeroSlides,
           heroAutoplaySpeed: speed,
           heroBanner: {
-            image: currentHeroSlides[0]?.image || 'assets/images/banners/hero_slide_luxury.png',
+            image: currentHeroSlides[0]?.image || 'assets/images/banners/hero_slide_3.jpg',
             link: currentHeroSlides[0]?.link || 'collections.html'
           }
         }, passcode);

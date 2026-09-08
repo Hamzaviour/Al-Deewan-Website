@@ -1,37 +1,37 @@
 {
   "heroSlides": [
     {
+      "id": 3,
+      "image": "assets/images/banners/hero_slide_3.jpg",
+      "mobileImage": "assets/images/banners/hero_slide_3.jpg",
+      "title": "Al-Deewan 100% Original Designer Cut Pieces",
+      "link": "collections.html?category=Unstitched"
+    },
+    {
       "id": 1,
-      "image": "assets/images/banners/hero_slide_luxury.png",
-      "mobileImage": "assets/images/banners/hero_slide_luxury.png",
+      "image": "assets/images/banners/hero_slide_1.jpg",
+      "mobileImage": "assets/images/banners/hero_slide_1.jpg",
       "title": "Al-Deewan Luxury Lawn Collection 2026",
       "link": "https://api.whatsapp.com/send?phone=923334275944&text=Hello%20Al-Deewan%20Brand%2C%20I%20would%20like%20to%20order%20from%20the%20Luxury%20Lawn%20Collection."
     },
     {
       "id": 2,
-      "image": "assets/images/banners/hero_slide_winter.png",
-      "mobileImage": "assets/images/banners/hero_slide_winter.png",
+      "image": "assets/images/banners/hero_slide_2.jpg",
+      "mobileImage": "assets/images/banners/hero_slide_2.jpg",
       "title": "Al-Deewan Winter Khaddar & Karandi Shawl Collection",
       "link": "collections.html?season=Winter"
-    },
-    {
-      "id": 3,
-      "image": "assets/images/banners/hero_slide_summer.png",
-      "mobileImage": "assets/images/banners/hero_slide_summer.png",
-      "title": "Al-Deewan 100% Original Designer Cut Pieces",
-      "link": "collections.html?category=Unstitched"
     }
   ],
   "heroAutoplaySpeed": 5000,
   "heroBanner": {
-    "image": "assets/images/banners/hero_slide_luxury.png",
+    "image": "assets/images/banners/hero_slide_3.jpg",
     "link": "https://api.whatsapp.com/send?phone=923334275944&text=Hello%20Al-Deewan%20Brand%2C%20I%20would%20like%20to%20order%20from%20the%20Branded%20Collection."
   },
   "welcomeBanner": {
     "image": "assets/images/web_banner_promo.png",
     "link": "https://api.whatsapp.com/send?phone=923334275944&text=Hello%20Al-Deewan%20Brand%2C%20I%20would%20like%20to%20order%20from%20the%20Branded%20Collection."
   },
-  "announcementText": "⚡ 100% Genuine Branded Pieces • 50+ Top Designer Brands Launch • Biggest Lawn Opening in Pakistan ⚡",
+  "announcementText": "⚡ 100% Genuine Branded Pieces • Zellbury Latest Chicken Kari Now Avialable At Amazing Discount • Biggest Lawn Opening in Pakistan ⚡  Johra Embroided  Winter Latest Luxury Suits",
   "brandTickerText": "SHOP YOUR FAVORITE BRANDS",
   "brandTickerSubtitle": "Explore 100% genuine cut pieces from top designer fashion houses",
   "deliverySettings": {

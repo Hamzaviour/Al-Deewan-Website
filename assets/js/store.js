@@ -460,39 +460,44 @@ const Store = {
     return { success: false, error: 'Article not found' };
   },
 
-  // Site Settings Manager
+  // Site Settings Manager & Cache
+  _siteSettings: null,
+
   getDefaultSettings() {
     return {
       heroSlides: [
         {
+          id: 3,
+          image: 'assets/images/banners/hero_slide_3.jpg',
+          mobileImage: 'assets/images/banners/hero_slide_3.jpg',
+          title: 'Al-Deewan 100% Original Designer Cut Pieces',
+          link: 'collections.html?category=Unstitched'
+        },
+        {
           id: 1,
-          image: 'assets/images/banners/hero_slide_luxury.png',
-          title: 'Luxury Lawn Collection 2026',
+          image: 'assets/images/banners/hero_slide_1.jpg',
+          mobileImage: 'assets/images/banners/hero_slide_1.jpg',
+          title: 'Al-Deewan Luxury Lawn Collection 2026',
           link: 'https://api.whatsapp.com/send?phone=923334275944&text=Hello%20Al-Deewan%20Brand%2C%20I%20would%20like%20to%20order%20from%20the%20Luxury%20Lawn%20Collection.'
         },
         {
           id: 2,
-          image: 'assets/images/banners/hero_slide_winter.png',
-          title: 'Winter Khaddar & Karandi Shawl Collection',
+          image: 'assets/images/banners/hero_slide_2.jpg',
+          mobileImage: 'assets/images/banners/hero_slide_2.jpg',
+          title: 'Al-Deewan Winter Khaddar & Karandi Shawl Collection',
           link: 'collections.html?season=Winter'
-        },
-        {
-          id: 3,
-          image: 'assets/images/banners/hero_slide_summer.png',
-          title: 'Summer Lawn 2026 Launch',
-          link: 'collections.html?season=Summer'
         }
       ],
       heroAutoplaySpeed: 5000,
       heroBanner: {
-        image: 'assets/images/banners/hero_slide_luxury.png',
+        image: 'assets/images/banners/hero_slide_3.jpg',
         link: 'https://api.whatsapp.com/send?phone=923334275944&text=Hello%20Al-Deewan%20Brand%2C%20I%20would%20like%20to%20order%20from%20the%20Branded%20Collection.'
       },
       welcomeBanner: {
         image: 'assets/images/web_banner_promo.png',
         link: 'https://api.whatsapp.com/send?phone=923334275944&text=Hello%20Al-Deewan%20Brand%2C%20I%20would%20like%20to%20order%20from%20the%20Branded%20Collection.'
       },
-      announcementText: '⚡ 100% Genuine Branded Pieces • 50+ Top Designer Brands Launch • Biggest Lawn Opening in Pakistan ⚡',
+      announcementText: '⚡ 100% Genuine Branded Pieces • Zellbury Latest Chicken Kari Now Avialable At Amazing Discount • Biggest Lawn Opening in Pakistan ⚡  Johra Embroided  Winter Latest Luxury Suits',
       brandTickerText: 'SHOP YOUR FAVORITE BRANDS',
       brandTickerSubtitle: 'Explore 100% genuine cut pieces from top designer fashion houses',
       deliverySettings: {
@@ -640,13 +645,14 @@ const Store = {
   },
 
   getSiteSettings() {
+    if (this._siteSettings) return this._siteSettings;
     const defaults = this.getDefaultSettings();
     try {
       const saved = localStorage.getItem('aldeewan_site_settings');
       if (saved) {
         const parsed = JSON.parse(saved);
         
-        // Ensure heroSlides exists with 3 default slides if not present
+        // Ensure heroSlides exists with default slides if not present
         if (!parsed.heroSlides || !Array.isArray(parsed.heroSlides) || parsed.heroSlides.length === 0) {
           parsed.heroSlides = defaults.heroSlides;
         }
@@ -746,17 +752,20 @@ const Store = {
 
         let announcementText = parsed.announcementText || defaults.announcementText;
 
-        return {
+        const mergedObj = {
           ...defaults,
           ...parsed,
           announcementText,
           featuredSections: mergedSections,
           navDropdowns
         };
+        this._siteSettings = mergedObj;
+        return mergedObj;
       }
     } catch (e) {
       console.warn('Error loading settings:', e);
     }
+    this._siteSettings = defaults;
     return defaults;
   },
 
@@ -775,7 +784,7 @@ const Store = {
       // Ensure heroSlides mobileImage is ALWAYS identical to image so desktop and mobile never diverge
       if (Array.isArray(updated.heroSlides)) {
         updated.heroSlides = updated.heroSlides.map(slide => {
-          const unifiedImage = slide.image || slide.mobileImage || 'assets/images/banners/hero_slide_luxury.png';
+          const unifiedImage = slide.image || slide.mobileImage || 'assets/images/banners/hero_slide_3.jpg';
           return {
             ...slide,
             image: unifiedImage,
@@ -784,13 +793,14 @@ const Store = {
         });
       }
 
+      this._siteSettings = updated;
       try {
         localStorage.setItem('aldeewan_site_settings', JSON.stringify(updated));
       } catch (err) {
         console.warn('LocalStorage quota note on saveSiteSettings:', err);
       }
 
-      this.applySiteSettings();
+      this.applySiteSettings(updated);
       window.dispatchEvent(new CustomEvent('settings:updated', { detail: updated }));
 
       // Sync to Server API so all devices and visitors receive changes live
@@ -825,8 +835,8 @@ const Store = {
   },
 
   // Apply Site Settings Dynamically to DOM (Universal for Desktop & Mobile)
-  applySiteSettings() {
-    const settings = this.getSiteSettings();
+  applySiteSettings(customSettings) {
+    const settings = customSettings || this.getSiteSettings();
 
     // 1. Below-Hero Animated Marquee Ticker (Controlled by Announcement Text in Admin)
     if (settings.announcementText) {
@@ -858,7 +868,7 @@ const Store = {
         const s = settings.heroSlides[idx];
         if (s) {
           const img = slideEl.querySelector('img');
-          const slideImg = s.image || s.mobileImage || 'assets/images/banners/hero_slide_luxury.png';
+          const slideImg = s.image || s.mobileImage || 'assets/images/banners/hero_slide_3.jpg';
           if (img && img.getAttribute('src') !== slideImg) img.src = slideImg;
           const link = slideEl.querySelector('a');
           if (link && s.link) link.href = s.link;
@@ -869,12 +879,12 @@ const Store = {
     // Fallback single hero banner
     const heroImg = document.querySelector('.hero-banner img, .hero-section img, .hero-banner-section img, .hero-banner-img');
     if (heroImg && settings.heroSlides && settings.heroSlides[0]) {
-      const firstSlideImg = settings.heroSlides[0].image || settings.heroSlides[0].mobileImage || 'assets/images/banners/hero_slide_luxury.png';
+      const firstSlideImg = settings.heroSlides[0].image || settings.heroSlides[0].mobileImage || 'assets/images/banners/hero_slide_3.jpg';
       heroImg.src = firstSlideImg;
     }
     document.querySelectorAll('.hero-slider-section picture source, .hero-banner picture source, .hero-banner-section picture source').forEach(source => {
       if (settings.heroSlides && settings.heroSlides[0]) {
-        source.srcset = settings.heroSlides[0].image || settings.heroSlides[0].mobileImage || 'assets/images/banners/hero_slide_luxury.png';
+        source.srcset = settings.heroSlides[0].image || settings.heroSlides[0].mobileImage || 'assets/images/banners/hero_slide_3.jpg';
       }
     });
     const heroLink = document.querySelector('.hero-banner a, .hero-section a, .hero-banner-section a, .hero-banner-link');
@@ -1376,7 +1386,7 @@ const Store = {
         // Normalize heroSlides so desktop and mobile use identical responsive banner image
         if (Array.isArray(settingsData.heroSlides)) {
           settingsData.heroSlides = settingsData.heroSlides.map(slide => {
-            const unifiedImg = slide.image || slide.mobileImage || 'assets/images/banners/hero_slide_luxury.png';
+            const unifiedImg = slide.image || slide.mobileImage || 'assets/images/banners/hero_slide_3.jpg';
             return {
               ...slide,
               image: unifiedImg,
@@ -1405,14 +1415,15 @@ const Store = {
           merged.brandTickerSubtitle = settingsData.brandTickerSubtitle;
         }
 
+        this._siteSettings = merged;
+        this.applySiteSettings(merged);
+        window.dispatchEvent(new CustomEvent('settings:updated', { detail: merged }));
+
         try {
           localStorage.setItem('aldeewan_site_settings', JSON.stringify(merged));
         } catch (e) {
           console.warn('LocalStorage quota note on settings sync:', e);
         }
-
-        this.applySiteSettings();
-        window.dispatchEvent(new CustomEvent('settings:updated', { detail: merged }));
       }
     } catch (e) {
       console.warn('Server settings sync note:', e);

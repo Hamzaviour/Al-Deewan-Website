@@ -361,11 +361,11 @@ const MainUI = {
       if (speedMs) autoplaySpeed = speedMs;
       
       track.innerHTML = slidesData.map((s, idx) => {
-        const bannerImg = s.image || s.mobileImage || 'assets/images/banners/hero_slide_luxury.png';
+        const bannerImg = s.image || s.mobileImage || 'assets/images/banners/hero_slide_3.jpg';
         return `
         <div class="hero-slide" data-index="${idx}">
           <a href="${s.link || '#'}" class="hero-slide-link" aria-label="${s.title || 'Slide ' + (idx + 1)}">
-            <img src="${bannerImg}" alt="${s.title || 'Hero Banner Slide ' + (idx + 1)}" class="hero-slide-img" loading="${idx === 0 ? 'eager' : 'lazy'}" onerror="this.onerror=null; this.src='assets/images/al_deewan_hero_banner.png';" />
+            <img src="${bannerImg}" alt="${s.title || 'Hero Banner Slide ' + (idx + 1)}" class="hero-slide-img" loading="${idx === 0 ? 'eager' : 'lazy'}" onerror="this.onerror=null; this.src='assets/images/banners/hero_slide_3.jpg';" />
           </a>
         </div>
       `;
