@@ -72,7 +72,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         @mkdir(dirname($dataFile), 0755, true);
     }
 
-    file_put_contents($dataFile, json_encode($brands, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE), LOCK_EX);
+    $jsonStr = json_encode($brands, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+    $written = @file_put_contents($dataFile, $jsonStr, LOCK_EX);
+    if ($written === false) {
+        http_response_code(500);
+        echo json_encode(["success" => false, "error" => "Failed to write brands to disk. Check folder write permissions for data/ directory."]);
+        exit;
+    }
+
     echo json_encode(["success" => true, "count" => count($brands), "message" => "Brands successfully saved to server"]);
     exit;
 }
+

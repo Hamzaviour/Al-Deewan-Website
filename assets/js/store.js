@@ -311,7 +311,7 @@ const Store = {
     try {
       localStorage.setItem('aldeewan_custom_catalog', JSON.stringify(products));
     } catch (e) {
-      console.error('Failed to save custom catalog to localStorage:', e);
+      console.warn('LocalStorage quota note on saveProducts:', e);
     }
     window.dispatchEvent(new CustomEvent('catalog:updated', { detail: { products } }));
 
@@ -325,22 +325,24 @@ const Store = {
       },
       body: JSON.stringify({ products, adminPasscode: passcode })
     })
-    .then(res => res.json())
-    .then(data => {
-      if (data && data.success) {
+    .then(async res => {
+      const data = await res.json().catch(() => null);
+      if (res.ok && data && data.success) {
         console.log('✅ Products synced to server for all devices:', data.count);
+        return data;
       } else {
-        console.warn('⚠️ Server response on product sync:', data);
+        const errMsg = (data && data.error) ? data.error : `Server HTTP ${res.status}`;
+        console.warn('⚠️ Server response on product sync:', errMsg);
+        return { success: false, error: errMsg };
       }
-      return data;
     })
     .catch(e => {
-      console.warn('Product server sync note:', e);
-      return null;
+      console.warn('Product server sync error:', e);
+      return { success: false, error: e.message || 'Network error' };
     });
   },
 
-  addProduct(productData) {
+  async addProduct(productData, adminPasscode) {
     const products = this.getProducts();
     const id = Date.now();
     const handle = (productData.title || 'product')
@@ -396,14 +398,14 @@ const Store = {
     };
 
     products.unshift(newProduct);
-    this.saveProducts(products);
-    return newProduct;
+    const syncRes = await this.saveProducts(products, adminPasscode);
+    return { product: newProduct, sync: syncRes, success: syncRes && syncRes.success };
   },
 
-  updateProduct(id, updatedData) {
+  async updateProduct(id, updatedData, adminPasscode) {
     const products = this.getProducts();
     const index = products.findIndex(p => p.id === Number(id));
-    if (index === -1) return false;
+    if (index === -1) return { success: false, error: 'Article not found' };
 
     const current = products[index];
     const regularPrice = updatedData.price !== undefined ? parseFloat(updatedData.price) : current.price;
@@ -443,19 +445,19 @@ const Store = {
     };
 
     products[index] = updated;
-    this.saveProducts(products);
-    return updated;
+    const syncRes = await this.saveProducts(products, adminPasscode);
+    return { product: updated, sync: syncRes, success: syncRes && syncRes.success };
   },
 
-  deleteProduct(id) {
+  async deleteProduct(id, adminPasscode) {
     let products = this.getProducts();
     const initialLength = products.length;
     products = products.filter(p => p.id !== Number(id));
     if (products.length !== initialLength) {
-      this.saveProducts(products);
-      return true;
+      const syncRes = await this.saveProducts(products, adminPasscode);
+      return { success: syncRes && syncRes.success, sync: syncRes };
     }
-    return false;
+    return { success: false, error: 'Article not found' };
   },
 
   // Site Settings Manager
@@ -769,13 +771,27 @@ const Store = {
           ...((newSettings && newSettings.navDropdowns) || {})
         }
       };
-      localStorage.setItem('aldeewan_site_settings', JSON.stringify(updated));
+      
+      // Ensure heroSlides mobileImage is synchronized with image
+      if (Array.isArray(updated.heroSlides)) {
+        updated.heroSlides = updated.heroSlides.map(slide => ({
+          ...slide,
+          mobileImage: slide.image || slide.mobileImage
+        }));
+      }
+
+      try {
+        localStorage.setItem('aldeewan_site_settings', JSON.stringify(updated));
+      } catch (err) {
+        console.warn('LocalStorage quota note on saveSiteSettings:', err);
+      }
+
       this.applySiteSettings();
       window.dispatchEvent(new CustomEvent('settings:updated', { detail: updated }));
 
       // Sync to Server API so all devices and visitors receive changes live
       const passcode = adminPasscode || localStorage.getItem('aldeewan_admin_pass') || 'deewan2026';
-      fetch('api/settings.php', {
+      return fetch('api/settings.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -783,20 +799,24 @@ const Store = {
         },
         body: JSON.stringify({ ...updated, adminPasscode: passcode })
       })
-      .then(res => res.json())
-      .then(data => {
-        if (data && data.success) {
+      .then(async res => {
+        const data = await res.json().catch(() => null);
+        if (res.ok && data && data.success) {
           console.log('✅ Site settings synced to server for all devices:', data.message);
+          return data;
         } else {
-          console.warn('⚠️ Server response on settings sync:', data);
+          const errMsg = (data && data.error) ? data.error : `Server HTTP ${res.status}`;
+          console.warn('⚠️ Server response on settings sync:', errMsg);
+          return { success: false, error: errMsg };
         }
       })
-      .catch(e => console.warn('Site settings server sync note:', e));
-
-      return true;
+      .catch(e => {
+        console.warn('Site settings server sync error:', e);
+        return { success: false, error: e.message || 'Network error' };
+      });
     } catch (e) {
       console.error('Failed to save settings:', e);
-      return false;
+      return Promise.resolve({ success: false, error: e.message });
     }
   },
 
@@ -1146,12 +1166,16 @@ const Store = {
 
   saveBrands(brands, adminPasscode) {
     try {
-      localStorage.setItem('aldeewan_brands', JSON.stringify(brands));
+      try {
+        localStorage.setItem('aldeewan_brands', JSON.stringify(brands));
+      } catch (e) {
+        console.warn('LocalStorage quota note on saveBrands:', e);
+      }
       window.dispatchEvent(new CustomEvent('brands:updated', { detail: { brands } }));
 
       // Sync to Server API so all devices and visitors receive updated brands live
       const passcode = adminPasscode || localStorage.getItem('aldeewan_admin_pass') || 'deewan2026';
-      fetch('api/brands.php', {
+      return fetch('api/brands.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -1159,15 +1183,24 @@ const Store = {
         },
         body: JSON.stringify({ brands, adminPasscode: passcode })
       })
-      .then(res => res.json())
-      .then(data => {
-        if (data && data.success) {
+      .then(async res => {
+        const data = await res.json().catch(() => null);
+        if (res.ok && data && data.success) {
           console.log('✅ Brands synced to server for all devices:', data.message);
+          return data;
+        } else {
+          const errMsg = (data && data.error) ? data.error : `Server HTTP ${res.status}`;
+          console.warn('⚠️ Server response on brands sync:', errMsg);
+          return { success: false, error: errMsg };
         }
       })
-      .catch(e => console.warn('Brands server sync note:', e));
+      .catch(e => {
+        console.warn('Brands server sync error:', e);
+        return { success: false, error: e.message || 'Network error' };
+      });
     } catch (e) {
       console.error('Error saving brands:', e);
+      return Promise.resolve({ success: false, error: e.message });
     }
   },
 
@@ -1321,13 +1354,31 @@ const Store = {
         const current = localStorage.getItem('aldeewan_site_settings');
         const currentObj = current ? JSON.parse(current) : null;
         
+        // Normalize heroSlides so desktop and mobile use identical responsive banner image
+        if (Array.isArray(settingsData.heroSlides)) {
+          settingsData.heroSlides = settingsData.heroSlides.map(slide => ({
+            ...slide,
+            mobileImage: slide.image || slide.mobileImage
+          }));
+        }
+
         const merged = {
           ...(this.getDefaultSettings()),
           ...(currentObj || {}),
           ...settingsData
         };
 
-        localStorage.setItem('aldeewan_site_settings', JSON.stringify(merged));
+        // Server settings heroSlides must override any stale local storage slides
+        if (Array.isArray(settingsData.heroSlides) && settingsData.heroSlides.length > 0) {
+          merged.heroSlides = settingsData.heroSlides;
+        }
+
+        try {
+          localStorage.setItem('aldeewan_site_settings', JSON.stringify(merged));
+        } catch (e) {
+          console.warn('LocalStorage quota note on settings sync:', e);
+        }
+
         this.applySiteSettings();
         window.dispatchEvent(new CustomEvent('settings:updated', { detail: merged }));
       }
@@ -1359,7 +1410,11 @@ const Store = {
 
       if (Array.isArray(productsData) && productsData.length > 0) {
         window.CATALOG_PRODUCTS = productsData;
-        localStorage.setItem('aldeewan_custom_catalog', JSON.stringify(productsData));
+        try {
+          localStorage.setItem('aldeewan_custom_catalog', JSON.stringify(productsData));
+        } catch (e) {
+          console.warn('LocalStorage quota note on catalog sync:', e);
+        }
         window.dispatchEvent(new CustomEvent('catalog:updated', { detail: { products: productsData } }));
       }
     } catch (e) {
@@ -1389,7 +1444,11 @@ const Store = {
       }
 
       if (Array.isArray(brandsData) && brandsData.length > 0) {
-        localStorage.setItem('aldeewan_brands', JSON.stringify(brandsData));
+        try {
+          localStorage.setItem('aldeewan_brands', JSON.stringify(brandsData));
+        } catch (e) {
+          console.warn('LocalStorage quota note on brands sync:', e);
+        }
         window.dispatchEvent(new CustomEvent('brands:updated', { detail: { brands: brandsData } }));
       }
     } catch (e) {
@@ -1422,6 +1481,15 @@ window.addEventListener('storage', (e) => {
 
 window.addEventListener('pageshow', () => {
   Store.applySiteSettings();
+  Store.syncFromServer();
+});
+
+// Automatic sync when mobile/desktop tab becomes visible
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') {
+    Store.syncFromServer();
+  }
 });
 
 window.Store = Store;
+

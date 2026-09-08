@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -555,7 +555,7 @@
       imagesStack.innerHTML = imageList.map((imgSrc, idx) => `
         <div class="pdp-image-card" data-index="${idx}">
           ${idx === 0 ? `<span class="pdp-image-badge">Sale ${currentProduct.discount_percent}%</span>` : ''}
-          <img src="${imgSrc}" alt="${currentProduct.title} - View ${idx + 1}" loading="${idx === 0 ? 'eager' : 'lazy'}" decoding="async" onerror="if(this.src!=='${currentProduct.image||''}')this.src='${currentProduct.image||''}';" />
+          <img src="${imgSrc}" alt="${currentProduct.title} - View ${idx + 1}" loading="${idx === 0 ? 'eager' : 'lazy'}" decoding="async" onerror="this.onerror=null; this.src='assets/images/catalog/nishat-3pc-42206126-r-main.jpg';" />
         </div>
       `).join('');
 

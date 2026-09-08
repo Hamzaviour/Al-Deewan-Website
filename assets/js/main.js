@@ -1003,7 +1003,7 @@ const MainUI = {
       <div class="product-card" data-id="${p.id}">
         <div class="product-card__media">
           <a href="product.html?handle=${p.handle}">
-            <img src="${imgUrl}" alt="${p.title}" loading="lazy" decoding="async" onerror="if(this.src!=='${p.image||''}')this.src='${p.image||''}'" />
+            <img src="${imgUrl}" alt="${p.title}" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='assets/images/catalog/nishat-3pc-42206126-r-main.jpg';" />
           </a>
           <span class="badge-sale">Sale ${p.discount_percent}%</span>
           ${!p.available ? '<span class="badge-soldout">Sold Out</span>' : ''}

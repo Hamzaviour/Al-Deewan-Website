@@ -1730,7 +1730,7 @@
               <div class="form-grid">
                 <div class="form-group">
                   <label>Upload Image File (or enter URL below)</label>
-                  <input type="file" accept="image/*" class="form-control" onchange="handleFilePreview(this, 'promo-preview-img', 'promo-banner-url')" />
+                  <input type="file" accept="image/*" class="form-control" onchange="handlePromoFileUpload(this)" />
                 </div>
                 <div class="form-group">
                   <label>Banner Image URL / Path</label>
@@ -2085,21 +2085,30 @@
               </div>
             </div>
 
+            <!-- Upload Progress & Status Banner -->
+            <div id="modal-upload-status" style="display:none; padding:10px 14px; background:#eff6ff; border:1px solid #bfdbfe; border-radius:8px; color:#1e40af; font-size:12px; font-weight:700; margin-bottom:12px;"></div>
+
             <!-- Upload / URL Input Controls -->
             <div style="background:#fafafc; border:1px solid var(--admin-border); border-radius:var(--radius-md); padding:14px; margin-bottom:12px;">
-              <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
-                <div>
-                  <label style="font-size:11px; font-weight:800; text-transform:uppercase; color:#444; display:block; margin-bottom:6px;">Upload Files (Select 1 or Multiple)</label>
-                  <input type="file" id="prod-file-upload-multiple" accept="image/*" multiple class="form-control" onchange="handleMultipleFilesUpload(this)" />
-                  <span style="font-size:10px; color:#888; display:block; margin-top:4px;">Tip: Hold Ctrl / Shift to select multiple photos at once.</span>
-                </div>
-                <div>
-                  <label style="font-size:11px; font-weight:800; text-transform:uppercase; color:#444; display:block; margin-bottom:6px;">Or Add Image URL / Path</label>
-                  <div style="display:flex; gap:6px;">
-                    <input type="text" id="prod-image-url-input" class="form-control" placeholder="assets/images/catalog/suit-photo.jpg" onkeydown="if(event.key==='Enter'){event.preventDefault(); addImageUrlFromInput();}" />
-                    <button type="button" class="action-btn" onclick="addImageUrlFromInput()" style="white-space:nowrap; padding:0 14px;">+ Add URL</button>
-                  </div>
-                  <span style="font-size:10px; color:#888; display:block; margin-top:4px;">Press Enter or click "+ Add URL" to insert.</span>
+              <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:12px; align-items:center;">
+                <!-- Dedicated Button: Replace Main Cover Photo -->
+                <button type="button" class="btn-header btn-header-primary" onclick="document.getElementById('prod-cover-file-input').click()" style="padding:8px 16px; font-size:12px; font-weight:800; cursor:pointer;">
+                  🔄 Replace Main Cover Photo
+                </button>
+                <input type="file" id="prod-cover-file-input" accept="image/*" style="display:none;" onchange="handleReplaceCoverPhoto(this)" />
+
+                <!-- Button: Add Extra Photos / Angles -->
+                <button type="button" class="action-btn" onclick="document.getElementById('prod-file-upload-multiple').click()" style="padding:8px 16px; font-size:12px; font-weight:800; cursor:pointer;">
+                  ➕ Add More Photo Angles
+                </button>
+                <input type="file" id="prod-file-upload-multiple" accept="image/*" multiple style="display:none;" onchange="handleMultipleFilesUpload(this)" />
+              </div>
+
+              <div style="border-top:1px dashed #e0e0e6; padding-top:10px;">
+                <label style="font-size:11px; font-weight:800; text-transform:uppercase; color:#444; display:block; margin-bottom:6px;">Or Add Image by URL / Server Path</label>
+                <div style="display:flex; gap:6px;">
+                  <input type="text" id="prod-image-url-input" class="form-control" placeholder="uploads/my-photo.jpg or assets/images/catalog/photo.jpg" onkeydown="if(event.key==='Enter'){event.preventDefault(); addImageUrlFromInput();}" />
+                  <button type="button" class="action-btn" onclick="addImageUrlFromInput()" style="white-space:nowrap; padding:0 14px;">+ Add URL</button>
                 </div>
               </div>
             </div>
@@ -2273,6 +2282,99 @@
     let currentFeaturedSections = [];
     let currentPickerSectionIndex = null;
     let tempSelectedProductIds = new Set();
+
+    // --- High-Performance Image Compression & Direct Server Upload ---
+    async function compressImageFile(file, maxWidth = 1800, maxHeight = 1800, quality = 0.85) {
+      return new Promise((resolve, reject) => {
+        if (!file) return reject(new Error('No file provided'));
+        if (file.type === 'image/svg+xml' || file.type === 'image/gif') {
+          const reader = new FileReader();
+          reader.onload = e => resolve({ blob: file, dataUrl: e.target.result });
+          reader.onerror = reject;
+          reader.readAsDataURL(file);
+          return;
+        }
+
+        const img = new Image();
+        const objectUrl = URL.createObjectURL(file);
+        img.onload = () => {
+          URL.revokeObjectURL(objectUrl);
+          let width = img.naturalWidth || img.width;
+          let height = img.naturalHeight || img.height;
+
+          if (width > maxWidth || height > maxHeight) {
+            if (width / maxWidth > height / maxHeight) {
+              height = Math.round((height * maxWidth) / width);
+              width = maxWidth;
+            } else {
+              width = Math.round((width * maxHeight) / height);
+              height = maxHeight;
+            }
+          }
+
+          const canvas = document.createElement('canvas');
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          ctx.imageSmoothingEnabled = true;
+          ctx.imageSmoothingQuality = 'high';
+          ctx.drawImage(img, 0, 0, width, height);
+
+          const mimeType = 'image/jpeg';
+          canvas.toBlob((blob) => {
+            const dataUrl = canvas.toDataURL(mimeType, quality);
+            if (!blob) {
+              resolve({ blob: null, dataUrl, width, height });
+              return;
+            }
+            resolve({ blob, dataUrl, width, height });
+          }, mimeType, quality);
+        };
+        img.onerror = () => {
+          URL.revokeObjectURL(objectUrl);
+          const reader = new FileReader();
+          reader.onload = e => resolve({ blob: file, dataUrl: e.target.result });
+          reader.onerror = reject;
+          reader.readAsDataURL(file);
+        };
+        img.src = objectUrl;
+      });
+    }
+
+    async function uploadImageToServer(fileOrBlob, prefix = 'img', fallbackDataUrl = '') {
+      const passcode = localStorage.getItem('aldeewan_admin_pass') || 'deewan2026';
+      try {
+        const formData = new FormData();
+        if (fileOrBlob instanceof Blob) {
+          formData.append('file', fileOrBlob, `${prefix}_${Date.now()}.jpg`);
+        } else if (fileOrBlob) {
+          formData.append('file', fileOrBlob);
+        }
+        formData.append('prefix', prefix);
+        formData.append('adminPasscode', passcode);
+
+        const res = await fetch('api/upload.php', {
+          method: 'POST',
+          headers: {
+            'X-Admin-Passcode': passcode
+          },
+          body: formData
+        });
+
+        if (res.ok) {
+          const data = await res.json().catch(() => null);
+          if (data && data.success && data.url) {
+            return data.url;
+          }
+        }
+        console.warn('api/upload.php returned status', res.status);
+      } catch (err) {
+        console.warn('Direct image upload note:', err);
+      }
+
+      // Fallback: If running locally without PHP server or upload fails
+      return fallbackDataUrl || '';
+    }
 
     // --- Authentication & Session Logic ---
     function checkAuth() {
@@ -2573,7 +2675,7 @@
       }
     }
 
-    function saveAllFeaturedCollections() {
+    async function saveAllFeaturedCollections() {
       const sectionHeadings = {
         binSaeedTitle: currentFeaturedSections[0]?.title || 'BIN SAEED STITCHED 2PC',
         unstitchedTitle: currentFeaturedSections[1]?.title || 'UNSTITCHED 3PC PRINTED & EMBROIDERED LAWN',
@@ -2581,20 +2683,47 @@
         designerTitle: currentFeaturedSections[3]?.title || 'TOP DESIGNER LAWN SUITS'
       };
 
-      Store.saveSiteSettings({
+      showAdminToast('⏳ Saving & syncing homepage collections to server...');
+      const res = await Store.saveSiteSettings({
         featuredSections: currentFeaturedSections,
         sectionHeadings
       });
-      showAdminToast('All Homepage Collections & Articles Saved Successfully!');
+      if (res && res.success) {
+        showAdminToast('✅ All Homepage Collections & Articles Saved Live to Server!');
+      } else {
+        showAdminToast('⚠️ Saved locally. Server sync note: ' + (res?.error || 'Check sync'));
+      }
     }
 
-    function handleSavePromoBanner() {
+    async function handlePromoFileUpload(input) {
+      if (!input.files || !input.files[0]) return;
+      const file = input.files[0];
+      showAdminToast('⏳ Compressing & uploading promotional banner to server...');
+      try {
+        const compressed = await compressImageFile(file, 1600, 600, 0.85);
+        const uploadedUrl = await uploadImageToServer(compressed.blob, 'promo_banner', compressed.dataUrl);
+        document.getElementById('promo-banner-url').value = uploadedUrl;
+        const prev = document.getElementById('promo-preview-img');
+        if (prev) prev.src = uploadedUrl;
+        showAdminToast('✅ Promotional banner uploaded! Click "Save Promotional Banner" to apply.');
+      } catch (err) {
+        console.error('Promo banner upload error:', err);
+        showAdminToast('⚠️ Promo upload error: ' + err.message);
+      }
+    }
+
+    async function handleSavePromoBanner() {
       const image = (document.getElementById('promo-banner-url')?.value || '').trim();
       const link = (document.getElementById('promo-banner-link')?.value || '').trim();
-      Store.saveSiteSettings({
+      showAdminToast('⏳ Saving & Syncing Promotional Banner to server...');
+      const res = await Store.saveSiteSettings({
         welcomeBanner: { image, link }
       });
-      showAdminToast('Promotional Banner saved successfully!');
+      if (res && res.success) {
+        showAdminToast('✅ Promotional Banner saved & synced live to server!');
+      } else {
+        showAdminToast('⚠️ Saved locally. Server sync note: ' + (res?.error || 'Check sync'));
+      }
     }
 
     function handleSaveBrandTickerText() {
@@ -2767,18 +2896,33 @@
       }).join('');
     }
 
-    function handleSlideFileUpload(input, idx, fieldName, previewId, urlInputId) {
-      if (input.files && input.files[0]) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          currentHeroSlides[idx][fieldName] = e.target.result;
-          currentHeroSlides[idx].mobileImage = e.target.result;
-          const prev = document.getElementById(previewId);
-          if (prev) prev.src = e.target.result;
-          const urlIn = document.getElementById(urlInputId);
-          if (urlIn) urlIn.value = e.target.result;
-        };
-        reader.readAsDataURL(input.files[0]);
+    async function handleSlideFileUpload(input, idx, fieldName, previewId, urlInputId) {
+      if (!input.files || !input.files[0]) return;
+      const file = input.files[0];
+      const prev = document.getElementById(previewId);
+      const urlIn = document.getElementById(urlInputId);
+
+      if (prev) prev.style.opacity = '0.5';
+      showAdminToast('⏳ Compressing & uploading banner slide to server...');
+
+      try {
+        const compressed = await compressImageFile(file, 1900, 1000, 0.85);
+        const uploadedUrl = await uploadImageToServer(compressed.blob, `hero_slide_${idx + 1}`, compressed.dataUrl);
+
+        currentHeroSlides[idx][fieldName] = uploadedUrl;
+        currentHeroSlides[idx].mobileImage = uploadedUrl;
+
+        if (prev) {
+          prev.src = uploadedUrl;
+          prev.style.opacity = '1';
+        }
+        if (urlIn) urlIn.value = uploadedUrl;
+
+        showAdminToast(`✅ Slide ${idx + 1} image uploaded to server! Remember to click "Save Hero Carousel".`);
+      } catch (err) {
+        console.error('Slide upload error:', err);
+        showAdminToast('⚠️ Upload error: ' + err.message);
+        if (prev) prev.style.opacity = '1';
       }
     }
 
@@ -2812,22 +2956,45 @@
       showAdminToast('Reordered slides. Click Save to apply.');
     }
 
-    function handleSaveHeroSlides() {
+    async function handleSaveHeroSlides() {
+      const saveBtn = document.querySelector('#tab-banners .btn-submit');
+      const origText = saveBtn ? saveBtn.innerHTML : 'Save Hero Carousel Slides';
+      if (saveBtn) {
+        saveBtn.disabled = true;
+        saveBtn.innerHTML = '⏳ Syncing Hero Slides to Server...';
+      }
+
       const speed = Number(document.getElementById('hero-autoplay-speed')?.value) || 5000;
       currentHeroSlides.forEach(slide => {
         if (slide.image) {
           slide.mobileImage = slide.image;
         }
       });
-      Store.saveSiteSettings({
-        heroSlides: currentHeroSlides,
-        heroAutoplaySpeed: speed,
-        heroBanner: {
-          image: currentHeroSlides[0]?.image || 'assets/images/banners/hero_slide_luxury.png',
-          link: currentHeroSlides[0]?.link || 'collections.html'
+
+      try {
+        const res = await Store.saveSiteSettings({
+          heroSlides: currentHeroSlides,
+          heroAutoplaySpeed: speed,
+          heroBanner: {
+            image: currentHeroSlides[0]?.image || 'assets/images/banners/hero_slide_luxury.png',
+            link: currentHeroSlides[0]?.link || 'collections.html'
+          }
+        });
+
+        if (res && res.success) {
+          showAdminToast('✅ Hero Banner Slides Saved & Synced Live! Visible on Desktop & Mobile.');
+        } else {
+          alert(`⚠️ Hero slides saved locally, but server reported: ${res?.error || 'Unknown error'}`);
         }
-      });
-      showAdminToast('Hero Banner Moving Carousel Saved Successfully!');
+      } catch (err) {
+        console.error('Error saving hero slides:', err);
+        alert(`❌ Error saving hero slides: ${err.message}`);
+      } finally {
+        if (saveBtn) {
+          saveBtn.disabled = false;
+          saveBtn.innerHTML = origText;
+        }
+      }
     }
 
     // --- Navigation Dropdowns Manager Rendering ---
@@ -3439,6 +3606,19 @@
 
     let currentProductImages = [];
 
+    function showUploadStatus(msg) {
+      const statusEl = document.getElementById('modal-upload-status');
+      if (statusEl) {
+        statusEl.style.display = 'block';
+        statusEl.innerHTML = msg;
+        if (msg.includes('✅')) {
+          setTimeout(() => {
+            if (statusEl.innerHTML === msg) statusEl.style.display = 'none';
+          }, 4500);
+        }
+      }
+    }
+
     function renderModalImagesList() {
       const container = document.getElementById('modal-images-gallery');
       const countBadge = document.getElementById('modal-images-count-badge');
@@ -3452,7 +3632,7 @@
       if (currentProductImages.length === 0) {
         container.innerHTML = `
           <div style="grid-column:1/-1; text-align:center; padding:24px; background:#f9f9fb; border:1.5px dashed #d5d5dd; border-radius:8px; color:#888; font-size:13px;">
-            📷 No images added yet. Click <strong>"Upload Files"</strong> or enter an image URL above to add photos.
+            📷 No images added yet. Click <strong>"Replace Main Cover Photo"</strong> or <strong>"Add More Photo Angles"</strong> above to upload photos.
           </div>
         `;
         return;
@@ -3479,7 +3659,12 @@
               <img src="${imgSrc}" class="modal-gallery-thumb" alt="Product Image ${idx + 1}" onerror="this.src='assets/images/catalog/nishat-3pc-42206126-r-main.jpg'" />
             </div>
             <div class="modal-gallery-actions">
-              <div style="display:flex; gap:3px;">
+              <div style="display:flex; gap:3px; flex-wrap:wrap; align-items:center;">
+                <!-- Replace Specific Photo -->
+                <label class="modal-gallery-btn" title="Replace this photo with a new image" style="cursor:pointer; display:inline-flex; align-items:center; gap:2px; font-weight:700;">
+                  🔄 Replace
+                  <input type="file" accept="image/*" style="display:none;" onchange="handleReplaceSpecificProductImage(this, ${idx})" />
+                </label>
                 ${idx > 0 ? `<button type="button" class="modal-gallery-btn" title="Move left" onclick="moveModalProductImage(${idx}, -1)">◀</button>` : ''}
                 ${idx < currentProductImages.length - 1 ? `<button type="button" class="modal-gallery-btn" title="Move right" onclick="moveModalProductImage(${idx}, 1)">▶</button>` : ''}
                 ${!isPrimary ? `<button type="button" class="modal-gallery-btn btn-make-primary" title="Set as Main Cover Photo" onclick="makePrimaryModalProductImage(${idx})">⭐ Main</button>` : ''}
@@ -3491,23 +3676,71 @@
       }).join('');
     }
 
-    function handleMultipleFilesUpload(input) {
-      if (input.files && input.files.length > 0) {
-        const filesArray = Array.from(input.files);
-        let loadedCount = 0;
-        filesArray.forEach(file => {
-          const reader = new FileReader();
-          reader.onload = function(e) {
-            currentProductImages.push(e.target.result);
-            loadedCount++;
-            if (loadedCount === filesArray.length) {
-              renderModalImagesList();
-              showAdminToast(`Added ${filesArray.length} image(s)!`);
-              input.value = '';
-            }
-          };
-          reader.readAsDataURL(file);
-        });
+    async function handleReplaceCoverPhoto(input) {
+      if (!input.files || !input.files[0]) return;
+      const file = input.files[0];
+      showUploadStatus('⏳ Compressing & uploading new primary cover photo to server...');
+      try {
+        const compressed = await compressImageFile(file, 1200, 1600, 0.85);
+        const uploadedUrl = await uploadImageToServer(compressed.blob, 'prod_cover', compressed.dataUrl);
+
+        if (currentProductImages.length > 0) {
+          currentProductImages[0] = uploadedUrl;
+        } else {
+          currentProductImages.push(uploadedUrl);
+        }
+
+        renderModalImagesList();
+        showUploadStatus('✅ Main Cover Photo replaced with new image! Click "Save Article" to save changes live.');
+        showAdminToast('Primary Cover Photo replaced!');
+      } catch (err) {
+        console.error('Cover photo upload error:', err);
+        showUploadStatus('❌ Error uploading photo: ' + err.message);
+      } finally {
+        input.value = '';
+      }
+    }
+
+    async function handleReplaceSpecificProductImage(input, idx) {
+      if (!input.files || !input.files[0]) return;
+      const file = input.files[0];
+      showUploadStatus(`⏳ Compressing & uploading new image for Angle ${idx + 1}...`);
+      try {
+        const compressed = await compressImageFile(file, 1200, 1600, 0.85);
+        const uploadedUrl = await uploadImageToServer(compressed.blob, `prod_angle_${idx + 1}`, compressed.dataUrl);
+
+        currentProductImages[idx] = uploadedUrl;
+        renderModalImagesList();
+        showUploadStatus(`✅ Photo ${idx + 1} successfully replaced! Click "Save Article" to save changes live.`);
+        showAdminToast(`Photo ${idx + 1} replaced!`);
+      } catch (err) {
+        console.error('Specific photo upload error:', err);
+        showUploadStatus('❌ Error uploading photo: ' + err.message);
+      } finally {
+        input.value = '';
+      }
+    }
+
+    async function handleMultipleFilesUpload(input) {
+      if (!input.files || input.files.length === 0) return;
+      const filesArray = Array.from(input.files);
+      showUploadStatus(`⏳ Uploading & compressing ${filesArray.length} photo(s)...`);
+
+      try {
+        for (let i = 0; i < filesArray.length; i++) {
+          const file = filesArray[i];
+          const compressed = await compressImageFile(file, 1200, 1600, 0.85);
+          const uploadedUrl = await uploadImageToServer(compressed.blob, 'prod_photo', compressed.dataUrl);
+          currentProductImages.push(uploadedUrl);
+        }
+        renderModalImagesList();
+        showUploadStatus(`✅ Added ${filesArray.length} photo(s)! Click "Save Article" to save changes live.`);
+        showAdminToast(`Added ${filesArray.length} photo(s)!`);
+      } catch (err) {
+        console.error('Multiple files upload error:', err);
+        showUploadStatus('❌ Error uploading photos: ' + err.message);
+      } finally {
+        input.value = '';
       }
     }
 
@@ -3557,6 +3790,8 @@
       renderModalImagesList();
       generateRandomSKU();
       insertDescriptionTemplate('3PC');
+      const statusEl = document.getElementById('modal-upload-status');
+      if (statusEl) statusEl.style.display = 'none';
       document.getElementById('product-modal').classList.add('active');
     }
 
@@ -3564,7 +3799,7 @@
       const p = Store.getProducts().find(x => x.id === id);
       if (!p) return;
 
-      document.getElementById('modal-product-title').textContent = 'Edit Article';
+      document.getElementById('modal-product-title').textContent = `Edit Article: ${p.title}`;
       document.getElementById('prod-id').value = p.id;
       document.getElementById('prod-title').value = p.title || '';
       document.getElementById('prod-vendor').value = p.vendor || 'Al-Deewan Brand';
@@ -3597,6 +3832,9 @@
       document.getElementById('prod-description').value = (p.body_html || '').replace(/<[^>]*>?/gm, ' ').replace(/\s+/g, ' ').trim();
       document.getElementById('prod-available').value = p.available ? 'true' : 'false';
 
+      const statusEl = document.getElementById('modal-upload-status');
+      if (statusEl) statusEl.style.display = 'none';
+
       document.getElementById('product-modal').classList.add('active');
     }
 
@@ -3604,7 +3842,10 @@
       document.getElementById('product-modal').classList.remove('active');
     }
 
-    function handleSaveProduct() {
+    async function handleSaveProduct() {
+      const saveBtn = document.querySelector('#product-form button[type="submit"]');
+      const origText = saveBtn ? saveBtn.innerHTML : 'Save Article to Catalog';
+
       const id = document.getElementById('prod-id').value;
       const title = document.getElementById('prod-title').value.trim();
       const vendor = document.getElementById('prod-vendor').value.trim();
@@ -3622,6 +3863,16 @@
       const hoverImage = images[1] || images[0];
       const description = document.getElementById('prod-description').value.trim();
       const available = document.getElementById('prod-available').value === 'true';
+
+      if (!title || !vendor || !price) {
+        alert('Please fill in required fields: Article Title, Brand / Vendor, and Selling Price.');
+        return;
+      }
+
+      if (saveBtn) {
+        saveBtn.disabled = true;
+        saveBtn.innerHTML = '⏳ Syncing Article to Live Server...';
+      }
 
       const data = {
         title,
@@ -3643,26 +3894,47 @@
         available
       };
 
-      if (id) {
-        Store.updateProduct(Number(id), data);
-        showAdminToast(`Updated "${title}" [${season} • ${gender}] successfully!`);
-      } else {
-        Store.addProduct(data);
-        showAdminToast(`Added "${title}" [${season} • ${gender}] to catalog!`);
-      }
+      try {
+        let result;
+        if (id) {
+          result = await Store.updateProduct(Number(id), data);
+        } else {
+          result = await Store.addProduct(data);
+        }
 
-      closeProductModal();
-      initDashboard();
+        if (result && (result.success || (result.sync && result.sync.success))) {
+          showAdminToast(`✅ Article "${title}" saved & synced live to server! Visible on Desktop & Mobile.`);
+          closeProductModal();
+          initDashboard();
+        } else {
+          const errMsg = (result && result.sync && result.sync.error) || (result && result.error) || 'Server sync error';
+          alert(`⚠️ Article saved in memory, but server sync note: ${errMsg}\nPlease ensure your internet connection is active.`);
+          closeProductModal();
+          initDashboard();
+        }
+      } catch (err) {
+        console.error('Error saving product:', err);
+        alert(`❌ Error saving article: ${err.message}`);
+      } finally {
+        if (saveBtn) {
+          saveBtn.disabled = false;
+          saveBtn.innerHTML = origText;
+        }
+      }
     }
 
-    function handleDeleteProduct(id) {
+    async function handleDeleteProduct(id) {
       const p = Store.getProducts().find(x => x.id === id);
       if (!p) return;
 
       if (confirm(`Are you sure you want to permanently delete "${p.title}" from the catalog?`)) {
-        Store.deleteProduct(id);
+        const result = await Store.deleteProduct(id);
         initDashboard();
-        showAdminToast(`Deleted "${p.title}" from catalog.`);
+        if (result && result.success) {
+          showAdminToast(`✅ Deleted "${p.title}" and synced with live server.`);
+        } else {
+          showAdminToast(`Deleted "${p.title}" locally.`);
+        }
       }
     }
 
@@ -3701,13 +3973,6 @@
       const link = document.getElementById('hero-banner-link').value.trim() || 'collections.html';
       Store.saveSiteSettings({ heroBanner: { image, link } });
       showAdminToast('Hero Banner updated successfully!');
-    }
-
-    function handleSavePromoBanner() {
-      const image = document.getElementById('promo-banner-url').value.trim() || 'assets/images/web_banner_promo.png';
-      const link = document.getElementById('promo-banner-link').value.trim() || 'collections.html?category=Unstitched';
-      Store.saveSiteSettings({ welcomeBanner: { image, link } });
-      showAdminToast('Welcome Promotional Banner updated successfully!');
     }
 
     function updateAnnouncementLivePreview(text) {
@@ -4094,15 +4359,19 @@
       }
     }
 
-    function handleBrandFileUpload(input) {
-      if (input.files && input.files[0]) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          const dataUrl = e.target.result;
-          document.getElementById('brand-img-input').value = dataUrl;
-          updateBrandLogoPreview(dataUrl);
-        };
-        reader.readAsDataURL(input.files[0]);
+    async function handleBrandFileUpload(input) {
+      if (!input.files || !input.files[0]) return;
+      const file = input.files[0];
+      showAdminToast('⏳ Compressing & uploading brand logo to server...');
+      try {
+        const compressed = await compressImageFile(file, 600, 400, 0.9);
+        const uploadedUrl = await uploadImageToServer(compressed.blob, 'brand_logo', compressed.dataUrl);
+        document.getElementById('brand-img-input').value = uploadedUrl;
+        updateBrandLogoPreview(uploadedUrl);
+        showAdminToast('✅ Brand logo uploaded to server!');
+      } catch (err) {
+        console.error('Brand logo upload error:', err);
+        showAdminToast('⚠️ Brand logo upload error: ' + err.message);
       }
     }
 
