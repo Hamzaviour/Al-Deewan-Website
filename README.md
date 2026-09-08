@@ -1,4 +1,4 @@
-# 🛍️ Al-Deewan Brand - E-Commerce Website
+﻿# 🛍️ Al-Deewan Brand - E-Commerce Website
 
 An exact, modern, high-performance Pakistani fashion & lawn e-commerce website built for **Al-Deewan Brand**, featuring full product browsing, faceted filters, real-time slide-out cart and wishlist drawers, predictive search, order tracking, instant WhatsApp order generator, and secure direct bank transfer & online checkout.
 
@@ -120,4 +120,4 @@ The project is fully pre-configured for Vercel with [`vercel.json`](file:///e:/W
 ## 📄 License & Credits
 
 © 2026 **Al-Deewan Brand**. All Rights Reserved.  
-*Powered By Whizzly Lab*
+*Powered By [Whizzly Lab](https://whizzlylab.com)*
