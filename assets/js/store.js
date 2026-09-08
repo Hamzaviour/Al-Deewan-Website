@@ -1534,5 +1534,12 @@ document.addEventListener('visibilitychange', () => {
   }
 });
 
+// Periodic live polling every 30s so visitor screens update automatically in real-time
+setInterval(() => {
+  if (document.visibilityState === 'visible') {
+    Store.syncFromServer();
+  }
+}, 30000);
+
 window.Store = Store;
 

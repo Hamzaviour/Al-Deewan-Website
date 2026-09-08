@@ -3604,7 +3604,8 @@
       const p = products.find(x => x.id === id);
       if (p) {
         p.available = !p.available;
-        Store.saveProducts(products);
+        const passcode = localStorage.getItem('aldeewan_admin_pass') || 'deewan2026';
+        Store.saveProducts(products, passcode);
         renderAdminProductsTable();
         showAdminToast(`Stock updated: ${p.title} is now ${p.available ? 'In Stock' : 'Sold Out'}`);
       }
@@ -3902,10 +3903,11 @@
 
       try {
         let result;
+        const passcode = localStorage.getItem('aldeewan_admin_pass') || 'deewan2026';
         if (id) {
-          result = await Store.updateProduct(Number(id), data);
+          result = await Store.updateProduct(Number(id), data, passcode);
         } else {
-          result = await Store.addProduct(data);
+          result = await Store.addProduct(data, passcode);
         }
 
         if (result && (result.success || (result.sync && result.sync.success))) {
@@ -3933,7 +3935,8 @@
       if (!p) return;
 
       if (confirm(`Are you sure you want to permanently delete "${p.title}" from the catalog?`)) {
-        const result = await Store.deleteProduct(id);
+        const passcode = localStorage.getItem('aldeewan_admin_pass') || 'deewan2026';
+        const result = await Store.deleteProduct(id, passcode);
         initDashboard();
         if (result && result.success) {
           showAdminToast(`✅ Deleted "${p.title}" and synced with live server.`);

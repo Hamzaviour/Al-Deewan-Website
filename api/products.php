@@ -81,6 +81,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
+    // Also update products.json.example as deployment fallback
+    @file_put_contents($exampleFile, $jsonStr, LOCK_EX);
+
     echo json_encode(["success" => true, "count" => count($products), "message" => "Products successfully saved to server"]);
     exit;
 }
