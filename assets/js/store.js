@@ -342,13 +342,21 @@ const Store = {
     });
   },
 
+  slugify(text) {
+    if (!text) return 'product';
+    return text
+      .toString()
+      .toLowerCase()
+      .trim()
+      .replace(/&/g, '-and-')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '') || 'product';
+  },
+
   async addProduct(productData, adminPasscode) {
     const products = this.getProducts();
     const id = Date.now();
-    const handle = (productData.title || 'product')
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/^-+|-+$/g, '');
+    const handle = productData.handle ? this.slugify(productData.handle) : this.slugify(productData.title || 'product');
 
     const regularPrice = parseFloat(productData.price) || 0;
     const comparePrice = parseFloat(productData.compare_at_price) || regularPrice;
@@ -367,7 +375,8 @@ const Store = {
     const newProduct = {
       id,
       title: productData.title || 'Untitled Article',
-      handle: productData.handle || handle,
+      handle: handle,
+      previous_handles: [],
       vendor: productData.vendor || 'Al-Deewan Brand',
       category: productData.category || 'Unstitched',
       category_type: productData.category_type || '3PC',
@@ -394,6 +403,7 @@ const Store = {
         fabricVal
       ].filter(Boolean),
       body_html: productData.body_html || `<p>${productData.title}</p>`,
+      description: productData.description || '',
       created_at: new Date().toISOString()
     };
 
@@ -427,10 +437,29 @@ const Store = {
     const genderVal = updatedData.gender !== undefined ? updatedData.gender : (current.gender || (current.category === 'Menswear' ? 'Men' : (current.category === 'Kids' ? 'Kids' : 'Women')));
     const fabricVal = updatedData.fabric !== undefined ? updatedData.fabric : (current.fabric || '');
 
+    // Automatically update handle if title is modified or handle is passed
+    let newHandle = updatedData.handle ? this.slugify(updatedData.handle) : '';
+    if (!newHandle && updatedData.title) {
+      newHandle = this.slugify(updatedData.title);
+    } else if (!newHandle) {
+      newHandle = current.handle || this.slugify(current.title || 'product');
+    }
+
+    // Keep track of previously used handles for backward-compatibility
+    const prevHandles = Array.isArray(current.previous_handles) ? [...current.previous_handles] : [];
+    if (current.handle && current.handle !== newHandle && !prevHandles.includes(current.handle)) {
+      prevHandles.push(current.handle);
+    }
+
     const updated = {
       ...current,
       ...updatedData,
       id: current.id, // preserve ID
+      title: updatedData.title !== undefined ? updatedData.title : current.title,
+      handle: newHandle,
+      previous_handles: prevHandles,
+      body_html: updatedData.body_html !== undefined ? updatedData.body_html : (current.body_html || `<p>${current.title}</p>`),
+      description: updatedData.description !== undefined ? updatedData.description : (current.description || ''),
       season: seasonVal,
       gender: genderVal,
       fabric: fabricVal,

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -501,13 +501,25 @@
 
       let currentProduct = null;
       if (handle) {
-        currentProduct = allProducts.find(p => p.handle === handle || String(p.id) === String(handle));
+        currentProduct = allProducts.find(p => 
+          p.handle === handle || 
+          (p.previous_handles && Array.isArray(p.previous_handles) && p.previous_handles.includes(handle)) ||
+          String(p.id) === String(handle)
+        );
       }
       if (!currentProduct && id) {
         currentProduct = allProducts.find(p => String(p.id) === String(id));
       }
       if (!currentProduct) {
         currentProduct = allProducts[0];
+      }
+
+      // If user arrived via previous handle or ID, update URL bar to current handle
+      if (currentProduct && currentProduct.handle && handle !== currentProduct.handle && window.history && window.history.replaceState) {
+        const newUrl = new URL(window.location);
+        newUrl.searchParams.set('handle', currentProduct.handle);
+        newUrl.searchParams.delete('id');
+        window.history.replaceState({}, '', newUrl.toString());
       }
 
       // Populate Elements
@@ -534,6 +546,59 @@
       if (categoryCrumb && currentProduct.category) {
         categoryCrumb.textContent = currentProduct.category;
         categoryCrumb.href = `collections.html?category=${encodeURIComponent(currentProduct.category)}`;
+      }
+
+      // Populate Description & Fabric Details Accordion
+      const descBody = document.getElementById('pdp-description-body');
+      if (descBody) {
+        const rawDesc = (currentProduct.body_html || currentProduct.description || '').trim();
+        if (rawDesc) {
+          if (/<[a-z][\s\S]*>/i.test(rawDesc)) {
+            descBody.innerHTML = rawDesc;
+          } else {
+            const formatted = rawDesc
+              .split(/\n\s*\n|\n/)
+              .map(p => p.trim())
+              .filter(Boolean)
+              .map(p => `<p style="margin-bottom:8px;">${p}</p>`)
+              .join('');
+            descBody.innerHTML = formatted || `<p>${rawDesc}</p>`;
+          }
+        } else {
+          // Dynamic fallback if no custom description provided
+          descBody.innerHTML = `
+            <p><strong>100% ORIGINAL AUTHENTIC ${currentProduct.vendor ? currentProduct.vendor.toUpperCase() : 'BRAND'} ${currentProduct.category_type ? currentProduct.category_type.toUpperCase() : 'ARTICLE'}</strong></p>
+            <ul style="list-style:disc; margin-left:20px; margin-top:8px; line-height:1.8;">
+              ${currentProduct.fabric ? `<li><strong>FABRIC:</strong> ${currentProduct.fabric}</li>` : ''}
+              ${currentProduct.season ? `<li><strong>SEASON:</strong> ${currentProduct.season} Collection</li>` : ''}
+              ${currentProduct.category_type ? `<li><strong>SUIT TYPE:</strong> ${currentProduct.category_type}</li>` : ''}
+              <li><strong>SKU:</strong> ${currentProduct.sku || ''}</li>
+              <li><strong>AUTHENTICITY:</strong> 100% Original authentic branded mill cut piece guaranteed.</li>
+            </ul>
+          `;
+        }
+      }
+
+      // Update Meta Description and Social Open Graph Tags
+      const cleanSnippet = (currentProduct.body_html || currentProduct.description || '')
+        .replace(/<[^>]+>/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+      const metaSnippet = cleanSnippet || `${currentProduct.title} by ${currentProduct.vendor || 'Al-Deewan'}. Order now on WhatsApp.`;
+      
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.setAttribute('content', metaSnippet.slice(0, 160));
+      const ogDesc = document.querySelector('meta[property="og:description"]');
+      if (ogDesc) ogDesc.setAttribute('content', metaSnippet.slice(0, 160));
+      const twDesc = document.querySelector('meta[name="twitter:description"]');
+      if (twDesc) twDesc.setAttribute('content', metaSnippet.slice(0, 160));
+      const ogTitle = document.querySelector('meta[property="og:title"]');
+      if (ogTitle) ogTitle.setAttribute('content', `${currentProduct.title} | Al-Deewan`);
+      const twTitle = document.querySelector('meta[name="twitter:title"]');
+      if (twTitle) twTitle.setAttribute('content', `${currentProduct.title} | Al-Deewan`);
+      const canonical = document.querySelector('link[rel="canonical"]');
+      if (canonical && currentProduct.handle) {
+        canonical.setAttribute('href', `${window.location.origin}/product.html?handle=${currentProduct.handle}`);
       }
 
       // Render Vertical Scroll Images Stack

@@ -84,6 +84,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Also update products.json.example as deployment fallback
     @file_put_contents($exampleFile, $jsonStr, LOCK_EX);
 
+    // Also update catalog-data.js so static script immediately reflects changes
+    $catalogJsFile = __DIR__ . '/../assets/js/catalog-data.js';
+    @file_put_contents($catalogJsFile, "window.CATALOG_PRODUCTS = " . $jsonStr . ";\n", LOCK_EX);
+
     echo json_encode(["success" => true, "count" => count($products), "message" => "Products successfully saved to server"]);
     exit;
 }
