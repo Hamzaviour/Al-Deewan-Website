@@ -2154,7 +2154,7 @@
 
         <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:20px;">
           <button type="button" class="btn-header" onclick="closeProductModal()">Cancel</button>
-          <button type="submit" class="btn-submit">Save Article to Catalog</button>
+          <button type="button" class="btn-submit" onclick="handleSaveProduct()">Save Article to Catalog</button>
         </div>
       </form>
     </div>
@@ -2290,8 +2290,31 @@
   </div>
 
   <script src="assets/js/catalog-data.js"></script>
-  <script src="assets/js/store.js?v=2.8"></script>
+  <script src="assets/js/store.js?v=2.9"></script>
   <script>
+    // --- Safe Universal Slugify Helper (Independent of cached store.js) ---
+    function slugify(text) {
+      if (!text) return '';
+      return text
+        .toString()
+        .toLowerCase()
+        .trim()
+        .replace(/&/g, '-and-')
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+    }
+
+    if (typeof window !== 'undefined') {
+      window.slugify = slugify;
+      if (typeof window.Store !== 'undefined') {
+        if (typeof window.Store.slugify !== 'function') {
+          window.Store.slugify = slugify;
+        }
+      } else {
+        window.Store = { slugify: slugify };
+      }
+    }
+
     // --- State Variables ---
     let currentFeaturedSections = [];
     let currentPickerSectionIndex = null;
@@ -3584,7 +3607,7 @@
           <td>
             <div style="font-weight:700; max-width:280px; font-size:13px;">${p.title}</div>
             <div style="font-size:11px; color:#888; font-weight:600; text-transform:uppercase; margin-top:2px;">${p.vendor || 'Al-Deewan Brand'}</div>
-            <div style="font-size:10.5px; color:#666; margin-top:3px; font-family:monospace; word-break:break-all;">🔗 ${p.handle || Store.slugify(p.title)}</div>
+            <div style="font-size:10.5px; color:#666; margin-top:3px; font-family:monospace; word-break:break-all;">🔗 ${p.handle || slugify(p.title) || ('product-' + p.id)}</div>
             ${p.fabric ? `<div style="font-size:11px; color:#5e3585; margin-top:2px; font-weight:600;">🧵 ${p.fabric}</div>` : ''}
           </td>
           <td>
@@ -3607,7 +3630,7 @@
           <td>
             <div style="display:flex; gap:4px; flex-wrap:wrap;">
               <button class="action-btn" onclick="openEditProductModal(${p.id})">✏️ Edit</button>
-              <a href="product.html?handle=${p.handle || Store.slugify(p.title)}" target="_blank" class="action-btn" style="text-decoration:none;" title="View on Live Website">👁️ View</a>
+              <a href="product.html?handle=${p.handle || slugify(p.title) || ('product-' + p.id)}" target="_blank" class="action-btn" style="text-decoration:none;" title="View on Live Website">👁️ View</a>
               <button class="action-btn delete" onclick="handleDeleteProduct(${p.id})">🗑️ Delete</button>
             </div>
           </td>
@@ -3811,30 +3834,33 @@
       const handleInput = document.getElementById('prod-handle');
       if (!titleInput || !handleInput) return;
       
-      const newSlug = Store.slugify(titleInput.value || '');
+      const rawTitle = (titleInput.value || '').trim();
+      const safeSlug = slugify(rawTitle) || (rawTitle ? 'suit-' + Date.now().toString().slice(-4) : '');
+      
       if (force || !handleManuallyEdited) {
-        handleInput.value = newSlug;
+        handleInput.value = safeSlug;
         if (force) handleManuallyEdited = false;
       }
-      updateHandleLivePreview(handleInput.value || newSlug);
+      updateHandleLivePreview(handleInput.value || safeSlug);
     }
 
     function handleManualSlugInput(val) {
       handleManuallyEdited = true;
-      const cleanSlug = Store.slugify(val);
+      const cleanSlug = slugify(val);
       updateHandleLivePreview(cleanSlug);
     }
 
     function updateHandleLivePreview(slug) {
       const urlSpan = document.getElementById('prod-handle-url');
       const viewLink = document.getElementById('prod-live-link-btn');
-      const idVal = document.getElementById('prod-id')?.value;
       const cleanSlug = slug || 'suit-title';
       const url = `product.html?handle=${cleanSlug}`;
-      if (urlSpan) urlSpan.textContent = url;
+      if (urlSpan) {
+        urlSpan.innerHTML = `<a href="${url}" target="_blank" style="color:var(--admin-primary); font-weight:700; text-decoration:underline;" title="Click to view article on store">${url}</a>`;
+      }
       if (viewLink) {
         viewLink.href = url;
-        viewLink.style.display = idVal ? 'inline-flex' : 'none';
+        viewLink.style.display = 'inline-flex';
       }
     }
 
@@ -3929,7 +3955,7 @@
       document.getElementById('prod-title').value = p.title || '';
 
       handleManuallyEdited = false;
-      const currentHandle = p.handle || Store.slugify(p.title || '');
+      const currentHandle = p.handle || slugify(p.title || '') || ('product-' + p.id);
       const handleInput = document.getElementById('prod-handle');
       if (handleInput) {
         handleInput.value = currentHandle;
@@ -3978,64 +4004,97 @@
     }
 
     async function handleSaveProduct() {
-      const saveBtn = document.querySelector('#product-form button[type="submit"]');
+      const saveBtn = document.querySelector('#product-form button[type="submit"]') || document.querySelector('#product-form .btn-submit');
       const origText = saveBtn ? saveBtn.innerHTML : 'Save Article to Catalog';
 
-      const id = document.getElementById('prod-id').value;
-      const title = document.getElementById('prod-title').value.trim();
-      const handleVal = document.getElementById('prod-handle') ? document.getElementById('prod-handle').value.trim() : '';
-      const handle = handleVal ? Store.slugify(handleVal) : Store.slugify(title);
-
-      const vendor = document.getElementById('prod-vendor').value.trim();
-      const category = document.getElementById('prod-category').value;
-      const category_type = document.getElementById('prod-category-type').value;
-      const season = document.getElementById('prod-season') ? document.getElementById('prod-season').value : 'Summer';
-      const gender = document.getElementById('prod-gender') ? document.getElementById('prod-gender').value : 'Women';
-      const fabric = document.getElementById('prod-fabric') ? document.getElementById('prod-fabric').value.trim() : '';
-      const sku = document.getElementById('prod-sku').value.trim();
-      const price = parseFloat(document.getElementById('prod-price').value) || 0;
-      const compare_at_price = parseFloat(document.getElementById('prod-compare-price').value) || price;
-      
-      const images = currentProductImages.length > 0 ? currentProductImages : ['assets/images/catalog/nishat-3pc-42206126-r-main.jpg'];
-      const mainImage = images[0];
-      const hoverImage = images[1] || images[0];
-      const rawDescription = document.getElementById('prod-description').value.trim();
-      const formattedBodyHtml = textToFormattedHtml(rawDescription);
-      const available = document.getElementById('prod-available').value === 'true';
-
-      if (!title || !vendor || !price) {
-        alert('Please fill in required fields: Article Title, Brand / Vendor, and Selling Price.');
-        return;
-      }
-
-      if (saveBtn) {
-        saveBtn.disabled = true;
-        saveBtn.innerHTML = '⏳ Syncing Article to Live Server...';
-      }
-
-      const data = {
-        title,
-        handle,
-        vendor,
-        category,
-        category_type,
-        season,
-        gender,
-        fabric,
-        sku,
-        barcode: sku,
-        price,
-        compare_at_price,
-        image: mainImage,
-        featured_image: mainImage,
-        hover_image: hoverImage,
-        images: images,
-        body_html: formattedBodyHtml,
-        description: rawDescription,
-        available
-      };
-
       try {
+        const id = document.getElementById('prod-id') ? document.getElementById('prod-id').value : '';
+        const titleEl = document.getElementById('prod-title');
+        const title = (titleEl ? titleEl.value : '').trim();
+
+        const vendorEl = document.getElementById('prod-vendor');
+        const vendor = (vendorEl ? vendorEl.value : '').trim();
+
+        const priceEl = document.getElementById('prod-price');
+        const rawPrice = priceEl ? String(priceEl.value).replace(/[^0-9.]/g, '') : '';
+        const price = parseFloat(rawPrice) || 0;
+
+        // Validation with friendly alerts & auto-focus
+        if (!title) {
+          alert('⚠️ Please enter the Suit / Article Title.');
+          if (titleEl) titleEl.focus();
+          return;
+        }
+
+        if (!vendor) {
+          alert('⚠️ Please enter the Brand / Fashion House (e.g. Nishat Linen, Sapphire).');
+          if (vendorEl) vendorEl.focus();
+          return;
+        }
+
+        if (!price || price <= 0) {
+          alert('⚠️ Please enter a valid Selling Price (PKR) without commas.');
+          if (priceEl) priceEl.focus();
+          return;
+        }
+
+        const handleInput = document.getElementById('prod-handle');
+        const handleVal = handleInput ? handleInput.value.trim() : '';
+        const handle = slugify(handleVal) || slugify(title) || ('article-' + Date.now().toString().slice(-6));
+
+        const category = document.getElementById('prod-category') ? document.getElementById('prod-category').value : 'Unstitched';
+        const category_type = document.getElementById('prod-category-type') ? document.getElementById('prod-category-type').value : '3PC';
+        const season = document.getElementById('prod-season') ? document.getElementById('prod-season').value : 'Summer';
+        const gender = document.getElementById('prod-gender') ? document.getElementById('prod-gender').value : 'Women';
+        const fabric = document.getElementById('prod-fabric') ? document.getElementById('prod-fabric').value.trim() : '';
+
+        let sku = document.getElementById('prod-sku') ? document.getElementById('prod-sku').value.trim() : '';
+        if (!sku) {
+          generateRandomSKU();
+          sku = document.getElementById('prod-sku') ? document.getElementById('prod-sku').value.trim() : `ALD-${Date.now().toString().slice(-6)}`;
+        }
+
+        const compPriceEl = document.getElementById('prod-compare-price');
+        const rawCompPrice = compPriceEl ? String(compPriceEl.value).replace(/[^0-9.]/g, '') : '';
+        const compare_at_price = parseFloat(rawCompPrice) || price;
+        
+        const images = (typeof currentProductImages !== 'undefined' && Array.isArray(currentProductImages) && currentProductImages.length > 0)
+          ? currentProductImages
+          : ['assets/images/catalog/nishat-3pc-42206126-r-main.jpg'];
+        const mainImage = images[0];
+        const hoverImage = images[1] || images[0];
+
+        const rawDescription = document.getElementById('prod-description') ? document.getElementById('prod-description').value.trim() : '';
+        const formattedBodyHtml = textToFormattedHtml(rawDescription);
+        const available = document.getElementById('prod-available') ? (document.getElementById('prod-available').value === 'true') : true;
+
+        if (saveBtn) {
+          saveBtn.disabled = true;
+          saveBtn.innerHTML = '⏳ Syncing Article to Live Server...';
+        }
+
+        const data = {
+          title,
+          handle,
+          vendor,
+          category,
+          category_type,
+          season,
+          gender,
+          fabric,
+          sku,
+          barcode: sku,
+          price,
+          compare_at_price,
+          image: mainImage,
+          featured_image: mainImage,
+          hover_image: hoverImage,
+          images: images,
+          body_html: formattedBodyHtml,
+          description: rawDescription,
+          available
+        };
+
         let result;
         const passcode = localStorage.getItem('aldeewan_admin_pass') || 'deewan2026';
         if (id) {
@@ -4048,14 +4107,21 @@
           showAdminToast(`✅ Article "${title}" saved & synced live to server! Visible on Desktop & Mobile.`);
           closeProductModal();
           initDashboard();
+          switchTab('products');
+        } else if (result && result.sync && !result.sync.success) {
+          showAdminToast(`⚠️ Article "${title}" saved locally. Server response: ${result.sync.error || 'Network error'}`);
+          closeProductModal();
+          initDashboard();
+          switchTab('products');
         } else {
           showAdminToast(`✅ Article "${title}" saved successfully!`);
           closeProductModal();
           initDashboard();
+          switchTab('products');
         }
       } catch (err) {
         console.error('Error saving product:', err);
-        alert(`❌ Error saving article: ${err.message}`);
+        alert(`❌ Error saving article: ${err.message || err}`);
       } finally {
         if (saveBtn) {
           saveBtn.disabled = false;

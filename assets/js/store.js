@@ -1571,4 +1571,5 @@ setInterval(() => {
 }, 30000);
 
 window.Store = Store;
+window.slugify = Store.slugify;
 
