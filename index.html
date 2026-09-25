@@ -762,13 +762,19 @@
   </div>
 
   <!-- Scripts -->
-  <script src="assets/js/catalog-data.js"></script>
-  <script src="assets/js/store.js?v=2.9"></script>
-  <script src="assets/js/main.js?v=2.8"></script>
+  <script src="assets/js/catalog-data.js?v=3.2"></script>
+  <script src="assets/js/store.js?v=3.2"></script>
+  <script src="assets/js/main.js?v=3.2"></script>
   <script>
     // Render Homepage Collections & Grids dynamically synchronized with Admin Portal
-    function renderHomepageGrids() {
-      const allProducts = Store.getProducts();
+    async function renderHomepageGrids() {
+      let allProducts = (window.Store && typeof window.Store.getProducts === 'function')
+        ? window.Store.getProducts()
+        : (window.CATALOG_PRODUCTS || []);
+      if ((!allProducts || allProducts.length === 0) && window.Store && typeof window.Store.fetchCatalogAsync === 'function') {
+        allProducts = await window.Store.fetchCatalogAsync();
+      }
+      if (!allProducts || allProducts.length === 0) allProducts = window.CATALOG_PRODUCTS || [];
       if (!allProducts || allProducts.length === 0) return;
 
       const binsaeedGrid = document.getElementById('binsaeed-products-grid');

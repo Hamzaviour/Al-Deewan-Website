@@ -483,7 +483,10 @@ const Store = {
     try {
       const customCatalog = localStorage.getItem('aldeewan_custom_catalog');
       if (customCatalog) {
-        window.CATALOG_PRODUCTS = JSON.parse(customCatalog);
+        const parsed = JSON.parse(customCatalog);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          window.CATALOG_PRODUCTS = parsed;
+        }
       }
     } catch (e) {
       console.warn('Error reading custom catalog:', e);
@@ -493,6 +496,35 @@ const Store = {
 
   getProducts() {
     this.initCatalog();
+    return window.CATALOG_PRODUCTS || [];
+  },
+
+  async fetchCatalogAsync() {
+    try {
+      const res = await fetch(`api/products.php?_t=${Date.now()}`, { cache: 'no-store' });
+      if (res.ok) {
+        const data = await res.json().catch(() => null);
+        if (Array.isArray(data) && data.length > 0) {
+          window.CATALOG_PRODUCTS = data;
+          try {
+            localStorage.setItem('aldeewan_custom_catalog', JSON.stringify(data));
+          } catch (e) {}
+          window.dispatchEvent(new CustomEvent('catalog:updated', { detail: { products: data } }));
+          return data;
+        }
+      }
+    } catch (e) {}
+    try {
+      const resStatic = await fetch(`data/products.json?_t=${Date.now()}`, { cache: 'no-store' });
+      if (resStatic.ok) {
+        const data = await resStatic.json().catch(() => null);
+        if (Array.isArray(data) && data.length > 0) {
+          window.CATALOG_PRODUCTS = data;
+          window.dispatchEvent(new CustomEvent('catalog:updated', { detail: { products: data } }));
+          return data;
+        }
+      }
+    } catch (e) {}
     return window.CATALOG_PRODUCTS || [];
   },
 

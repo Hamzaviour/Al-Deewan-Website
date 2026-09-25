@@ -747,9 +747,9 @@
   </div>
 
   <!-- Scripts -->
-  <script src="assets/js/catalog-data.js"></script>
-  <script src="assets/js/store.js?v=2.9"></script>
-  <script src="assets/js/main.js?v=2.8"></script>
+  <script src="assets/js/catalog-data.js?v=3.2"></script>
+  <script src="assets/js/store.js?v=3.2"></script>
+  <script src="assets/js/main.js?v=3.2"></script>
   <script>
     // Global Facet Controller
     const FacetController = {
@@ -823,9 +823,17 @@
     };
 
     // Catalog Manager
-    document.addEventListener('DOMContentLoaded', () => {
-      const allProducts = Store.getProducts();
-      if (!allProducts || allProducts.length === 0) return;
+    document.addEventListener('DOMContentLoaded', async () => {
+      let allProducts = (window.Store && typeof window.Store.getProducts === 'function')
+        ? window.Store.getProducts()
+        : (window.CATALOG_PRODUCTS || []);
+
+      if ((!allProducts || allProducts.length === 0) && window.Store && typeof window.Store.fetchCatalogAsync === 'function') {
+        allProducts = await window.Store.fetchCatalogAsync();
+      }
+      if (!allProducts || allProducts.length === 0) {
+        allProducts = window.CATALOG_PRODUCTS || [];
+      }
 
       const grid = document.getElementById('catalog-products-grid');
       const titleEl = document.getElementById('catalog-title');
@@ -851,8 +859,29 @@
       const paramSeason = urlParams.get('season');
       const paramCollection = urlParams.get('collection');
 
-      // Brand Normalization & Matching Helper delegates to Store
-      const matchBrandName = (vendor, target) => Store.matchBrandName(vendor, target);
+      // Brand Normalization & Matching Helper delegates safely to Store
+      const matchBrandName = (vendor, target) => {
+        if (window.Store && typeof window.Store.matchBrandName === 'function') {
+          return window.Store.matchBrandName(vendor, target);
+        }
+        if (!vendor || !target) return false;
+        return String(vendor).toLowerCase().replace(/[^a-z0-9]/g, '').includes(String(target).toLowerCase().replace(/[^a-z0-9]/g, ''));
+      };
+
+      const matchCategory = (p, c) => {
+        if (window.Store && typeof window.Store.matchesCategory === 'function') return window.Store.matchesCategory(p, c);
+        return true;
+      };
+
+      const matchType = (p, t) => {
+        if (window.Store && typeof window.Store.matchesType === 'function') return window.Store.matchesType(p, t);
+        return true;
+      };
+
+      const matchSeason = (p, s) => {
+        if (window.Store && typeof window.Store.matchesSeason === 'function') return window.Store.matchesSeason(p, s);
+        return true;
+      };
 
       // 50+ Known Pakistani Brands List (Loaded dynamically from Store)
       const storedBrands = (window.Store && window.Store.getBrands) ? window.Store.getBrands().filter(b => b.visible !== false).map(b => b.name) : [
@@ -870,6 +899,7 @@
 
       // Dynamic Category, Type, Season, and Stock Badges
       const updateDynamicCounts = (prods) => {
+        if (!Array.isArray(prods)) prods = [];
         const setVal = (id, count) => {
           const el = document.getElementById(id);
           if (el) el.textContent = `(${count})`;
@@ -881,20 +911,20 @@
         setVal('count-instock-mob', inStk);
         setVal('count-outofstock-mob', outStk);
 
-        setVal('count-unstitched', prods.filter(p => Store.matchesCategory(p, 'unstitched')).length);
-        setVal('count-rtw', prods.filter(p => Store.matchesCategory(p, 'ready to wear')).length);
-        setVal('count-kids', prods.filter(p => Store.matchesCategory(p, 'kids')).length);
-        setVal('count-menswear', prods.filter(p => Store.matchesCategory(p, 'menswear')).length);
+        setVal('count-unstitched', prods.filter(p => matchCategory(p, 'unstitched')).length);
+        setVal('count-rtw', prods.filter(p => matchCategory(p, 'ready to wear')).length);
+        setVal('count-kids', prods.filter(p => matchCategory(p, 'kids')).length);
+        setVal('count-menswear', prods.filter(p => matchCategory(p, 'menswear')).length);
 
-        setVal('count-2pc', prods.filter(p => Store.matchesType(p, '2PC')).length);
-        setVal('count-3pc', prods.filter(p => Store.matchesType(p, '3PC')).length);
-        setVal('count-1pc', prods.filter(p => Store.matchesType(p, '1PC')).length);
-        setVal('count-bedsheet', prods.filter(p => Store.matchesType(p, 'Bedsheet')).length);
-        setVal('count-girls-eastern', prods.filter(p => Store.matchesType(p, 'Girls Eastern')).length);
-        setVal('count-boys-kurta', prods.filter(p => Store.matchesType(p, 'Boys Kurta')).length);
+        setVal('count-2pc', prods.filter(p => matchType(p, '2PC')).length);
+        setVal('count-3pc', prods.filter(p => matchType(p, '3PC')).length);
+        setVal('count-1pc', prods.filter(p => matchType(p, '1PC')).length);
+        setVal('count-bedsheet', prods.filter(p => matchType(p, 'Bedsheet')).length);
+        setVal('count-girls-eastern', prods.filter(p => matchType(p, 'Girls Eastern')).length);
+        setVal('count-boys-kurta', prods.filter(p => matchType(p, 'Boys Kurta')).length);
 
-        setVal('count-summer', prods.filter(p => Store.matchesSeason(p, 'Summer')).length);
-        setVal('count-winter', prods.filter(p => Store.matchesSeason(p, 'Winter')).length);
+        setVal('count-summer', prods.filter(p => matchSeason(p, 'Summer')).length);
+        setVal('count-winter', prods.filter(p => matchSeason(p, 'Winter')).length);
       };
       updateDynamicCounts(allProducts);
 

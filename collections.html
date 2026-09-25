@@ -707,10 +707,108 @@
   </div>
 
   <!-- Scripts -->
-  <script src="assets/js/catalog-data.js"></script>
-  <script src="assets/js/store.js?v=2.9"></script>
-  <script src="assets/js/main.js?v=2.8"></script>
+  <script src="assets/js/catalog-data.js?v=3.2"></script>
+  <script src="assets/js/store.js?v=3.2"></script>
+  <script src="assets/js/main.js?v=3.2"></script>
   <script>
+    // --- Universal Safe Store Helpers ---
+    if (typeof window !== 'undefined') {
+      if (!window.Store) window.Store = {};
+      if (typeof window.Store.formatMoney !== 'function') {
+        window.Store.formatMoney = function(a) { return 'Rs.' + (parseFloat(a) || 0).toLocaleString('en-PK', { minimumFractionDigits: 2 }); };
+      }
+      if (typeof window.Store.getProducts !== 'function') {
+        window.Store.getProducts = function() { return window.CATALOG_PRODUCTS || []; };
+      }
+      if (typeof window.Store.isMenswearProduct !== 'function') {
+        window.Store.isMenswearProduct = function(p) {
+          if (!p) return false;
+          if (p.gender === 'Men') return true;
+          const text = `${p.title || ''} ${p.category || ''} ${p.category_type || ''} ${(p.tags || []).join(' ')}`.toLowerCase();
+          return /\b(gents|menswear|men's|men suit)\b/i.test(text);
+        };
+      }
+      if (typeof window.Store.isKidsProduct !== 'function') {
+        window.Store.isKidsProduct = function(p) {
+          if (!p) return false;
+          if (p.gender === 'Kids') return true;
+          const text = `${p.title || ''} ${p.category || ''} ${p.category_type || ''} ${(p.tags || []).join(' ')}`.toLowerCase();
+          return /\b(kid|kids|child|children|boy|boys|girl|girls)\b/i.test(text);
+        };
+      }
+      if (typeof window.Store.matchesCategory !== 'function') {
+        window.Store.matchesCategory = function(p, categoryQuery) {
+          if (!p || !categoryQuery) return true;
+          const cleanC = categoryQuery.toLowerCase().trim();
+          if (!cleanC) return true;
+          if (cleanC === 'menswear' || cleanC === 'men') return window.Store.isMenswearProduct(p);
+          if (cleanC === 'kids') return window.Store.isKidsProduct(p);
+          if (cleanC === 'ready to wear' || cleanC === 'rtw') {
+            const cat = (p.category || '').toLowerCase();
+            const catType = (p.category_type || '').toLowerCase();
+            return cat.includes('ready') || catType.includes('ready') || catType === '1pc shirt';
+          }
+          if (cleanC === 'unstitched') {
+            const cat = (p.category || '').toLowerCase();
+            const tags = (p.tags || []).map(x => String(x).toLowerCase());
+            return cat.includes('unstitched') || tags.includes('unstitched');
+          }
+          const cat = (p.category || '').toLowerCase();
+          const catType = (p.category_type || '').toLowerCase();
+          const gender = (p.gender || '').toLowerCase();
+          return cat.includes(cleanC) || catType.includes(cleanC) || gender.includes(cleanC);
+        };
+      }
+      if (typeof window.Store.matchesType !== 'function') {
+        window.Store.matchesType = function(p, typeQuery) {
+          if (!p || !typeQuery) return true;
+          const cleanT = typeQuery.toLowerCase().trim();
+          if (!cleanT) return true;
+          const catType = (p.category_type || '').toLowerCase().trim();
+          const title = (p.title || '').toLowerCase();
+          const tags = (p.tags || []).map(x => String(x).toLowerCase());
+          if (cleanT === '2pc') return catType.includes('2pc') || tags.includes('2pc') || /\b2pc\b/i.test(title);
+          if (cleanT === '3pc') return catType.includes('3pc') || tags.includes('3pc') || /\b3pc\b/i.test(title);
+          if (cleanT === '1pc') return catType.includes('1pc') || catType.includes('shirt') || tags.includes('1pc') || /\b1pc\b/i.test(title);
+          if (cleanT === 'bedsheet') return catType.includes('bedsheet') || (p.category && p.category.toLowerCase().includes('bedsheet')) || /\bbedsheet\b/i.test(title);
+          if (cleanT === 'boys kurta') return catType.includes('boys') || catType.includes('kurta') || /\b(boy|boys)\b/i.test(title);
+          if (cleanT === 'girls eastern') return catType.includes('girls') || /\b(girl|girls)\b/i.test(title);
+          return catType.includes(cleanT) || title.includes(cleanT);
+        };
+      }
+      if (typeof window.Store.matchesSeason !== 'function') {
+        window.Store.matchesSeason = function(p, seasonQuery) {
+          if (!p || !seasonQuery) return true;
+          const target = seasonQuery.toLowerCase().trim();
+          if (!target) return true;
+          const ps = (p.season || '').toLowerCase().trim();
+          if (ps) {
+            if (ps === target) return true;
+            if (ps === 'all seasons' || ps === 'four seasons' || ps === 'year-round') return true;
+            if (target === 'summer' && (ps.includes('summer') || ps.includes('spring'))) return true;
+            if (target === 'winter' && ps.includes('winter')) return true;
+            if (target === 'spring / festive' && (ps.includes('spring') || ps.includes('festive'))) return true;
+            return false;
+          }
+          const text = `${p.title || ''} ${p.fabric || ''} ${(p.tags || []).join(' ')}`.toLowerCase();
+          const isLawn = /\b(lawn|voile|chiffon|organza|summer)\b/i.test(text);
+          const isWinter = /\b(khaddar|karandi|shawl|pashmina|velvet|wool|marina)\b/i.test(text) || (/\blinen\b/i.test(text) && !isLawn);
+          if (target === 'winter') return isWinter;
+          if (target === 'summer') return !isWinter;
+          return false;
+        };
+      }
+      if (typeof window.Store.matchBrandName !== 'function') {
+        window.Store.matchBrandName = function(vendor, target) {
+          if (!vendor || !target) return false;
+          const v = String(vendor).toLowerCase().replace(/[^a-z0-9]/g, '');
+          const t = String(target).toLowerCase().replace(/[^a-z0-9]/g, '');
+          if (v === t) return true;
+          return v.includes(t) || t.includes(v);
+        };
+      }
+    }
+
     // Global Facet Controller
     const FacetController = {
       closeAll() {
@@ -783,9 +881,17 @@
     };
 
     // Catalog Manager
-    document.addEventListener('DOMContentLoaded', () => {
-      const allProducts = Store.getProducts();
-      if (!allProducts || allProducts.length === 0) return;
+    document.addEventListener('DOMContentLoaded', async () => {
+      let allProducts = (window.Store && typeof window.Store.getProducts === 'function')
+        ? window.Store.getProducts()
+        : (window.CATALOG_PRODUCTS || []);
+
+      if ((!allProducts || allProducts.length === 0) && window.Store && typeof window.Store.fetchCatalogAsync === 'function') {
+        allProducts = await window.Store.fetchCatalogAsync();
+      }
+      if (!allProducts || allProducts.length === 0) {
+        allProducts = window.CATALOG_PRODUCTS || [];
+      }
 
       const grid = document.getElementById('catalog-products-grid');
       const titleEl = document.getElementById('catalog-title');
@@ -812,8 +918,29 @@
       const paramCollection = urlParams.get('collection');
       const paramQuery = (urlParams.get('q') || urlParams.get('search') || '').trim();
 
-      // Brand Normalization & Matching Helper delegates to Store
-      const matchBrandName = (vendor, target) => Store.matchBrandName(vendor, target);
+      // Brand Normalization & Matching Helper delegates safely to Store
+      const matchBrandName = (vendor, target) => {
+        if (window.Store && typeof window.Store.matchBrandName === 'function') {
+          return window.Store.matchBrandName(vendor, target);
+        }
+        if (!vendor || !target) return false;
+        return String(vendor).toLowerCase().replace(/[^a-z0-9]/g, '').includes(String(target).toLowerCase().replace(/[^a-z0-9]/g, ''));
+      };
+
+      const matchCategory = (p, c) => {
+        if (window.Store && typeof window.Store.matchesCategory === 'function') return window.Store.matchesCategory(p, c);
+        return true;
+      };
+
+      const matchType = (p, t) => {
+        if (window.Store && typeof window.Store.matchesType === 'function') return window.Store.matchesType(p, t);
+        return true;
+      };
+
+      const matchSeason = (p, s) => {
+        if (window.Store && typeof window.Store.matchesSeason === 'function') return window.Store.matchesSeason(p, s);
+        return true;
+      };
 
       // 50+ Known Pakistani Brands List (Loaded dynamically from Store)
       const storedBrands = (window.Store && window.Store.getBrands) ? window.Store.getBrands().filter(b => b.visible !== false).map(b => b.name) : [
@@ -831,6 +958,7 @@
 
       // Dynamic Category, Type, Season, and Stock Badges
       const updateDynamicCounts = (prods) => {
+        if (!Array.isArray(prods)) prods = [];
         const setVal = (id, count) => {
           const el = document.getElementById(id);
           if (el) el.textContent = `(${count})`;
@@ -842,20 +970,20 @@
         setVal('count-instock-mob', inStk);
         setVal('count-outofstock-mob', outStk);
 
-        setVal('count-unstitched', prods.filter(p => Store.matchesCategory(p, 'unstitched')).length);
-        setVal('count-rtw', prods.filter(p => Store.matchesCategory(p, 'ready to wear')).length);
-        setVal('count-kids', prods.filter(p => Store.matchesCategory(p, 'kids')).length);
-        setVal('count-menswear', prods.filter(p => Store.matchesCategory(p, 'menswear')).length);
+        setVal('count-unstitched', prods.filter(p => matchCategory(p, 'unstitched')).length);
+        setVal('count-rtw', prods.filter(p => matchCategory(p, 'ready to wear')).length);
+        setVal('count-kids', prods.filter(p => matchCategory(p, 'kids')).length);
+        setVal('count-menswear', prods.filter(p => matchCategory(p, 'menswear')).length);
 
-        setVal('count-2pc', prods.filter(p => Store.matchesType(p, '2PC')).length);
-        setVal('count-3pc', prods.filter(p => Store.matchesType(p, '3PC')).length);
-        setVal('count-1pc', prods.filter(p => Store.matchesType(p, '1PC')).length);
-        setVal('count-bedsheet', prods.filter(p => Store.matchesType(p, 'Bedsheet')).length);
-        setVal('count-girls-eastern', prods.filter(p => Store.matchesType(p, 'Girls Eastern')).length);
-        setVal('count-boys-kurta', prods.filter(p => Store.matchesType(p, 'Boys Kurta')).length);
+        setVal('count-2pc', prods.filter(p => matchType(p, '2PC')).length);
+        setVal('count-3pc', prods.filter(p => matchType(p, '3PC')).length);
+        setVal('count-1pc', prods.filter(p => matchType(p, '1PC')).length);
+        setVal('count-bedsheet', prods.filter(p => matchType(p, 'Bedsheet')).length);
+        setVal('count-girls-eastern', prods.filter(p => matchType(p, 'Girls Eastern')).length);
+        setVal('count-boys-kurta', prods.filter(p => matchType(p, 'Boys Kurta')).length);
 
-        setVal('count-summer', prods.filter(p => Store.matchesSeason(p, 'Summer')).length);
-        setVal('count-winter', prods.filter(p => Store.matchesSeason(p, 'Winter')).length);
+        setVal('count-summer', prods.filter(p => matchSeason(p, 'Summer')).length);
+        setVal('count-winter', prods.filter(p => matchSeason(p, 'Winter')).length);
       };
       updateDynamicCounts(allProducts);
 
@@ -1042,7 +1170,7 @@
       };
 
       const applyFiltersAndRender = () => {
-        let filtered = [...Store.getProducts()];
+        let filtered = [...((window.Store && typeof window.Store.getProducts === 'function' ? window.Store.getProducts() : window.CATALOG_PRODUCTS) || [])];
 
         // Stock filter
         const checkedStock = [...new Set(Array.from(document.querySelectorAll('input[name="stock"]:checked')).map(i => i.value))];
@@ -1053,7 +1181,7 @@
 
         // Search query filter (if ?q= or ?search= in URL)
         if (paramQuery) {
-          const searchMatches = new Set(Store.search(paramQuery, 0).map(p => p.id));
+          const searchMatches = new Set((window.Store && typeof window.Store.search === 'function' ? window.Store.search(paramQuery, 0) : []).map(p => p.id));
           filtered = filtered.filter(p => searchMatches.has(p.id));
         }
 
@@ -1061,7 +1189,7 @@
         const checkedCats = [...new Set(Array.from(document.querySelectorAll('input[name="category"]:checked')).map(i => i.value.toLowerCase()))];
         if (checkedCats.length > 0) {
           filtered = filtered.filter(p => {
-            return checkedCats.some(c => Store.matchesCategory(p, c));
+            return checkedCats.some(c => matchCategory(p, c));
           });
         }
 
@@ -1069,7 +1197,7 @@
         const checkedTypes = [...new Set(Array.from(document.querySelectorAll('input[name="type"]:checked')).map(i => i.value))];
         if (checkedTypes.length > 0) {
           filtered = filtered.filter(p => {
-            return checkedTypes.some(t => Store.matchesType(p, t));
+            return checkedTypes.some(t => matchType(p, t));
           });
         }
 
@@ -1077,15 +1205,15 @@
         const checkedSeasons = [...new Set(Array.from(document.querySelectorAll('input[name="season"]:checked')).map(i => i.value))];
         if (checkedSeasons.length > 0) {
           filtered = filtered.filter(p => {
-            return checkedSeasons.some(s => Store.matchesSeason(p, s));
+            return checkedSeasons.some(s => matchSeason(p, s));
           });
         }
 
-        // Brand filter with robust Store.matchBrandName
+        // Brand filter with robust matchBrandName
         const checkedBrands = [...new Set(Array.from(document.querySelectorAll('input[name="brand"]:checked')).map(i => i.value))];
         if (checkedBrands.length > 0) {
           filtered = filtered.filter(p => {
-            return checkedBrands.some(b => Store.matchBrandName(p.vendor, b));
+            return checkedBrands.some(b => matchBrandName(p.vendor, b));
           });
         }
 

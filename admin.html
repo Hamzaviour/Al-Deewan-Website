@@ -2351,12 +2351,12 @@
     <span id="admin-toast-text">Settings updated successfully!</span>
   </div>
 
-  <script src="assets/js/catalog-data.js"></script>
-  <script src="assets/js/store.js?v=2.9"></script>
+  <script src="assets/js/catalog-data.js?v=3.2"></script>
+  <script src="assets/js/store.js?v=3.2"></script>
   <script>
-    // --- Safe Universal Slugify Helper (Independent of cached store.js) ---
+    // --- Safe Universal Store Helpers (Independent of cached or slow store.js) ---
     function slugify(text) {
-      if (!text) return '';
+      if (!text) return 'product';
       return text
         .toString()
         .toLowerCase()
@@ -2368,12 +2368,144 @@
 
     if (typeof window !== 'undefined') {
       window.slugify = slugify;
-      if (typeof window.Store !== 'undefined') {
-        if (typeof window.Store.slugify !== 'function') {
-          window.Store.slugify = slugify;
-        }
-      } else {
-        window.Store = { slugify: slugify };
+      if (!window.Store) window.Store = {};
+      if (typeof window.Store.slugify !== 'function') window.Store.slugify = slugify;
+
+      if (typeof window.Store.isMenswearProduct !== 'function') {
+        window.Store.isMenswearProduct = function(p) {
+          if (!p) return false;
+          if (p.gender === 'Men') return true;
+          const text = `${p.title || ''} ${p.category || ''} ${p.category_type || ''} ${(p.tags || []).join(' ')}`.toLowerCase();
+          return /\b(gents|menswear|men's|men suit)\b/i.test(text);
+        };
+      }
+
+      if (typeof window.Store.isKidsProduct !== 'function') {
+        window.Store.isKidsProduct = function(p) {
+          if (!p) return false;
+          if (p.gender === 'Kids') return true;
+          const text = `${p.title || ''} ${p.category || ''} ${p.category_type || ''} ${(p.tags || []).join(' ')}`.toLowerCase();
+          return /\b(kid|kids|child|children|boy|boys|girl|girls)\b/i.test(text);
+        };
+      }
+
+      if (typeof window.Store.matchesCategory !== 'function') {
+        window.Store.matchesCategory = function(p, categoryQuery) {
+          if (!p || !categoryQuery) return true;
+          const cleanC = categoryQuery.toLowerCase().trim();
+          if (cleanC === 'menswear' || cleanC === 'men') return window.Store.isMenswearProduct(p);
+          if (cleanC === 'kids') return window.Store.isKidsProduct(p);
+          if (cleanC === 'ready to wear' || cleanC === 'rtw') {
+            const cat = (p.category || '').toLowerCase();
+            const catType = (p.category_type || '').toLowerCase();
+            return cat.includes('ready') || catType.includes('ready') || catType === '1pc shirt';
+          }
+          if (cleanC === 'unstitched') {
+            const cat = (p.category || '').toLowerCase();
+            const tags = (p.tags || []).map(x => String(x).toLowerCase());
+            return cat.includes('unstitched') || tags.includes('unstitched');
+          }
+          const cat = (p.category || '').toLowerCase();
+          const catType = (p.category_type || '').toLowerCase();
+          const gender = (p.gender || '').toLowerCase();
+          return cat.includes(cleanC) || catType.includes(cleanC) || gender.includes(cleanC);
+        };
+      }
+
+      if (typeof window.Store.matchesType !== 'function') {
+        window.Store.matchesType = function(p, typeQuery) {
+          if (!p || !typeQuery) return true;
+          const cleanT = typeQuery.toLowerCase().trim();
+          const catType = (p.category_type || '').toLowerCase().trim();
+          const title = (p.title || '').toLowerCase();
+          const tags = (p.tags || []).map(x => String(x).toLowerCase());
+          if (cleanT === '2pc') return catType.includes('2pc') || tags.includes('2pc') || /\b2pc\b/i.test(title);
+          if (cleanT === '3pc') return catType.includes('3pc') || tags.includes('3pc') || /\b3pc\b/i.test(title);
+          if (cleanT === '1pc') return catType.includes('1pc') || catType.includes('shirt') || tags.includes('1pc') || /\b1pc\b/i.test(title);
+          if (cleanT === 'bedsheet') return catType.includes('bedsheet') || (p.category && p.category.toLowerCase().includes('bedsheet')) || /\bbedsheet\b/i.test(title);
+          if (cleanT === 'boys kurta') return catType.includes('boys') || catType.includes('kurta') || /\b(boy|boys)\b/i.test(title);
+          if (cleanT === 'girls eastern') return catType.includes('girls') || /\b(girl|girls)\b/i.test(title);
+          return catType.includes(cleanT) || title.includes(cleanT);
+        };
+      }
+
+      if (typeof window.Store.matchesSeason !== 'function') {
+        window.Store.matchesSeason = function(p, seasonQuery) {
+          if (!p || !seasonQuery) return true;
+          const target = seasonQuery.toLowerCase().trim();
+          const ps = (p.season || '').toLowerCase().trim();
+          if (ps) {
+            if (ps === target) return true;
+            if (ps === 'all seasons' || ps === 'four seasons' || ps === 'year-round') return true;
+            if (target === 'summer' && (ps.includes('summer') || ps.includes('spring'))) return true;
+            if (target === 'winter' && ps.includes('winter')) return true;
+            if (target === 'spring / festive' && (ps.includes('spring') || ps.includes('festive'))) return true;
+            return false;
+          }
+          const text = `${p.title || ''} ${p.fabric || ''} ${(p.tags || []).join(' ')}`.toLowerCase();
+          const isLawn = /\b(lawn|voile|chiffon|organza|summer)\b/i.test(text);
+          const isWinter = /\b(khaddar|karandi|shawl|pashmina|velvet|wool|marina)\b/i.test(text) || (/\blinen\b/i.test(text) && !isLawn);
+          if (target === 'winter') return isWinter;
+          if (target === 'summer') return !isWinter;
+          return false;
+        };
+      }
+
+      if (typeof window.Store.matchBrandName !== 'function') {
+        window.Store.matchBrandName = function(productVendor, selectedBrand) {
+          if (!selectedBrand) return true;
+          if (!productVendor) return false;
+          const pv = productVendor.trim().toLowerCase();
+          const sb = selectedBrand.trim().toLowerCase();
+          if (pv === sb) return true;
+          const norm = str => str.replace(/[\s\-_.]+/g, '').toLowerCase();
+          if (norm(pv) === norm(sb)) return true;
+          return pv.includes(sb) || sb.includes(pv);
+        };
+      }
+
+      if (typeof window.Store.getAllTickerBrandsAdmin !== 'function') {
+        window.Store.getAllTickerBrandsAdmin = function() {
+          const brands = (typeof window.Store.getBrands === 'function') ? window.Store.getBrands() : [];
+          return brands
+            .filter(b => b.showInTicker === true || (b.showInTicker !== false && (b.isTopFavorite || b.isFavorite)))
+            .sort((a, b) => (a.tickerOrder !== undefined ? a.tickerOrder : 999) - (b.tickerOrder !== undefined ? b.tickerOrder : 999));
+        };
+      }
+
+      if (typeof window.Store.getProducts !== 'function') {
+        window.Store.getProducts = function() {
+          return window.CATALOG_PRODUCTS || [];
+        };
+      }
+
+      if (typeof window.Store.fetchCatalogAsync !== 'function') {
+        window.Store.fetchCatalogAsync = async function() {
+          try {
+            const res = await fetch(`api/products.php?_t=${Date.now()}`, { cache: 'no-store' });
+            if (res.ok) {
+              const data = await res.json().catch(() => null);
+              if (Array.isArray(data) && data.length > 0) {
+                window.CATALOG_PRODUCTS = data;
+                try { localStorage.setItem('aldeewan_custom_catalog', JSON.stringify(data)); } catch (e) {}
+                window.dispatchEvent(new CustomEvent('catalog:updated', { detail: { products: data } }));
+                return data;
+              }
+            }
+          } catch (e) {}
+          try {
+            const resStatic = await fetch(`data/products.json?_t=${Date.now()}`, { cache: 'no-store' });
+            if (resStatic.ok) {
+              const data = await resStatic.json().catch(() => null);
+              if (Array.isArray(data) && data.length > 0) {
+                window.CATALOG_PRODUCTS = data;
+                window.dispatchEvent(new CustomEvent('catalog:updated', { detail: { products: data } }));
+                return data;
+              }
+            }
+          } catch (e) {}
+          return window.CATALOG_PRODUCTS || [];
+        };
       }
     }
 
@@ -2476,12 +2608,20 @@
     }
 
     // --- Authentication & Session Logic ---
-    function checkAuth() {
+    async function checkAuth() {
       const isAuth = sessionStorage.getItem('aldeewan_admin_logged_in') === 'true' || localStorage.getItem('aldeewan_admin_logged_in') === 'true';
       if (isAuth) {
         document.getElementById('auth-screen').style.display = 'none';
         document.getElementById('admin-app').style.display = 'flex';
         initDashboard();
+        // If products are not yet populated in memory, fetch immediately from host
+        const prods = (window.Store && typeof window.Store.getProducts === 'function') ? window.Store.getProducts() : (window.CATALOG_PRODUCTS || []);
+        if (!prods || prods.length === 0) {
+          if (window.Store && typeof window.Store.fetchCatalogAsync === 'function') {
+            await window.Store.fetchCatalogAsync();
+            initDashboard();
+          }
+        }
       } else {
         document.getElementById('auth-screen').style.display = 'flex';
         document.getElementById('admin-app').style.display = 'none';
@@ -2571,64 +2711,103 @@
 
     // --- Dashboard Initializer ---
     function initDashboard() {
-      const products = Store.getProducts();
-      const settings = Store.getSiteSettings();
-      const allBrandsList = Store.getBrands();
+      const products = (window.Store && typeof window.Store.getProducts === 'function') ? window.Store.getProducts() : (window.CATALOG_PRODUCTS || []);
+      const settings = (window.Store && typeof window.Store.getSiteSettings === 'function') ? window.Store.getSiteSettings() : {};
+      const allBrandsList = (window.Store && typeof window.Store.getBrands === 'function') ? window.Store.getBrands() : [];
 
-      // Metric Counts
-      document.getElementById('metric-total-prod').textContent = products.length;
-      document.getElementById('metric-unstitched-count').textContent = products.filter(p => p.category === 'Unstitched' || p.category_type === '3PC' || p.category_type === '2PC').length;
-      document.getElementById('metric-rtw-count').textContent = products.filter(p => p.category === 'Ready to Wear' || p.category_type === '1PC').length;
-      const brands = Array.from(new Set(products.map(p => p.vendor).concat(allBrandsList.map(b => b.name)).filter(Boolean)));
-      document.getElementById('metric-brands-count').textContent = allBrandsList.length;
+      // 1. Metric Counts & Brand Filter
+      try {
+        const totalEl = document.getElementById('metric-total-prod');
+        if (totalEl) totalEl.textContent = products.length;
+        const unstitchedEl = document.getElementById('metric-unstitched-count');
+        if (unstitchedEl) unstitchedEl.textContent = products.filter(p => p.category === 'Unstitched' || p.category_type === '3PC' || p.category_type === '2PC').length;
+        const rtwEl = document.getElementById('metric-rtw-count');
+        if (rtwEl) rtwEl.textContent = products.filter(p => p.category === 'Ready to Wear' || p.category_type === '1PC').length;
+        const brands = Array.from(new Set(products.map(p => p.vendor).concat(allBrandsList.map(b => b.name)).filter(Boolean)));
+        const brandsCountEl = document.getElementById('metric-brands-count');
+        if (brandsCountEl) brandsCountEl.textContent = allBrandsList.length;
 
-      // Populate Brand Filter in Products Tab without losing active user selection
-      const brandFilter = document.getElementById('admin-brand-filter');
-      if (brandFilter) {
-        const savedBrand = brandFilter.value;
-        const sortedBrands = brands.sort((a, b) => a.localeCompare(b));
-        brandFilter.innerHTML = '<option value="">All Brands</option>' + sortedBrands.map(b => `<option value="${b}" ${b === savedBrand ? 'selected' : ''}>${b}</option>`).join('');
-        if (savedBrand && !sortedBrands.includes(savedBrand)) {
-          brandFilter.innerHTML += `<option value="${savedBrand}" selected>${savedBrand}</option>`;
+        // Populate Brand Filter in Products Tab without losing active user selection
+        const brandFilter = document.getElementById('admin-brand-filter');
+        if (brandFilter) {
+          const savedBrand = brandFilter.value;
+          const sortedBrands = brands.sort((a, b) => a.localeCompare(b));
+          brandFilter.innerHTML = '<option value="">All Brands</option>' + sortedBrands.map(b => `<option value="${b}" ${b === savedBrand ? 'selected' : ''}>${b}</option>`).join('');
+          if (savedBrand && !sortedBrands.includes(savedBrand)) {
+            brandFilter.innerHTML += `<option value="${savedBrand}" selected>${savedBrand}</option>`;
+          }
+          brandFilter.value = savedBrand;
         }
-        brandFilter.value = savedBrand;
+      } catch (e) {
+        console.warn('Admin metrics init note:', e);
       }
 
-      // Populate Brands Directory Manager
-      renderAdminBrandsManager();
-
-      // Populate Featured Collections Tab with all homepage collections
-      currentFeaturedSections = (settings.featuredSections && Array.isArray(settings.featuredSections)) ? settings.featuredSections : Store.getDefaultSettings().featuredSections;
-      renderFeaturedCollectionsManager();
-
-      // Populate Navigation Dropdown Menus Tab
-      renderDropdownMenusManager(settings.navDropdowns);
-
-      // Populate Moving Hero Banner Carousel Slider
-      renderHeroSlidesManager(settings.heroSlides, settings.heroAutoplaySpeed || 5000);
-
-      if (settings.welcomeBanner) {
-        document.getElementById('promo-banner-url').value = settings.welcomeBanner.image || '';
-        document.getElementById('promo-banner-link').value = settings.welcomeBanner.link || '';
-        document.getElementById('promo-preview-img').src = settings.welcomeBanner.image || 'assets/images/web_banner_promo.png';
+      // 2. Populate Brands Directory Manager
+      try {
+        renderAdminBrandsManager();
+      } catch (e) {
+        console.warn('renderAdminBrandsManager note:', e);
       }
 
-      if (settings.announcementText) {
-        document.getElementById('announcement-text-input').value = settings.announcementText;
-      }
-      updateAnnouncementLivePreview(settings.announcementText || document.getElementById('announcement-text-input').value);
-
-      const brandTickerInput = document.getElementById('brand-ticker-text-input');
-      if (brandTickerInput) {
-        brandTickerInput.value = settings.brandTickerText || 'SHOP YOUR FAVORITE BRANDS';
-      }
-      const brandTickerSubInput = document.getElementById('brand-ticker-subtitle-input');
-      if (brandTickerSubInput) {
-        brandTickerSubInput.value = settings.brandTickerSubtitle || 'Explore 100% genuine cut pieces from top designer fashion houses';
+      // 3. Populate Featured Collections Tab with all homepage collections
+      try {
+        currentFeaturedSections = (settings.featuredSections && Array.isArray(settings.featuredSections)) ? settings.featuredSections : ((window.Store && window.Store.getDefaultSettings) ? window.Store.getDefaultSettings().featuredSections : []);
+        renderFeaturedCollectionsManager();
+      } catch (e) {
+        console.warn('renderFeaturedCollectionsManager note:', e);
       }
 
-      loadDeliverySettings();
-      renderAdminProductsTable();
+      // 4. Populate Navigation Dropdown Menus Tab
+      try {
+        renderDropdownMenusManager(settings.navDropdowns);
+      } catch (e) {
+        console.warn('renderDropdownMenusManager note:', e);
+      }
+
+      // 5. Populate Moving Hero Banner Carousel Slider
+      try {
+        renderHeroSlidesManager(settings.heroSlides, settings.heroAutoplaySpeed || 5000);
+      } catch (e) {
+        console.warn('renderHeroSlidesManager note:', e);
+      }
+
+      // 6. Settings Inputs
+      try {
+        if (settings.welcomeBanner) {
+          const pUrl = document.getElementById('promo-banner-url');
+          if (pUrl) pUrl.value = settings.welcomeBanner.image || '';
+          const pLink = document.getElementById('promo-banner-link');
+          if (pLink) pLink.value = settings.welcomeBanner.link || '';
+          const pImg = document.getElementById('promo-preview-img');
+          if (pImg) pImg.src = settings.welcomeBanner.image || 'assets/images/web_banner_promo.png';
+        }
+
+        if (settings.announcementText) {
+          const aInput = document.getElementById('announcement-text-input');
+          if (aInput) aInput.value = settings.announcementText;
+        }
+        updateAnnouncementLivePreview(settings.announcementText || (document.getElementById('announcement-text-input') ? document.getElementById('announcement-text-input').value : ''));
+
+        const brandTickerInput = document.getElementById('brand-ticker-text-input');
+        if (brandTickerInput) {
+          brandTickerInput.value = settings.brandTickerText || 'SHOP YOUR FAVORITE BRANDS';
+        }
+        const brandTickerSubInput = document.getElementById('brand-ticker-subtitle-input');
+        if (brandTickerSubInput) {
+          brandTickerSubInput.value = settings.brandTickerSubtitle || 'Explore 100% genuine cut pieces from top designer fashion houses';
+        }
+
+        loadDeliverySettings();
+      } catch (e) {
+        console.warn('Settings fields init note:', e);
+      }
+
+      // 7. ALWAYS render products table
+      try {
+        renderAdminProductsTable();
+      } catch (e) {
+        console.error('renderAdminProductsTable error:', e);
+      }
     }
 
     // --- Featured Collections Manager ---
@@ -4524,8 +4703,9 @@
 
       // 2. Render Homepage "SHOP YOUR FAVORITE BRANDS" Ticker Cards Grid
       const favGrid = document.getElementById('admin-favorite-brands-grid');
-      if (favGrid) {
-        const tickerBrands = Store.getAllTickerBrandsAdmin();
+        const tickerBrands = (window.Store && typeof window.Store.getAllTickerBrandsAdmin === 'function') 
+          ? window.Store.getAllTickerBrandsAdmin() 
+          : ((window.Store && typeof window.Store.getBrands === 'function') ? window.Store.getBrands() : []);
         let favHtml = tickerBrands.map((b, idx) => {
           const count = brandCounts[b.id] || 0;
           const isHidden = !!(b.hidden || b.hiddenInTicker);

@@ -1,7 +1,153 @@
-/**
- * Al-Deewan Brand - Master Interactive UI Logic
- * Manages Drawers, Hero Slider, Brands Carousel, Quick View, Search, & Cart UI
- */
+// --- Universal Safe Store Method Fallbacks (Guarantees backward-compat with cached store.js) ---
+if (typeof window !== 'undefined') {
+  if (!window.Store) window.Store = {};
+
+  if (typeof window.Store.formatMoney !== 'function') {
+    window.Store.formatMoney = function(amount) {
+      const num = parseFloat(amount) || 0;
+      return 'Rs.' + num.toLocaleString('en-PK', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    };
+  }
+
+  if (typeof window.Store.getProducts !== 'function') {
+    window.Store.getProducts = function() {
+      return window.CATALOG_PRODUCTS || [];
+    };
+  }
+
+  if (typeof window.Store.isMenswearProduct !== 'function') {
+    window.Store.isMenswearProduct = function(p) {
+      if (!p) return false;
+      if (p.gender === 'Men') return true;
+      const text = `${p.title || ''} ${p.category || ''} ${p.category_type || ''} ${(p.tags || []).join(' ')}`.toLowerCase();
+      return /\b(gents|menswear|men's|men suit)\b/i.test(text);
+    };
+  }
+
+  if (typeof window.Store.isKidsProduct !== 'function') {
+    window.Store.isKidsProduct = function(p) {
+      if (!p) return false;
+      if (p.gender === 'Kids') return true;
+      const text = `${p.title || ''} ${p.category || ''} ${p.category_type || ''} ${(p.tags || []).join(' ')}`.toLowerCase();
+      return /\b(kid|kids|child|children|boy|boys|girl|girls)\b/i.test(text);
+    };
+  }
+
+  if (typeof window.Store.matchesCategory !== 'function') {
+    window.Store.matchesCategory = function(p, categoryQuery) {
+      if (!p || !categoryQuery) return true;
+      const cleanC = categoryQuery.toLowerCase().trim();
+      if (!cleanC) return true;
+      if (cleanC === 'menswear' || cleanC === 'men') return window.Store.isMenswearProduct(p);
+      if (cleanC === 'kids') return window.Store.isKidsProduct(p);
+      if (cleanC === 'ready to wear' || cleanC === 'rtw') {
+        const cat = (p.category || '').toLowerCase();
+        const catType = (p.category_type || '').toLowerCase();
+        return cat.includes('ready') || catType.includes('ready') || catType === '1pc shirt';
+      }
+      if (cleanC === 'unstitched') {
+        const cat = (p.category || '').toLowerCase();
+        const tags = (p.tags || []).map(x => String(x).toLowerCase());
+        return cat.includes('unstitched') || tags.includes('unstitched');
+      }
+      const cat = (p.category || '').toLowerCase();
+      const catType = (p.category_type || '').toLowerCase();
+      const gender = (p.gender || '').toLowerCase();
+      return cat.includes(cleanC) || catType.includes(cleanC) || gender.includes(cleanC);
+    };
+  }
+
+  if (typeof window.Store.matchesType !== 'function') {
+    window.Store.matchesType = function(p, typeQuery) {
+      if (!p || !typeQuery) return true;
+      const cleanT = typeQuery.toLowerCase().trim();
+      if (!cleanT) return true;
+      const catType = (p.category_type || '').toLowerCase().trim();
+      const title = (p.title || '').toLowerCase();
+      const tags = (p.tags || []).map(x => String(x).toLowerCase());
+      if (cleanT === '2pc') return catType.includes('2pc') || tags.includes('2pc') || /\b2pc\b/i.test(title);
+      if (cleanT === '3pc') return catType.includes('3pc') || tags.includes('3pc') || /\b3pc\b/i.test(title);
+      if (cleanT === '1pc') return catType.includes('1pc') || catType.includes('shirt') || tags.includes('1pc') || /\b1pc\b/i.test(title);
+      if (cleanT === 'bedsheet') return catType.includes('bedsheet') || (p.category && p.category.toLowerCase().includes('bedsheet')) || /\bbedsheet\b/i.test(title);
+      if (cleanT === 'boys kurta') return catType.includes('boys') || catType.includes('kurta') || /\b(boy|boys)\b/i.test(title);
+      if (cleanT === 'girls eastern') return catType.includes('girls') || /\b(girl|girls)\b/i.test(title);
+      return catType.includes(cleanT) || title.includes(cleanT);
+    };
+  }
+
+  if (typeof window.Store.matchesSeason !== 'function') {
+    window.Store.matchesSeason = function(p, seasonQuery) {
+      if (!p || !seasonQuery) return true;
+      const target = seasonQuery.toLowerCase().trim();
+      if (!target) return true;
+      const ps = (p.season || '').toLowerCase().trim();
+      if (ps) {
+        if (ps === target) return true;
+        if (ps === 'all seasons' || ps === 'four seasons' || ps === 'year-round') return true;
+        if (target === 'summer' && (ps.includes('summer') || ps.includes('spring'))) return true;
+        if (target === 'winter' && ps.includes('winter')) return true;
+        if (target === 'spring / festive' && (ps.includes('spring') || ps.includes('festive'))) return true;
+        return false;
+      }
+      const text = `${p.title || ''} ${p.fabric || ''} ${(p.tags || []).join(' ')}`.toLowerCase();
+      const isLawn = /\b(lawn|voile|chiffon|organza|summer)\b/i.test(text);
+      const isWinter = /\b(khaddar|karandi|shawl|pashmina|velvet|wool|marina)\b/i.test(text) || (/\blinen\b/i.test(text) && !isLawn);
+      if (target === 'winter') return isWinter;
+      if (target === 'summer') return !isWinter;
+      return false;
+    };
+  }
+
+  if (typeof window.Store.matchBrandName !== 'function') {
+    window.Store.matchBrandName = function(vendor, target) {
+      if (!vendor || !target) return false;
+      const v = String(vendor).toLowerCase().replace(/[^a-z0-9]/g, '');
+      const t = String(target).toLowerCase().replace(/[^a-z0-9]/g, '');
+      if (v === t) return true;
+      return v.includes(t) || t.includes(v);
+    };
+  }
+
+  if (typeof window.Store.getAllTickerBrandsAdmin !== 'function') {
+    window.Store.getAllTickerBrandsAdmin = function() {
+      return (window.Store.getBrands ? window.Store.getBrands() : []).map(b => ({
+        id: b.id || b.name,
+        name: b.name,
+        logo: b.logo || '',
+        active: b.visible !== false
+      }));
+    };
+  }
+
+  if (typeof window.Store.fetchCatalogAsync !== 'function') {
+    window.Store.fetchCatalogAsync = async function() {
+      try {
+        const res = await fetch(`api/products.php?_t=${Date.now()}`, { cache: 'no-store' });
+        if (res.ok) {
+          const data = await res.json().catch(() => null);
+          if (Array.isArray(data) && data.length > 0) {
+            window.CATALOG_PRODUCTS = data;
+            try { localStorage.setItem('aldeewan_custom_catalog', JSON.stringify(data)); } catch (e) {}
+            window.dispatchEvent(new CustomEvent('catalog:updated', { detail: { products: data } }));
+            return data;
+          }
+        }
+      } catch (e) {}
+      try {
+        const resStatic = await fetch(`data/products.json?_t=${Date.now()}`, { cache: 'no-store' });
+        if (resStatic.ok) {
+          const data = await resStatic.json().catch(() => null);
+          if (Array.isArray(data) && data.length > 0) {
+            window.CATALOG_PRODUCTS = data;
+            window.dispatchEvent(new CustomEvent('catalog:updated', { detail: { products: data } }));
+            return data;
+          }
+        }
+      } catch (e) {}
+      return window.CATALOG_PRODUCTS || [];
+    };
+  }
+}
 
 const MainUI = {
   init() {
