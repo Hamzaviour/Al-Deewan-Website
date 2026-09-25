@@ -4703,6 +4703,7 @@
 
       // 2. Render Homepage "SHOP YOUR FAVORITE BRANDS" Ticker Cards Grid
       const favGrid = document.getElementById('admin-favorite-brands-grid');
+      if (favGrid) {
         const tickerBrands = (window.Store && typeof window.Store.getAllTickerBrandsAdmin === 'function') 
           ? window.Store.getAllTickerBrandsAdmin() 
           : ((window.Store && typeof window.Store.getBrands === 'function') ? window.Store.getBrands() : []);
