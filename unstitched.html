@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -851,39 +851,8 @@
       const paramSeason = urlParams.get('season');
       const paramCollection = urlParams.get('collection');
 
-      // Brand Normalization & Matching Helper
-      const normalizeBrandStr = (str) => {
-        if (!str) return '';
-        return str.toLowerCase().replace(/[^a-z0-9]/g, '');
-      };
-
-      const matchBrandName = (vendor, target) => {
-        if (!vendor || !target) return false;
-        const v = normalizeBrandStr(vendor);
-        const t = normalizeBrandStr(target);
-        if (v === t) return true;
-
-        // Specific aliases & brand mappings
-        if ((v.includes('alkaram') || v.includes('alkaramstudio')) && (t.includes('alkaram') || t.includes('alkaramstudio'))) return true;
-        if ((v.includes('nishat') || v.includes('nishatlinen')) && (t.includes('nishat') || t.includes('nishatlinen'))) return true;
-        if ((v.includes('gulahmed') || v.includes('ideas')) && (t.includes('gulahmed') || t.includes('ideas'))) return true;
-        if ((v === 'j' || v.includes('junaidjamshed')) && (t === 'j' || t.includes('junaidjamshed'))) return true;
-        if (v.includes('ethnic') && t.includes('ethnic')) return true;
-        if (v.includes('mariab') && t.includes('mariab')) return true;
-        if (v.includes('binsaeed') && t.includes('binsaeed')) return true;
-        if (v.includes('asimjofa') && t.includes('asimjofa')) return true;
-        if (v.includes('baroque') && t.includes('baroque')) return true;
-        if (v.includes('sapphire') && t.includes('sapphire')) return true;
-        if (v.includes('kayseria') && t.includes('kayseria')) return true;
-        if (v.includes('aghanoor') && t.includes('aghanoor')) return true;
-        if (v.includes('bonanza') && t.includes('bonanza')) return true;
-        if (v.includes('limelight') && t.includes('limelight')) return true;
-        if (v.includes('khaadi') && t.includes('khaadi')) return true;
-        if (v.includes('bareeze') && t.includes('bareeze')) return true;
-        if (v.includes('beechtree') && t.includes('beechtree')) return true;
-
-        return v.includes(t) || t.includes(v);
-      };
+      // Brand Normalization & Matching Helper delegates to Store
+      const matchBrandName = (vendor, target) => Store.matchBrandName(vendor, target);
 
       // 50+ Known Pakistani Brands List (Loaded dynamically from Store)
       const storedBrands = (window.Store && window.Store.getBrands) ? window.Store.getBrands().filter(b => b.visible !== false).map(b => b.name) : [
@@ -898,6 +867,36 @@
         'Sapphire', 'Saya', 'Soha Afreen', 'Stylo', 'Suhana', 'Taana Baana', 'Tawakal',
         'Thames', 'Warda', 'Wirs', 'Zaha', 'Zain Zee', 'Zellbury'
       ];
+
+      // Dynamic Category, Type, Season, and Stock Badges
+      const updateDynamicCounts = (prods) => {
+        const setVal = (id, count) => {
+          const el = document.getElementById(id);
+          if (el) el.textContent = `(${count})`;
+        };
+        const inStk = prods.filter(p => p.available).length;
+        const outStk = prods.filter(p => !p.available).length;
+        setVal('count-instock', inStk);
+        setVal('count-outofstock', outStk);
+        setVal('count-instock-mob', inStk);
+        setVal('count-outofstock-mob', outStk);
+
+        setVal('count-unstitched', prods.filter(p => Store.matchesCategory(p, 'unstitched')).length);
+        setVal('count-rtw', prods.filter(p => Store.matchesCategory(p, 'ready to wear')).length);
+        setVal('count-kids', prods.filter(p => Store.matchesCategory(p, 'kids')).length);
+        setVal('count-menswear', prods.filter(p => Store.matchesCategory(p, 'menswear')).length);
+
+        setVal('count-2pc', prods.filter(p => Store.matchesType(p, '2PC')).length);
+        setVal('count-3pc', prods.filter(p => Store.matchesType(p, '3PC')).length);
+        setVal('count-1pc', prods.filter(p => Store.matchesType(p, '1PC')).length);
+        setVal('count-bedsheet', prods.filter(p => Store.matchesType(p, 'Bedsheet')).length);
+        setVal('count-girls-eastern', prods.filter(p => Store.matchesType(p, 'Girls Eastern')).length);
+        setVal('count-boys-kurta', prods.filter(p => Store.matchesType(p, 'Boys Kurta')).length);
+
+        setVal('count-summer', prods.filter(p => Store.matchesSeason(p, 'Summer')).length);
+        setVal('count-winter', prods.filter(p => Store.matchesSeason(p, 'Winter')).length);
+      };
+      updateDynamicCounts(allProducts);
 
       // Populate Brand Checkboxes (both desktop and mobile)
       const allBrandNamesSet = new Set(storedBrands);
@@ -1075,55 +1074,31 @@
         const checkedCats = [...new Set(Array.from(document.querySelectorAll('input[name="category"]:checked')).map(i => i.value.toLowerCase()))];
         if (checkedCats.length > 0) {
           filtered = filtered.filter(p => {
-            const cat = (p.category || '').toLowerCase();
-            const gender = (p.gender || '').toLowerCase();
-            return checkedCats.some(c => cat.includes(c) || gender.includes(c));
+            return checkedCats.some(c => Store.matchesCategory(p, c));
           });
         }
 
-        // Type filter (2PC, 3PC, 1PC)
-        const checkedTypes = [...new Set(Array.from(document.querySelectorAll('input[name="type"]:checked')).map(i => i.value.toUpperCase()))];
+        // Type filter (2PC, 3PC, 1PC, Bedsheet, etc.)
+        const checkedTypes = [...new Set(Array.from(document.querySelectorAll('input[name="type"]:checked')).map(i => i.value))];
         if (checkedTypes.length > 0) {
           filtered = filtered.filter(p => {
-            const pType = (p.category_type || '').toUpperCase();
-            const pTitle = (p.title || '').toUpperCase();
-            return checkedTypes.some(t => pType.includes(t) || pTitle.includes(t));
+            return checkedTypes.some(t => Store.matchesType(p, t));
           });
         }
 
         // Season filter (Winter / Summer / All Seasons)
-        const checkedSeasons = [...new Set(Array.from(document.querySelectorAll('input[name="season"]:checked')).map(i => i.value.toLowerCase()))];
+        const checkedSeasons = [...new Set(Array.from(document.querySelectorAll('input[name="season"]:checked')).map(i => i.value))];
         if (checkedSeasons.length > 0) {
           filtered = filtered.filter(p => {
-            // 1. If explicit p.season is set on product
-            if (p.season) {
-              const ps = p.season.toLowerCase().trim();
-              if (checkedSeasons.includes(ps)) return true;
-              if (ps === 'all seasons' || ps === 'four seasons' || ps === 'year-round') return true;
-              if (checkedSeasons.includes('summer') && (ps.includes('summer') || ps.includes('spring'))) return true;
-              if (checkedSeasons.includes('winter') && ps.includes('winter')) return true;
-              return false; // Explicit season set - strictly do not match other seasons
-            }
-
-            // 2. Fallback only if p.season is missing
-            const title = (p.title || '').toLowerCase();
-            const fabric = (p.fabric || '').toLowerCase();
-            const text = `${title} ${fabric} ${(p.tags || []).join(' ')}`.toLowerCase();
-
-            const isExplicitLawn = /\b(lawn|voile|chiffon|organza|summer)\b/i.test(text);
-            const isWinterFabric = /\b(khaddar|karandi|shawl|pashmina|velvet|wool|marina)\b/i.test(text) || (/\blinen\b/i.test(fabric) || (/\blinen\b/i.test(title) && !isExplicitLawn));
-
-            if (checkedSeasons.includes('winter') && isWinterFabric) return true;
-            if (checkedSeasons.includes('summer') && !isWinterFabric) return true;
-            return false;
+            return checkedSeasons.some(s => Store.matchesSeason(p, s));
           });
         }
 
-        // Brand filter with robust matchBrandName
+        // Brand filter with robust Store.matchBrandName
         const checkedBrands = [...new Set(Array.from(document.querySelectorAll('input[name="brand"]:checked')).map(i => i.value))];
         if (checkedBrands.length > 0) {
           filtered = filtered.filter(p => {
-            return checkedBrands.some(b => matchBrandName(p.vendor, b));
+            return checkedBrands.some(b => Store.matchBrandName(p.vendor, b));
           });
         }
 
@@ -1269,7 +1244,9 @@
       applyFiltersAndRender();
 
       // Refresh product grid automatically whenever live server catalog is synced
-      window.addEventListener('catalog:updated', () => {
+      window.addEventListener('catalog:updated', (e) => {
+        const fresh = (e && e.detail && e.detail.products) || Store.getProducts();
+        updateDynamicCounts(fresh);
         applyFiltersAndRender();
       });
     });

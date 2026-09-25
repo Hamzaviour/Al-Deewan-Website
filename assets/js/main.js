@@ -595,7 +595,7 @@ const MainUI = {
 
     document.addEventListener('input', (e) => {
       if (e.target && e.target.id === 'predictive-search-input') {
-        const val = e.target.value;
+        const val = e.target.value.trim();
         const resultsGrid = document.getElementById('search-results-grid');
         if (!resultsGrid) return;
         if (!val || val.length < 2) {
@@ -603,11 +603,30 @@ const MainUI = {
           return;
         }
         const results = Store.search(val, 8);
+        const totalMatches = Store.search(val, 0).length;
         if (results.length === 0) {
-          resultsGrid.innerHTML = `<p style="grid-column: 1/-1; text-align:center; color:#888; padding:20px;">No results found for "${val}". Try searching for 'Almirah', '3PC', or 'Lawn'.</p>`;
+          resultsGrid.innerHTML = `<p style="grid-column: 1/-1; text-align:center; color:#888; padding:20px;">No results found for "${val}". Try searching for 'Menswear', 'Nishat', 'Sapphire', or '3PC'.</p>`;
           return;
         }
-        resultsGrid.innerHTML = results.map(p => this.createProductCardHTML(p)).join('');
+        let cardsHTML = results.map(p => this.createProductCardHTML(p)).join('');
+        if (totalMatches > results.length) {
+          cardsHTML += `
+            <div style="grid-column: 1/-1; text-align:center; padding:18px 10px;">
+              <a href="collections.html?q=${encodeURIComponent(val)}" class="btn-primary" style="display:inline-block; width:auto; padding:10px 24px; font-size:12px; text-decoration:none;">VIEW ALL ${totalMatches} RESULTS &rarr;</a>
+            </div>
+          `;
+        }
+        resultsGrid.innerHTML = cardsHTML;
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.target && e.target.id === 'predictive-search-input' && e.key === 'Enter') {
+        e.preventDefault();
+        const val = e.target.value.trim();
+        if (val) {
+          window.location.href = `collections.html?q=${encodeURIComponent(val)}`;
+        }
       }
     });
   },

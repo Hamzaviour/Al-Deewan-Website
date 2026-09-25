@@ -2,36 +2,36 @@
   "heroSlides": [
     {
       "id": 3,
-      "image": "assets/images/banners/hero_slide_3.jpg",
-      "mobileImage": "assets/images/banners/hero_slide_3.jpg",
+      "image": "uploads/hero_slide_1_1789899221_6d57c4fc.jpg",
       "title": "Al-Deewan 100% Original Designer Cut Pieces",
-      "link": "collections.html?category=Unstitched"
+      "link": "collections.html?category=Unstitched",
+      "mobileImage": "uploads/hero_slide_1_1789899221_6d57c4fc.jpg"
     },
     {
       "id": 1,
-      "image": "assets/images/banners/hero_slide_1.jpg",
-      "mobileImage": "assets/images/banners/hero_slide_1.jpg",
+      "image": "uploads/hero_slide_2_1789829460_f86b6c08.jpg",
       "title": "Al-Deewan Luxury Lawn Collection 2026",
-      "link": "https://api.whatsapp.com/send?phone=923334275944&text=Hello%20Al-Deewan%20Brand%2C%20I%20would%20like%20to%20order%20from%20the%20Luxury%20Lawn%20Collection."
+      "link": "https://api.whatsapp.com/send?phone=923334275944&text=Hello%20Al-Deewan%20Brand%2C%20I%20would%20like%20to%20order%20from%20the%20Luxury%20Lawn%20Collection.",
+      "mobileImage": "uploads/hero_slide_2_1789829460_f86b6c08.jpg"
     },
     {
       "id": 2,
-      "image": "assets/images/banners/hero_slide_2.jpg",
-      "mobileImage": "assets/images/banners/hero_slide_2.jpg",
+      "image": "uploads/hero_slide_3_1789830039_8f41d53c.jpg",
       "title": "Al-Deewan Winter Khaddar & Karandi Shawl Collection",
-      "link": "collections.html?season=Winter"
+      "link": "collections.html?season=Winter",
+      "mobileImage": "uploads/hero_slide_3_1789830039_8f41d53c.jpg"
     }
   ],
   "heroAutoplaySpeed": 5000,
   "heroBanner": {
-    "image": "assets/images/banners/hero_slide_3.jpg",
-    "link": "https://api.whatsapp.com/send?phone=923334275944&text=Hello%20Al-Deewan%20Brand%2C%20I%20would%20like%20to%20order%20from%20the%20Branded%20Collection."
+    "image": "uploads/hero_slide_1_1789899221_6d57c4fc.jpg",
+    "link": "collections.html?category=Unstitched"
   },
   "welcomeBanner": {
-    "image": "assets/images/web_banner_promo.png",
+    "image": "uploads/promo_banner_1789737760_5f592dad.jpg",
     "link": "https://api.whatsapp.com/send?phone=923334275944&text=Hello%20Al-Deewan%20Brand%2C%20I%20would%20like%20to%20order%20from%20the%20Branded%20Collection."
   },
-  "announcementText": "⚡ 100% Genuine Branded Pieces • Zellbury Latest Chicken Kari Now Avialable At Amazing Discount • Biggest Lawn Opening in Pakistan ⚡  Johra Embroided  Winter Latest Luxury Suits",
+  "announcementText": "⚡ 100% Genuine Branded Pieces • Zellbury Latest Chicken Kari Now Avialable At Amazing Discount • SAPPHIER KHADAR TWO PIECE NOW AVAILABLE⚡  Johra Embroided  Winter Latest Luxury SuitsT • 🔥 GENTS LATEST WINTER JUST ARRIVED 🔥 FAST DELIVERY ALL PAKSTANISTAN ✨ LIFE TIME EXCHANGE POILCY",
   "brandTickerText": "SHOP YOUR FAVORITE BRANDS",
   "brandTickerSubtitle": "Explore 100% genuine cut pieces from top designer fashion houses",
   "deliverySettings": {
@@ -41,46 +41,101 @@
   },
   "featuredSections": [
     {
-      "id": "section_binsaeed",
-      "title": "BIN SAEED STITCHED 2PC",
-      "subtitle": "Pure Lawn & Cotton Stitched 2-Piece Suits with Matching Trousers / Dupattas",
-      "viewAllUrl": "collections.html?brand=Bin+Saeed&type=2PC",
-      "targetGridId": "binsaeed-products-grid",
-      "productIds": [],
+      "id": "section_1789799692055",
+      "title": "SINGLE BEDSHEETS PROMOTION",
+      "subtitle": "Handpicked designer luxury suits",
+      "viewAllUrl": "collections.html",
+      "productIds": [
+        1789902532567,
+        1789902404904,
+        1789902241888,
+        1789902362998,
+        1789902194110,
+        1789901955326,
+        1789902005318,
+        1789902083014,
+        1789901886160,
+        1789902298799
+      ],
       "visible": true
     },
     {
+      "visible": true,
       "id": "section_unstitched",
-      "title": "UNSTITCHED 3PC PRINTED & EMBROIDERED LAWN",
+      "title": "UNSTITCHED 3PC PRINTED & EMBROIDERED ",
       "subtitle": "Premium Swiss Voile & Digital Printed Lawn Dupatta Sets",
       "viewAllUrl": "collections.html?category=Unstitched&type=3PC",
       "targetGridId": "unstitched-products-grid",
-      "productIds": [],
-      "visible": true
+      "productIds": [
+        1790062709741,
+        1790062049557,
+        1790062233014,
+        1790062995626,
+        1790062433459,
+        1790063269151,
+        1790061814895,
+        1790059329350,
+        1790058290942
+      ]
     },
     {
+      "visible": true,
+      "id": "section_binsaeed",
+      "title": "ETHNC 3PC",
+      "subtitle": "Pure Lawn & Cotton Stitched 2-Piece Suits with Matching Trousers / Dupattas",
+      "viewAllUrl": "collections.html?brand=Ethnic",
+      "targetGridId": "binsaeed-products-grid",
+      "productIds": [
+        1789278301621,
+        1789278001067,
+        1789278068451,
+        1789278217147
+      ]
+    },
+    {
+      "visible": true,
+      "id": "section_designer",
+      "title": "TOP DESIGNER LAWN SUITS",
+      "subtitle": "Exclusive Cut Pieces from Pakistan Top 50+ Fashion Houses",
+      "viewAllUrl": "https://aldeewancollection.com/collections.html?category=Unstitched&type=3PC&season=Winter",
+      "targetGridId": "featured-brands-products-grid",
+      "productIds": [
+        1789055326251,
+        1789134870199,
+        1789128021537,
+        1789055006230,
+        1789055111612,
+        1789135511548,
+        1789135180332,
+        1789136304950,
+        1789135827939,
+        1789136369062,
+        1789136488300,
+        1789136419493,
+        1789136621048
+      ]
+    },
+    {
+      "visible": true,
       "id": "section_rtw",
       "title": "READY TO WEAR STITCHED COLLECTION",
       "subtitle": "Designer Stitched Kurties, 2-Piece & 3-Piece Pret Ensembles",
       "viewAllUrl": "collections.html?category=Ready+to+Wear",
       "targetGridId": "rtw-products-grid",
-      "productIds": [],
-      "visible": false
-    },
-    {
-      "id": "section_designer",
-      "title": "TOP DESIGNER LAWN SUITS",
-      "subtitle": "Exclusive Cut Pieces from Pakistan Top 50+ Fashion Houses",
-      "viewAllUrl": "collections.html",
-      "targetGridId": "featured-brands-products-grid",
-      "productIds": [],
-      "visible": true
+      "productIds": [
+        1789659602857,
+        1789656275921,
+        1789659658087,
+        1789656438587,
+        1789659713193,
+        1789659440520
+      ]
     }
   ],
   "sectionHeadings": {
-    "binSaeedTitle": "BIN SAEED STITCHED 2PC",
-    "unstitchedTitle": "UNSTITCHED 3PC PRINTED & EMBROIDERED LAWN",
-    "rtwTitle": "READY TO WEAR STITCHED COLLECTION",
+    "binSaeedTitle": "SINGLE BEDSHEETS PROMOTION",
+    "unstitchedTitle": "UNSTITCHED 3PC PRINTED & EMBROIDERED ",
+    "rtwTitle": "ETHNC 3PC",
     "designerTitle": "TOP DESIGNER LAWN SUITS"
   },
   "navDropdowns": {
@@ -146,18 +201,18 @@
         },
         {
           "id": "4pc",
-          "label": "4PC",
-          "url": "collections.html?category=Unstitched&type=4PC",
-          "visible": false,
+          "label": "GENTS",
+          "url": "collections.html?category=Menswear",
+          "visible": true,
           "isCustom": false,
           "sublinks": [
             {
               "label": "Winter",
-              "url": "collections.html?category=Unstitched&type=4PC&season=Winter"
+              "url": "collections.html?category=Menswear&season=Winter"
             },
             {
               "label": "Summer",
-              "url": "collections.html?category=Unstitched&type=4PC&season=Summer"
+              "url": "collections.html?category=Menswear&season=Summer"
             }
           ]
         },
@@ -178,7 +233,96 @@
             }
           ]
         }
-      ]
+      ],
+      "items1pc": {
+        "id": "1pc",
+        "label": "1PC",
+        "url": "collections.html?category=Unstitched&type=1PC",
+        "visible": true,
+        "isCustom": false,
+        "sublinks": [
+          {
+            "label": "Winter",
+            "url": "collections.html?category=Unstitched&type=1PC&season=Winter"
+          },
+          {
+            "label": "Summer",
+            "url": "collections.html?category=Unstitched&type=1PC&season=Summer"
+          },
+          {
+            "label": "Bedsheets",
+            "url": "collections.html?type=Bedsheet"
+          }
+        ]
+      },
+      "items2pc": {
+        "id": "2pc",
+        "label": "2PC",
+        "url": "collections.html?category=Unstitched&type=2PC",
+        "visible": true,
+        "isCustom": false,
+        "sublinks": [
+          {
+            "label": "Winter",
+            "url": "collections.html?category=Unstitched&type=2PC&season=Winter"
+          },
+          {
+            "label": "Summer",
+            "url": "collections.html?category=Unstitched&type=2PC&season=Summer"
+          }
+        ]
+      },
+      "items3pc": {
+        "id": "3pc",
+        "label": "3PC",
+        "url": "collections.html?category=Unstitched&type=3PC",
+        "visible": true,
+        "isCustom": false,
+        "sublinks": [
+          {
+            "label": "Winter",
+            "url": "collections.html?category=Unstitched&type=3PC&season=Winter"
+          },
+          {
+            "label": "Summer",
+            "url": "collections.html?category=Unstitched&type=3PC&season=Summer"
+          }
+        ]
+      },
+      "items4pc": {
+        "id": "4pc",
+        "label": "GENTS",
+        "url": "collections.html?category=Menswear",
+        "visible": true,
+        "isCustom": false,
+        "sublinks": [
+          {
+            "label": "Winter",
+            "url": "collections.html?category=Menswear&season=Winter"
+          },
+          {
+            "label": "Summer",
+            "url": "collections.html?category=Menswear&season=Summer"
+          }
+        ]
+      },
+      "items5pc": {
+        "id": "5pc",
+        "label": "5PC",
+        "url": "collections.html?category=Unstitched&type=5PC",
+        "visible": false,
+        "isCustom": false,
+        "sublinks": [
+          {
+            "label": "Winter",
+            "url": "collections.html?category=Unstitched&type=5PC&season=Winter"
+          },
+          {
+            "label": "Summer",
+            "url": "collections.html?category=Unstitched&type=5PC&season=Summer"
+          }
+        ]
+      }
     },
     "readyToWear": {
       "visible": true,
@@ -186,24 +330,24 @@
       "url": "collections.html?category=Ready+to+Wear",
       "links": [
         {
+          "visible": true,
           "label": "1PC (Kurtis)",
-          "url": "collections.html?category=Ready+to+Wear&type=1PC",
-          "visible": true
+          "url": "collections.html?category=Ready+to+Wear&type=1PC"
         },
         {
+          "visible": true,
           "label": "2PC",
-          "url": "collections.html?category=Ready+to+Wear&type=2PC",
-          "visible": true
+          "url": "collections.html?category=Ready+to+Wear&type=2PC"
         },
         {
+          "visible": true,
           "label": "3PC",
-          "url": "collections.html?category=Ready+to+Wear&type=3PC",
-          "visible": true
+          "url": "collections.html?category=Ready+to+Wear&type=3PC"
         },
         {
+          "visible": true,
           "label": "All Ready to Wear",
-          "url": "collections.html?category=Ready+to+Wear",
-          "visible": true
+          "url": "collections.html?category=Ready+to+Wear"
         }
       ]
     },
@@ -213,40 +357,40 @@
       "url": "collections.html?category=Kids",
       "links": [
         {
+          "visible": true,
           "label": "Girls Eastern",
-          "url": "collections.html?category=Kids&type=Girls+Eastern",
-          "visible": true
+          "url": "collections.html?category=Kids&type=Girls+Eastern"
         },
         {
+          "visible": true,
           "label": "Boys Kurta",
-          "url": "collections.html?category=Kids&type=Boys+Kurta",
-          "visible": true
+          "url": "collections.html?category=Kids&type=Boys+Kurta"
         },
         {
+          "visible": true,
           "label": "All Kids Collection",
-          "url": "collections.html?category=Kids",
-          "visible": true
+          "url": "collections.html?category=Kids"
         }
       ]
     },
     "mainNavLinks": [
       {
+        "visible": true,
         "label": "NEW ARRIVAL",
         "url": "collections.html?collection=new-in",
-        "badge": "HOT",
-        "visible": true
+        "badge": ""
       },
       {
+        "visible": true,
         "label": "SHOP BY BRAND",
         "url": "shop-by-brand.html",
-        "badge": "",
-        "visible": true
+        "badge": ""
       },
       {
+        "visible": true,
         "label": "ORDER TRACKING",
         "url": "order-tracking.html",
-        "badge": "",
-        "visible": true
+        "badge": ""
       }
     ]
   },

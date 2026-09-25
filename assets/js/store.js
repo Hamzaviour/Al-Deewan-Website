@@ -274,18 +274,208 @@ const Store = {
     }, 3200);
   },
 
-  // Search Engine
+  // Brand Normalization & Canonical Matching Engine
+  normalizeBrandStr(str) {
+    if (!str) return '';
+    return str.toString().toLowerCase().replace(/[^a-z0-9]/g, '');
+  },
+
+  getBrandCanonical(rawName) {
+    if (!rawName) return '';
+    const clean = this.normalizeBrandStr(rawName);
+    if (clean.includes('alkram') || clean.includes('alrkam') || clean.includes('alkaram')) return 'alkaram';
+    if (clean.includes('nishat')) return 'nishat';
+    if (clean.includes('gulahm') || clean.includes('ideas')) return 'gulahmed';
+    if (clean.includes('mariab') || clean.includes('mairab')) return 'mariab';
+    if (clean.includes('maishum') || clean.includes('miashum')) return 'maishum';
+    if (clean.includes('kumash') || clean.includes('kumas')) return 'kumash';
+    if (clean.includes('sohaye') || clean.includes('saohaye')) return 'sohaye';
+    if (clean.startsWith('saya')) return 'saya';
+    if (clean.includes('ethnic')) return 'ethnic';
+    if (clean.includes('binsaeed')) return 'binsaeed';
+    if (clean.includes('sapphire')) return 'sapphire';
+    if (clean.includes('bareeze')) return 'bareeze';
+    if (clean.includes('asimjofa')) return 'asimjofa';
+    if (clean.includes('baroque')) return 'baroque';
+    if (clean.includes('kayseria')) return 'kayseria';
+    if (clean.includes('bonanza')) return 'bonanza';
+    if (clean.includes('khaadi')) return 'khaadi';
+    if (clean.includes('limelight')) return 'limelight';
+    if (clean.includes('beechtree')) return 'beechtree';
+    if (clean.includes('safanoor') || clean.includes('safanur')) return 'safanoor';
+    if (clean.includes('rangraiza') || clean.includes('rangreza')) return 'rangraiza';
+    if (clean === 'j' || clean.includes('junaidjamshed')) return 'junaidjamshed';
+    return clean;
+  },
+
+  matchBrandName(vendor, target) {
+    if (!vendor || !target) return false;
+    const c1 = this.getBrandCanonical(vendor);
+    const c2 = this.getBrandCanonical(target);
+    if (c1 && c2 && c1 === c2) return true;
+    const v = this.normalizeBrandStr(vendor);
+    const t = this.normalizeBrandStr(target);
+    return v === t || v.includes(t) || t.includes(v);
+  },
+
+  // Gender & Category Classification Helpers
+  isMenswearProduct(p) {
+    if (!p) return false;
+    const gender = (p.gender || '').toLowerCase().trim();
+    if (gender === 'men' || gender === 'menswear') return true;
+    const cat = (p.category || '').toLowerCase().trim();
+    if (cat === 'menswear' || cat === 'men' || cat === 'gents') return true;
+    const catType = (p.category_type || '').toLowerCase().trim();
+    if (catType === 'menswear' || catType === 'men' || catType === 'gents') return true;
+    if (Array.isArray(p.tags) && p.tags.some(t => /^(men|menswear|gents)$/i.test(String(t).trim()))) return true;
+    const title = (p.title || '').toLowerCase();
+    if (/\b(men|men's|menswear|gents|gent's|kurta|shalwar|boski|latha)\b/i.test(title) && !/\b(women|ladies|girl|girls)\b/i.test(title)) return true;
+    return false;
+  },
+
+  isKidsProduct(p) {
+    if (!p) return false;
+    const gender = (p.gender || '').toLowerCase().trim();
+    if (gender === 'kids' || gender === 'children') return true;
+    const cat = (p.category || '').toLowerCase().trim();
+    if (cat === 'kids' || cat === 'children') return true;
+    const catType = (p.category_type || '').toLowerCase().trim();
+    if (catType === 'kids' || catType === 'boys kurta' || catType === 'girls eastern') return true;
+    if (Array.isArray(p.tags) && p.tags.some(t => /^(kids|children|boys|girls)$/i.test(String(t).trim()))) return true;
+    const title = (p.title || '').toLowerCase();
+    if (/\b(kid|kids|child|children|boy|boys|girl|girls)\b/i.test(title)) return true;
+    return false;
+  },
+
+  matchesCategory(p, categoryQuery) {
+    if (!p || !categoryQuery) return true;
+    const cleanC = categoryQuery.toLowerCase().trim();
+    if (!cleanC) return true;
+
+    if (cleanC === 'menswear' || cleanC === 'men') {
+      return this.isMenswearProduct(p);
+    }
+    if (cleanC === 'kids') {
+      return this.isKidsProduct(p);
+    }
+    if (cleanC === 'ready to wear' || cleanC === 'rtw') {
+      const cat = (p.category || '').toLowerCase();
+      const catType = (p.category_type || '').toLowerCase();
+      return cat.includes('ready') || catType.includes('ready') || catType === '1pc shirt';
+    }
+    if (cleanC === 'unstitched') {
+      const cat = (p.category || '').toLowerCase();
+      const tags = (p.tags || []).map(x => String(x).toLowerCase());
+      return cat.includes('unstitched') || tags.includes('unstitched');
+    }
+
+    const cat = (p.category || '').toLowerCase();
+    const catType = (p.category_type || '').toLowerCase();
+    const gender = (p.gender || '').toLowerCase();
+    return cat.includes(cleanC) || catType.includes(cleanC) || gender.includes(cleanC);
+  },
+
+  matchesType(p, typeQuery) {
+    if (!p || !typeQuery) return true;
+    const cleanT = typeQuery.toLowerCase().trim();
+    if (!cleanT) return true;
+
+    const catType = (p.category_type || '').toLowerCase().trim();
+    const title = (p.title || '').toLowerCase();
+    const tags = (p.tags || []).map(x => String(x).toLowerCase());
+
+    if (cleanT === '2pc') return catType.includes('2pc') || tags.includes('2pc') || /\b2pc\b/i.test(title);
+    if (cleanT === '3pc') return catType.includes('3pc') || tags.includes('3pc') || /\b3pc\b/i.test(title);
+    if (cleanT === '1pc') return catType.includes('1pc') || catType.includes('shirt') || tags.includes('1pc') || /\b1pc\b/i.test(title);
+    if (cleanT === 'bedsheet') return catType.includes('bedsheet') || (p.category && p.category.toLowerCase().includes('bedsheet')) || /\bbedsheet\b/i.test(title);
+    if (cleanT === 'boys kurta') return catType.includes('boys') || catType.includes('kurta') || /\b(boy|boys)\b/i.test(title);
+    if (cleanT === 'girls eastern') return catType.includes('girls') || /\b(girl|girls)\b/i.test(title);
+
+    return catType.includes(cleanT) || title.includes(cleanT);
+  },
+
+  matchesSeason(p, seasonQuery) {
+    if (!p || !seasonQuery) return true;
+    const target = seasonQuery.toLowerCase().trim();
+    if (!target) return true;
+
+    const ps = (p.season || '').toLowerCase().trim();
+    if (ps) {
+      if (ps === target) return true;
+      if (ps === 'all seasons' || ps === 'four seasons' || ps === 'year-round') return true;
+      if (target === 'summer' && (ps.includes('summer') || ps.includes('spring'))) return true;
+      if (target === 'winter' && ps.includes('winter')) return true;
+      if (target === 'spring / festive' && (ps.includes('spring') || ps.includes('festive'))) return true;
+      return false;
+    }
+
+    const text = `${p.title || ''} ${p.fabric || ''} ${(p.tags || []).join(' ')}`.toLowerCase();
+    const isLawn = /\b(lawn|voile|chiffon|organza|summer)\b/i.test(text);
+    const isWinter = /\b(khaddar|karandi|shawl|pashmina|velvet|wool|marina)\b/i.test(text) || (/\blinen\b/i.test(text) && !isLawn);
+
+    if (target === 'winter') return isWinter;
+    if (target === 'summer') return !isWinter;
+    return false;
+  },
+
+  // Intelligent Search Engine
   search(query, limit = 8) {
-    if (!query || !window.CATALOG_PRODUCTS) return [];
-    const q = query.toLowerCase().trim();
-    return window.CATALOG_PRODUCTS.filter(p => {
-      return (
-        p.title.toLowerCase().includes(q) ||
-        (p.vendor && p.vendor.toLowerCase().includes(q)) ||
-        (p.category && p.category.toLowerCase().includes(q)) ||
-        (p.sku && p.sku.toLowerCase().includes(q))
-      );
-    }).slice(0, limit);
+    const products = this.getProducts();
+    if (!query || !products || products.length === 0) return [];
+    const rawQ = query.toLowerCase().trim();
+    if (!rawQ) return [];
+
+    const isMenSearch = /\b(men|men's|mens|menswear|gents|gent's)\b/i.test(rawQ) && !/\b(women|ladies)\b/i.test(rawQ);
+    const isKidsSearch = /\b(kid|kids|child|children|boy|boys|girl|girls)\b/i.test(rawQ);
+    const tokens = rawQ.split(/\s+/).filter(t => t.length > 0);
+
+    const results = products.filter(p => {
+      // 1. Menswear search special handling
+      if (isMenSearch) {
+        if (!this.isMenswearProduct(p)) return false;
+        const nonMenTokens = tokens.filter(t => !/^(men|men's|mens|menswear|gents|gent's|suit|suits|article|articles|collection|clothes|clothing)$/i.test(t));
+        if (nonMenTokens.length === 0) return true;
+        const searchableText = `${p.title || ''} ${p.vendor || ''} ${p.sku || ''} ${p.fabric || ''} ${p.category_type || ''} ${p.season || ''} suit suits unstitched ${(p.tags || []).join(' ')}`.toLowerCase();
+        return nonMenTokens.every(tok => searchableText.includes(tok));
+      }
+
+      // 2. Kids search special handling
+      if (isKidsSearch) {
+        if (!this.isKidsProduct(p)) return false;
+        const nonKidsTokens = tokens.filter(t => !/^(kid|kids|child|children|boy|boys|girl|girls|suit|suits|article|articles|collection)$/i.test(t));
+        if (nonKidsTokens.length === 0) return true;
+        const searchableText = `${p.title || ''} ${p.vendor || ''} ${p.sku || ''} ${p.fabric || ''} ${p.category_type || ''} suit suits ${(p.tags || []).join(' ')}`.toLowerCase();
+        return nonKidsTokens.every(tok => searchableText.includes(tok));
+      }
+
+      // 3. Multi-field token matching
+      const title = (p.title || '').toLowerCase();
+      const vendor = (p.vendor || '').toLowerCase();
+      const category = (p.category || '').toLowerCase();
+      const categoryType = (p.category_type || '').toLowerCase();
+      const sku = (p.sku || '').toLowerCase();
+      const fabric = (p.fabric || '').toLowerCase();
+      const season = (p.season || '').toLowerCase();
+      const tags = (p.tags || []).join(' ').toLowerCase();
+      const desc = (p.description || '').toLowerCase();
+
+      const combinedText = `${title} ${vendor} ${category} ${categoryType} ${sku} ${fabric} ${season} ${tags} ${desc} suit suits article articles collection`;
+
+      return tokens.every(tok => {
+        if (tok === 'men' || tok === 'mens' || tok === 'menswear' || tok === 'gents') {
+          return this.isMenswearProduct(p);
+        }
+        if (tok === 'women' || tok === 'womens' || tok === 'ladies') {
+          return !this.isMenswearProduct(p) && !this.isKidsProduct(p);
+        }
+        if (tok === 'kid' || tok === 'kids' || tok === 'children') {
+          return this.isKidsProduct(p);
+        }
+        return combinedText.includes(tok);
+      });
+    });
+
+    return (limit && limit > 0) ? results.slice(0, limit) : results;
   },
 
   // Dynamic Catalog & Settings Engine
@@ -369,8 +559,31 @@ const Store = {
     const mainImg = productData.featured_image || productData.image || newImages[0];
     const hoverImg = productData.hover_image || newImages[1] || mainImg;
     const seasonVal = productData.season || 'Summer';
-    const genderVal = productData.gender || (productData.category === 'Menswear' ? 'Men' : (productData.category === 'Kids' ? 'Kids' : 'Women'));
+    let genderVal = productData.gender;
+    if (!genderVal) {
+      if (this.isMenswearProduct(productData) || productData.category === 'Menswear') {
+        genderVal = 'Men';
+      } else if (this.isKidsProduct(productData) || productData.category === 'Kids') {
+        genderVal = 'Kids';
+      } else {
+        genderVal = 'Women';
+      }
+    }
     const fabricVal = productData.fabric || '';
+
+    const initialTags = productData.tags || [
+      productData.category_type || '3PC',
+      productData.category || 'Unstitched',
+      productData.vendor || 'Al-Deewan Brand',
+      seasonVal,
+      genderVal,
+      fabricVal
+    ].filter(Boolean);
+
+    if (genderVal === 'Men' || productData.category === 'Menswear' || this.isMenswearProduct(productData)) {
+      if (!initialTags.some(t => String(t).toLowerCase() === 'menswear')) initialTags.push('Menswear');
+      if (!initialTags.some(t => String(t).toLowerCase() === 'men')) initialTags.push('Men');
+    }
 
     const newProduct = {
       id,
@@ -394,14 +607,7 @@ const Store = {
       hover_image: hoverImg,
       images: newImages,
       featured_image: mainImg,
-      tags: productData.tags || [
-        productData.category_type || '3PC',
-        productData.category || 'Unstitched',
-        productData.vendor || 'Al-Deewan Brand',
-        seasonVal,
-        genderVal,
-        fabricVal
-      ].filter(Boolean),
+      tags: initialTags,
       body_html: productData.body_html || `<p>${productData.title}</p>`,
       description: productData.description || '',
       created_at: new Date().toISOString()
@@ -434,8 +640,23 @@ const Store = {
     const updatedHoverImg = updatedData.hover_image || updatedImages[1] || updatedMainImg;
 
     const seasonVal = updatedData.season !== undefined ? updatedData.season : (current.season || 'Summer');
-    const genderVal = updatedData.gender !== undefined ? updatedData.gender : (current.gender || (current.category === 'Menswear' ? 'Men' : (current.category === 'Kids' ? 'Kids' : 'Women')));
+    let genderVal = updatedData.gender !== undefined ? updatedData.gender : current.gender;
+    if (!genderVal) {
+      if (this.isMenswearProduct(updatedData) || updatedData.category === 'Menswear' || this.isMenswearProduct(current)) {
+        genderVal = 'Men';
+      } else if (this.isKidsProduct(updatedData) || updatedData.category === 'Kids' || this.isKidsProduct(current)) {
+        genderVal = 'Kids';
+      } else {
+        genderVal = 'Women';
+      }
+    }
     const fabricVal = updatedData.fabric !== undefined ? updatedData.fabric : (current.fabric || '');
+
+    const updatedTags = updatedData.tags !== undefined ? [...updatedData.tags] : (Array.isArray(current.tags) ? [...current.tags] : []);
+    if (genderVal === 'Men' || updatedData.category === 'Menswear' || this.isMenswearProduct(updatedData) || this.isMenswearProduct(current)) {
+      if (!updatedTags.some(t => String(t).toLowerCase() === 'menswear')) updatedTags.push('Menswear');
+      if (!updatedTags.some(t => String(t).toLowerCase() === 'men')) updatedTags.push('Men');
+    }
 
     // Automatically update handle if title is modified or handle is passed
     let newHandle = updatedData.handle ? this.slugify(updatedData.handle) : '';
@@ -470,7 +691,8 @@ const Store = {
       images: updatedImages,
       featured_image: updatedMainImg,
       hover_image: updatedHoverImg,
-      image: updatedMainImg
+      image: updatedMainImg,
+      tags: updatedTags
     };
 
     products[index] = updated;
@@ -937,11 +1159,12 @@ const Store = {
       promoLink.href = settings.welcomeBanner.link;
     }
 
-    // 4. Brand Ticker Headings
+    // 4. Brand Ticker Headings & Dynamic Brand Logos
     const brandTickerH2 = document.querySelector('.brands-title h2');
     if (brandTickerH2 && settings.brandTickerText) {
       brandTickerH2.innerHTML = settings.brandTickerText.replace(/ /g, '<br>');
     }
+    this.renderBrandTicker();
 
     // 5. Featured Section Headings & Links & Visibility (Homepage Collections)
     const featuredSecs = settings.featuredSections || [];
@@ -1265,7 +1488,7 @@ const Store = {
   getTopFavoriteBrands() {
     const brands = this.getBrands();
     return brands
-      .filter(b => (b.isFavorite || b.isTopFavorite) && b.visible !== false && !b.hidden && (b.img || b.logo))
+      .filter(b => (b.isFavorite || b.isTopFavorite || b.showInTicker) && b.visible !== false && !b.hidden && !b.hiddenInTicker && (b.img || b.logo))
       .map(b => ({
         ...b,
         img: b.img || b.logo,
@@ -1273,37 +1496,102 @@ const Store = {
       }));
   },
 
-  normalizeBrandStr(str) {
-    if (!str) return '';
-    return str.toLowerCase().replace(/[^a-z0-9]/g, '');
+  // Homepage "SHOP YOUR FAVORITE BRANDS" Ticker Methods
+  getTickerBrands() {
+    const brands = this.getBrands();
+    return brands
+      .filter(b => {
+        const inTicker = b.showInTicker === true || (b.showInTicker !== false && (b.isTopFavorite || b.isFavorite));
+        const isHidden = b.hidden || b.hiddenInTicker;
+        const hasLogo = !!(b.logo || b.img);
+        return inTicker && !isHidden && hasLogo;
+      })
+      .sort((a, b) => (a.tickerOrder !== undefined ? a.tickerOrder : 999) - (b.tickerOrder !== undefined ? b.tickerOrder : 999));
   },
 
-  matchBrandName(vendor, target) {
-    if (!vendor || !target) return false;
-    const v = this.normalizeBrandStr(vendor);
-    const t = this.normalizeBrandStr(target);
-    if (v === t) return true;
+  renderBrandTicker(containerEl) {
+    const container = containerEl || document.getElementById('homepage-brands-ticker') || document.querySelector('.brands-ticker');
+    if (!container) return;
+    const brands = this.getTickerBrands();
+    const sectionWrap = document.querySelector('.brands-section-wrapper');
+    if (!brands || brands.length === 0) {
+      if (sectionWrap) sectionWrap.style.display = 'none';
+      return;
+    }
+    if (sectionWrap) sectionWrap.style.display = '';
 
-    if ((v.includes('alkaram') || v.includes('alkaramstudio')) && (t.includes('alkaram') || t.includes('alkaramstudio'))) return true;
-    if ((v.includes('nishat') || v.includes('nishatlinen')) && (t.includes('nishat') || t.includes('nishatlinen'))) return true;
-    if ((v.includes('gulahmed') || v.includes('ideas')) && (t.includes('gulahmed') || t.includes('ideas'))) return true;
-    if ((v === 'j' || v.includes('junaidjamshed')) && (t === 'j' || t.includes('junaidjamshed'))) return true;
-    if (v.includes('ethnic') && t.includes('ethnic')) return true;
-    if (v.includes('mariab') && t.includes('mariab')) return true;
-    if (v.includes('binsaeed') && t.includes('binsaeed')) return true;
-    if (v.includes('asimjofa') && t.includes('asimjofa')) return true;
-    if (v.includes('baroque') && t.includes('baroque')) return true;
-    if (v.includes('sapphire') && t.includes('sapphire')) return true;
-    if (v.includes('kayseria') && t.includes('kayseria')) return true;
-    if (v.includes('aghanoor') && t.includes('aghanoor')) return true;
-    if (v.includes('bonanza') && t.includes('bonanza')) return true;
-    if (v.includes('limelight') && t.includes('limelight')) return true;
-    if (v.includes('khaadi') && t.includes('khaadi')) return true;
-    if (v.includes('bareeze') && t.includes('bareeze')) return true;
-    if (v.includes('beechtree') && t.includes('beechtree')) return true;
+    // Guarantee seamless infinite marquee scrolling
+    let renderList = [...brands];
+    while (renderList.length < 12) {
+      renderList = renderList.concat(brands);
+    }
+    const seamlessList = [...renderList, ...renderList];
 
-    return v.includes(t) || t.includes(v);
+    container.innerHTML = seamlessList.map(b => {
+      const brandName = b.name || '';
+      const slug = b.slug || brandName.toLowerCase().replace(/[^a-z0-9]/g, '_');
+      const logoSrc = b.logo || b.img || `assets/images/brands/${slug}.png`;
+      return `
+        <a href="collections.html?brand=${encodeURIComponent(brandName)}" class="brand-item" title="${brandName}">
+          <img src="${logoSrc}" alt="${brandName}" loading="eager" decoding="sync" width="160" height="80" onerror="this.onerror=null; if(this.closest('.brand-item')) this.closest('.brand-item').style.display='none';" />
+        </a>
+      `;
+    }).join('');
   },
+
+  getAllTickerBrandsAdmin() {
+    const brands = this.getBrands();
+    return brands
+      .filter(b => b.showInTicker === true || (b.showInTicker !== false && (b.isTopFavorite || b.isFavorite)))
+      .sort((a, b) => (a.tickerOrder !== undefined ? a.tickerOrder : 999) - (b.tickerOrder !== undefined ? b.tickerOrder : 999));
+  },
+
+  toggleBrandTickerVisibility(brandId) {
+    const brands = this.getBrands();
+    const brand = brands.find(b => b.id === brandId);
+    if (!brand) return null;
+    const isCurrentlyHidden = !!(brand.hiddenInTicker || brand.hidden);
+    return this.updateBrand(brandId, {
+      hiddenInTicker: !isCurrentlyHidden
+    });
+  },
+
+  removeBrandFromTicker(brandId) {
+    return this.updateBrand(brandId, {
+      showInTicker: false,
+      isTopFavorite: false,
+      isFavorite: false
+    });
+  },
+
+  addBrandToTicker(brandId) {
+    return this.updateBrand(brandId, {
+      showInTicker: true,
+      isTopFavorite: true,
+      hiddenInTicker: false
+    });
+  },
+
+  reorderTickerBrand(brandId, direction) {
+    const tickerBrands = this.getAllTickerBrandsAdmin();
+    const idx = tickerBrands.findIndex(b => b.id === brandId);
+    if (idx === -1) return;
+    const targetIdx = (direction === 'up' || direction === 'left') ? idx - 1 : idx + 1;
+    if (targetIdx < 0 || targetIdx >= tickerBrands.length) return;
+
+    tickerBrands.forEach((b, i) => { b.tickerOrder = i; });
+    const temp = tickerBrands[idx].tickerOrder;
+    tickerBrands[idx].tickerOrder = tickerBrands[targetIdx].tickerOrder;
+    tickerBrands[targetIdx].tickerOrder = temp;
+
+    let allBrands = this.getBrands();
+    allBrands = allBrands.map(b => {
+      const match = tickerBrands.find(tb => tb.id === b.id);
+      return match ? { ...b, tickerOrder: match.tickerOrder } : b;
+    });
+    this.saveBrands(allBrands);
+  },
+
 
   addBrand(brandData) {
     const brands = this.getBrands();
@@ -1311,7 +1599,9 @@ const Store = {
     if (!name) return null;
     const letter = (brandData.letter || name.charAt(0).toUpperCase() || 'A').toUpperCase();
     const id = brandData.id || ('b_' + name.toLowerCase().replace(/[^a-z0-9]/g, '_') + '_' + Date.now());
-    const isFav = !!(brandData.isFavorite || brandData.isTopFavorite);
+    const isFav = !!(brandData.isFavorite || brandData.isTopFavorite || brandData.showInTicker);
+    const inTicker = brandData.showInTicker !== undefined ? !!brandData.showInTicker : isFav;
+    const isHiddenInTicker = brandData.hiddenInTicker !== undefined ? !!brandData.hiddenInTicker : false;
     const logoImg = brandData.logo || brandData.img || '';
     const isVis = brandData.visible !== false && !brandData.hidden;
     const newBrand = {
@@ -1322,6 +1612,9 @@ const Store = {
       letter,
       isFavorite: isFav,
       isTopFavorite: isFav,
+      showInTicker: inTicker,
+      hiddenInTicker: isHiddenInTicker,
+      tickerOrder: brandData.tickerOrder !== undefined ? brandData.tickerOrder : brands.length,
       visible: isVis,
       hidden: !isVis
     };
@@ -1337,6 +1630,8 @@ const Store = {
       const name = brandData.name !== undefined ? brandData.name.trim() : brands[idx].name;
       const letter = (brandData.letter || name.charAt(0).toUpperCase() || brands[idx].letter).toUpperCase();
       const isFav = brandData.isFavorite !== undefined ? !!brandData.isFavorite : (brandData.isTopFavorite !== undefined ? !!brandData.isTopFavorite : (brands[idx].isFavorite || brands[idx].isTopFavorite || false));
+      const inTicker = brandData.showInTicker !== undefined ? !!brandData.showInTicker : (brands[idx].showInTicker !== undefined ? brands[idx].showInTicker : isFav);
+      const isHiddenInTicker = brandData.hiddenInTicker !== undefined ? !!brandData.hiddenInTicker : (brands[idx].hiddenInTicker || false);
       const logoImg = brandData.logo !== undefined ? brandData.logo : (brandData.img !== undefined ? brandData.img : (brands[idx].logo || brands[idx].img || ''));
       const isVis = brandData.visible !== undefined ? (brandData.visible !== false) : (brandData.hidden !== undefined ? !brandData.hidden : (brands[idx].visible !== false && !brands[idx].hidden));
 
@@ -1349,6 +1644,9 @@ const Store = {
         logo: logoImg,
         isFavorite: isFav,
         isTopFavorite: isFav,
+        showInTicker: inTicker,
+        hiddenInTicker: isHiddenInTicker,
+        tickerOrder: brandData.tickerOrder !== undefined ? brandData.tickerOrder : (brands[idx].tickerOrder !== undefined ? brands[idx].tickerOrder : idx),
         visible: isVis,
         hidden: !isVis
       };

@@ -7,8 +7,8 @@
     "letter": "K",
     "isFavorite": true,
     "isTopFavorite": true,
-    "visible": true,
-    "hidden": false
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_khaadi",
@@ -18,8 +18,8 @@
     "letter": "K",
     "isFavorite": true,
     "isTopFavorite": true,
-    "visible": true,
-    "hidden": false
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_sapphire",
@@ -35,8 +35,8 @@
   {
     "id": "b_nishat",
     "name": "Nishat Linen",
-    "img": "assets/images/brands/nishat.png",
-    "logo": "assets/images/brands/nishat.png",
+    "img": "uploads/brand_logo_1789735843_92749eb8.jpg",
+    "logo": "uploads/brand_logo_1789735843_92749eb8.jpg",
     "letter": "N",
     "isFavorite": true,
     "isTopFavorite": true,
@@ -45,7 +45,7 @@
   },
   {
     "id": "b_alkaram",
-    "name": "Alkaram Studio",
+    "name": "ALKRAM STUDIO",
     "img": "assets/images/brands/alkaram.png",
     "logo": "assets/images/brands/alkaram.png",
     "letter": "A",
@@ -62,8 +62,8 @@
     "letter": "A",
     "isFavorite": true,
     "isTopFavorite": true,
-    "visible": true,
-    "hidden": false
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_bonanza",
@@ -71,10 +71,10 @@
     "img": "assets/images/brands/bonanza.png",
     "logo": "assets/images/brands/bonanza.png",
     "letter": "B",
-    "isFavorite": true,
-    "isTopFavorite": true,
-    "visible": true,
-    "hidden": false
+    "isFavorite": false,
+    "isTopFavorite": false,
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_prime_point",
@@ -84,8 +84,8 @@
     "letter": "P",
     "isFavorite": true,
     "isTopFavorite": true,
-    "visible": true,
-    "hidden": false
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_bareeze",
@@ -93,8 +93,8 @@
     "img": "assets/images/brands/bareeze.png",
     "logo": "assets/images/brands/bareeze.png",
     "letter": "B",
-    "isFavorite": true,
-    "isTopFavorite": true,
+    "isFavorite": false,
+    "isTopFavorite": false,
     "visible": true,
     "hidden": false
   },
@@ -104,14 +104,14 @@
     "img": "assets/images/brands/bin_saeed.png",
     "logo": "assets/images/brands/bin_saeed.png",
     "letter": "B",
-    "isFavorite": true,
-    "isTopFavorite": true,
+    "isFavorite": false,
+    "isTopFavorite": false,
     "visible": true,
     "hidden": false
   },
   {
     "id": "b_gul_ahmed",
-    "name": "Gul Ahmed",
+    "name": "GULAHMAD",
     "img": "assets/images/brands/gul_ahmed.png",
     "logo": "assets/images/brands/gul_ahmed.png",
     "letter": "G",
@@ -139,8 +139,8 @@
     "letter": "L",
     "isFavorite": true,
     "isTopFavorite": true,
-    "visible": true,
-    "hidden": false
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_ethnic",
@@ -170,10 +170,10 @@
     "img": "assets/images/brands/sana_safinaz.png",
     "logo": "assets/images/brands/sana_safinaz.png",
     "letter": "S",
-    "isFavorite": true,
-    "isTopFavorite": true,
-    "visible": true,
-    "hidden": false
+    "isFavorite": false,
+    "isTopFavorite": false,
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_agha_noor",
@@ -181,10 +181,10 @@
     "img": "assets/images/brands/agha_noor.png",
     "logo": "assets/images/brands/agha_noor.png",
     "letter": "A",
-    "isFavorite": true,
-    "isTopFavorite": true,
-    "visible": true,
-    "hidden": false
+    "isFavorite": false,
+    "isTopFavorite": false,
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_baroque",
@@ -192,10 +192,10 @@
     "img": "assets/images/brands/baroque.png",
     "logo": "assets/images/brands/baroque.png",
     "letter": "B",
-    "isFavorite": true,
-    "isTopFavorite": true,
-    "visible": true,
-    "hidden": false
+    "isFavorite": false,
+    "isTopFavorite": false,
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_almirah",
@@ -214,10 +214,10 @@
     "img": "",
     "logo": "",
     "letter": "A",
-    "isFavorite": false,
-    "isTopFavorite": false,
-    "visible": true,
-    "hidden": false
+    "isFavorite": true,
+    "isTopFavorite": true,
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_bin_ilyas",
@@ -225,10 +225,10 @@
     "img": "assets/images/brands/bin_ilyas.png",
     "logo": "assets/images/brands/bin_ilyas.png",
     "letter": "B",
-    "isFavorite": false,
-    "isTopFavorite": false,
-    "visible": true,
-    "hidden": false
+    "isFavorite": true,
+    "isTopFavorite": true,
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_beechtree",
@@ -247,10 +247,10 @@
     "img": "assets/images/brands/coco.png",
     "logo": "assets/images/brands/coco.png",
     "letter": "C",
-    "isFavorite": false,
-    "isTopFavorite": false,
-    "visible": true,
-    "hidden": false
+    "isFavorite": true,
+    "isTopFavorite": true,
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_designer_lawn",
@@ -258,10 +258,10 @@
     "img": "",
     "logo": "",
     "letter": "D",
-    "isFavorite": false,
-    "isTopFavorite": false,
-    "visible": true,
-    "hidden": false
+    "isFavorite": true,
+    "isTopFavorite": true,
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_dhanak",
@@ -271,19 +271,19 @@
     "letter": "D",
     "isFavorite": false,
     "isTopFavorite": false,
-    "visible": true,
-    "hidden": false
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_ethnic_outfitters",
     "name": "Ethnic by Outfitters",
-    "img": "",
-    "logo": "",
+    "img": "uploads/brand_logo_1789736042_bc6598f8.jpg",
+    "logo": "uploads/brand_logo_1789736042_bc6598f8.jpg",
     "letter": "E",
-    "isFavorite": false,
-    "isTopFavorite": false,
-    "visible": true,
-    "hidden": false
+    "isFavorite": true,
+    "isTopFavorite": true,
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_edenrobe",
@@ -291,10 +291,10 @@
     "img": "",
     "logo": "",
     "letter": "E",
-    "isFavorite": false,
-    "isTopFavorite": false,
-    "visible": true,
-    "hidden": false
+    "isFavorite": true,
+    "isTopFavorite": true,
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_generation",
@@ -302,10 +302,10 @@
     "img": "",
     "logo": "",
     "letter": "G",
-    "isFavorite": false,
-    "isTopFavorite": false,
-    "visible": true,
-    "hidden": false
+    "isFavorite": true,
+    "isTopFavorite": true,
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_hania_minnahil",
@@ -313,10 +313,10 @@
     "img": "",
     "logo": "",
     "letter": "H",
-    "isFavorite": false,
-    "isTopFavorite": false,
-    "visible": true,
-    "hidden": false
+    "isFavorite": true,
+    "isTopFavorite": true,
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_hussain_rehar",
@@ -324,10 +324,10 @@
     "img": "",
     "logo": "",
     "letter": "H",
-    "isFavorite": false,
-    "isTopFavorite": false,
-    "visible": true,
-    "hidden": false
+    "isFavorite": true,
+    "isTopFavorite": true,
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_ideas",
@@ -335,10 +335,10 @@
     "img": "assets/images/brands/ideas.png",
     "logo": "assets/images/brands/ideas.png",
     "letter": "I",
-    "isFavorite": false,
-    "isTopFavorite": false,
-    "visible": true,
-    "hidden": false
+    "isFavorite": true,
+    "isTopFavorite": true,
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_junaid_jamshed",
@@ -346,10 +346,10 @@
     "img": "assets/images/brands/j.png",
     "logo": "assets/images/brands/j.png",
     "letter": "J",
-    "isFavorite": false,
-    "isTopFavorite": false,
-    "visible": true,
-    "hidden": false
+    "isFavorite": true,
+    "isTopFavorite": true,
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_jacquard",
@@ -368,10 +368,10 @@
     "img": "assets/images/brands/jade.png",
     "logo": "assets/images/brands/jade.png",
     "letter": "J",
-    "isFavorite": false,
-    "isTopFavorite": false,
-    "visible": true,
-    "hidden": false
+    "isFavorite": true,
+    "isTopFavorite": true,
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_jaffrani",
@@ -379,21 +379,21 @@
     "img": "assets/images/brands/jaffrani.png",
     "logo": "assets/images/brands/jaffrani.png",
     "letter": "J",
-    "isFavorite": false,
-    "isTopFavorite": false,
-    "visible": true,
-    "hidden": false
+    "isFavorite": true,
+    "isTopFavorite": true,
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_johra",
     "name": "Johra",
-    "img": "",
-    "logo": "",
+    "img": "uploads/brand_logo_1789649531_cf9768f4.jpg",
+    "logo": "uploads/brand_logo_1789649531_cf9768f4.jpg",
     "letter": "J",
-    "isFavorite": false,
-    "isTopFavorite": false,
-    "visible": true,
-    "hidden": false
+    "isFavorite": true,
+    "isTopFavorite": true,
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_kross_kulture",
@@ -401,10 +401,10 @@
     "img": "",
     "logo": "",
     "letter": "K",
-    "isFavorite": false,
-    "isTopFavorite": false,
-    "visible": true,
-    "hidden": false
+    "isFavorite": true,
+    "isTopFavorite": true,
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_lala",
@@ -412,10 +412,10 @@
     "img": "",
     "logo": "",
     "letter": "L",
-    "isFavorite": false,
-    "isTopFavorite": false,
-    "visible": true,
-    "hidden": false
+    "isFavorite": true,
+    "isTopFavorite": true,
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_mahnur",
@@ -423,10 +423,10 @@
     "img": "assets/images/brands/mahnur.png",
     "logo": "assets/images/brands/mahnur.png",
     "letter": "M",
-    "isFavorite": false,
-    "isTopFavorite": false,
-    "visible": true,
-    "hidden": false
+    "isFavorite": true,
+    "isTopFavorite": true,
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_meerak",
@@ -434,10 +434,10 @@
     "img": "assets/images/brands/meerak.png",
     "logo": "assets/images/brands/meerak.png",
     "letter": "M",
-    "isFavorite": false,
-    "isTopFavorite": false,
-    "visible": true,
-    "hidden": false
+    "isFavorite": true,
+    "isTopFavorite": true,
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_mix_brand",
@@ -445,10 +445,10 @@
     "img": "",
     "logo": "",
     "letter": "M",
-    "isFavorite": false,
-    "isTopFavorite": false,
-    "visible": true,
-    "hidden": false
+    "isFavorite": true,
+    "isTopFavorite": true,
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_noor_jahan",
@@ -456,10 +456,10 @@
     "img": "",
     "logo": "",
     "letter": "N",
-    "isFavorite": false,
-    "isTopFavorite": false,
-    "visible": true,
-    "hidden": false
+    "isFavorite": true,
+    "isTopFavorite": true,
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_parishay",
@@ -467,10 +467,10 @@
     "img": "assets/images/brands/parishay.png",
     "logo": "assets/images/brands/parishay.png",
     "letter": "P",
-    "isFavorite": false,
-    "isTopFavorite": false,
-    "visible": true,
-    "hidden": false
+    "isFavorite": true,
+    "isTopFavorite": true,
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_pop_corn",
@@ -478,10 +478,10 @@
     "img": "",
     "logo": "",
     "letter": "P",
-    "isFavorite": false,
-    "isTopFavorite": false,
-    "visible": true,
-    "hidden": false
+    "isFavorite": true,
+    "isTopFavorite": true,
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_rajbari",
@@ -489,10 +489,10 @@
     "img": "",
     "logo": "",
     "letter": "R",
-    "isFavorite": false,
-    "isTopFavorite": false,
-    "visible": true,
-    "hidden": false
+    "isFavorite": true,
+    "isTopFavorite": true,
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_rang_rasiya",
@@ -500,10 +500,10 @@
     "img": "",
     "logo": "",
     "letter": "R",
-    "isFavorite": false,
-    "isTopFavorite": false,
-    "visible": true,
-    "hidden": false
+    "isFavorite": true,
+    "isTopFavorite": true,
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_regalia",
@@ -522,10 +522,10 @@
     "img": "assets/images/brands/suhana.png",
     "logo": "assets/images/brands/suhana.png",
     "letter": "S",
-    "isFavorite": false,
-    "isTopFavorite": false,
-    "visible": true,
-    "hidden": false
+    "isFavorite": true,
+    "isTopFavorite": true,
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_safa_iman",
@@ -533,10 +533,10 @@
     "img": "",
     "logo": "",
     "letter": "S",
-    "isFavorite": false,
-    "isTopFavorite": false,
-    "visible": true,
-    "hidden": false
+    "isFavorite": true,
+    "isTopFavorite": true,
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_soha_afreen",
@@ -544,10 +544,10 @@
     "img": "assets/images/brands/soha_afreen.png",
     "logo": "assets/images/brands/soha_afreen.png",
     "letter": "S",
-    "isFavorite": false,
-    "isTopFavorite": false,
-    "visible": true,
-    "hidden": false
+    "isFavorite": true,
+    "isTopFavorite": true,
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_stylo",
@@ -555,10 +555,10 @@
     "img": "",
     "logo": "",
     "letter": "S",
-    "isFavorite": false,
-    "isTopFavorite": false,
-    "visible": true,
-    "hidden": false
+    "isFavorite": true,
+    "isTopFavorite": true,
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_tawakal",
@@ -566,10 +566,10 @@
     "img": "",
     "logo": "",
     "letter": "T",
-    "isFavorite": false,
-    "isTopFavorite": false,
-    "visible": true,
-    "hidden": false
+    "isFavorite": true,
+    "isTopFavorite": true,
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_taana_baana",
@@ -577,10 +577,10 @@
     "img": "",
     "logo": "",
     "letter": "T",
-    "isFavorite": false,
-    "isTopFavorite": false,
-    "visible": true,
-    "hidden": false
+    "isFavorite": true,
+    "isTopFavorite": true,
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_thames",
@@ -588,10 +588,10 @@
     "img": "assets/images/brands/thames.png",
     "logo": "assets/images/brands/thames.png",
     "letter": "T",
-    "isFavorite": false,
-    "isTopFavorite": false,
-    "visible": true,
-    "hidden": false
+    "isFavorite": true,
+    "isTopFavorite": true,
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_wirs",
@@ -599,10 +599,10 @@
     "img": "",
     "logo": "",
     "letter": "W",
-    "isFavorite": false,
-    "isTopFavorite": false,
-    "visible": true,
-    "hidden": false
+    "isFavorite": true,
+    "isTopFavorite": true,
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_warda",
@@ -610,10 +610,10 @@
     "img": "",
     "logo": "",
     "letter": "W",
-    "isFavorite": false,
-    "isTopFavorite": false,
-    "visible": true,
-    "hidden": false
+    "isFavorite": true,
+    "isTopFavorite": true,
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_zain_zee",
@@ -621,19 +621,19 @@
     "img": "",
     "logo": "",
     "letter": "Z",
-    "isFavorite": false,
-    "isTopFavorite": false,
-    "visible": true,
-    "hidden": false
+    "isFavorite": true,
+    "isTopFavorite": true,
+    "visible": false,
+    "hidden": true
   },
   {
     "id": "b_zellbury",
     "name": "Zellbury",
-    "img": "",
-    "logo": "",
+    "img": "uploads/brand_logo_1789970559_c44fb382.jpg",
+    "logo": "uploads/brand_logo_1789970559_c44fb382.jpg",
     "letter": "Z",
-    "isFavorite": false,
-    "isTopFavorite": false,
+    "isFavorite": true,
+    "isTopFavorite": true,
     "visible": true,
     "hidden": false
   },
@@ -643,8 +643,162 @@
     "img": "",
     "logo": "",
     "letter": "Z",
+    "isFavorite": true,
+    "isTopFavorite": true,
+    "visible": false,
+    "hidden": true
+  },
+  {
+    "id": "b_zesh_1789137367495",
+    "name": "ZESH",
+    "img": "",
+    "logo": "",
+    "letter": "Z",
+    "isFavorite": true,
+    "isTopFavorite": true,
+    "visible": true,
+    "hidden": false
+  },
+  {
+    "id": "b_mehak_1789147518970",
+    "name": "MEHAK",
+    "img": "uploads/brand_logo_1789147517_cec98ca2.jpg",
+    "logo": "uploads/brand_logo_1789147517_cec98ca2.jpg",
+    "letter": "M",
+    "isFavorite": true,
+    "isTopFavorite": true,
+    "visible": true,
+    "hidden": false
+  },
+  {
+    "id": "b_dynasty_1789283583388",
+    "name": "DYNASTY",
+    "img": "",
+    "logo": "",
+    "letter": "D",
     "isFavorite": false,
     "isTopFavorite": false,
+    "visible": true,
+    "hidden": false
+  },
+  {
+    "id": "b_grace_1789283660666",
+    "name": "GRACE",
+    "img": "",
+    "logo": "",
+    "letter": "G",
+    "isFavorite": false,
+    "isTopFavorite": false,
+    "visible": true,
+    "hidden": false
+  },
+  {
+    "id": "b_maishum_1789288673727",
+    "name": "MAISHUM",
+    "img": "uploads/brand_logo_1789487233_f4cc5cde.jpg",
+    "logo": "uploads/brand_logo_1789487233_f4cc5cde.jpg",
+    "letter": "M",
+    "isFavorite": true,
+    "isTopFavorite": true,
+    "visible": true,
+    "hidden": false
+  },
+  {
+    "id": "b_florent_1789295567990",
+    "name": "FLORENT",
+    "img": "",
+    "logo": "",
+    "letter": "F",
+    "isFavorite": false,
+    "isTopFavorite": false,
+    "visible": true,
+    "hidden": false
+  },
+  {
+    "id": "b_rabi_1789299128747",
+    "name": "RABI",
+    "img": "",
+    "logo": "",
+    "letter": "R",
+    "isFavorite": false,
+    "isTopFavorite": false,
+    "visible": true,
+    "hidden": false
+  },
+  {
+    "id": "b_safanoor_1789299599147",
+    "name": "SAFANOOR",
+    "img": "",
+    "logo": "",
+    "letter": "S",
+    "isFavorite": false,
+    "isTopFavorite": false,
+    "visible": true,
+    "hidden": false
+  },
+  {
+    "id": "b_sarah_1789299839538",
+    "name": "SARAH",
+    "img": "",
+    "logo": "",
+    "letter": "S",
+    "isFavorite": false,
+    "isTopFavorite": false,
+    "visible": true,
+    "hidden": false
+  },
+  {
+    "id": "b_kumash_1789455348212",
+    "name": "kumash",
+    "img": "uploads/brand_logo_1789649714_5c2696d5.jpg",
+    "logo": "uploads/brand_logo_1789649714_5c2696d5.jpg",
+    "letter": "K",
+    "isFavorite": true,
+    "isTopFavorite": true,
+    "visible": true,
+    "hidden": false
+  },
+  {
+    "id": "b_sohaye_1789467042735",
+    "name": "SOHAYE",
+    "img": "",
+    "logo": "",
+    "letter": "S",
+    "isFavorite": false,
+    "isTopFavorite": false,
+    "visible": true,
+    "hidden": false
+  },
+  {
+    "id": "b_warda_1789468044804",
+    "name": "WARDA",
+    "img": "",
+    "logo": "",
+    "letter": "W",
+    "isFavorite": false,
+    "isTopFavorite": false,
+    "visible": true,
+    "hidden": false
+  },
+  {
+    "id": "b_rangraiza_1789660967566",
+    "name": "RANGRAIZA",
+    "img": "uploads/brand_logo_1789660961_7fbf70c0.jpg",
+    "logo": "uploads/brand_logo_1789660961_7fbf70c0.jpg",
+    "letter": "R",
+    "isFavorite": true,
+    "isTopFavorite": true,
+    "visible": true,
+    "hidden": false
+  },
+  {
+    "id": "b_mausummery_1789714823097",
+    "name": "MAUSUMMERY",
+    "img": "uploads/brand_logo_1789714822_166c8280.jpg",
+    "logo": "uploads/brand_logo_1789714822_166c8280.jpg",
+    "letter": "M",
+    "isFavorite": true,
+    "isTopFavorite": true,
     "visible": true,
     "hidden": false
   }

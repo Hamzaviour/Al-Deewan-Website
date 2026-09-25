@@ -1512,14 +1512,18 @@
           </div>
         </section>
 
-        <!-- TAB: BRANDS DIRECTORY & TOP FAVORITES (CRUD) -->
+        <!-- TAB: BRANDS DIRECTORY & HOMEPAGE TICKER MANAGER (CRUD) -->
         <section id="tab-brands" class="tab-section">
           <div class="section-header">
             <div>
-              <h2 class="section-title">Fashion Brands Directory & Top Favorites Manager</h2>
-              <p class="section-subtitle">Add new fashion brands, upload/link brand logos, feature Top Favorite brands with logos, and organize the A-Z directory</p>
+              <h2 class="section-title">Fashion Brands Directory & Homepage Ticker Manager</h2>
+              <p class="section-subtitle">Customize the rotating brand logos in the homepage "SHOP YOUR FAVORITE BRANDS" ticker (add, remove, hide, show, reorder), upload brand logos, and organize the A-Z directory</p>
             </div>
             <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <button onclick="openAddTickerBrandModal()" class="btn-submit" style="background:#15803d;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+                <span>+ Add Brand to Ticker</span>
+              </button>
               <button onclick="openAddBrandModal()" class="btn-submit">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
                 <span>+ Add New Brand</span>
@@ -1534,21 +1538,26 @@
           <div class="guide-box" style="margin-bottom:20px;">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
             <div>
-              <strong>Shop By Brand & Favorite Brands Management:</strong>
-              Any brand added here automatically appears on the <strong>Shop by Brand</strong> page and catalog brand filters. Brands marked as <strong>"⭐ Top Favorite"</strong> with a logo are featured prominently in the Top Favorite Brands grid with direct links to their collection.
+              <strong>Homepage "SHOP YOUR FAVORITE BRANDS" Ticker & Catalog Management:</strong>
+              Use Section 1 below to control precisely which brands rotate in the animated homepage ticker, adjust their display sequence (using ◀ / ▶), hide/show logos in real-time, or add/remove brands. All changes save live and propagate immediately to visitors!
             </div>
           </div>
 
-          <!-- Section 1: Top Favorite Brands with Logos -->
+          <!-- Section 1: Homepage Brand Ticker Manager -->
           <div class="admin-card" style="margin-bottom:24px;">
             <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:12px;">
               <div>
-                <h3 class="card-title" style="margin-bottom:2px;">⭐ Top Favorite Brands (With Logos)</h3>
-                <p style="font-size:12px; color:var(--admin-text-muted);">These featured brands appear in the top logo grid on the Shop by Brand page.</p>
+                <h3 class="card-title" style="margin-bottom:2px;">⭐ Homepage "SHOP YOUR FAVORITE BRANDS" Ticker Manager</h3>
+                <p style="font-size:12px; color:var(--admin-text-muted);">Manage the rotating logos shown on the homepage ticker. Click 👁️ to toggle Hide/Show, ◀ / ▶ to reorder, or ❌ to remove.</p>
               </div>
-              <button onclick="openAddBrandModal(true)" class="btn-header" style="font-size:12px; font-weight:800; border-color:var(--admin-primary); color:var(--admin-primary);">
-                + Feature Another Brand
-              </button>
+              <div style="display:flex; gap:8px;">
+                <button onclick="openAddTickerBrandModal()" class="btn-header" style="font-size:12px; font-weight:800; border-color:#15803d; color:#15803d;">
+                  + Add Brand to Ticker
+                </button>
+                <button onclick="openAddBrandModal(true)" class="btn-header" style="font-size:12px; font-weight:800; border-color:var(--admin-primary); color:var(--admin-primary);">
+                  + Create Brand with Logo
+                </button>
+              </div>
             </div>
             <div class="brand-favorites-grid" id="admin-favorite-brands-grid">
               <!-- Rendered via JS -->
@@ -1580,8 +1589,8 @@
                     <th>Brand Name</th>
                     <th>Letter</th>
                     <th>Suits Count</th>
-                    <th>Top Favorite</th>
-                    <th>Status</th>
+                    <th>Homepage Ticker</th>
+                    <th>Catalog Status</th>
                     <th>Actions</th>
                   </tr>
                 </thead>
@@ -1815,6 +1824,16 @@
               </div>
               <button type="button" class="btn-submit" onclick="handleSaveBrandTickerText()">Save Brand Ticker Title</button>
             </form>
+
+            <div style="margin-top:16px; padding:14px 18px; background:#f5effc; border:1.5px solid #dcd0ea; border-radius:var(--radius-md); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+              <div>
+                <strong style="font-size:13px; color:var(--admin-primary); display:block; margin-bottom:2px;">⭐ Customize Rotating Brand Logos</strong>
+                <p style="font-size:12px; color:var(--admin-text-muted); margin:0;">Add, remove, hide, show, or reorder the rotating brand logos in the ticker.</p>
+              </div>
+              <button type="button" class="btn-header" onclick="switchTab('brands')" style="font-size:12px; font-weight:800; color:var(--admin-primary); border-color:var(--admin-primary); background:#fff;">
+                👉 Open Brand Ticker Manager
+              </button>
+            </div>
           </div>
         </section>
 
@@ -2018,7 +2037,7 @@
 
           <div class="form-group">
             <label>Category *</label>
-            <select id="prod-category" class="form-control" required>
+            <select id="prod-category" class="form-control" onchange="handleAdminProdCategoryChange(this.value)" required>
               <option value="Unstitched">Unstitched</option>
               <option value="Ready to Wear">Ready to Wear</option>
               <option value="Menswear">Menswear</option>
@@ -2244,11 +2263,11 @@
           </div>
 
           <div class="form-group">
-            <label>Top Favorite Brand?</label>
+            <label>Homepage Ticker / Top Favorite?</label>
             <div style="padding-top:10px;">
               <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-weight:700; font-size:13px; text-transform:none;">
                 <input type="checkbox" id="brand-fav-input" style="width:18px; height:18px; accent-color:var(--admin-primary);" />
-                <span>⭐ Feature with Logo</span>
+                <span>⭐ Feature in Ticker with Logo</span>
               </label>
             </div>
           </div>
@@ -2267,10 +2286,26 @@
             </div>
           </div>
 
+          <div class="form-group full" style="background:#f8f4fc; border:1.5px dashed #d5c0e8; border-radius:var(--radius-md); padding:12px 14px;">
+            <div style="font-weight:800; font-size:13px; color:var(--admin-primary); margin-bottom:8px;">
+              ⭐ Homepage "SHOP YOUR FAVORITE BRANDS" Marquee Ticker Settings
+            </div>
+            <div style="display:flex; flex-direction:column; gap:8px;">
+              <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-weight:700; font-size:13px; text-transform:none;">
+                <input type="checkbox" id="brand-ticker-input" style="width:18px; height:18px; accent-color:var(--admin-primary);" />
+                <span>Include in Homepage Rotating Marquee Ticker</span>
+              </label>
+              <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-weight:600; font-size:12px; text-transform:none; color:#555; margin-left:26px;">
+                <input type="checkbox" id="brand-ticker-visible-input" checked style="width:16px; height:16px; accent-color:#15803d;" />
+                <span>Ticker Logo is Active & Visible (Uncheck to temporarily Hide without removing)</span>
+              </label>
+            </div>
+          </div>
+
           <div class="form-group full">
             <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-weight:700; font-size:13px; text-transform:none;">
               <input type="checkbox" id="brand-visible-input" checked style="width:18px; height:18px; accent-color:var(--admin-primary);" />
-              <span>Show Brand on Shop By Brand page & Filters</span>
+              <span>Show Brand on Shop By Brand page & Catalog Filters</span>
             </label>
           </div>
         </div>
@@ -2280,6 +2315,33 @@
           <button type="submit" class="btn-submit">Save Brand</button>
         </div>
       </form>
+    </div>
+  </div>
+
+  <!-- 5b. Quick Add Brand to Ticker Modal -->
+  <div id="add-ticker-brand-modal" class="modal-overlay">
+    <div class="modal-box" style="max-width:580px;">
+      <div class="modal-header">
+        <h3 class="modal-title">⭐ Add Brand to Homepage Ticker</h3>
+        <button class="modal-close" onclick="closeAddTickerBrandModal()">&times;</button>
+      </div>
+      <div style="padding:16px 0;">
+        <p style="font-size:13px; color:var(--admin-text-muted); margin-bottom:12px;">
+          Choose any fashion house from your catalog to add into the rotating homepage ticker, or create a brand new one.
+        </p>
+        <div style="display:flex; gap:10px; margin-bottom:16px;">
+          <input type="text" id="ticker-brand-search-input" class="search-input" placeholder="Search catalog brand to add..." oninput="renderTickerBrandPickerList()" style="flex:1;" />
+          <button type="button" class="btn-submit" onclick="closeAddTickerBrandModal(); openAddBrandModal(true);" style="font-size:12px; padding:8px 14px; white-space:nowrap;">
+            + Create New Brand
+          </button>
+        </div>
+        <div id="ticker-brand-picker-list" style="max-height:340px; overflow-y:auto; display:flex; flex-direction:column; gap:8px; padding-right:4px;">
+          <!-- Rendered via JS -->
+        </div>
+      </div>
+      <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:10px; border-top:1px solid var(--admin-border); padding-top:14px;">
+        <button type="button" class="btn-header" onclick="closeAddTickerBrandModal()">Close</button>
+      </div>
     </div>
   </div>
 
@@ -2520,10 +2582,16 @@
       const brands = Array.from(new Set(products.map(p => p.vendor).concat(allBrandsList.map(b => b.name)).filter(Boolean)));
       document.getElementById('metric-brands-count').textContent = allBrandsList.length;
 
-      // Populate Brand Filter in Products Tab
+      // Populate Brand Filter in Products Tab without losing active user selection
       const brandFilter = document.getElementById('admin-brand-filter');
       if (brandFilter) {
-        brandFilter.innerHTML = '<option value="">All Brands</option>' + brands.sort().map(b => `<option value="${b}">${b}</option>`).join('');
+        const savedBrand = brandFilter.value;
+        const sortedBrands = brands.sort((a, b) => a.localeCompare(b));
+        brandFilter.innerHTML = '<option value="">All Brands</option>' + sortedBrands.map(b => `<option value="${b}" ${b === savedBrand ? 'selected' : ''}>${b}</option>`).join('');
+        if (savedBrand && !sortedBrands.includes(savedBrand)) {
+          brandFilter.innerHTML += `<option value="${savedBrand}" selected>${savedBrand}</option>`;
+        }
+        brandFilter.value = savedBrand;
       }
 
       // Populate Brands Directory Manager
@@ -3543,46 +3611,58 @@
       let products = Store.getProducts();
 
       if (search) {
-        products = products.filter(p => 
-          (p.title && p.title.toLowerCase().includes(search)) || 
-          (p.vendor && p.vendor.toLowerCase().includes(search)) ||
-          (p.sku && p.sku.toLowerCase().includes(search)) ||
-          (p.season && p.season.toLowerCase().includes(search)) ||
-          (p.gender && p.gender.toLowerCase().includes(search)) ||
-          (p.fabric && p.fabric.toLowerCase().includes(search))
-        );
+        const isMenSearch = /\b(men|men's|mens|menswear|gents|gent's)\b/i.test(search) && !/\b(women|ladies)\b/i.test(search);
+        const isKidsSearch = /\b(kid|kids|child|children|boy|boys|girl|girls)\b/i.test(search);
+        const tokens = search.split(/\s+/).filter(Boolean);
+
+        products = products.filter(p => {
+          if (isMenSearch) {
+            if (!Store.isMenswearProduct(p)) return false;
+            const nonMen = tokens.filter(t => !/^(men|men's|mens|menswear|gents|gent's|suit|suits|article|articles|collection|clothes|clothing)$/i.test(t));
+            if (nonMen.length === 0) return true;
+            const text = `${p.title || ''} ${p.vendor || ''} ${p.sku || ''} ${p.fabric || ''} ${p.category_type || ''} ${p.season || ''} suit suits ${(p.tags || []).join(' ')}`.toLowerCase();
+            return nonMen.every(tok => text.includes(tok));
+          }
+          if (isKidsSearch) {
+            if (!Store.isKidsProduct(p)) return false;
+            const nonKids = tokens.filter(t => !/^(kid|kids|child|children|boy|boys|girl|girls|suit|suits|article|articles|collection)$/i.test(t));
+            if (nonKids.length === 0) return true;
+            const text = `${p.title || ''} ${p.vendor || ''} ${p.sku || ''} ${p.fabric || ''} ${p.category_type || ''} suit suits ${(p.tags || []).join(' ')}`.toLowerCase();
+            return nonKids.every(tok => text.includes(tok));
+          }
+          const text = `${p.title || ''} ${p.vendor || ''} ${p.sku || ''} ${p.category || ''} ${p.category_type || ''} ${p.season || ''} ${p.gender || ''} ${p.fabric || ''} ${(p.tags || []).join(' ')} suit suits article articles collection`.toLowerCase();
+          return tokens.every(tok => {
+            if (tok === 'men' || tok === 'mens' || tok === 'menswear' || tok === 'gents') {
+              return Store.isMenswearProduct(p);
+            }
+            if (tok === 'women' || tok === 'womens' || tok === 'ladies') {
+              return !Store.isMenswearProduct(p) && !Store.isKidsProduct(p);
+            }
+            if (tok === 'kid' || tok === 'kids' || tok === 'children') {
+              return Store.isKidsProduct(p);
+            }
+            return text.includes(tok);
+          });
+        });
       }
 
       if (brandFilter) {
-        products = products.filter(p => p.vendor === brandFilter);
+        products = products.filter(p => Store.matchBrandName(p.vendor, brandFilter));
       }
 
       if (catFilter) {
-        products = products.filter(p => p.category === catFilter || p.category_type === catFilter);
+        products = products.filter(p => Store.matchesCategory(p, catFilter) || Store.matchesType(p, catFilter));
       }
 
       if (seasonFilter) {
-        products = products.filter(p => {
-          if (p.season) {
-            if (p.season === seasonFilter) return true;
-            if (p.season === 'All Seasons' && (seasonFilter === 'Summer' || seasonFilter === 'Winter')) return true;
-            return false;
-          }
-          const t = (p.title + ' ' + (p.fabric || '')).toLowerCase();
-          const isLawn = /\b(lawn|voile|chiffon|organza|summer)\b/i.test(t);
-          const isWinter = /\b(khaddar|karandi|velvet|shawl|wool|marina)\b/i.test(t) || (/\blinen\b/i.test(p.fabric || '') || (/\blinen\b/i.test(p.title || '') && !isLawn));
-          if (seasonFilter === 'Winter') return isWinter;
-          if (seasonFilter === 'Summer') return !isWinter;
-          return false;
-        });
+        products = products.filter(p => Store.matchesSeason(p, seasonFilter));
       }
 
       if (genderFilter) {
         products = products.filter(p => {
-          if (p.gender) return p.gender === genderFilter;
-          const t = (p.title + ' ' + (p.category || '')).toLowerCase();
-          if (genderFilter === 'Men') return p.category === 'Menswear' || /men|gents|kurta/i.test(t);
-          if (genderFilter === 'Women') return p.category !== 'Menswear';
+          if (genderFilter === 'Men') return Store.isMenswearProduct(p);
+          if (genderFilter === 'Kids') return Store.isKidsProduct(p);
+          if (genderFilter === 'Women') return !Store.isMenswearProduct(p) && !Store.isKidsProduct(p);
           return true;
         });
       }
@@ -3598,8 +3678,8 @@
         const seasonBg = season === 'Winter' ? '#e0f2fe' : (season === 'Summer' ? '#fef3c7' : '#f3e8ff');
         const seasonColor = season === 'Winter' ? '#0369a1' : (season === 'Summer' ? '#b45309' : '#6b21a8');
 
-        const gender = p.gender || (p.category === 'Menswear' || /men|gents/i.test(p.title) ? 'Men' : 'Women');
-        const genderBadge = gender === 'Men' ? '👔 Men' : (gender === 'Kids' ? '👶 Kids' : '👗 Women');
+        const gender = p.gender || (Store.isMenswearProduct(p) ? 'Men' : (Store.isKidsProduct(p) ? 'Kids' : 'Women'));
+        const genderBadge = Store.isMenswearProduct(p) ? '👔 Men' : (Store.isKidsProduct(p) ? '👶 Kids' : '👗 Women');
 
         return `
         <tr>
@@ -3963,13 +4043,13 @@
       updateHandleLivePreview(currentHandle);
 
       document.getElementById('prod-vendor').value = p.vendor || 'Al-Deewan Brand';
-      document.getElementById('prod-category').value = p.category || 'Unstitched';
+      document.getElementById('prod-category').value = p.category || (Store.isMenswearProduct(p) ? 'Menswear' : 'Unstitched');
       document.getElementById('prod-category-type').value = p.category_type || '3PC';
 
       const detectedSeason = p.season || ((/\b(khaddar|karandi|velvet|shawl|wool|marina)\b/i.test(p.title) || (/\blinen\b/i.test(p.title) && !/\blawn\b/i.test(p.title))) ? 'Winter' : 'Summer');
       if (document.getElementById('prod-season')) document.getElementById('prod-season').value = detectedSeason;
       
-      const detectedGender = p.gender || (p.category === 'Menswear' || /men|gents/i.test(p.title) ? 'Men' : (p.category === 'Kids' || /kids|girls|boys/i.test(p.title) ? 'Kids' : 'Women'));
+      const detectedGender = p.gender || (Store.isMenswearProduct(p) ? 'Men' : (Store.isKidsProduct(p) ? 'Kids' : 'Women'));
       if (document.getElementById('prod-gender')) document.getElementById('prod-gender').value = detectedGender;
       
       if (document.getElementById('prod-fabric')) document.getElementById('prod-fabric').value = p.fabric || '';
@@ -3997,6 +4077,23 @@
       if (statusEl) statusEl.style.display = 'none';
 
       document.getElementById('product-modal').classList.add('active');
+    }
+
+    function handleAdminProdCategoryChange(val) {
+      const gEl = document.getElementById('prod-gender');
+      if (!gEl) return;
+      if (val === 'Menswear') {
+        gEl.value = 'Men';
+      } else if (val === 'Kids') {
+        gEl.value = 'Kids';
+      } else {
+        const titleVal = (document.getElementById('prod-title')?.value || '').toLowerCase();
+        if (/\b(men|men's|menswear|gents|gent's|kurta)\b/i.test(titleVal)) {
+          gEl.value = 'Men';
+        } else {
+          gEl.value = 'Women';
+        }
+      }
     }
 
     function closeProductModal() {
@@ -4045,7 +4142,12 @@
         const category = document.getElementById('prod-category') ? document.getElementById('prod-category').value : 'Unstitched';
         const category_type = document.getElementById('prod-category-type') ? document.getElementById('prod-category-type').value : '3PC';
         const season = document.getElementById('prod-season') ? document.getElementById('prod-season').value : 'Summer';
-        const gender = document.getElementById('prod-gender') ? document.getElementById('prod-gender').value : 'Women';
+        let gender = document.getElementById('prod-gender') ? document.getElementById('prod-gender').value : 'Women';
+        if (category === 'Menswear' || /\b(men|men's|menswear|gents|gent's)\b/i.test(title)) {
+          gender = 'Men';
+        } else if (category === 'Kids' || /\b(kid|kids|child|children|boy|boys|girl|girls)\b/i.test(title)) {
+          gender = 'Kids';
+        }
         const fabric = document.getElementById('prod-fabric') ? document.getElementById('prod-fabric').value.trim() : '';
 
         let sku = document.getElementById('prod-sku') ? document.getElementById('prod-sku').value.trim() : '';
@@ -4073,6 +4175,13 @@
           saveBtn.innerHTML = '⏳ Syncing Article to Live Server...';
         }
 
+        const existingItem = id ? Store.getProducts().find(x => x.id === Number(id)) : null;
+        const tags = existingItem && Array.isArray(existingItem.tags) ? [...existingItem.tags] : [category_type, category, vendor, season, gender].filter(Boolean);
+        if (gender === 'Men' || category === 'Menswear') {
+          if (!tags.some(t => String(t).toLowerCase() === 'menswear')) tags.push('Menswear');
+          if (!tags.some(t => String(t).toLowerCase() === 'men')) tags.push('Men');
+        }
+
         const data = {
           title,
           handle,
@@ -4092,6 +4201,7 @@
           images: images,
           body_html: formattedBodyHtml,
           description: rawDescription,
+          tags,
           available
         };
 
@@ -4391,7 +4501,7 @@
       }
     }
 
-    // --- Brands Manager Logic ---
+    // --- Brands Manager & Homepage Ticker Logic ---
     let currentBrandLetterFilter = 'ALL';
 
     function renderAdminBrandsManager() {
@@ -4412,31 +4522,50 @@
         brandCounts[b.id] = count;
       });
 
-      // 2. Render Top Favorite Brands Grid
+      // 2. Render Homepage "SHOP YOUR FAVORITE BRANDS" Ticker Cards Grid
       const favGrid = document.getElementById('admin-favorite-brands-grid');
       if (favGrid) {
-        const topFavs = allBrands.filter(b => b.isTopFavorite && !b.hidden);
-        let favHtml = topFavs.map(b => {
+        const tickerBrands = Store.getAllTickerBrandsAdmin();
+        let favHtml = tickerBrands.map((b, idx) => {
           const count = brandCounts[b.id] || 0;
+          const isHidden = !!(b.hidden || b.hiddenInTicker);
           return `
-            <div class="brand-card-admin">
-              <div class="brand-card-logo-wrap">
+            <div class="brand-card-admin" style="border-color:${isHidden ? '#fca5a5' : 'var(--admin-border)'}; background:${isHidden ? '#fffbfb' : '#fff'};">
+              <div class="brand-card-logo-wrap" style="position:relative;">
                 ${b.logo ? `<img src="${b.logo}" alt="${b.name}" onerror="this.src='assets/images/brands/brand_fallback.png';" />` : `<span style="font-weight:900; font-size:14px; color:#5e3585;">${b.name}</span>`}
               </div>
               <div class="brand-card-name">${b.name}</div>
-              <div class="brand-card-count">${count} Active ${count === 1 ? 'Suit' : 'Suits'}</div>
+              <div style="margin-bottom:8px;">
+                ${isHidden 
+                  ? `<span style="font-size:10px; font-weight:800; background:#fee2e2; color:#b91c1c; padding:2px 8px; border-radius:10px; display:inline-block;">🚫 Hidden in Ticker</span>`
+                  : `<span style="font-size:10px; font-weight:800; background:#dcfce7; color:#15803d; padding:2px 8px; border-radius:10px; display:inline-block;">🟢 Live in Ticker</span>`
+                }
+              </div>
+              <div class="brand-card-count" style="margin-bottom:10px;">${count} Active ${count === 1 ? 'Suit' : 'Suits'}</div>
+              
+              <!-- Row 1: Reorder & Visibility Toggle -->
+              <div style="display:flex; gap:4px; width:100%; margin-bottom:6px;">
+                <button type="button" class="action-btn" onclick="handleReorderTickerBrand('${b.id}', 'left')" title="Move Earlier / Left in Ticker" ${idx === 0 ? 'disabled style="opacity:0.4; cursor:not-allowed;"' : ''} style="padding:4px 8px; font-size:12px;">◀</button>
+                <button type="button" class="action-btn" onclick="handleToggleBrandTickerVisibility('${b.id}')" title="Toggle Ticker Visibility" style="flex:1; font-size:11px; font-weight:700; ${isHidden ? 'color:#15803d;' : 'color:#b91c1c;'}">
+                  ${isHidden ? '👁️ Show' : '👁️ Hide'}
+                </button>
+                <button type="button" class="action-btn" onclick="handleReorderTickerBrand('${b.id}', 'right')" title="Move Later / Right in Ticker" ${idx === tickerBrands.length - 1 ? 'disabled style="opacity:0.4; cursor:not-allowed;"' : ''} style="padding:4px 8px; font-size:12px;">▶</button>
+              </div>
+
+              <!-- Row 2: Edit & Remove -->
               <div class="brand-card-actions">
-                <button class="action-btn" onclick="openEditBrandModal('${b.id}')" title="Edit Brand">✏️ Edit</button>
-                <button class="action-btn" onclick="handleToggleBrandFavorite('${b.id}')" title="Remove from favorites" style="color:#e65100;">⭐ Remove</button>
+                <button type="button" class="action-btn" onclick="openEditBrandModal('${b.id}')" title="Edit Brand">✏️ Edit</button>
+                <button type="button" class="action-btn delete" onclick="handleRemoveBrandFromTicker('${b.id}')" title="Remove from Ticker" style="color:#b91c1c;">❌ Remove</button>
               </div>
             </div>
           `;
         }).join('');
 
         favHtml += `
-          <div class="brand-card-add-new" onclick="openAddBrandModal(true)">
+          <div class="brand-card-add-new" onclick="openAddTickerBrandModal()" style="border-color:#15803d; color:#15803d; background:#f0fdf4;">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
-            <span>+ Add / Feature Brand</span>
+            <span style="font-weight:800; font-size:13px;">+ Add Brand to Ticker</span>
+            <span style="font-size:11px; color:#666; font-weight:500;">Pick from catalog brands</span>
           </div>
         `;
         favGrid.innerHTML = favHtml;
@@ -4473,6 +4602,8 @@
 
         tbody.innerHTML = filtered.map(b => {
           const count = brandCounts[b.id] || 0;
+          const isInTicker = b.showInTicker === true || (b.showInTicker !== false && (b.isTopFavorite || b.isFavorite));
+          const isTickerHidden = !!(b.hidden || b.hiddenInTicker);
           return `
             <tr>
               <td>
@@ -4482,7 +4613,6 @@
               </td>
               <td>
                 <strong style="font-size:13px; color:#111;">${b.name}</strong>
-                ${b.isTopFavorite ? `<span style="margin-left:6px; font-size:10px; font-weight:800; background:#fef3c7; color:#d97706; padding:2px 6px; border-radius:10px;">⭐ FAVORITE</span>` : ''}
               </td>
               <td><span style="font-weight:800; color:var(--admin-primary);">${b.letter || b.name.charAt(0).toUpperCase()}</span></td>
               <td>
@@ -4491,9 +4621,15 @@
                 </span>
               </td>
               <td>
-                <button type="button" class="action-btn" onclick="handleToggleBrandFavorite('${b.id}')" style="font-size:11px;">
-                  ${b.isTopFavorite ? '⭐ Featured' : '☆ Inactive'}
-                </button>
+                ${isInTicker ? `
+                  <button type="button" class="action-btn" onclick="handleToggleBrandTickerVisibility('${b.id}')" style="font-size:11px; font-weight:700; ${isTickerHidden ? 'color:#b91c1c; border-color:#fca5a5; background:#fff1f2;' : 'color:#15803d; border-color:#86efac; background:#f0fdf4;'}">
+                    ${isTickerHidden ? '🚫 Ticker (Hidden)' : '🟢 Live in Ticker'}
+                  </button>
+                ` : `
+                  <button type="button" class="action-btn" onclick="handleAddBrandToTicker('${b.id}')" style="font-size:11px; font-weight:700; color:var(--admin-primary); border-color:#d5c0e8;">
+                    + Add to Ticker
+                  </button>
+                `}
               </td>
               <td>
                 <button type="button" class="action-btn" onclick="handleToggleBrandVisibility('${b.id}')" style="font-size:11px;">
@@ -4515,13 +4651,19 @@
       renderAdminBrandsManager();
     }
 
-    function openAddBrandModal(setFavorite = false) {
+    function openAddBrandModal(setTicker = false) {
       const titleEl = document.getElementById('modal-brand-title') || document.getElementById('brand-modal-title');
       if (titleEl) titleEl.textContent = 'Add New Fashion Brand';
       document.getElementById('brand-id-input').value = '';
       document.getElementById('brand-name-input').value = '';
       document.getElementById('brand-letter-input').value = 'A';
-      document.getElementById('brand-fav-input').checked = !!setFavorite;
+      document.getElementById('brand-fav-input').checked = !!setTicker;
+      if (document.getElementById('brand-ticker-input')) {
+        document.getElementById('brand-ticker-input').checked = !!setTicker;
+      }
+      if (document.getElementById('brand-ticker-visible-input')) {
+        document.getElementById('brand-ticker-visible-input').checked = true;
+      }
       document.getElementById('brand-img-input').value = '';
       document.getElementById('brand-file-input').value = '';
       document.getElementById('brand-visible-input').checked = true;
@@ -4539,7 +4681,15 @@
       document.getElementById('brand-id-input').value = brand.id;
       document.getElementById('brand-name-input').value = brand.name;
       document.getElementById('brand-letter-input').value = brand.letter || brand.name.charAt(0).toUpperCase();
-      document.getElementById('brand-fav-input').checked = !!brand.isTopFavorite;
+      
+      const inTicker = brand.showInTicker === true || (brand.showInTicker !== false && (brand.isTopFavorite || brand.isFavorite));
+      document.getElementById('brand-fav-input').checked = !!inTicker;
+      if (document.getElementById('brand-ticker-input')) {
+        document.getElementById('brand-ticker-input').checked = !!inTicker;
+      }
+      if (document.getElementById('brand-ticker-visible-input')) {
+        document.getElementById('brand-ticker-visible-input').checked = !brand.hiddenInTicker && !brand.hidden;
+      }
       document.getElementById('brand-img-input').value = brand.logo || '';
       document.getElementById('brand-file-input').value = '';
       document.getElementById('brand-visible-input').checked = !brand.hidden;
@@ -4598,9 +4748,12 @@
       const id = document.getElementById('brand-id-input').value;
       const name = document.getElementById('brand-name-input').value.trim();
       const letter = document.getElementById('brand-letter-input').value;
-      const isTopFavorite = document.getElementById('brand-fav-input').checked;
+      const isTopFavorite = document.getElementById('brand-fav-input') ? document.getElementById('brand-fav-input').checked : false;
+      const showInTicker = document.getElementById('brand-ticker-input') ? document.getElementById('brand-ticker-input').checked : isTopFavorite;
+      const tickerVisible = document.getElementById('brand-ticker-visible-input') ? document.getElementById('brand-ticker-visible-input').checked : true;
       const logo = document.getElementById('brand-img-input').value.trim();
       const hidden = !document.getElementById('brand-visible-input').checked;
+      const hiddenInTicker = !tickerVisible;
 
       if (!name) {
         alert('Please enter a brand name.');
@@ -4609,11 +4762,11 @@
 
       if (id) {
         // Update existing brand
-        Store.updateBrand(id, { name, letter, isTopFavorite, logo, hidden });
+        Store.updateBrand(id, { name, letter, isTopFavorite: showInTicker, showInTicker, hiddenInTicker, logo, hidden });
         showAdminToast(`Updated brand "${name}"!`);
       } else {
         // Add new brand
-        Store.addBrand({ name, letter, isTopFavorite, logo, hidden });
+        Store.addBrand({ name, letter, isTopFavorite: showInTicker, showInTicker, hiddenInTicker, logo, hidden });
         showAdminToast(`Added new brand "${name}"!`);
       }
 
@@ -4641,8 +4794,8 @@
       if (!brand) return;
 
       const newFav = !brand.isTopFavorite;
-      Store.updateBrand(brandId, { isTopFavorite: newFav });
-      showAdminToast(`${brand.name} is now ${newFav ? 'marked as Top Favorite ⭐' : 'removed from Top Favorites'}`);
+      Store.updateBrand(brandId, { isTopFavorite: newFav, showInTicker: newFav });
+      showAdminToast(`${brand.name} is now ${newFav ? 'added to Ticker ⭐' : 'removed from Ticker'}`);
       renderAdminBrandsManager();
     }
 
@@ -4655,6 +4808,109 @@
       Store.updateBrand(brandId, { hidden: newHidden });
       showAdminToast(`${brand.name} is now ${newHidden ? 'hidden from store 🚫' : 'visible on store 👁️'}`);
       renderAdminBrandsManager();
+    }
+
+    // --- Homepage Brand Ticker Specific Methods ---
+    function handleToggleBrandTickerVisibility(brandId) {
+      const res = Store.toggleBrandTickerVisibility(brandId);
+      if (res) {
+        const isHidden = !!(res.hiddenInTicker || res.hidden);
+        showAdminToast(`${res.name} is now ${isHidden ? 'hidden in homepage ticker 🚫' : 'live in homepage ticker 🟢'}`);
+        renderAdminBrandsManager();
+      }
+    }
+
+    function handleRemoveBrandFromTicker(brandId) {
+      const allBrands = Store.getBrands();
+      const brand = allBrands.find(b => b.id === brandId);
+      const name = brand ? brand.name : 'Brand';
+      Store.removeBrandFromTicker(brandId);
+      showAdminToast(`Removed "${name}" from homepage ticker ❌`);
+      renderAdminBrandsManager();
+    }
+
+    function handleAddBrandToTicker(brandId) {
+      const res = Store.addBrandToTicker(brandId);
+      if (res) {
+        showAdminToast(`Added "${res.name}" to homepage ticker ⭐`);
+        renderAdminBrandsManager();
+      }
+    }
+
+    function handleReorderTickerBrand(brandId, dir) {
+      Store.reorderTickerBrand(brandId, dir);
+      showAdminToast(`Updated ticker order!`);
+      renderAdminBrandsManager();
+    }
+
+    function openAddTickerBrandModal() {
+      const searchInput = document.getElementById('ticker-brand-search-input');
+      if (searchInput) searchInput.value = '';
+      renderTickerBrandPickerList();
+      const modal = document.getElementById('add-ticker-brand-modal');
+      if (modal) modal.classList.add('active');
+    }
+
+    function closeAddTickerBrandModal() {
+      const modal = document.getElementById('add-ticker-brand-modal');
+      if (modal) modal.classList.remove('active');
+    }
+
+    function renderTickerBrandPickerList() {
+      const container = document.getElementById('ticker-brand-picker-list');
+      if (!container) return;
+
+      const allBrands = Store.getBrands();
+      const products = Store.getProducts();
+      const search = (document.getElementById('ticker-brand-search-input')?.value || '').toLowerCase().trim();
+
+      const filtered = allBrands.filter(b => {
+        if (!search) return true;
+        return b.name.toLowerCase().includes(search);
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div style="text-align:center; padding:24px; color:#888; font-size:13px;">
+            No catalog brands match "${search}".
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map(b => {
+        const isInTicker = b.showInTicker === true || (b.showInTicker !== false && (b.isTopFavorite || b.isFavorite));
+        const isHidden = !!(b.hidden || b.hiddenInTicker);
+        let count = 0;
+        products.forEach(p => {
+          if (p.vendor && Store.matchBrandName(p.vendor, b.name)) count++;
+        });
+
+        return `
+          <div style="display:flex; align-items:center; justify-content:space-between; padding:10px 14px; background:#fafafc; border:1px solid #e8e8ed; border-radius:8px;">
+            <div style="display:flex; align-items:center; gap:12px;">
+              <div style="width:48px; height:36px; background:#fff; border:1px solid #ddd; border-radius:4px; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:2px;">
+                ${b.logo ? `<img src="${b.logo}" alt="${b.name}" style="max-width:100%; max-height:100%; object-fit:contain;" onerror="this.style.display='none';" />` : `<span style="font-size:11px; font-weight:800; color:#888;">${b.name.charAt(0)}</span>`}
+              </div>
+              <div>
+                <strong style="font-size:13px; color:#111; display:block;">${b.name}</strong>
+                <span style="font-size:11px; color:#777;">${count} Active Suits ${isInTicker ? (isHidden ? '• <span style="color:#b91c1c;">🚫 In Ticker (Hidden)</span>' : '• <span style="color:#15803d;">🟢 Live in Ticker</span>') : ''}</span>
+              </div>
+            </div>
+            <div>
+              ${isInTicker ? `
+                <button type="button" class="btn-header" onclick="handleRemoveBrandFromTicker('${b.id}'); renderTickerBrandPickerList();" style="font-size:11px; padding:6px 12px; color:#b91c1c; border-color:#fca5a5;">
+                  Remove
+                </button>
+              ` : `
+                <button type="button" class="btn-submit" onclick="handleAddBrandToTicker('${b.id}'); renderTickerBrandPickerList();" style="font-size:11px; padding:6px 12px; background:#15803d;">
+                  + Add to Ticker
+                </button>
+              `}
+            </div>
+          </div>
+        `;
+      }).join('');
     }
 
     function handleResetBrands() {
@@ -4673,20 +4929,34 @@
       setTimeout(() => toast.classList.remove('show'), 3500);
     }
 
-    // Live Server Sync listener: If server settings, catalog, or brands arrive, refresh admin UI
+    // Live Server Sync listener: If server settings, catalog, or brands arrive, refresh admin UI without disturbing active forms
     window.addEventListener('settings:updated', () => {
       if (document.getElementById('admin-app') && document.getElementById('admin-app').style.display !== 'none') {
-        initDashboard();
+        const prodModal = document.getElementById('product-modal');
+        const brandModal = document.getElementById('brand-modal');
+        if ((!prodModal || !prodModal.classList.contains('active')) && (!brandModal || !brandModal.classList.contains('active'))) {
+          initDashboard();
+        }
       }
     });
     window.addEventListener('catalog:updated', () => {
       if (document.getElementById('admin-app') && document.getElementById('admin-app').style.display !== 'none') {
-        initDashboard();
+        const prodModal = document.getElementById('product-modal');
+        const brandModal = document.getElementById('brand-modal');
+        if ((!prodModal || !prodModal.classList.contains('active')) && (!brandModal || !brandModal.classList.contains('active'))) {
+          initDashboard();
+        } else {
+          renderAdminProductsTable();
+        }
       }
     });
     window.addEventListener('brands:updated', () => {
       if (document.getElementById('admin-app') && document.getElementById('admin-app').style.display !== 'none') {
-        initDashboard();
+        const prodModal = document.getElementById('product-modal');
+        const brandModal = document.getElementById('brand-modal');
+        if ((!prodModal || !prodModal.classList.contains('active')) && (!brandModal || !brandModal.classList.contains('active'))) {
+          initDashboard();
+        }
       }
     });
 

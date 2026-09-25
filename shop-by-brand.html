@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -332,36 +332,12 @@
         }
       }
 
-      const normalizeBrandStr = (str) => {
-        if (!str) return '';
-        return str.toLowerCase().replace(/[^a-z0-9]/g, '');
-      };
-
       const matchBrandName = (vendor, target) => {
         if (!vendor || !target) return false;
-        const v = normalizeBrandStr(vendor);
-        const t = normalizeBrandStr(target);
-        if (v === t) return true;
-
-        if ((v.includes('alkaram') || v.includes('alkaramstudio')) && (t.includes('alkaram') || t.includes('alkaramstudio'))) return true;
-        if ((v.includes('nishat') || v.includes('nishatlinen')) && (t.includes('nishat') || t.includes('nishatlinen'))) return true;
-        if ((v.includes('gulahmed') || v.includes('ideas')) && (t.includes('gulahmed') || t.includes('ideas'))) return true;
-        if ((v === 'j' || v.includes('junaidjamshed')) && (t === 'j' || t.includes('junaidjamshed'))) return true;
-        if (v.includes('ethnic') && t.includes('ethnic')) return true;
-        if (v.includes('mariab') && t.includes('mariab')) return true;
-        if (v.includes('binsaeed') && t.includes('binsaeed')) return true;
-        if (v.includes('asimjofa') && t.includes('asimjofa')) return true;
-        if (v.includes('baroque') && t.includes('baroque')) return true;
-        if (v.includes('sapphire') && t.includes('sapphire')) return true;
-        if (v.includes('kayseria') && t.includes('kayseria')) return true;
-        if (v.includes('aghanoor') && t.includes('aghanoor')) return true;
-        if (v.includes('bonanza') && t.includes('bonanza')) return true;
-        if (v.includes('limelight') && t.includes('limelight')) return true;
-        if (v.includes('khaadi') && t.includes('khaadi')) return true;
-        if (v.includes('bareeze') && t.includes('bareeze')) return true;
-        if (v.includes('beechtree') && t.includes('beechtree')) return true;
-
-        return v.includes(t) || t.includes(v);
+        if (window.Store && typeof window.Store.matchBrandName === 'function') {
+          return window.Store.matchBrandName(vendor, target);
+        }
+        return vendor.toLowerCase().trim() === target.toLowerCase().trim();
       };
 
       // Group active brands dynamically by letter
